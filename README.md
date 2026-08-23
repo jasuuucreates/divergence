@@ -109,11 +109,17 @@ public: the vendor's docs, and the fact that money is integer paise.
 
 ```bash
 cd rig && ./setup.sh              # WordPress + WooCommerce + the unmodified plugin, one command
-python harness/check.py           # contract verdict, ~85s, exit 1 on RED
+cd rig && ./setup-edd.sh          # adds the second target (razorpay-edd) to the same rig
+
+python harness/matrix.py          # BOTH targets, one property, one command  <- start here
+python harness/check.py           # all five properties against WooCommerce, ~85s, exit 1 on RED
 python harness/causality.py       # patch the blamed line, watch the verdict flip, then restore
 python harness/search.py          # enumerate delivery schedules, report divergence
 python harness/corpus.py          # the mutation corpus and its confusion matrix
 ```
+
+`matrix.py` is the shortest path to the point of this project: the same property, the same underpaid
+delivery, RED for one of Razorpay's plugins and GREEN for the other.
 
 Every number in this repository comes from a transcript in [`evidence/`](evidence/), and every
 transcript names the command that produced it. The plugins under test are cloned at pinned refs and

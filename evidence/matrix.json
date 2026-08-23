@@ -1,0 +1,20 @@
+[
+  {
+    "target": "woocommerce",
+    "repo": "razorpay/razorpay-woocommerce",
+    "ref": "v4.8.7",
+    "amount_check": null,
+    "predicted": "RED",
+    "observed": "RED",
+    "match": true
+  },
+  {
+    "target": "edd",
+    "repo": "razorpay/razorpay-edd",
+    "ref": "master",
+    "amount_check": "includes/razorpay-webhook.php:130",
+    "predicted": "GREEN",
+    "observed": "GREEN",
+    "match": true
+  }
+]
