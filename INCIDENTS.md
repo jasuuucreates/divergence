@@ -11,6 +11,44 @@ Entries are newest first.
 
 ---
 
+## 2026-08-23 — The stub was the only component with no test, and it was wrong
+
+**Symptom.** `harness/stubcheck.py`, written specifically to test the thing that had never been
+tested, found four fields — `contact`, `description`, `email`, `method` — that are in Razorpay's
+documented Payments Entity, are read by the integrations under test, and were **not** being returned
+by our stub.
+
+**Cause.** The stub returned the ten fields we happened to need when we wrote it. Every behavioural
+verdict in this project is mediated by that stub, and `LIMITATIONS.md` had always said "the stub is
+not Razorpay" — but a disclaimer is not a measurement, and nothing was checking it.
+
+**Fix.** The stub now returns every documented field the integrations read, and `stubcheck.py` runs
+as part of the suite. It sorts differences into three buckets and only one of them can invalidate a
+verdict: documented **and** read **and** missing.
+
+**Did it change anything?** No. The full suite was re-run after the fix and every verdict is
+identical — P1 RED, P2 GREEN, P4 RED, P5 RED, and the two-target matrix still RED/GREEN. That is now
+a measured statement rather than a hope, which is the only reason it is worth writing down.
+
+---
+
+## 2026-08-23 — The same setup error killed five runs before it explained itself
+
+**Symptom.** `KeyError: 'ORDER_ID'` from `rig.new_order()`, five separate times.
+
+**Cause.** Only one gateway plugin can be active at a time, so any EDD run leaves WooCommerce
+switched off. `new_order.php` needs `wc_create_order()`, so it produced nothing, and the harness died
+on a dictionary lookup that reads like a harness bug rather than the setup problem it is.
+
+**Fix.** `new_order()` now reports the cause: which plugins are active, why that is wrong, and the
+command that fixes it. `coverage.py` activates its target explicitly and verifies the switch, as
+`matrix.py` and `corpus.py` already did.
+
+**Why it mattered.** Not because the failure was dangerous — it was loud. Because five occurrences of
+one confusing error is a signal that the error message, not the operator, is the defect.
+
+---
+
 ## 2026-08-23 — The harness reported GREEN when it had measured nothing
 
 **Symptom.** `harness/check.py` decided P1 with:
