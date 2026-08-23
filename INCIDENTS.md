@@ -11,6 +11,75 @@ Entries are newest first.
 
 ---
 
+## 2026-08-23 — The harness reported GREEN when it had measured nothing
+
+**Symptom.** `harness/check.py` decided P1 with:
+
+```python
+states = {t["terminal"]["order_status"] for t in trials}
+verdict = "GREEN" if len(states) == 1 else "RED"
+```
+
+**Cause.** If every trial returns `order_status = None` — a dead rig, an order that was never
+created, a SQL call that returned nothing — that set has size one, and the property reports **GREEN**.
+The harness announces the integration conforms on the basis of having observed nothing. P2 and P5 had
+the same shape: two all-`None` states compare equal, and `None` is not in the set of paid statuses.
+
+**Fix.** `harness/measured.py` guards every property, and `UNMEASURED` now outranks every other
+verdict in the summary — a run that could not observe the integration has neither cleared it nor
+condemned it. Two seed-spec tests enforce both halves.
+
+**Why it mattered.** This is the *fourth* appearance of one shape in this project: absence of evidence
+scored as evidence of absence. The false-negative CONVERGENT run, the corpus rows that measured
+nothing, the vacuity checker that passed vacuously, and now this. It is no longer treated as a
+recurring mistake to be careful about; it is a shared, tested guard.
+
+---
+
+## 2026-08-23 — A property that could not fail was being reported as a pass
+
+**Symptom.** `harness/vacuity.py` ran the full suite against several deliberately altered
+integrations and found P2 returned GREEN on every one.
+
+**Cause.** P2 compared only `order_status`. That status is identical whether an order was refunded
+once or twice, so the property was blind to double-refunding **by construction**. We had been
+publishing "P2 GREEN" as though it were evidence of idempotence; it was evidence of nothing, because
+we had never shown the check *could* fail.
+
+**Fix.** The observable was widened — `rig.terminal_state()` now also reports `refund_count` and
+`refunded_total` — and P2 redelivers the *last* event rather than the first. A variant was then built
+specifically to break idempotence (`p2-nonidempotent-refund`), and P2 goes RED on it. P2 is now
+falsifiable, so its GREEN on the real plugin means something.
+
+**Something learned on the way.** The plugin *is* idempotent on refunds, but not because it checks:
+its "already refunded" branch logs and falls through **without returning**. What actually prevents a
+second refund is WooCommerce refusing to over-refund the order. The idempotence is inherited from the
+host, not implemented by the integration.
+
+**Also:** P3 remains permanently vacuous, and correctly so. It is structural and can only ever return
+YELLOW, so the gate rejects it as an advisory rather than letting it inflate the property count.
+
+---
+
+## 2026-08-23 — Two of our own citations were reconstructed, not quoted
+
+**Symptom.** `harness/gate.py`'s G1 check — the quoted sentence must appear byte-for-byte in the
+fetched documentation corpus — rejected two of our own five properties.
+
+**Cause.** Both sentences *are* in the corpus, but our recorded quotes were assembled rather than
+quoted. P3 concatenated three numbered list items into one "sentence"; P5 prepended a table cell
+(`amount : integer`) and included a `₹295` that Razorpay's own markdown export strips.
+
+**Fix.** In this order: the citations were corrected to single contiguous sentences that exist
+verbatim, **and then** `normalise()` was taught to ignore ordered-list markers, which are document
+structure rather than prose. Loosening the check alone would have been the wrong half of the repair.
+
+**Why it mattered.** This is a milder version of the fabricated-citation incident below — nothing was
+invented, but nothing was verbatim either. The difference between the two is smaller than it feels,
+and only an automated check catches it reliably.
+
+---
+
 ## 2026-08-23 — The corpus measured nothing for two of its eight rows
 
 **Symptom.** The first mutation-corpus run returned `UNKNOWN` for both `razorpay-woocommerce` rows,
