@@ -27,6 +27,7 @@ import time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import contract  # noqa: E402
 import rig       # noqa: E402
+import measured  # noqa: E402
 import runlock   # noqa: E402
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -49,6 +50,9 @@ def check_order_independence(events, dry=False):
         t = rig.trial(list(p))
         trials.append(t)
         print("    %-46s -> %s" % (" then ".join(p), t["terminal"]["order_status"]))
+    # A verdict requires evidence. Without this, all-None terminal states collapse to a set of
+    # size one and this line returns GREEN having measured nothing. See harness/measured.py.
+    measured.require(trials, "order_status")
     states = {t["terminal"]["order_status"] for t in trials}
     verdict = "GREEN" if len(states) == 1 else "RED"
     out = {"property": contract.ORDER_INDEPENDENCE.key, "verdict": verdict,
@@ -72,6 +76,7 @@ def check_duplicate_tolerance(events, dry=False):
                 "baseline": base, "with_duplicate": dup}
     a = rig.trial(base)
     b = rig.trial(dup)
+    measured.require([a, b], "order_status")
 
     # Compare the FULL merchant-visible state, not just the order status. Status is identical
     # whether an order was refunded once or twice, so a status-only comparison is blind to
@@ -105,6 +110,7 @@ def check_no_silent_loss(events, dry=False):
         return {"property": contract.NO_SILENT_LOSS.key, "verdict": "DRY", "sequence": list(events),
                 "note": "runs with fault injection: upstream payment fetch returns 500"}
     t = rig.trial(list(events), fault=True)
+    measured.require([t], "queue_cron_status")
     accepted = [d["event"] for d in t["deliveries"] if str(d["http"]).startswith("2")]
     stored = t["terminal"]["stored_events"] or []
     # An event is "accounted for" if it is durably recorded, or if it visibly moved the order.
@@ -137,6 +143,7 @@ def check_amount_integrity(events, dry=False):
         return {"property": contract.AMOUNT_INTEGRITY.key, "verdict": "DRY",
                 "note": "delivers an authorized payment for 100 paise against the order total"}
     t = rig.trial(["payment.authorized"], underpay=True)
+    measured.require([t], "order_status")
     st = t["terminal"]["order_status"]
     paid = st in ("wc-processing", "wc-completed")
     print("    order total vs amount paid mismatched -> terminal=%s" % st)
@@ -195,7 +202,11 @@ def main():
                      ("P5 amount integrity", check_amount_integrity)):
         print("  %s" % name)
         t0 = time.time()
-        r = fn(a.events, dry=a.dry_run)
+        try:
+            r = fn(a.events, dry=a.dry_run)
+        except measured.NotMeasured as e:
+            r = {"property": name, "verdict": "UNMEASURED", "why": str(e)}
+            print("    !! %s" % str(e).splitlines()[0])
         r["seconds"] = round(time.time() - t0, 1)
         results.append(r)
         print("    -> %s  (%ss)\n" % (r["verdict"], r["seconds"]))
@@ -207,7 +218,13 @@ def main():
                             "not that the integration is non-idempotent. P2 decides idempotence."})
 
     reds = [r for r in results if r["verdict"] == "RED"]
-    overall = "RED" if reds else ("YELLOW" if any(r["verdict"] == "YELLOW" for r in results) else "GREEN")
+    unmeasured = [r for r in results if r["verdict"] == "UNMEASURED"]
+    # UNMEASURED outranks everything. A run that could not observe the integration has not
+    # cleared it and has not condemned it, and must not be summarised as either.
+    if unmeasured:
+        overall = "UNMEASURED"
+    else:
+        overall = "RED" if reds else ("YELLOW" if any(r["verdict"] == "YELLOW" for r in results) else "GREEN")
 
     print("=" * 96)
     print("OVERALL: %s   (strict worst-case aggregation -- one RED makes the run RED)" % overall)

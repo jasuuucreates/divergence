@@ -107,6 +107,40 @@ def test_targets_disagree_on_the_payload_path():
     assert edd[1] == "order" and edd[-1] == "edd_order_id"
 
 
+# --- CONVENTION 4: a verdict is never returned without evidence -------------------------------
+
+def test_a_verdict_requires_evidence():
+    """The harness must refuse to decide when it observed nothing.
+
+    This exists because check.py once computed `GREEN if len(states) == 1` over a set of terminal
+    states that were all None -- a dead rig produced a set of size one, and the property announced
+    that the integration conformed. Absence of evidence was being scored as evidence of absence.
+    """
+    import measured
+    dead = [{"order": 1, "terminal": {"order_status": None}},
+            {"order": 2, "terminal": {"order_status": None}}]
+    try:
+        measured.require(dead, "order_status")
+        raise AssertionError("a dead rig was accepted as evidence")
+    except measured.NotMeasured:
+        pass
+    assert measured.require([{"order": 1, "terminal": {"order_status": "wc-processing"}}],
+                            "order_status")
+
+
+def test_unmeasured_is_not_green():
+    """UNMEASURED must outrank every other verdict in the summary.
+
+    A run that could not observe the integration has neither cleared it nor condemned it, and must
+    not be summarised as either."""
+    import io as _io, os as _os, re as _re
+    src = _io.open(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)),
+                                 "..", "harness", "check.py"), encoding="utf-8").read()
+    assert 'overall = "UNMEASURED"' in src, "check.py does not surface UNMEASURED as an overall verdict"
+    # and it must be decided BEFORE the GREEN branch
+    assert src.index('overall = "UNMEASURED"') < src.index('else "GREEN")'),         "UNMEASURED must be decided before GREEN"
+
+
 if __name__ == "__main__":
     failures = 0
     for name, fn in sorted(globals().items()):

@@ -62,8 +62,23 @@ Eight mutants, applied to both plugins in both directions, each a single reversi
 file's sha256 recorded before and after:
 
 ```
-TP 5   FN 0   TN 3   FP 0        recall 1.00    precision 1.00    (n=8)
+TP 5   FN 0   TN 3   FP 0        recall 1.00    precision 1.00    (n=8, P5 only)
 ```
+
+**Read the scope before the number.** Every one of those eight mutants targets **P5** alone, so this
+measures detection of *that* defect class — not of the harness as a whole. Presenting it as a harness
+figure would be an overstatement, and it was presented that way in an earlier draft.
+
+Whether the *other* properties can fail at all is a separate question, answered separately by
+`harness/vacuity.py`:
+
+| property | verdicts ever observed | |
+|---|---|---|
+| P1 order independence | GREEN, RED | falsifiable |
+| P2 duplicate tolerance | GREEN, RED | falsifiable |
+| P4 no silent loss | RED | falsifiable |
+| P5 amount integrity | RED | falsifiable |
+| P3 event-id dedup | YELLOW only | **cannot fail — advisory, not a property** |
 
 What makes the composition meaningful:
 
