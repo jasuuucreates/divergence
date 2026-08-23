@@ -1,0 +1,11 @@
+# LF everywhere. These files are mounted into Linux containers; a shell script with CRLF
+# endings fails there with "bad interpreter: /usr/bin/env\r: no such file or directory",
+# which is one of the least informative error messages in computing.
+* text=auto eol=lf
+*.sh    text eol=lf
+*.py    text eol=lf
+*.php   text eol=lf
+*.yml   text eol=lf
+*.json  text eol=lf
+*.md    text eol=lf
+*.png   binary
