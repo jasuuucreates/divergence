@@ -1,0 +1,126 @@
+# Conformance CI.
+#
+# The point of this workflow is to be the ZERO-INSTALL evidence path: a reviewer who will not install
+# Docker, WSL and a WordPress stack can click one green run and see the whole thing reproduce on a
+# machine neither of us controls.
+#
+# NOTE THE INVERTED ASSERTION. `harness/check.py` exits 1 when it finds a conformance failure, and on
+# the pinned plugin version it is EXPECTED to find several. So this job does not assert "the harness
+# succeeded" -- it asserts "the harness reached exactly the verdicts we published".
+#
+# That means this workflow goes red in two situations, and they mean opposite things:
+#   * the harness regressed             -> our bug
+#   * the plugin under test was fixed   -> their fix, our README is now stale
+# Both need a human. Neither should be silently swallowed, so the failure message says which.
+
+name: conformance
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  seed-spec:
+    # Pure logic, no containers. Runs in seconds and catches the class of mistake that has actually
+    # bitten this project: a property without a real citation, an unregistered expectation, two
+    # targets accidentally sharing a payload path.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Seed spec
+        run: python tests/seed_spec.py
+
+      - name: Contract prints its own citations
+        run: python harness/contract.py
+
+  conformance:
+    # The real thing: stand up the rig, drive the unmodified plugin, assert the published verdicts.
+    runs-on: ubuntu-latest
+    needs: seed-spec
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Show the toolchain we are pinning against
+        run: |
+          docker --version
+          docker compose version
+
+      - name: Stand up the rig
+        working-directory: rig
+        run: |
+          cp .env.example .env
+          chmod +x *.sh
+          ./setup.sh
+
+      - name: Record provenance
+        # Every published number must be traceable to the exact bytes that produced it.
+        run: |
+          {
+            echo "## Provenance"
+            echo "run: ${{ github.run_id }}  commit: ${{ github.sha }}"
+            echo ""
+            echo "### plugin under test"
+            git -C rig/plugin/razorpay-woocommerce log -1 --format='%H %d %ci' || true
+            echo ""
+            echo "### image digests"
+            docker images --digests --format '{{.Repository}}:{{.Tag}} {{.Digest}}' | grep -E 'wordpress|mariadb' || true
+          } | tee evidence/provenance.txt
+
+      - name: "Conformance run (expected verdict: RED)"
+        id: check
+        run: |
+          set +e
+          python -u harness/check.py | tee /tmp/check.log
+          echo "exit=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Assert the published verdicts still reproduce
+        run: |
+          fail=0
+          expect() {
+            if grep -qE "^  $1 +$2$" /tmp/check.log; then
+              echo "  ok       $1 = $2"
+            else
+              echo "  MISMATCH $1 expected $2 -- got: $(grep -E "^  $1" /tmp/check.log || echo '<absent>')"
+              fail=1
+            fi
+          }
+          expect P1-ORDER-INDEPENDENCE  RED
+          expect P2-DUPLICATE-TOLERANCE GREEN
+          expect P4-NO-SILENT-LOSS      RED
+          expect P5-AMOUNT-INTEGRITY    RED
+          expect P3-EVENT-ID-DEDUP      YELLOW
+          if [ "$fail" = "1" ]; then
+            echo ""
+            echo "The verdicts changed. Two very different causes:"
+            echo "  (a) this harness regressed          -> our bug, fix the harness"
+            echo "  (b) razorpay-woocommerce was fixed  -> their fix; update README and LIMITATIONS,"
+            echo "      and say so plainly rather than quietly re-pinning to an older tag."
+            exit 1
+          fi
+
+      - name: Mutation corpus (detection must still track the defect)
+        run: |
+          set +e
+          python -u harness/corpus.py | tee /tmp/corpus.log
+          set -e
+          grep -q "false positives 0" /tmp/corpus.log || { echo "corpus reported a false positive"; exit 1; }
+          grep -q "false negatives 0" /tmp/corpus.log || { echo "corpus reported a false negative"; exit 1; }
+
+      - name: Upload transcripts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: transcripts
+          path: |
+            /tmp/check.log
+            /tmp/corpus.log
+            evidence/provenance.txt
+            rig/out/*.json
