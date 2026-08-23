@@ -1,0 +1,8 @@
+---
+title: Update Customer Identifier
+description: Learn how to update a Customer Identifier and add a receiver type using Razorpay Smart Collect API.
+---
+
+# Update Customer Identifier
+
+

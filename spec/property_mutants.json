@@ -1,0 +1,23 @@
+{
+  "baseline": {
+    "P1-ORDER-INDEPENDENCE": "RED",
+    "P2-DUPLICATE-TOLERANCE": "GREEN",
+    "P4-NO-SILENT-LOSS": "RED",
+    "P5-AMOUNT-INTEGRITY": "RED",
+    "P3-EVENT-ID-DEDUP": "YELLOW"
+  },
+  "p1-repaired": {
+    "P1-ORDER-INDEPENDENCE": "GREEN",
+    "P2-DUPLICATE-TOLERANCE": "GREEN",
+    "P4-NO-SILENT-LOSS": "RED",
+    "P5-AMOUNT-INTEGRITY": "RED",
+    "P3-EVENT-ID-DEDUP": "YELLOW"
+  },
+  "p2-nonidempotent-refund": {
+    "P1-ORDER-INDEPENDENCE": "GREEN",
+    "P2-DUPLICATE-TOLERANCE": "RED",
+    "P4-NO-SILENT-LOSS": "RED",
+    "P5-AMOUNT-INTEGRITY": "RED",
+    "P3-EVENT-ID-DEDUP": "YELLOW"
+  }
+}

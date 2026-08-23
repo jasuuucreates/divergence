@@ -66,20 +66,31 @@ def check_order_independence(events, dry=False):
 def check_duplicate_tolerance(events, dry=False):
     """P2. Redelivering an event must not change the terminal state."""
     base = list(events)
-    dup = list(events) + [events[0]]
+    dup = list(events) + [events[-1]]   # redeliver the LAST event, not the first
     if dry:
         return {"property": contract.DUPLICATE_TOLERANCE.key, "verdict": "DRY",
                 "baseline": base, "with_duplicate": dup}
     a = rig.trial(base)
-    print("    %-46s -> %s" % ("baseline: " + " then ".join(base), a["terminal"]["order_status"]))
     b = rig.trial(dup)
-    print("    %-46s -> %s" % ("redelivered: " + " then ".join(dup), b["terminal"]["order_status"]))
-    same = a["terminal"]["order_status"] == b["terminal"]["order_status"]
+
+    # Compare the FULL merchant-visible state, not just the order status. Status is identical
+    # whether an order was refunded once or twice, so a status-only comparison is blind to
+    # double-refunding by construction -- which is exactly why this property was vacuous until
+    # harness/vacuity.py caught it. See rig.terminal_state().
+    def visible(t):
+        return {k: t["terminal"].get(k) for k in ("order_status", "refund_count", "refunded_total")}
+
+    va, vb = visible(a), visible(b)
+    print("    %-30s -> %s" % ("baseline", va))
+    print("    %-30s -> %s" % ("redelivered", vb))
+    same = va == vb
+    if not same:
+        differing = [k for k in va if va[k] != vb[k]]
+        print("    !! redelivery changed: %s" % ", ".join(differing))
     return {"property": contract.DUPLICATE_TOLERANCE.key,
             "verdict": "GREEN" if same else "RED",
             "baseline": a, "with_duplicate": b,
-            "witness": None if same else {"baseline_state": a["terminal"]["order_status"],
-                                          "duplicate_state": b["terminal"]["order_status"]}}
+            "witness": None if same else {"baseline": va, "with_duplicate": vb}}
 
 
 def check_no_silent_loss(events, dry=False):

@@ -106,8 +106,21 @@ def drain(wc_order):
 
 
 def terminal_state(wc_order):
-    """The merchant-visible outcome. This is what a shop owner would actually see."""
+    """The merchant-visible outcome. This is what a shop owner would actually see.
+
+    refund_count and refunded_total were added after the vacuity check showed P2 could not fail:
+    order STATUS is the same whether an order was refunded once or twice, so a duplicate-tolerance
+    property that only observes status is blind to double-refunding by construction. The property
+    was not wrong; its observable was too coarse. WooCommerce stores each refund as its own
+    shop_order_refund post whose parent is the order.
+    """
     status = sql("SELECT post_status FROM wp_posts WHERE ID=%d;" % wc_order)
+    refunds = sql("SELECT COUNT(*) FROM wp_posts WHERE post_parent=%d "
+                  "AND post_type='shop_order_refund';" % wc_order)
+    refunded = sql("SELECT COALESCE(SUM(CAST(meta_value AS DECIMAL(12,2))),0) FROM wp_postmeta m "
+                   "JOIN wp_posts p ON p.ID=m.post_id "
+                   "WHERE p.post_parent=%d AND p.post_type='shop_order_refund' "
+                   "AND m.meta_key='_refund_amount';" % wc_order)
     queue = sql("SELECT rzp_update_order_cron_status FROM wp_rzp_webhook_requests "
                 "WHERE order_id=%d;" % wc_order)
     stored = sql("SELECT rzp_webhook_data FROM wp_rzp_webhook_requests WHERE order_id=%d;" % wc_order)
@@ -117,7 +130,9 @@ def terminal_state(wc_order):
         events = None
     return {"order_status": status or None,
             "queue_cron_status": queue or None,
-            "stored_events": events}
+            "stored_events": events,
+            "refund_count": int(refunds) if refunds.isdigit() else None,
+            "refunded_total": refunded or None}
 
 
 def trial(sequence, drain_after_each=True, fault=False, underpay=False):

@@ -70,10 +70,12 @@ DUPLICATE_TOLERANCE = Property(
 EVENT_ID_DEDUP = Property(
     key="P3-EVENT-ID-DEDUP",
     title="The integration uses x-razorpay-event-id to identify duplicate deliveries",
+    # Shortened 2026-08-23: the previous version concatenated three numbered list items into one
+    # "quotation". Nothing was invented, but it was reconstructed rather than quoted, and
+    # harness/gate.py's G1 check correctly refused it. Now a single contiguous sentence.
     doc_quote=(
-        "You can identify the duplicate webhooks using the x-razorpay-event-id header. The value for "
-        "this header is unique per event. Check the value of x-razorpay-event-id in the webhook "
-        "request header. Verify if an event with the same header is processed at your end."
+        "You can identify the duplicate webhooks using the x-razorpay-event-id header. "
+        "The value for this header is unique per event."
     ),
     doc_url=DOCS_URL,
     rationale=(
@@ -89,16 +91,22 @@ EVENT_ID_DEDUP = Property(
 NO_SILENT_LOSS = Property(
     key="P4-NO-SILENT-LOSS",
     title="An accepted event must either change the state or be explicitly recorded as ignored",
+    # UPGRADED 2026-08-23 by harness/specmine.py. The original citation here was the at-least-once
+    # sentence, and the "2xx means you took responsibility" step was OUR INFERENCE. Mining the
+    # documentation corpus turned up Razorpay stating both halves outright, so the property no longer
+    # rests on an inference at all. Both sentences verified byte-for-byte in spec/corpus/.
     doc_quote=(
-        "There could be scenarios where your endpoint might receive the same webhook event multiple "
-        "times. This is an expected behaviour based on the webhook design."
+        "Please make sure the API responds with 2xx when you successfully consume the event at your "
+        "end. ... In this approach, if we do not receive a successful response from your server, we "
+        "resend the webhook."
     ),
-    doc_url=DOCS_URL,
+    doc_url="https://razorpay.com/docs/build/llm-docs/webhooks/best-practices.md",
     rationale=(
-        "Corollary of at-least-once delivery plus HTTP semantics: an endpoint that returns 2xx has "
-        "told the sender 'I have taken responsibility for this event'. If the event then neither "
-        "changes the state nor appears in any durable record, the integration has silently accepted "
-        "and dropped a money event, and Razorpay will never retry it because it was acknowledged. "
+        "Razorpay define 2xx as meaning the event was SUCCESSFULLY CONSUMED, and state that they "
+        "resend only when they do not get a successful response. Those two sentences together make "
+        "this a direct contract obligation rather than a corollary: an endpoint that answers 2xx and "
+        "then neither changes state nor durably records the event has told the sender the money "
+        "event was consumed, and has thereby guaranteed it will never be resent. "
         "This is the property that catches 'marked processed, did nothing'."
     ),
     verdict_kind="behavioural",
@@ -112,10 +120,10 @@ AMOUNT_INTEGRITY = Property(
     # invariant itself comes from Razorpay's own code, which implements it twice (see rationale).
     # An earlier draft of this file paraphrased a quote here. That is the exact fabrication pattern
     # this project criticises elsewhere, so it was replaced with a fetched sentence.
-    doc_quote=(
-        "amount : integer The amount for which the order was created, in currency subunits. "
-        "For example, for an amount of ₹295, enter 29500."
-    ),
+    # Shortened 2026-08-23 for the same reason: the previous version prepended a table cell
+    # ("amount : integer") and included a currency symbol that Razorpay's own markdown export
+    # strips, so it did not exist verbatim anywhere. G1 refused it. This sentence does exist.
+    doc_quote="The amount for which the order was created, in currency subunits.",
     doc_url="https://razorpay.com/docs/build/llm-docs/api/orders/create.md",
     rationale=(
         "This property is not our invention -- it is the vendor's own, and they evidence it twice in "

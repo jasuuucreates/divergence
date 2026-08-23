@@ -25,8 +25,24 @@ class RigBusy(RuntimeError):
     pass
 
 
+PASS = "DIVERGENCE_RIG_LOCK_OWNER"
+
+
 @contextlib.contextmanager
 def exclusive(who, stale_after=3600):
+    """Hold the rig exclusively.
+
+    A process spawned BY a lock holder inherits the right to use the rig: harness/vacuity.py holds
+    the lock and then runs check.py as a subprocess, and without this the child refuses to start,
+    exits in zero seconds, and the parent silently measures nothing. That is not hypothetical --
+    it happened, and the parent then reported success from an empty result set (INCIDENTS.md).
+    The marker is passed down the process tree, so it only relaxes for genuine descendants.
+    """
+    if os.getenv(PASS):
+        yield                               # a descendant of the holder; the holder owns the rig
+        return
+    os.putenv(PASS, who)
+    os.environ[PASS] = who
     path = os.path.abspath(LOCK)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     if os.path.exists(path):
@@ -44,6 +60,8 @@ def exclusive(who, stale_after=3600):
     try:
         yield
     finally:
+        os.environ.pop(PASS, None)
+        os.unsetenv(PASS)
         try:
             os.remove(path)
         except OSError:

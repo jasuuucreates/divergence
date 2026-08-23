@@ -1,0 +1,2741 @@
+{
+  "stats": {
+    "sentences": 11282,
+    "normative": 853,
+    "ui": 77,
+    "dupe": 241,
+    "short": 80
+  },
+  "candidates": [
+    {
+      "sentence": "If a customer's payment fails and they try again, you must create a new Order on your server and pass the new to Checkout.",
+      "file": "api_orders_create.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/api/orders/create.md",
+      "sha256": "09e8705f6907c1ce2cf5499a13412af8575b1bdceb29f37c2ec4e3c4b665c1c2"
+    },
+    {
+      "sentence": "For example, if you want to charge a customer 99.991 KD for a transaction, you should pass the value for the amount parameter as and not .",
+      "file": "api_orders_entity.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/api/orders/entity.md",
+      "sha256": "206499fa22f01397944e69cfeb33ae2664498fe6298efb5e0f924a385685a5fa"
+    },
+    {
+      "sentence": "* solution: The API keys must be active and entered correctly with no whitespace before or after.",
+      "file": "api_orders_fetch_all_expanded_card_payments.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/api/orders/fetch-all-expanded-card-payments.md",
+      "sha256": "c8f1e2d60dcd30621f51f1b5bf22d25fe6dd60525dc1e3cccc0c1101a8c130f8"
+    },
+    {
+      "sentence": "Along with the existing Orders parameters, you must use the array to pass additional, domain-specific product information such as type, price, and so on.",
+      "file": "api_orders_products.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/api/orders/products.md",
+      "sha256": "f79dc2163ca84e463e8b408714f47ab2a0c893ebb382d80ef3ecc9a290d46d37"
+    },
+    {
+      "sentence": "- Always include mandatory parameters as required by the receiving entity.",
+      "file": "api_orders_products.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/api/orders/products.md",
+      "sha256": "f79dc2163ca84e463e8b408714f47ab2a0c893ebb382d80ef3ecc9a290d46d37"
+    },
+    {
+      "sentence": "Sum of the individual cart amount must be equal to total order amount.",
+      "file": "api_orders_products.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/api/orders/products.md",
+      "sha256": "f79dc2163ca84e463e8b408714f47ab2a0c893ebb382d80ef3ecc9a290d46d37"
+    },
+    {
+      "sentence": "Must be in the smallest unit of the currency.",
+      "file": "api_orders_products_create_pl_with_details.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/api/orders/products/create-pl-with-details.md",
+      "sha256": "6b26012053bbf5ee3341b9760a9e0d71500ebd18cc7af9ddd54ea5ce12748fba"
+    },
+    {
+      "sentence": "For example, if you want to receive a payment of , you must enter the value .",
+      "file": "api_orders_products_create_pl_with_details.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/api/orders/products/create-pl-with-details.md",
+      "sha256": "6b26012053bbf5ee3341b9760a9e0d71500ebd18cc7af9ddd54ea5ce12748fba"
+    },
+    {
+      "sentence": "- (default): Customer cannot make partial payments.",
+      "file": "api_orders_products_create_pl_with_details.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/api/orders/products/create-pl-with-details.md",
+      "sha256": "6b26012053bbf5ee3341b9760a9e0d71500ebd18cc7af9ddd54ea5ce12748fba"
+    },
+    {
+      "sentence": "_conditionally mandatory_ : Minimum amount, in currency subunits, that must be paid by the customer as the first partial payment.",
+      "file": "api_orders_products_create_pl_with_details.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/api/orders/products/create-pl-with-details.md",
+      "sha256": "6b26012053bbf5ee3341b9760a9e0d71500ebd18cc7af9ddd54ea5ce12748fba"
+    },
+    {
+      "sentence": "_mandatory_ : Indicates the details related to how the payment should be processed.",
+      "file": "api_orders_products_create_pl_with_details.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/api/orders/products/create-pl-with-details.md",
+      "sha256": "6b26012053bbf5ee3341b9760a9e0d71500ebd18cc7af9ddd54ea5ce12748fba"
+    },
+    {
+      "sentence": "Please note that the expire by date cannot exceed more than six months from the date of creation.",
+      "file": "api_orders_products_create_pl_with_details.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/api/orders/products/create-pl-with-details.md",
+      "sha256": "6b26012053bbf5ee3341b9760a9e0d71500ebd18cc7af9ddd54ea5ce12748fba"
+    },
+    {
+      "sentence": ": Minimum amount that must be paid by the customer as the first partial payment.",
+      "file": "api_orders_products_create_pl_with_details.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/api/orders/products/create-pl-with-details.md",
+      "sha256": "6b26012053bbf5ee3341b9760a9e0d71500ebd18cc7af9ddd54ea5ce12748fba"
+    },
+    {
+      "sentence": "Must be a unique number for each Payment Link.",
+      "file": "api_orders_products_create_pl_with_details.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/api/orders/products/create-pl-with-details.md",
+      "sha256": "6b26012053bbf5ee3341b9760a9e0d71500ebd18cc7af9ddd54ea5ce12748fba"
+    },
+    {
+      "sentence": "The order id secures the payment request and one cannot tamper with the order amount.",
+      "file": "payments_orders.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/orders.md",
+      "sha256": "c1027c29fff8e703a9166dcee450c5df54b0b1665180b930eddd2d686998ce9f"
+    },
+    {
+      "sentence": "- Razorpay's pay in native currency feature will ensure that your customer is shown the right currency.",
+      "file": "payments_payment_methods_alipay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/alipay.md",
+      "sha256": "cceca356a3e8cd0603c9113274b50ad51b74aee05942981e355374947356b8fa"
+    },
+    {
+      "sentence": "Please contact our Support team if you cannot find your Apple Pay showing domain here.",
+      "file": "payments_payment_methods_apple_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay.md",
+      "sha256": "2e0e76bc21473fbb0ed34fb445e4ed748b30e1d746f3380e9c679f8bfdc006f7"
+    },
+    {
+      "sentence": "Please do not activate Apple Pay if you have both these kinds of checkouts unless you have hosted the file at the exact path.",
+      "file": "payments_payment_methods_apple_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay.md",
+      "sha256": "2e0e76bc21473fbb0ed34fb445e4ed748b30e1d746f3380e9c679f8bfdc006f7"
+    },
+    {
+      "sentence": "- Upload the file to this exact path on your website: - For example, if your domain is , the file must be accessible at: 3.",
+      "file": "payments_payment_methods_apple_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay.md",
+      "sha256": "2e0e76bc21473fbb0ed34fb445e4ed748b30e1d746f3380e9c679f8bfdc006f7"
+    },
+    {
+      "sentence": "When setting up Apple Pay domain verification, follow these requirements: File Path and Response - The verification file must be accessible at the exact path, .",
+      "file": "payments_payment_methods_apple_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay.md",
+      "sha256": "2e0e76bc21473fbb0ed34fb445e4ed748b30e1d746f3380e9c679f8bfdc006f7"
+    },
+    {
+      "sentence": "- The file must return a direct HTTP 200 status code and not a 301, 302 or any 3xx redirects.",
+      "file": "payments_payment_methods_apple_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay.md",
+      "sha256": "2e0e76bc21473fbb0ed34fb445e4ed748b30e1d746f3380e9c679f8bfdc006f7"
+    },
+    {
+      "sentence": "Server Configuration - The file must be served via HTTPS 1.1 protocol.",
+      "file": "payments_payment_methods_apple_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay.md",
+      "sha256": "2e0e76bc21473fbb0ed34fb445e4ed748b30e1d746f3380e9c679f8bfdc006f7"
+    },
+    {
+      "sentence": "- The file must have Content-Type: text/plain in the header.",
+      "file": "payments_payment_methods_apple_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay.md",
+      "sha256": "2e0e76bc21473fbb0ed34fb445e4ed748b30e1d746f3380e9c679f8bfdc006f7"
+    },
+    {
+      "sentence": "- The file must be externally accessible (not behind authentication).",
+      "file": "payments_payment_methods_apple_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay.md",
+      "sha256": "2e0e76bc21473fbb0ed34fb445e4ed748b30e1d746f3380e9c679f8bfdc006f7"
+    },
+    {
+      "sentence": "- The file must not be password protected.",
+      "file": "payments_payment_methods_apple_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay.md",
+      "sha256": "2e0e76bc21473fbb0ed34fb445e4ed748b30e1d746f3380e9c679f8bfdc006f7"
+    },
+    {
+      "sentence": "- The file must not be behind a proxy or redirect.",
+      "file": "payments_payment_methods_apple_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay.md",
+      "sha256": "2e0e76bc21473fbb0ed34fb445e4ed748b30e1d746f3380e9c679f8bfdc006f7"
+    },
+    {
+      "sentence": "If you do not have international payments active, you will not see Apple Pay.",
+      "file": "payments_payment_methods_apple_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay.md",
+      "sha256": "2e0e76bc21473fbb0ed34fb445e4ed748b30e1d746f3380e9c679f8bfdc006f7"
+    },
+    {
+      "sentence": "The protocols, hosts (full domain name), and ports, when specified, must be the same for both pages.",
+      "file": "payments_payment_methods_apple_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay.md",
+      "sha256": "2e0e76bc21473fbb0ed34fb445e4ed748b30e1d746f3380e9c679f8bfdc006f7"
+    },
+    {
+      "sentence": "Domain verification failures typically occur due to the following reasons: - The verification file must return an HTTP 200 status code (not 301 or 302 redirects).",
+      "file": "payments_payment_methods_apple_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay.md",
+      "sha256": "2e0e76bc21473fbb0ed34fb445e4ed748b30e1d746f3380e9c679f8bfdc006f7"
+    },
+    {
+      "sentence": "- The file must be accessible via HTTPS (not HTTP).",
+      "file": "payments_payment_methods_apple_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay.md",
+      "sha256": "2e0e76bc21473fbb0ed34fb445e4ed748b30e1d746f3380e9c679f8bfdc006f7"
+    },
+    {
+      "sentence": "- The file content must exactly match what Razorpay provided, with no modifications or extra characters.",
+      "file": "payments_payment_methods_apple_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay.md",
+      "sha256": "2e0e76bc21473fbb0ed34fb445e4ed748b30e1d746f3380e9c679f8bfdc006f7"
+    },
+    {
+      "sentence": "Customers do not need to manually save payment details as their Apple Wallet handles this seamlessly.",
+      "file": "payments_payment_methods_apple_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay.md",
+      "sha256": "2e0e76bc21473fbb0ed34fb445e4ed748b30e1d746f3380e9c679f8bfdc006f7"
+    },
+    {
+      "sentence": "Apple Pay transactions can be identified by checking the payment field in the API response or webhook payload: This field will always contain for Apple Pay transactions, making it easy to distinguish them from regular card payments.",
+      "file": "payments_payment_methods_apple_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay.md",
+      "sha256": "2e0e76bc21473fbb0ed34fb445e4ed748b30e1d746f3380e9c679f8bfdc006f7"
+    },
+    {
+      "sentence": "Apple Pay will be visible on desktop under the following conditions: macOS Requirements: - Customer must have Apple Pay cards linked to their Apple account.",
+      "file": "payments_payment_methods_apple_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay.md",
+      "sha256": "2e0e76bc21473fbb0ed34fb445e4ed748b30e1d746f3380e9c679f8bfdc006f7"
+    },
+    {
+      "sentence": "- User must be signed into their Apple account on their macOS device.",
+      "file": "payments_payment_methods_apple_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay.md",
+      "sha256": "2e0e76bc21473fbb0ed34fb445e4ed748b30e1d746f3380e9c679f8bfdc006f7"
+    },
+    {
+      "sentence": "- **Order Creation via Backend**: Your server must be able to create orders using the Orders API and pass the to the frontend.",
+      "file": "payments_payment_methods_apple_pay_checkout_blocks.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/checkout-blocks.md",
+      "sha256": "4be0996b76fa4eb586be994a891bde59a36b298b9cd4378381f04ee8aa1d6914"
+    },
+    {
+      "sentence": "- **HTTPS Protocol**: Your website must be served over HTTPS for security compliance.",
+      "file": "payments_payment_methods_apple_pay_checkout_blocks.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/checkout-blocks.md",
+      "sha256": "4be0996b76fa4eb586be994a891bde59a36b298b9cd4378381f04ee8aa1d6914"
+    },
+    {
+      "sentence": "Signature verification is a mandatory step to ensure that the payment callback is authentic and sent by Razorpay.",
+      "file": "payments_payment_methods_apple_pay_checkout_blocks.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/checkout-blocks.md",
+      "sha256": "4be0996b76fa4eb586be994a891bde59a36b298b9cd4378381f04ee8aa1d6914"
+    },
+    {
+      "sentence": "To accept Apple Pay payments, your domain must be verified with Apple via Razorpay.",
+      "file": "payments_payment_methods_apple_pay_checkout_blocks.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/checkout-blocks.md",
+      "sha256": "4be0996b76fa4eb586be994a891bde59a36b298b9cd4378381f04ee8aa1d6914"
+    },
+    {
+      "sentence": "An order should be created for every payment.",
+      "file": "payments_payment_methods_apple_pay_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/custom-integration.md",
+      "sha256": "960dca6a964f7d0185d153c8eb0c6b9e501084a9fea2a8024266aa7f32facdb5"
+    },
+    {
+      "sentence": "Razorpay's SDK encapsulates the device capability check, so you do not integrate the Apple Pay JS API or evaluate yourself.",
+      "file": "payments_payment_methods_apple_pay_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/custom-integration.md",
+      "sha256": "960dca6a964f7d0185d153c8eb0c6b9e501084a9fea2a8024266aa7f32facdb5"
+    },
+    {
+      "sentence": "must run inside a user-initiated event, as Apple Pay requires a direct user gesture to start a session.",
+      "file": "payments_payment_methods_apple_pay_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/custom-integration.md",
+      "sha256": "960dca6a964f7d0185d153c8eb0c6b9e501084a9fea2a8024266aa7f32facdb5"
+    },
+    {
+      "sentence": "You do not integrate the Apple Pay JS API or evaluate / yourself.",
+      "file": "payments_payment_methods_apple_pay_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/custom-integration.md",
+      "sha256": "960dca6a964f7d0185d153c8eb0c6b9e501084a9fea2a8024266aa7f32facdb5"
+    },
+    {
+      "sentence": "Always create orders server-side using your secret key.",
+      "file": "payments_payment_methods_apple_pay_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/custom-integration.md",
+      "sha256": "960dca6a964f7d0185d153c8eb0c6b9e501084a9fea2a8024266aa7f32facdb5"
+    },
+    {
+      "sentence": "- **International Payments Enabled**: Must be activated on your Razorpay account.",
+      "file": "payments_payment_methods_apple_pay_s2s_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/s2s-integration.md",
+      "sha256": "39443624e22ee0171dd895af61f79892333ee7e0e51e5744d55a3941c1ca9d35"
+    },
+    {
+      "sentence": "For example, if you want to charge a customer 99.991 KWD for a transaction, you should pass the value for the amount parameter as and not .",
+      "file": "payments_payment_methods_apple_pay_s2s_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/s2s-integration.md",
+      "sha256": "39443624e22ee0171dd895af61f79892333ee7e0e51e5744d55a3941c1ca9d35"
+    },
+    {
+      "sentence": "_mandatory_ : The currency in which the transaction should be made.",
+      "file": "payments_payment_methods_apple_pay_s2s_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/s2s-integration.md",
+      "sha256": "39443624e22ee0171dd895af61f79892333ee7e0e51e5744d55a3941c1ca9d35"
+    },
+    {
+      "sentence": "_optional_ : Your receipt id for this order should be passed here.",
+      "file": "payments_payment_methods_apple_pay_s2s_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/s2s-integration.md",
+      "sha256": "39443624e22ee0171dd895af61f79892333ee7e0e51e5744d55a3941c1ca9d35"
+    },
+    {
+      "sentence": "- (default): The customer cannot make partial payments.",
+      "file": "payments_payment_methods_apple_pay_s2s_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/s2s-integration.md",
+      "sha256": "39443624e22ee0171dd895af61f79892333ee7e0e51e5744d55a3941c1ca9d35"
+    },
+    {
+      "sentence": "_mandatory if capture = automatic_ : Time in minutes till when payments in the state should be auto-captured.",
+      "file": "payments_payment_methods_apple_pay_s2s_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/s2s-integration.md",
+      "sha256": "39443624e22ee0171dd895af61f79892333ee7e0e51e5744d55a3941c1ca9d35"
+    },
+    {
+      "sentence": "- Must be equal to or greater than the value.",
+      "file": "payments_payment_methods_apple_pay_s2s_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/s2s-integration.md",
+      "sha256": "39443624e22ee0171dd895af61f79892333ee7e0e51e5744d55a3941c1ca9d35"
+    },
+    {
+      "sentence": "For example, for an actual amount of 299.35, the value of this field should be .",
+      "file": "payments_payment_methods_apple_pay_s2s_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/s2s-integration.md",
+      "sha256": "39443624e22ee0171dd895af61f79892333ee7e0e51e5744d55a3941c1ca9d35"
+    },
+    {
+      "sentence": ": Your receipt id for this order should be passed here.",
+      "file": "payments_payment_methods_apple_pay_s2s_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/s2s-integration.md",
+      "sha256": "39443624e22ee0171dd895af61f79892333ee7e0e51e5744d55a3941c1ca9d35"
+    },
+    {
+      "sentence": "The component is part of Razorpay Custom Checkout, so existing Custom Checkout merchants do not need to load any additional script.",
+      "file": "payments_payment_methods_apple_pay_web_component_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/web-component-integration.md",
+      "sha256": "61214e3e54091bb81c62f3f160ee5cc34e0df08b5b78dc8d041e36fbace8873f"
+    },
+    {
+      "sentence": "Before Apple Pay can render on your domain, you must host a domain association file and register the domain with Razorpay.",
+      "file": "payments_payment_methods_apple_pay_web_component_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/web-component-integration.md",
+      "sha256": "61214e3e54091bb81c62f3f160ee5cc34e0df08b5b78dc8d041e36fbace8873f"
+    },
+    {
+      "sentence": "- The file must be served over HTTPS and return a direct HTTP 200 response.",
+      "file": "payments_payment_methods_apple_pay_web_component_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/web-component-integration.md",
+      "sha256": "61214e3e54091bb81c62f3f160ee5cc34e0df08b5b78dc8d041e36fbace8873f"
+    },
+    {
+      "sentence": "- The file must be publicly accessible \u2014 no authentication, no proxy and no password protection.",
+      "file": "payments_payment_methods_apple_pay_web_component_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/web-component-integration.md",
+      "sha256": "61214e3e54091bb81c62f3f160ee5cc34e0df08b5b78dc8d041e36fbace8873f"
+    },
+    {
+      "sentence": "**Host the file on your server at the exact path below:** For example, if your domain is , the file must be accessible at: 3.",
+      "file": "payments_payment_methods_apple_pay_web_component_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/web-component-integration.md",
+      "sha256": "61214e3e54091bb81c62f3f160ee5cc34e0df08b5b78dc8d041e36fbace8873f"
+    },
+    {
+      "sentence": "**Ensure correct server configuration:** - The file must return HTTP 200 \u2014 no 301, 302 or any other 3xx redirects.",
+      "file": "payments_payment_methods_apple_pay_web_component_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/web-component-integration.md",
+      "sha256": "61214e3e54091bb81c62f3f160ee5cc34e0df08b5b78dc8d041e36fbace8873f"
+    },
+    {
+      "sentence": "- The URL must not contain a trailing slash.",
+      "file": "payments_payment_methods_apple_pay_web_component_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/web-component-integration.md",
+      "sha256": "61214e3e54091bb81c62f3f160ee5cc34e0df08b5b78dc8d041e36fbace8873f"
+    },
+    {
+      "sentence": "- The file must not be behind authentication or a proxy.",
+      "file": "payments_payment_methods_apple_pay_web_component_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/web-component-integration.md",
+      "sha256": "61214e3e54091bb81c62f3f160ee5cc34e0df08b5b78dc8d041e36fbace8873f"
+    },
+    {
+      "sentence": "--- Authentication required | The file must be publicly accessible \u2014 no login, no Basic Auth.",
+      "file": "payments_payment_methods_apple_pay_web_component_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/web-component-integration.md",
+      "sha256": "61214e3e54091bb81c62f3f160ee5cc34e0df08b5b78dc8d041e36fbace8873f"
+    },
+    {
+      "sentence": "--- Trailing slash in URL | The URL must not end with a trailing slash.",
+      "file": "payments_payment_methods_apple_pay_web_component_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/web-component-integration.md",
+      "sha256": "61214e3e54091bb81c62f3f160ee5cc34e0df08b5b78dc8d041e36fbace8873f"
+    },
+    {
+      "sentence": "The script must be loaded before the component is placed in the DOM.",
+      "file": "payments_payment_methods_apple_pay_web_component_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/web-component-integration.md",
+      "sha256": "61214e3e54091bb81c62f3f160ee5cc34e0df08b5b78dc8d041e36fbace8873f"
+    },
+    {
+      "sentence": "Existing Custom Checkout merchants already load this script and do not need to add a new one.",
+      "file": "payments_payment_methods_apple_pay_web_component_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/web-component-integration.md",
+      "sha256": "61214e3e54091bb81c62f3f160ee5cc34e0df08b5b78dc8d041e36fbace8873f"
+    },
+    {
+      "sentence": "\u2014 React and the attribute** is a reserved React prop for list reconciliation and is **never forwarded to the DOM element**.",
+      "file": "payments_payment_methods_apple_pay_web_component_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/web-component-integration.md",
+      "sha256": "61214e3e54091bb81c62f3f160ee5cc34e0df08b5b78dc8d041e36fbace8873f"
+    },
+    {
+      "sentence": "Orders must always be created server-side using your secret API key.",
+      "file": "payments_payment_methods_apple_pay_web_component_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/web-component-integration.md",
+      "sha256": "61214e3e54091bb81c62f3f160ee5cc34e0df08b5b78dc8d041e36fbace8873f"
+    },
+    {
+      "sentence": "Never expose your secret key in client-side code.",
+      "file": "payments_payment_methods_apple_pay_web_component_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/web-component-integration.md",
+      "sha256": "61214e3e54091bb81c62f3f160ee5cc34e0df08b5b78dc8d041e36fbace8873f"
+    },
+    {
+      "sentence": "Only the (not the secret key) should be passed to the frontend and used as the attribute on the component.",
+      "file": "payments_payment_methods_apple_pay_web_component_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/web-component-integration.md",
+      "sha256": "61214e3e54091bb81c62f3f160ee5cc34e0df08b5b78dc8d041e36fbace8873f"
+    },
+    {
+      "sentence": "--- In-app browsers (Facebook, Instagram and so on.) | Third-party apps do not expose Apple Pay to embedded web content.",
+      "file": "payments_payment_methods_apple_pay_wkwebview_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/wkwebview-integration.md",
+      "sha256": "0247fdf22db0efdfcc98682c2e455b368c4d7848ccef1097224f0d9b8048f7ee"
+    },
+    {
+      "sentence": "For Apple Pay to work in your app's WKWebView, ensure the following: - **Apple Pay entitlement**: The host app must have capability enabled in Xcode.",
+      "file": "payments_payment_methods_apple_pay_wkwebview_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/wkwebview-integration.md",
+      "sha256": "0247fdf22db0efdfcc98682c2e455b368c4d7848ccef1097224f0d9b8048f7ee"
+    },
+    {
+      "sentence": "- **HTTPS**: The page loaded in the WebView must be served over HTTPS.",
+      "file": "payments_payment_methods_apple_pay_wkwebview_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/wkwebview-integration.md",
+      "sha256": "0247fdf22db0efdfcc98682c2e455b368c4d7848ccef1097224f0d9b8048f7ee"
+    },
+    {
+      "sentence": "- **Domain verification**: The domain served in the WebView must be registered and verified.",
+      "file": "payments_payment_methods_apple_pay_wkwebview_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/wkwebview-integration.md",
+      "sha256": "0247fdf22db0efdfcc98682c2e455b368c4d7848ccef1097224f0d9b8048f7ee"
+    },
+    {
+      "sentence": "- **Card in Apple Wallet**: The user must have at least one card added to Apple Wallet with face id, touch id or passcode enabled.",
+      "file": "payments_payment_methods_apple_pay_wkwebview_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/wkwebview-integration.md",
+      "sha256": "0247fdf22db0efdfcc98682c2e455b368c4d7848ccef1097224f0d9b8048f7ee"
+    },
+    {
+      "sentence": "When HTML is loaded via , the hostname may not match your verified domain, causing business validation to fail.",
+      "file": "payments_payment_methods_apple_pay_wkwebview_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/wkwebview-integration.md",
+      "sha256": "0247fdf22db0efdfcc98682c2e455b368c4d7848ccef1097224f0d9b8048f7ee"
+    },
+    {
+      "sentence": "- Customers should have earned reward points.",
+      "file": "payments_payment_methods_apps_reward_points_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apps/reward-points/custom-integration.md",
+      "sha256": "996fd52b280f0ac5f38555c6fab1e15ac316fedda9f08eb23e048ad56689946f"
+    },
+    {
+      "sentence": "Along with the other checkout options, you must pass: _mandatory_ : The method used to make the payment.",
+      "file": "payments_payment_methods_apps_reward_points_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apps/reward-points/custom-integration.md",
+      "sha256": "996fd52b280f0ac5f38555c6fab1e15ac316fedda9f08eb23e048ad56689946f"
+    },
+    {
+      "sentence": "_mandatory_ : The currency in which the payment should be made by the customer.",
+      "file": "payments_payment_methods_apps_reward_points_s2s_integration_json.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apps/reward-points/s2s-integration/json.md",
+      "sha256": "205e3ca0d415e4535cb9066f5feedbc9398b95f8958f4f8e3d46d35025b46c31"
+    },
+    {
+      "sentence": "_optional_ : Minimum amount that must be paid by the customer as the first partial payment.",
+      "file": "payments_payment_methods_bank_transfer.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/bank-transfer.md",
+      "sha256": "3491b7fb5789a585c3c17d55d16feee1baaaf14aab33e6ef996503e62275d1dc"
+    },
+    {
+      "sentence": "This parameter should be passed only if is .",
+      "file": "payments_payment_methods_bank_transfer.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/bank-transfer.md",
+      "sha256": "3491b7fb5789a585c3c17d55d16feee1baaaf14aab33e6ef996503e62275d1dc"
+    },
+    {
+      "sentence": "_optional_ : A collection of key-value pairs that contain legal or informational notices which must be displayed to the user before they proceed with the payment or submission of the challan.",
+      "file": "payments_payment_methods_bank_transfer.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/bank-transfer.md",
+      "sha256": "3491b7fb5789a585c3c17d55d16feee1baaaf14aab33e6ef996503e62275d1dc"
+    },
+    {
+      "sentence": "Apart from enabling this feature on your account, complete the following steps to integrate this feature on your Razorpay Standard Integration: If you have integrated with Razorpay Standard Checkout, you must implement the function to track the lifecycle of the Checkout modal.",
+      "file": "payments_payment_methods_bank_transfer.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/bank-transfer.md",
+      "sha256": "3491b7fb5789a585c3c17d55d16feee1baaaf14aab33e6ef996503e62275d1dc"
+    },
+    {
+      "sentence": "You must attach event listeners to the instance to track if and when the customer has selected the bank transfer payment method.",
+      "file": "payments_payment_methods_bank_transfer.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/bank-transfer.md",
+      "sha256": "3491b7fb5789a585c3c17d55d16feee1baaaf14aab33e6ef996503e62275d1dc"
+    },
+    {
+      "sentence": "Apart from enabling this feature on your account, you must implement the following steps in your payment gateway integration: You must create a customer using the Customers API.",
+      "file": "payments_payment_methods_bank_transfer.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/bank-transfer.md",
+      "sha256": "3491b7fb5789a585c3c17d55d16feee1baaaf14aab33e6ef996503e62275d1dc"
+    },
+    {
+      "sentence": "The name must be between 3-50 characters in length.",
+      "file": "payments_payment_methods_bank_transfer.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/bank-transfer.md",
+      "sha256": "3491b7fb5789a585c3c17d55d16feee1baaaf14aab33e6ef996503e62275d1dc"
+    },
+    {
+      "sentence": "**Order is an important step in the payment process.** - An order should be created for every payment.",
+      "file": "payments_payment_methods_bank_transfer.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/bank-transfer.md",
+      "sha256": "3491b7fb5789a585c3c17d55d16feee1baaaf14aab33e6ef996503e62275d1dc"
+    },
+    {
+      "sentence": "- The received in the response should be passed to the checkout.",
+      "file": "payments_payment_methods_bank_transfer.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/bank-transfer.md",
+      "sha256": "3491b7fb5789a585c3c17d55d16feee1baaaf14aab33e6ef996503e62275d1dc"
+    },
+    {
+      "sentence": "You must create an order before initiating payments to ensure proper payment processing.",
+      "file": "payments_payment_methods_bank_transfer.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/bank-transfer.md",
+      "sha256": "3491b7fb5789a585c3c17d55d16feee1baaaf14aab33e6ef996503e62275d1dc"
+    },
+    {
+      "sentence": "You must pass the and generated in the previous steps to Checkout, as shown below: (Only if you are using Standard Checkout) If you have integrated with Razorpay Standard Checkout, you must implement the function to track the lifecyle of the Checkout modal.",
+      "file": "payments_payment_methods_bank_transfer.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/bank-transfer.md",
+      "sha256": "3491b7fb5789a585c3c17d55d16feee1baaaf14aab33e6ef996503e62275d1dc"
+    },
+    {
+      "sentence": "You must create a customer using the Customers ID.",
+      "file": "payments_payment_methods_bank_transfer_hosted_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/bank-transfer/hosted-integration.md",
+      "sha256": "4364f43cc506781a8a28d86f9bcdd0d2046fd8c7a9f100da4b2622fe7821eea3"
+    },
+    {
+      "sentence": "You must pass the and generated in the previous steps to Checkout, as shown below: _mandatory_ : Display bank transfer payment method on Checkout.",
+      "file": "payments_payment_methods_bank_transfer_hosted_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/bank-transfer/hosted-integration.md",
+      "sha256": "4364f43cc506781a8a28d86f9bcdd0d2046fd8c7a9f100da4b2622fe7821eea3"
+    },
+    {
+      "sentence": "In order to generate a BharatQR, a virtual account must be created with the appropriate receiver type.",
+      "file": "payments_payment_methods_bharatqr_api.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/bharatqr/api.md",
+      "sha256": "085299eb4a17457181ec12e4d22a1b8005bc211d6fe91d08ac80ecedbae2da96"
+    },
+    {
+      "sentence": "The compliance certificate should be updated as per the yearly renewal cycle.",
+      "file": "payments_payment_methods_cards_authentication_native_otp.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/authentication/native-otp.md",
+      "sha256": "99749de191ec3b7ff7cd122d1ec341c7c1f1834b75648df1f3fe44a0f0719622"
+    },
+    {
+      "sentence": "- The order_id received in the response should be passed to the checkout.",
+      "file": "payments_payment_methods_cards_authentication_native_otp.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/authentication/native-otp.md",
+      "sha256": "99749de191ec3b7ff7cd122d1ec341c7c1f1834b75648df1f3fe44a0f0719622"
+    },
+    {
+      "sentence": "- **Always synchronised**: Card updates in CRED automatically reflect across all businesses.",
+      "file": "payments_payment_methods_cards_features_card_sync.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/features/card-sync.md",
+      "sha256": "f44c1894e9ce6311ae81ccdb3357395b66c58acbd405f547037d3b3722737a09"
+    },
+    {
+      "sentence": "Customers need an Android device with the CRED app installed, at least one saved card on CRED, must be logged into CRED using the same phone number as checkout, and must have given consent on the CRED app to share their information with partners.",
+      "file": "payments_payment_methods_cards_features_card_sync.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/features/card-sync.md",
+      "sha256": "f44c1894e9ce6311ae81ccdb3357395b66c58acbd405f547037d3b3722737a09"
+    },
+    {
+      "sentence": "CVV-less card payments are simple, fast and secure, and do not require the customers to remember the CVV.",
+      "file": "payments_payment_methods_cards_features_cvv_less_flow.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/features/cvv-less-flow.md",
+      "sha256": "ecadce6f5133a81087edd092a7dba0b3599799b779f6e47d1aa17f40453310f1"
+    },
+    {
+      "sentence": "In this case, Juspay must send CVV-less card payments via Razorpay.",
+      "file": "payments_payment_methods_cards_features_cvv_less_flow.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/features/cvv-less-flow.md",
+      "sha256": "ecadce6f5133a81087edd092a7dba0b3599799b779f6e47d1aa17f40453310f1"
+    },
+    {
+      "sentence": "According to RBI Guidelines, all customers should have a way to delete their card details stored as tokens.",
+      "file": "payments_payment_methods_cards_features_saved_cards.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/features/saved-cards.md",
+      "sha256": "03f445e1ee89ee2048126b684a0207c12159d4b25f143ed71fc0f6aa9c7c7534"
+    },
+    {
+      "sentence": "**INFO** **Handy Tips** If they cannot find a website/app, their card might be saved directly on Razorpay.",
+      "file": "payments_payment_methods_cards_features_saved_cards.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/features/saved-cards.md",
+      "sha256": "03f445e1ee89ee2048126b684a0207c12159d4b25f143ed71fc0f6aa9c7c7534"
+    },
+    {
+      "sentence": "If they still cannot access them, contact our Support team.",
+      "file": "payments_payment_methods_cards_features_saved_cards.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/features/saved-cards.md",
+      "sha256": "03f445e1ee89ee2048126b684a0207c12159d4b25f143ed71fc0f6aa9c7c7534"
+    },
+    {
+      "sentence": "For a safer and secured payment experience, your customer must log out from the Razorpay Checkout by following these steps: 1.",
+      "file": "payments_payment_methods_cards_features_saved_cards.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/features/saved-cards.md",
+      "sha256": "03f445e1ee89ee2048126b684a0207c12159d4b25f143ed71fc0f6aa9c7c7534"
+    },
+    {
+      "sentence": "- **Faster Checkout** Customers do not have to manually enter card details such as CVV so checkout is faster.",
+      "file": "payments_payment_methods_cards_google_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/google-pay.md",
+      "sha256": "f17bd5e4d65c2f938b161deeef31420a80faebee90ea558d414ca7d16fdcf403"
+    },
+    {
+      "sentence": "- You should have already integrated Razorpay Custom Checkout on your Android app.",
+      "file": "payments_payment_methods_cards_google_pay_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/google-pay/custom-integration.md",
+      "sha256": "81fc5a095fb551310944880df8dcdd3c7efd72c1f93a698425849bd00424a77d"
+    },
+    {
+      "sentence": "**INFO** **Handy Tips** API keys should not be hardcoded in the app.",
+      "file": "payments_payment_methods_cards_google_pay_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/google-pay/custom-integration.md",
+      "sha256": "81fc5a095fb551310944880df8dcdd3c7efd72c1f93a698425849bd00424a77d"
+    },
+    {
+      "sentence": "It should be sent from your server-side as an app-related metadata fetch.",
+      "file": "payments_payment_methods_cards_google_pay_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/google-pay/custom-integration.md",
+      "sha256": "81fc5a095fb551310944880df8dcdd3c7efd72c1f93a698425849bd00424a77d"
+    },
+    {
+      "sentence": "No, the card must be saved on Google Pay before initiating the payment.",
+      "file": "payments_payment_methods_cards_google_pay_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/google-pay/faqs.md",
+      "sha256": "a006eebc99f22fb335c2b6d74aee9bbe0fb4fc891917ebe941a6998062a9f391"
+    },
+    {
+      "sentence": "No, the customer cannot add a card while making a payment.",
+      "file": "payments_payment_methods_cards_google_pay_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/google-pay/faqs.md",
+      "sha256": "a006eebc99f22fb335c2b6d74aee9bbe0fb4fc891917ebe941a6998062a9f391"
+    },
+    {
+      "sentence": "They must add the card on Google Pay before initiating the transaction on your app.",
+      "file": "payments_payment_methods_cards_google_pay_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/google-pay/faqs.md",
+      "sha256": "a006eebc99f22fb335c2b6d74aee9bbe0fb4fc891917ebe941a6998062a9f391"
+    },
+    {
+      "sentence": "- You must have a PCI compliance certificate to get this feature enabled on your account.",
+      "file": "payments_payment_methods_cards_google_pay_s2s_integration_json.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/google-pay/s2s-integration/json.md",
+      "sha256": "19b8949a58701a24a0c1eece2099efea0d068a790f9253b8eaa3a9042adb3fe6"
+    },
+    {
+      "sentence": "- : Contains the URL you must poll to fetch the payment status ( or ).",
+      "file": "payments_payment_methods_cards_google_pay_s2s_integration_json.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/google-pay/s2s-integration/json.md",
+      "sha256": "19b8949a58701a24a0c1eece2099efea0d068a790f9253b8eaa3a9042adb3fe6"
+    },
+    {
+      "sentence": "- You should have already integrated Razorpay Standard Checkout on your Android app.",
+      "file": "payments_payment_methods_cards_google_pay_standard_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/google-pay/standard-integration.md",
+      "sha256": "bf9175fa652151a7a4121a0b6a67c43790c4dc4a0a9dbf09cc0fbefc9f9d48e6"
+    },
+    {
+      "sentence": "--- Given below are FAQs on the Tokenisation guidelines issued by RBI that businesses must adopt by Sep 2022: Tokenisation is the process by which the original card number / Primary Account Number (PAN) is replaced with a surrogate value called a .",
+      "file": "payments_payment_methods_cards_token_hq.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq.md",
+      "sha256": "a7c151344b563947dbad4c7243955211cf9511762fdf30bdd0bbd3e31fd7af67"
+    },
+    {
+      "sentence": "Issuing banks are expected to provide a portal where customers can view and delete the list of cards saved online across all businesses.",
+      "file": "payments_payment_methods_cards_token_hq.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq.md",
+      "sha256": "a7c151344b563947dbad4c7243955211cf9511762fdf30bdd0bbd3e31fd7af67"
+    },
+    {
+      "sentence": "That is, once you delete a token, you cannot use that token under any of the MIDs.",
+      "file": "payments_payment_methods_cards_token_hq_dual_token.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/dual-token.md",
+      "sha256": "5b6055f242235b7bd8d9f2e237cbb178e43603b98104df9fdac84e943b23e838"
+    },
+    {
+      "sentence": "For example, ABD Corp cannot request Razorpay to process an issuer token created by Juspay.",
+      "file": "payments_payment_methods_cards_token_hq_dual_token.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/dual-token.md",
+      "sha256": "5b6055f242235b7bd8d9f2e237cbb178e43603b98104df9fdac84e943b23e838"
+    },
+    {
+      "sentence": "According to the recent RBI guidelines on Card Tokenisation, Payment Aggregators (PA)/ Payment Gateway (PG) and businesses cannot save their customers' card numbers and other card data on their servers.",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor.md",
+      "sha256": "5eec9e1c412c75460557a7ad52bc5843e6b21923725ff5176330524ecc240d5f"
+    },
+    {
+      "sentence": "--- According to recent Payment Acquirer (PA)/ Payment Gateway (PG) guidelines from RBI, businesses cannot save their customers' card numbers and other card data on their servers.",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_apis.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor/apis.md",
+      "sha256": "8b2568bf79c030fa6e9762aac5cedcac7b36f490098a02f763dd56d546878ef4"
+    },
+    {
+      "sentence": "- This API should be called only after authentication is complete.",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_apis.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor/apis.md",
+      "sha256": "8b2568bf79c030fa6e9762aac5cedcac7b36f490098a02f763dd56d546878ef4"
+    },
+    {
+      "sentence": "A suspended token cannot be used for payment processing.",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_token_lifecycle.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor/token-lifecycle.md",
+      "sha256": "34c9730194a6531d4a6fffe2158116157c617b027a84f24d5e2b1667c3e14bdc"
+    },
+    {
+      "sentence": "A deactivated token cannot become active again, and cannot be used for payment processing.",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_token_lifecycle.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor/token-lifecycle.md",
+      "sha256": "34c9730194a6531d4a6fffe2158116157c617b027a84f24d5e2b1667c3e14bdc"
+    },
+    {
+      "sentence": "This data shall be used only for settlement of such transactions and must be deleted after that.",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_alt_id_checkout.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/alt-id-checkout.md",
+      "sha256": "c3920da787366aa1286e993b1ad694655c2f52457de34069428e39ee16ab5d2f"
+    },
+    {
+      "sentence": "- Entities in the transaction/payment chain shall deploy an alternate solution for handling guest checkout transactions by **October 31, 2023**.",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_alt_id_checkout.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/alt-id-checkout.md",
+      "sha256": "c3920da787366aa1286e993b1ad694655c2f52457de34069428e39ee16ab5d2f"
+    },
+    {
+      "sentence": "In this case, you must pass clear card details to Razorpay.",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_alt_id_checkout.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/alt-id-checkout.md",
+      "sha256": "c3920da787366aa1286e993b1ad694655c2f52457de34069428e39ee16ab5d2f"
+    },
+    {
+      "sentence": "This value must be obtained from the payment processor/gateway that handled the authentication and passed to Razorpay during token creation.",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_apis.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/apis.md",
+      "sha256": "8d2036e04fa6434df821625f64aef81682b267dfecfa1234a93ecd4e2f5e8a82"
+    },
+    {
+      "sentence": "These values must be shared by the payment processor handling the transaction.",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_apis.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/apis.md",
+      "sha256": "8d2036e04fa6434df821625f64aef81682b267dfecfa1234a93ecd4e2f5e8a82"
+    },
+    {
+      "sentence": "_mandatory_ : If payment is made using an actual card, then this field should have the entire actual card number.",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_apis.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/apis.md",
+      "sha256": "8d2036e04fa6434df821625f64aef81682b267dfecfa1234a93ecd4e2f5e8a82"
+    },
+    {
+      "sentence": "If payment is made using a network token, then this field should have the token number.",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_apis.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/apis.md",
+      "sha256": "8d2036e04fa6434df821625f64aef81682b267dfecfa1234a93ecd4e2f5e8a82"
+    },
+    {
+      "sentence": "_mandatory_ : If payment is made using an actual card, then this field should have the 2-digit expiry month for the card.",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_apis.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/apis.md",
+      "sha256": "8d2036e04fa6434df821625f64aef81682b267dfecfa1234a93ecd4e2f5e8a82"
+    },
+    {
+      "sentence": "If payment is made using a network token, then this field should have the 2-digit expiry month for the token.",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_apis.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/apis.md",
+      "sha256": "8d2036e04fa6434df821625f64aef81682b267dfecfa1234a93ecd4e2f5e8a82"
+    },
+    {
+      "sentence": "_mandatory_ : If payment is made using an actual card, then this field should have the 2 or 4-digit expiry year for the card.",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_apis.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/apis.md",
+      "sha256": "8d2036e04fa6434df821625f64aef81682b267dfecfa1234a93ecd4e2f5e8a82"
+    },
+    {
+      "sentence": "If payment is made using a network token, then this field should have the 2 or 4-digit expiry year for the token.",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_apis.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/apis.md",
+      "sha256": "8d2036e04fa6434df821625f64aef81682b267dfecfa1234a93ecd4e2f5e8a82"
+    },
+    {
+      "sentence": "Do not pass this for Amex and Diners cards.",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_apis.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/apis.md",
+      "sha256": "8d2036e04fa6434df821625f64aef81682b267dfecfa1234a93ecd4e2f5e8a82"
+    },
+    {
+      "sentence": "If you are using Razorpay to process the first payment from a new card, do not call the tokenisation API.",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_apis.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/apis.md",
+      "sha256": "8d2036e04fa6434df821625f64aef81682b267dfecfa1234a93ecd4e2f5e8a82"
+    },
+    {
+      "sentence": "CVV-less card payments are simple, fast and secure, and do not require a memory test of your customers!",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_cvv_less_flow.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/cvv-less-flow.md",
+      "sha256": "007094078e04b1f324aea34ee1abec9e0ee2e1f660ee428c7ec3efeaf18e2eb5"
+    },
+    {
+      "sentence": "- : Customer's browser cannot execute JavaScript.",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_guest_checkout_apis.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/guest-checkout-apis.md",
+      "sha256": "5652adb5da3d18fddb48b1dd992971ff0832c58a453914f3ecd28271bebe9ecb"
+    },
+    {
+      "sentence": "Possible values for status_reason are: \u2022 expired \u2022 deactivated_by_bank A deactivated token cannot become active again and cannot be used for payment processing.",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_token_lifecycle.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/token-lifecycle.md",
+      "sha256": "3c5d6c89d7f5e823451e623b366d2c4245584271f0b34bf6bd046bb7758abe11"
+    },
+    {
+      "sentence": "A token cannot be used for payment processing.",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_token_lifecycle.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/token-lifecycle.md",
+      "sha256": "3c5d6c89d7f5e823451e623b366d2c4245584271f0b34bf6bd046bb7758abe11"
+    },
+    {
+      "sentence": "A deactivated token cannot be used for payment processing.",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_token_lifecycle.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/token-lifecycle.md",
+      "sha256": "3c5d6c89d7f5e823451e623b366d2c4245584271f0b34bf6bd046bb7758abe11"
+    },
+    {
+      "sentence": "Make sure your checkout flow captures customer phone numbers.",
+      "file": "payments_payment_methods_cards_token_hq_push_tokenisation_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/push-tokenisation/faqs.md",
+      "sha256": "0974685968b81a5057a59740b4001d4633221a848d8c2408fb777852438972e8"
+    },
+    {
+      "sentence": "To integrate Push Tokenisation, you must: - Have an active Razorpay Account - Have a live payment integration such as Standard or Custom or S2S.",
+      "file": "payments_payment_methods_cards_token_hq_push_tokenisation_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/push-tokenisation/integration.md",
+      "sha256": "f75054a73fcefd4eca14fb1b988316f625e1d3e6c6b525fdd4bfafe2d31f2793"
+    },
+    {
+      "sentence": "Businesses must be onboarded with Razorpay to appear on bank portals for customer selection.",
+      "file": "payments_payment_methods_cards_token_hq_push_tokenisation_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/push-tokenisation/integration.md",
+      "sha256": "f75054a73fcefd4eca14fb1b988316f625e1d3e6c6b525fdd4bfafe2d31f2793"
+    },
+    {
+      "sentence": "However, ensure that the user's phone number is provided in the same format as specified in the payload.",
+      "file": "payments_payment_methods_cards_token_hq_push_tokenisation_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/push-tokenisation/integration.md",
+      "sha256": "f75054a73fcefd4eca14fb1b988316f625e1d3e6c6b525fdd4bfafe2d31f2793"
+    },
+    {
+      "sentence": "You should pass this token to checkout to show customers the saved card details and help them complete the payment.",
+      "file": "payments_payment_methods_cards_token_hq_push_tokenisation_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/push-tokenisation/integration.md",
+      "sha256": "f75054a73fcefd4eca14fb1b988316f625e1d3e6c6b525fdd4bfafe2d31f2793"
+    },
+    {
+      "sentence": "To be able to create tokens using Push Tokenisation, you must create a customer using phone number as the primary identifier.",
+      "file": "payments_payment_methods_cards_token_hq_push_tokenisation_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/push-tokenisation/integration.md",
+      "sha256": "f75054a73fcefd4eca14fb1b988316f625e1d3e6c6b525fdd4bfafe2d31f2793"
+    },
+    {
+      "sentence": "Ensure that you map these details with the unique customer identifier (in this case, phone number) when processing the data.",
+      "file": "payments_payment_methods_cards_token_hq_push_tokenisation_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/push-tokenisation/integration.md",
+      "sha256": "f75054a73fcefd4eca14fb1b988316f625e1d3e6c6b525fdd4bfafe2d31f2793"
+    },
+    {
+      "sentence": "This should be the same endpoint used for storing token details during checkout.",
+      "file": "payments_payment_methods_cards_token_hq_push_tokenisation_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/push-tokenisation/integration.md",
+      "sha256": "f75054a73fcefd4eca14fb1b988316f625e1d3e6c6b525fdd4bfafe2d31f2793"
+    },
+    {
+      "sentence": "- To continue offering customers a 'saved card experience', businesses should adopt a tokenisation solution.",
+      "file": "payments_payment_methods_cards_token_hq_razorpay_requestor.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/razorpay-requestor.md",
+      "sha256": "df7d1a56535b78ed70b8cbecf5dda90b6b8152eb6296cdd287e70886c5093905"
+    },
+    {
+      "sentence": "As per RBI guidelines, you must collect explicit customer consent to save their card.",
+      "file": "payments_payment_methods_cards_token_hq_razorpay_requestor_apis.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/razorpay-requestor/apis.md",
+      "sha256": "8801e7f21cc0cef330bfa5973e3125cb9b629c15f65fa434b2e61b31ccd885c6"
+    },
+    {
+      "sentence": "**WARN** **PCI-DSS Compliance** The customer's payment information should never reach your servers unless you are PCI-DSS certified.",
+      "file": "payments_payment_methods_cards_token_private.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-private.md",
+      "sha256": "a5e0a99024e2f43adae3bcc528e3dacabde556b8eb0d5d21f5a8161e17a6edbb"
+    },
+    {
+      "sentence": "Your site must be **PCI-DSS** certified to accept, process, store or transmit customer's card details securely to Razorpay.",
+      "file": "payments_payment_methods_cards_token_private.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-private.md",
+      "sha256": "a5e0a99024e2f43adae3bcc528e3dacabde556b8eb0d5d21f5a8161e17a6edbb"
+    },
+    {
+      "sentence": "All server-side requests must be authenticated with Basic Auth using the **key-id** as username and **key-secret** as password.",
+      "file": "payments_payment_methods_cards_token_private.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-private.md",
+      "sha256": "a5e0a99024e2f43adae3bcc528e3dacabde556b8eb0d5d21f5a8161e17a6edbb"
+    },
+    {
+      "sentence": "- **No Redirection Flow** Since customers do not need to enter OTP, there is no redirection to the bank ACS page.",
+      "file": "payments_payment_methods_cards_visa_safe_click.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/visa-safe-click.md",
+      "sha256": "71c97c57e164e8ea29139564a85b96e12be7b71078feafb79c5a513544736213"
+    },
+    {
+      "sentence": "Following are the prerequisites for integrating eCOD: - You should have an app for delivery executives.",
+      "file": "payments_payment_methods_ecod.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/ecod.md",
+      "sha256": "197a1cfdbb0b16386a5b632e127818591c74fc169eab6cc48bb0f0c2dcbda00d"
+    },
+    {
+      "sentence": "- Delivery executives should have internet access on their device.",
+      "file": "payments_payment_methods_ecod.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/ecod.md",
+      "sha256": "197a1cfdbb0b16386a5b632e127818591c74fc169eab6cc48bb0f0c2dcbda00d"
+    },
+    {
+      "sentence": "**INFO** **UPI Payments Require Internet Connection** This payment method requires the customer to have VPA configured and working internet as UPI payments do not work without internet.",
+      "file": "payments_payment_methods_ecod.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/ecod.md",
+      "sha256": "197a1cfdbb0b16386a5b632e127818591c74fc169eab6cc48bb0f0c2dcbda00d"
+    },
+    {
+      "sentence": "**INFO** **Mandatory Fields for eCOD** For eCOD, you need to pass the following fields mandatorily to Create Invoice API: - type: ecod - view_less: true Without these fields, the eCOD functionality may not work properly.",
+      "file": "payments_payment_methods_ecod_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/ecod/integration.md",
+      "sha256": "38bc2c4ea04daa714373120e48f4f74f60ae2d9b86e6c00e1aec402d5d749d9e"
+    },
+    {
+      "sentence": "In the JSON object options that you pass to the SDK, you must pass the following fields: - invoice_id: - ecod: true Without these parameters, the eCOD checkout form will not display.",
+      "file": "payments_payment_methods_ecod_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/ecod/integration.md",
+      "sha256": "38bc2c4ea04daa714373120e48f4f74f60ae2d9b86e6c00e1aec402d5d749d9e"
+    },
+    {
+      "sentence": "No additional integration is required to show Cardless EMI on your Standard Checkout page.",
+      "file": "payments_payment_methods_emi_cardless_emi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/cardless-emi.md",
+      "sha256": "e821a08621b7d329946515b96c1487ec5dfa69f519e6adc728284daab04b5918"
+    },
+    {
+      "sentence": "**INFO** **Minimum Order Amount** Your customers should place an order of at least \u20b9900 to use axio as the Cardless EMI payment provider.",
+      "file": "payments_payment_methods_emi_cardless_emi_axio.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/cardless-emi/axio.md",
+      "sha256": "e3c350b0628abfd38d8ec840871c3c8077eda7ec9c172d64061baf04b08f10f9"
+    },
+    {
+      "sentence": "You do not need to make any changes to your integration.",
+      "file": "payments_payment_methods_emi_cardless_emi_axio.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/cardless-emi/axio.md",
+      "sha256": "e3c350b0628abfd38d8ec840871c3c8077eda7ec9c172d64061baf04b08f10f9"
+    },
+    {
+      "sentence": "No additional integration is required to show axio as a Cardless EMI service provider on your Standard Checkout integration.",
+      "file": "payments_payment_methods_emi_cardless_emi_axio.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/cardless-emi/axio.md",
+      "sha256": "e3c350b0628abfd38d8ec840871c3c8077eda7ec9c172d64061baf04b08f10f9"
+    },
+    {
+      "sentence": "To show axio as a cardless EMI provider, you should pass the and parameters in the Create Payments API.",
+      "file": "payments_payment_methods_emi_cardless_emi_axio_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/cardless-emi/axio/custom-integration.md",
+      "sha256": "8fb9622f915c3f040a276ac53b9513abba90422e00717c322049f38810324c00"
+    },
+    {
+      "sentence": "Yes, the customer must pay the first month's installment as advance EMI.",
+      "file": "payments_payment_methods_emi_cardless_emi_axio_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/cardless-emi/axio/faqs.md",
+      "sha256": "185f4b41c9a555719e6b10ebc7fca64139e11245b134e909842055c62a21ab95"
+    },
+    {
+      "sentence": "After an order is created and the customer's payment details are obtained, the information should be sent to Razorpay to complete the payment.",
+      "file": "payments_payment_methods_emi_cardless_emi_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/cardless-emi/custom-integration.md",
+      "sha256": "2236d19a6aea1227a309c847c249f6e179a392d77c3ba67d4f891f081700202c"
+    },
+    {
+      "sentence": "**INFO** **Handy Tips** To use Instant EMI for checkout, customers must place an order with a minimum value of \u20b91,000 and a maximum value of \u20b950,000.",
+      "file": "payments_payment_methods_emi_cardless_emi_instant_emi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/cardless-emi/instant-emi.md",
+      "sha256": "010db72b55f99204ebe742d7002d5a3ce5271dfe0e2814f19b5cbe1ec8467741"
+    },
+    {
+      "sentence": "Depending on the lender's preferences, additional steps may be required to set up repayments via EMandate and E-Sign of loan/credit sanction agreements.",
+      "file": "payments_payment_methods_emi_cardless_emi_instant_emi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/cardless-emi/instant-emi.md",
+      "sha256": "010db72b55f99204ebe742d7002d5a3ce5271dfe0e2814f19b5cbe1ec8467741"
+    },
+    {
+      "sentence": "After the order is created and the customer's payment details are obtained, the information should be sent to Razorpay to complete the payment.",
+      "file": "payments_payment_methods_emi_cardless_emi_s2s_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/cardless-emi/s2s-integration.md",
+      "sha256": "e56a858ce5fed3bc43f1c29827a89d89f337b74c1946e3396094f26276824cdc"
+    },
+    {
+      "sentence": "No additional integration is required to show ShopSe as a Cardless EMI service provider on your Standard Checkout integration.",
+      "file": "payments_payment_methods_emi_cardless_emi_shopse.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/cardless-emi/shopse.md",
+      "sha256": "330759a7e3e357fbbb2ab31bbab363bf1e6f08dc16c26d38137ef9bf7489e36a"
+    },
+    {
+      "sentence": "No additional integration is required to show Snapmint as a Cardless EMI service provider on your Standard Checkout integration.",
+      "file": "payments_payment_methods_emi_cardless_emi_snapmint.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/cardless-emi/snapmint.md",
+      "sha256": "d00d096535f2237534eebe759d5c8b799ff30bda5b24e86ed50b919ce887641b"
+    },
+    {
+      "sentence": "**INFO** **Minimum Order Amount** Your customers should place an order of at least \u20b999 to use ZestMoney as the Cardless EMI payment provider.",
+      "file": "payments_payment_methods_emi_cardless_emi_zestmoney.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/cardless-emi/zestmoney.md",
+      "sha256": "f9b8b13166f2a860b0f5af40dd8c7bb45a4d22bd494ccbbf4ff907b4cd774394"
+    },
+    {
+      "sentence": "Use the below endpoint to fetch a list of EMI plans offered by banks: /methods **INFO** **[YOUR_KEY_ID] Required** To fire this API, you must provide your [KEY_ID] for authorization.",
+      "file": "payments_payment_methods_emi_credit_card_emi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/credit-card-emi.md",
+      "sha256": "6f6feb497c2c3edb3aa9263b079e00c4234c0d2cef556d72791bf8f811af1594"
+    },
+    {
+      "sentence": "Your [KEY_SECRET] is not required and should not be passed.",
+      "file": "payments_payment_methods_emi_credit_card_emi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/credit-card-emi.md",
+      "sha256": "6f6feb497c2c3edb3aa9263b079e00c4234c0d2cef556d72791bf8f811af1594"
+    },
+    {
+      "sentence": "Therefore, customers should always use the phone number registered with the bank while making a payment.",
+      "file": "payments_payment_methods_emi_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/faqs.md",
+      "sha256": "47a8e4887c0beb1b17bf383dafcd2fc99f9eb9c1cd4ef3b61623b34471a2e6f1"
+    },
+    {
+      "sentence": "However, they need to ensure that their accounts have sufficient funds to pay the EMI due every month.",
+      "file": "payments_payment_methods_emi_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/faqs.md",
+      "sha256": "47a8e4887c0beb1b17bf383dafcd2fc99f9eb9c1cd4ef3b61623b34471a2e6f1"
+    },
+    {
+      "sentence": "To avail Debit Card EMI, your customers should pass the eligibility criteria set by their banks.",
+      "file": "payments_payment_methods_emi_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/faqs.md",
+      "sha256": "47a8e4887c0beb1b17bf383dafcd2fc99f9eb9c1cd4ef3b61623b34471a2e6f1"
+    },
+    {
+      "sentence": "The minimum order amount on the Checkout should be \u20b95000 (for HDFC and IndusInd debit cards).",
+      "file": "payments_payment_methods_emi_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/faqs.md",
+      "sha256": "47a8e4887c0beb1b17bf383dafcd2fc99f9eb9c1cd4ef3b61623b34471a2e6f1"
+    },
+    {
+      "sentence": "For **HDFC Bank (HDFC)**: Tenures in Months | Minimum Amount (in INR) | Interest rates | Maximum Amount --- 3 months | 3000 | 16% | NA --- 6 months | 5000 | 16% | NA --- 9 months | 5000 | 16% | NA --- 12 months | 5000 | 16% | NA --- 18 months | 5000 | 16% | NA --- 24 months | NA | NA | NA No, EMI plans cannot be changed after an order is placed.",
+      "file": "payments_payment_methods_emi_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/faqs.md",
+      "sha256": "47a8e4887c0beb1b17bf383dafcd2fc99f9eb9c1cd4ef3b61623b34471a2e6f1"
+    },
+    {
+      "sentence": "No, we do not support No Cost EMI offers on Cardless EMI.",
+      "file": "payments_payment_methods_emi_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/faqs.md",
+      "sha256": "47a8e4887c0beb1b17bf383dafcd2fc99f9eb9c1cd4ef3b61623b34471a2e6f1"
+    },
+    {
+      "sentence": "No, we do not support Low Cost EMI offers on Cardless EMI.",
+      "file": "payments_payment_methods_emi_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/faqs.md",
+      "sha256": "47a8e4887c0beb1b17bf383dafcd2fc99f9eb9c1cd4ef3b61623b34471a2e6f1"
+    },
+    {
+      "sentence": "- The customer should be a registered user of the EMI card provider, **Bajaj Finserv**.",
+      "file": "payments_payment_methods_emi_no_cost_emi_bajaj_finserv.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/no-cost-emi/bajaj-finserv.md",
+      "sha256": "f3b8e5f98e2509d4a50ebb3dd3d23b8d8f9df0a68275999ee5b8ba54f9b9048b"
+    },
+    {
+      "sentence": "A combination of and is required to authenticate API request sent to Razorpay servers.",
+      "file": "payments_payment_methods_emi_no_cost_emi_bajaj_finserv.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/no-cost-emi/bajaj-finserv.md",
+      "sha256": "f3b8e5f98e2509d4a50ebb3dd3d23b8d8f9df0a68275999ee5b8ba54f9b9048b"
+    },
+    {
+      "sentence": "Create an order for the transaction amount for which the created offer should be applied.",
+      "file": "payments_payment_methods_emi_no_cost_emi_bajaj_finserv.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/no-cost-emi/bajaj-finserv.md",
+      "sha256": "f3b8e5f98e2509d4a50ebb3dd3d23b8d8f9df0a68275999ee5b8ba54f9b9048b"
+    },
+    {
+      "sentence": "If you want to display the No Cost EMI offered by Bajaj Finserv on the Checkout, you must associate the offer with an order.",
+      "file": "payments_payment_methods_emi_no_cost_emi_bajaj_finserv_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/no-cost-emi/bajaj-finserv/custom-integration.md",
+      "sha256": "cf28a8f6db27a331d951966670b9eb07b2a9fb2f5e7efcfd8c14ac6ad2f28dc9"
+    },
+    {
+      "sentence": "We always maintain backward compatibility with our code.",
+      "file": "payments_payment_methods_emi_no_cost_emi_bajaj_finserv_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/no-cost-emi/bajaj-finserv/custom-integration.md",
+      "sha256": "cf28a8f6db27a331d951966670b9eb07b2a9fb2f5e7efcfd8c14ac6ad2f28dc9"
+    },
+    {
+      "sentence": "You can choose to have: - A single instance on a page - Multiple instances on the same page If you need a single instance on a page, use the code given below: If you need multiple razorpay instances on same page, you can globally set some of the options: Once the order is created and the customer's payment details are obtained, the information should be sent to Razorpay to complete the payment.",
+      "file": "payments_payment_methods_emi_no_cost_emi_bajaj_finserv_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/no-cost-emi/bajaj-finserv/custom-integration.md",
+      "sha256": "cf28a8f6db27a331d951966670b9eb07b2a9fb2f5e7efcfd8c14ac6ad2f28dc9"
+    },
+    {
+      "sentence": "However, make sure that you **swap the test API keys with the live keys**.",
+      "file": "payments_payment_methods_emi_no_cost_emi_bajaj_finserv_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/no-cost-emi/bajaj-finserv/custom-integration.md",
+      "sha256": "cf28a8f6db27a331d951966670b9eb07b2a9fb2f5e7efcfd8c14ac6ad2f28dc9"
+    },
+    {
+      "sentence": "- A combination of and is required to authenticate each API request sent to Razorpay servers.",
+      "file": "payments_payment_methods_emi_no_cost_emi_bajaj_finserv_s2s_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/no-cost-emi/bajaj-finserv/s2s-integration.md",
+      "sha256": "faa034508e517b6288396bd30bf406ff64a4e4a86bf10707b86f01ff5355defb"
+    },
+    {
+      "sentence": "No problem!** Customers who do not have access to cards or do not want to use them for online transactions can use Giropay to pay through their bank accounts.",
+      "file": "payments_payment_methods_giropay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/giropay.md",
+      "sha256": "41b5e2d66ef93c9b1be9c74102a04cef6ad0059da02e75922da52c46b070c56f"
+    },
+    {
+      "sentence": "Razorpay's pay in native currency feature will ensure that your German customer is shown the right currency.",
+      "file": "payments_payment_methods_giropay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/giropay.md",
+      "sha256": "41b5e2d66ef93c9b1be9c74102a04cef6ad0059da02e75922da52c46b070c56f"
+    },
+    {
+      "sentence": "- Do not modify Google Pay asset colours, proportions or appearance.",
+      "file": "payments_payment_methods_google_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/google-pay.md",
+      "sha256": "20df09b09a9a91c5d9d2376295834323dce478e91dc7933cde83f79962064800"
+    },
+    {
+      "sentence": "- Razorpay's pay in native currency feature will ensure that your Malaysian customer is shown the right currency.",
+      "file": "payments_payment_methods_grabpay_my.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/grabpay-my.md",
+      "sha256": "c93162fe4bb9b14c5d6ab7a6f47429cd4a1c68e943fd6eb0a2293697466e4c27"
+    },
+    {
+      "sentence": "- Razorpay's pay in native currency feature will ensure that your Singaporean customer is shown the right currency.",
+      "file": "payments_payment_methods_grabpay_sg.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/grabpay-sg.md",
+      "sha256": "9d3eac7be3298a28bc87ab20e6d6dcbbbfe60c94ed342ad25ad097ba646413bd"
+    },
+    {
+      "sentence": "You must be PCI-compliant to accept and process customer's card details using the MOTO option.",
+      "file": "payments_payment_methods_moto.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/moto.md",
+      "sha256": "0d7a32c6775d42ffdc6aa1e3e4f605bec3145cf7e26d039de338a94397b4cf70"
+    },
+    {
+      "sentence": "For MOTO transactions via tokenised cards, cryptogram value is not required to process the payment.",
+      "file": "payments_payment_methods_moto.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/moto.md",
+      "sha256": "0d7a32c6775d42ffdc6aa1e3e4f605bec3145cf7e26d039de338a94397b4cf70"
+    },
+    {
+      "sentence": "You must be PCI-compliant to accept and process customers' card details using the MOTO payment method.",
+      "file": "payments_payment_methods_moto_batch.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/moto/batch.md",
+      "sha256": "198a4c65a5d125be633c8211ab7acd70e58f66118451bb7ba10a450b28b9ee38"
+    },
+    {
+      "sentence": "The amount should be in the currency subunit.",
+      "file": "payments_payment_methods_moto_batch.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/moto/batch.md",
+      "sha256": "198a4c65a5d125be633c8211ab7acd70e58f66118451bb7ba10a450b28b9ee38"
+    },
+    {
+      "sentence": "Your is **NOT** required and should **NOT** be passed.",
+      "file": "payments_payment_methods_netbanking.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/netbanking.md",
+      "sha256": "3cd5feb4a1a8a3f1e9553b610a00a6eb28b01cf6552ee47381d393a5c532b6e5"
+    },
+    {
+      "sentence": "The secret should never be exposed publicly.",
+      "file": "payments_payment_methods_otc.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/otc.md",
+      "sha256": "5c5ea70a0d07747fcab1b84928a8837f9f515ac62ec22298e9b9eb1d4ce7830d"
+    },
+    {
+      "sentence": "- In the **Alert Email** field, enter the email address to which the notifications should be sent in case of webhook failure.",
+      "file": "payments_payment_methods_otc.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/otc.md",
+      "sha256": "5c5ea70a0d07747fcab1b84928a8837f9f515ac62ec22298e9b9eb1d4ce7830d"
+    },
+    {
+      "sentence": "- No additional integration is required to show Pay Later on your Standard Checkout integration.",
+      "file": "payments_payment_methods_pay_later.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/pay-later.md",
+      "sha256": "db719fb19863bb71b4ae379cf16028a378a85ebe928b208794817853ffd423ec"
+    },
+    {
+      "sentence": "- The Razorpay Custom Checkout should be integrated on your website or app.",
+      "file": "payments_payment_methods_pay_later_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/pay-later/custom-integration.md",
+      "sha256": "d39cff520f467e9d69bae76424f23e6e24414f13549ec87db07f03694845fbd3"
+    },
+    {
+      "sentence": "- Customers should be registered account holders of the Pay Later service providers.",
+      "file": "payments_payment_methods_pay_later_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/pay-later/custom-integration.md",
+      "sha256": "d39cff520f467e9d69bae76424f23e6e24414f13549ec87db07f03694845fbd3"
+    },
+    {
+      "sentence": "After an order is created and the customer's payment details are received, the information should be sent to Razorpay to complete the payment.",
+      "file": "payments_payment_methods_pay_later_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/pay-later/custom-integration.md",
+      "sha256": "d39cff520f467e9d69bae76424f23e6e24414f13549ec87db07f03694845fbd3"
+    },
+    {
+      "sentence": "No problem!** Customers who do not have access to cards or do not want to use them for online transactions can use POLi to pay through their bank accounts.",
+      "file": "payments_payment_methods_poli.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/poli.md",
+      "sha256": "b5cd30d127e0d50877bfe21f8acb7e18449a5e8d66c2868854f3f2ab2d57a7d9"
+    },
+    {
+      "sentence": "Ensure that when the customer clicks , they land on a page that displays a clear message asking them to check their bank account and verify that the amount has not been deducted before processing another transaction.",
+      "file": "payments_payment_methods_poli.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/poli.md",
+      "sha256": "b5cd30d127e0d50877bfe21f8acb7e18449a5e8d66c2868854f3f2ab2d57a7d9"
+    },
+    {
+      "sentence": "You do not need to open a foreign bank account to accept bank transfers from your European customers.",
+      "file": "payments_payment_methods_sofort.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/sofort.md",
+      "sha256": "ecdae519abe4f53ec893e00bedf380435501ff87dad5a722a1b085538c331b9e"
+    },
+    {
+      "sentence": "No problem!** Customers who do not have access to cards can use Sofort to pay through their bank accounts, making it easy for you to sell products in foreign countries with lower card coverage.",
+      "file": "payments_payment_methods_sofort.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/sofort.md",
+      "sha256": "ecdae519abe4f53ec893e00bedf380435501ff87dad5a722a1b085538c331b9e"
+    },
+    {
+      "sentence": "Razorpay's pay in native currency feature will ensure that your European customer is shown the right currency.",
+      "file": "payments_payment_methods_sofort.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/sofort.md",
+      "sha256": "ecdae519abe4f53ec893e00bedf380435501ff87dad5a722a1b085538c331b9e"
+    },
+    {
+      "sentence": "- **No need to open foreign bank accounts** You do not need to open a foreign bank account to accept transfers from your European customers.",
+      "file": "payments_payment_methods_trustly.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/trustly.md",
+      "sha256": "02b81f5fc4235d641abd408c152605186b04b9b26c8e495322dc8e82954e2f02"
+    },
+    {
+      "sentence": "No problem!** Customers who do not have access to cards can use Trustly to pay through their bank accounts, making it easy for you to sell products in foreign countries with lower card coverage.",
+      "file": "payments_payment_methods_trustly.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/trustly.md",
+      "sha256": "02b81f5fc4235d641abd408c152605186b04b9b26c8e495322dc8e82954e2f02"
+    },
+    {
+      "sentence": "- If you are an existing Razorpay user not covered by exemptions, you must migrate to UPI Intent or UPI QR code to continue accepting UPI payments.",
+      "file": "payments_payment_methods_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi.md",
+      "sha256": "91091b1adf29c1712c7bf3ae764f6c2cae31c204704c158209e6bc3ca52ff95e"
+    },
+    {
+      "sentence": "If your business is classified under **Merchant Category Code 6211 (Securities Brokers/Dealers)** and is a **SEBI-registered intermediary** (including Stockbrokers, Mutual Funds, PMS providers and so on), you must adhere to a special regulatory mandate for UPI collection, effective **October 1, 2025**.",
+      "file": "payments_payment_methods_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi.md",
+      "sha256": "91091b1adf29c1712c7bf3ae764f6c2cae31c204704c158209e6bc3ca52ff95e"
+    },
+    {
+      "sentence": "**UPI Identifier Requirements** - Businesses must **use a standardised UPI identifier** as mandated by SEBI for all registered intermediaries.",
+      "file": "payments_payment_methods_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi.md",
+      "sha256": "91091b1adf29c1712c7bf3ae764f6c2cae31c204704c158209e6bc3ca52ff95e"
+    },
+    {
+      "sentence": "- The identifier must incorporate the handle.",
+      "file": "payments_payment_methods_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi.md",
+      "sha256": "91091b1adf29c1712c7bf3ae764f6c2cae31c204704c158209e6bc3ca52ff95e"
+    },
+    {
+      "sentence": "- The allocation by the SCSB must follow a prescribed validation process.",
+      "file": "payments_payment_methods_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi.md",
+      "sha256": "91091b1adf29c1712c7bf3ae764f6c2cae31c204704c158209e6bc3ca52ff95e"
+    },
+    {
+      "sentence": "All UPI IDs must be requested and approved through the **SEBI Intermediary Portal (SI Portal)**.",
+      "file": "payments_payment_methods_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi.md",
+      "sha256": "91091b1adf29c1712c7bf3ae764f6c2cae31c204704c158209e6bc3ca52ff95e"
+    },
+    {
+      "sentence": "You must create separate VPAs for **One-Time** and **Autopay** transactions, using **RZP1** and **RZP2** respectively.",
+      "file": "payments_payment_methods_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi.md",
+      "sha256": "91091b1adf29c1712c7bf3ae764f6c2cae31c204704c158209e6bc3ca52ff95e"
+    },
+    {
+      "sentence": "**Requirement**: You must use your own bank account that resides within the chosen PSP Bank.",
+      "file": "payments_payment_methods_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi.md",
+      "sha256": "91091b1adf29c1712c7bf3ae764f6c2cae31c204704c158209e6bc3ca52ff95e"
+    },
+    {
+      "sentence": "If you choose , you must use an **HDFC Bank account**.",
+      "file": "payments_payment_methods_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi.md",
+      "sha256": "91091b1adf29c1712c7bf3ae764f6c2cae31c204704c158209e6bc3ca52ff95e"
+    },
+    {
+      "sentence": "If you do not have an account, you must open one.",
+      "file": "payments_payment_methods_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi.md",
+      "sha256": "91091b1adf29c1712c7bf3ae764f6c2cae31c204704c158209e6bc3ca52ff95e"
+    },
+    {
+      "sentence": "**Requirement**: You must use the specific Bank Account Number and IFSC provided by Razorpay that corresponds to the respective Clearing Corporation (ICCL or NCL) and PSP Bank (**ICICI/Axis/HDFC**).",
+      "file": "payments_payment_methods_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi.md",
+      "sha256": "91091b1adf29c1712c7bf3ae764f6c2cae31c204704c158209e6bc3ca52ff95e"
+    },
+    {
+      "sentence": "Proceed to enter your entity's bank account details (which must be with the chosen PSP Bank).",
+      "file": "payments_payment_methods_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi.md",
+      "sha256": "91091b1adf29c1712c7bf3ae764f6c2cae31c204704c158209e6bc3ca52ff95e"
+    },
+    {
+      "sentence": "**INFO** **Handy Tips** This account must correspond to the chosen **PSP Bank (Model I)** or the respective **Clearing Corporation (Model II)**.",
+      "file": "payments_payment_methods_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi.md",
+      "sha256": "91091b1adf29c1712c7bf3ae764f6c2cae31c204704c158209e6bc3ca52ff95e"
+    },
+    {
+      "sentence": "Each UPI id you request must have a unique optional parameter for sequencing.",
+      "file": "payments_payment_methods_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi.md",
+      "sha256": "91091b1adf29c1712c7bf3ae764f6c2cae31c204704c158209e6bc3ca52ff95e"
+    },
+    {
+      "sentence": "**INFO** **Handy Tips** If your preferred PSP is not listed, you must check with your bank as this indicates a configuration issue or restriction.",
+      "file": "payments_payment_methods_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi.md",
+      "sha256": "91091b1adf29c1712c7bf3ae764f6c2cae31c204704c158209e6bc3ca52ff95e"
+    },
+    {
+      "sentence": "After the bank confirms the UPI id allocation, you must share the final, approved VPA details with the Razorpay support team to link it to your Payment Gateway MIDs.",
+      "file": "payments_payment_methods_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi.md",
+      "sha256": "91091b1adf29c1712c7bf3ae764f6c2cae31c204704c158209e6bc3ca52ff95e"
+    },
+    {
+      "sentence": "--- **ICICI Bank** | You are required to complete and share the following directly with ICICI Bank: - Parent MID Sheet - UPI Merchant Onboarding Form - Corporate API Suite (CAS) - Technical Details to Include in Forms: Port, IP, URL You are required to complete and share the **Parent MID Sheet** and the **UPI Merchant Onboarding Form** directly with ICICI Bank.",
+      "file": "payments_payment_methods_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi.md",
+      "sha256": "91091b1adf29c1712c7bf3ae764f6c2cae31c204704c158209e6bc3ca52ff95e"
+    },
+    {
+      "sentence": "The customers must accept the request they receive on their UPI app to make the payment successfully.",
+      "file": "payments_payment_methods_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi.md",
+      "sha256": "91091b1adf29c1712c7bf3ae764f6c2cae31c204704c158209e6bc3ca52ff95e"
+    },
+    {
+      "sentence": "To make a payment using RuPay credit card on UPI, the user must follow these steps: 1.",
+      "file": "payments_payment_methods_upi_cc_on_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/cc-on-upi.md",
+      "sha256": "0fe7297123e9ce561874aeb1eccc48b0f906982aca17b235458c532ab18084ef"
+    },
+    {
+      "sentence": "- **Custom/S2S Checkout**: You must take manual action to remove the UPI Collect option from your UI and backend and ensure you have enabled UPI Intent or QR codes.",
+      "file": "payments_payment_methods_upi_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/faqs.md",
+      "sha256": "41eb6daf4c249e8076dd452273bbddc4047524cc03e65ae69d34a7da256223ed"
+    },
+    {
+      "sentence": "No downtime is expected during this migration.",
+      "file": "payments_payment_methods_upi_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/faqs.md",
+      "sha256": "41eb6daf4c249e8076dd452273bbddc4047524cc03e65ae69d34a7da256223ed"
+    },
+    {
+      "sentence": "- You must manually integrate UPI Intent and QR code.",
+      "file": "payments_payment_methods_upi_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/faqs.md",
+      "sha256": "41eb6daf4c249e8076dd452273bbddc4047524cc03e65ae69d34a7da256223ed"
+    },
+    {
+      "sentence": "If you are using Razorpay's Standard Checkout, you do not need to make any change to integrate Google Pay on your checkout page.",
+      "file": "payments_payment_methods_upi_google_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/google-pay.md",
+      "sha256": "a832a18256558f05c5d91d5fe37017a3b6c7850f018434f124057e21576d7f94"
+    },
+    {
+      "sentence": "You should have already integrated Razorpay Standard Checkout.",
+      "file": "payments_payment_methods_upi_google_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/google-pay.md",
+      "sha256": "a832a18256558f05c5d91d5fe37017a3b6c7850f018434f124057e21576d7f94"
+    },
+    {
+      "sentence": "You should have already integrated one of the following: - Razorpay Web Integration - Custom Checkout.",
+      "file": "payments_payment_methods_upi_google_pay_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/google-pay/custom-integration.md",
+      "sha256": "e10e76ab96d8e7477dba388d26b3b706abbfdf89e95efed23898c0c0923da8fa"
+    },
+    {
+      "sentence": "On mobile-web, for intent-based payments, the flow should be as follows: 1.",
+      "file": "payments_payment_methods_upi_google_pay_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/google-pay/custom-integration.md",
+      "sha256": "e10e76ab96d8e7477dba388d26b3b706abbfdf89e95efed23898c0c0923da8fa"
+    },
+    {
+      "sentence": "If you are using Razorpay Standard Checkout Integration for your web applications or Android apps, you do not require any additional integration to display **Google Pay** in the list of payment options.",
+      "file": "payments_payment_methods_upi_google_pay_omnichannel.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/google-pay/omnichannel.md",
+      "sha256": "574f7abd0fb7632265949d2e1d899990ca512ff3cc2dfbaf9f80fb83f3f0104a"
+    },
+    {
+      "sentence": "You should have already integrated the Razorpay Checkout with your application using one of the following: - Razorpay Web Integration - Custom Checkout - Razorpay Android Integration - Custom Checkout 1.",
+      "file": "payments_payment_methods_upi_google_pay_omnichannel_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/google-pay/omnichannel/custom-integration.md",
+      "sha256": "aa8997a56f7c13607b955f2b8261e958d4fcfb48a1b33376c85ede4b9e16b647"
+    },
+    {
+      "sentence": "- You do not have to integrate directly with Google Pay.",
+      "file": "payments_payment_methods_upi_google_pay_spot_platform_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/google-pay/spot-platform-integration.md",
+      "sha256": "b5e5ad8452356382a03c1289382d2afdc4c9692aabbb56451918cb17e5296203"
+    },
+    {
+      "sentence": "Include the following script, preferably in the section of your page: If you need multiple Razorpay instances on the same page, you can globally set some of the options: Once the order is created and the customer's payment details are obtained, the information should be sent to Razorpay to complete the payment.",
+      "file": "payments_payment_methods_upi_google_pay_spot_platform_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/google-pay/spot-platform-integration.md",
+      "sha256": "b5e5ad8452356382a03c1289382d2afdc4c9692aabbb56451918cb17e5296203"
+    },
+    {
+      "sentence": "During checkout, if there is a co-branded offer run by GooglePay, you should apply the discount, and pass on the offer details to Google.",
+      "file": "payments_payment_methods_upi_google_pay_spot_platform_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/google-pay/spot-platform-integration.md",
+      "sha256": "b5e5ad8452356382a03c1289382d2afdc4c9692aabbb56451918cb17e5296203"
+    },
+    {
+      "sentence": "You must structure the data as per Google's formats.",
+      "file": "payments_payment_methods_upi_google_pay_spot_platform_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/google-pay/spot-platform-integration.md",
+      "sha256": "b5e5ad8452356382a03c1289382d2afdc4c9692aabbb56451918cb17e5296203"
+    },
+    {
+      "sentence": "--- Given below are the checkout parameters that you must pass in the file.",
+      "file": "payments_payment_methods_upi_google_pay_spot_platform_integration_checkout_parameters.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/google-pay/spot-platform-integration/checkout-parameters.md",
+      "sha256": "9e3a393ef95c9d379c4b1aa67a323b90566006245f7737759403d593378c5d62"
+    },
+    {
+      "sentence": "It must start with an alphanumeric character.",
+      "file": "payments_payment_methods_upi_google_pay_spot_platform_integration_checkout_parameters.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/google-pay/spot-platform-integration/checkout-parameters.md",
+      "sha256": "9e3a393ef95c9d379c4b1aa67a323b90566006245f7737759403d593378c5d62"
+    },
+    {
+      "sentence": "Possible values: - (default) - (default) - (default) - (default) - (default) - (requires approval) - (requires approval) - (requires approval) _mandatory if method=card/emi_ : The details of the card that should be entered while making the payment.",
+      "file": "payments_payment_methods_upi_google_pay_spot_platform_integration_checkout_parameters.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/google-pay/spot-platform-integration/checkout-parameters.md",
+      "sha256": "9e3a393ef95c9d379c4b1aa67a323b90566006245f7737759403d593378c5d62"
+    },
+    {
+      "sentence": "_mandatory if method=emandate_ : The details of the bank account that should be passed in the request.",
+      "file": "payments_payment_methods_upi_google_pay_spot_platform_integration_checkout_parameters.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/google-pay/spot-platform-integration/checkout-parameters.md",
+      "sha256": "9e3a393ef95c9d379c4b1aa67a323b90566006245f7737759403d593378c5d62"
+    },
+    {
+      "sentence": "_optional_ : The URL to which the customer must be redirected upon completion of payment.",
+      "file": "payments_payment_methods_upi_google_pay_spot_platform_integration_checkout_parameters.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/google-pay/spot-platform-integration/checkout-parameters.md",
+      "sha256": "9e3a393ef95c9d379c4b1aa67a323b90566006245f7737759403d593378c5d62"
+    },
+    {
+      "sentence": "_conditionally mandatory_ : Determines whether customer should be redirected to the URL mentioned in the parameter.",
+      "file": "payments_payment_methods_upi_google_pay_spot_platform_integration_checkout_parameters.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/google-pay/spot-platform-integration/checkout-parameters.md",
+      "sha256": "9e3a393ef95c9d379c4b1aa67a323b90566006245f7737759403d593378c5d62"
+    },
+    {
+      "sentence": "--- When using Razorpay Standard Checkout Integration, you do not require any extra integration to display the Google Pay option in the list of payment options.Google Pay is shown inside the **UPI** section on the checkout form.",
+      "file": "payments_payment_methods_upi_google_pay_standard_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/google-pay/standard-integration.md",
+      "sha256": "80b0b8324f68506a2b0d6f6e64c87b415d56f52af8e17b26d70de00919f7c973"
+    },
+    {
+      "sentence": "--- As per the 2020 circular issued by the Central Board of Indirect Taxes & Customs (CBIC), businesses meeting the eligibility conditions described below must pass GST information for UPI transactions: Given below are the eligibility conditions: - Businesses whose annual aggregate turnover exceeds \u20b9500 crores in any financial year from 2017-18 onwards.",
+      "file": "payments_payment_methods_upi_gst_on_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/gst-on-upi.md",
+      "sha256": "69f344b7603b0703fb1843626494f281d006833a1afb52b4a3e822ea947151eb"
+    },
+    {
+      "sentence": "To comply with the change, you should use the Orders API in your integration flow, along with the following additional parameters request parameters: _optional_ : This object contains information about the invoices.",
+      "file": "payments_payment_methods_upi_gst_on_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/gst-on-upi.md",
+      "sha256": "69f344b7603b0703fb1843626494f281d006833a1afb52b4a3e822ea947151eb"
+    },
+    {
+      "sentence": "In that case, you do not have to send the GST parameters in the transaction.",
+      "file": "payments_payment_methods_upi_gst_on_upi_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/gst-on-upi/faqs.md",
+      "sha256": "9572846a3a5458a032511b9b1eb5c2d29e0ea7746b5422c5764ec38d60b45a27"
+    },
+    {
+      "sentence": "In this case, you do not need to share the GST information on UPI transactions.",
+      "file": "payments_payment_methods_upi_gst_on_upi_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/gst-on-upi/faqs.md",
+      "sha256": "9572846a3a5458a032511b9b1eb5c2d29e0ea7746b5422c5764ec38d60b45a27"
+    },
+    {
+      "sentence": "Ensure that you have the API key required for integration.",
+      "file": "payments_payment_methods_upi_qr_api.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi-qr/api.md",
+      "sha256": "0ff74495e1708a3a59b276cc12d0ff4d86b6b41adea5fc6754a080969cbafdec"
+    },
+    {
+      "sentence": "To start accepting payments using UPI QR Code, a virtual account should be created with a , which defines the payment collection method associated with it.",
+      "file": "payments_payment_methods_upi_qr_api.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi-qr/api.md",
+      "sha256": "0ff74495e1708a3a59b276cc12d0ff4d86b6b41adea5fc6754a080969cbafdec"
+    },
+    {
+      "sentence": "_mandatory_ : The payment method that should be used to make the payment.",
+      "file": "payments_payment_methods_upi_qr_api.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi-qr/api.md",
+      "sha256": "0ff74495e1708a3a59b276cc12d0ff4d86b6b41adea5fc6754a080969cbafdec"
+    },
+    {
+      "sentence": "_optional_ : Indicates whether card payment should be allowed with the QR Code or not.",
+      "file": "payments_payment_methods_upi_qr_api.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi-qr/api.md",
+      "sha256": "0ff74495e1708a3a59b276cc12d0ff4d86b6b41adea5fc6754a080969cbafdec"
+    },
+    {
+      "sentence": "_mandatory_ : Indicates whether UPI payment should be allowed with the QR Code or not.",
+      "file": "payments_payment_methods_upi_qr_api.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi-qr/api.md",
+      "sha256": "0ff74495e1708a3a59b276cc12d0ff4d86b6b41adea5fc6754a080969cbafdec"
+    },
+    {
+      "sentence": "It should be set at least 15 minutes after the time of creation.",
+      "file": "payments_payment_methods_upi_qr_api.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi-qr/api.md",
+      "sha256": "0ff74495e1708a3a59b276cc12d0ff4d86b6b41adea5fc6754a080969cbafdec"
+    },
+    {
+      "sentence": "/virtual_accounts/:id/close _mandatory_ : Unique identifier of the virtual account that should be closed.",
+      "file": "payments_payment_methods_upi_qr_api.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi-qr/api.md",
+      "sha256": "0ff74495e1708a3a59b276cc12d0ff4d86b6b41adea5fc6754a080969cbafdec"
+    },
+    {
+      "sentence": "The customer cannot make multiple payments for the same UPI QR Code.",
+      "file": "payments_payment_methods_upi_qr_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi-qr/faqs.md",
+      "sha256": "aa0b3093b1129b5ac900103132531171188d1f7a6322f884d5d73ffaca1df7da"
+    },
+    {
+      "sentence": "You can either manually close the virtual account or set the time by when the virtual account should be closed.",
+      "file": "payments_payment_methods_upi_qr_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi-qr/faqs.md",
+      "sha256": "aa0b3093b1129b5ac900103132531171188d1f7a6322f884d5d73ffaca1df7da"
+    },
+    {
+      "sentence": "In such cases, the virtual account should be closed.",
+      "file": "payments_payment_methods_upi_qr_webhooks.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi-qr/webhooks.md",
+      "sha256": "857bc4cae65c3edc911cb0da1e81dae6e57968a860db3c3f1c8f165112daf2c9"
+    },
+    {
+      "sentence": "- The customers do not need to enter the VPAs and use the saved VPAs every time they make a transaction.",
+      "file": "payments_payment_methods_upi_saved_vpa.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/saved-vpa.md",
+      "sha256": "d8c68f39fba08a0c82af0260c66cbdc57852c254bb8f700c37884a859f1b14a7"
+    },
+    {
+      "sentence": "The customers should authenticate once (be logged in) through the saved card flow on Razorpay Checkout.",
+      "file": "payments_payment_methods_upi_saved_vpa.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/saved-vpa.md",
+      "sha256": "d8c68f39fba08a0c82af0260c66cbdc57852c254bb8f700c37884a859f1b14a7"
+    },
+    {
+      "sentence": "With customers never leaving your app, reduce timeout issues significantly, and get more visibility on payment failures.",
+      "file": "payments_payment_methods_upi_turbo_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/turbo-upi.md",
+      "sha256": "15fd772df9e8da95ce3d9f84af26e1e5888b1d8539ac9f7066d4a3051f898c39"
+    },
+    {
+      "sentence": "As new capabilities are added to the UPI application, such as Credit Cards on UPI, do not depend on adoption across third-party UPI apps.",
+      "file": "payments_payment_methods_upi_turbo_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/turbo-upi.md",
+      "sha256": "15fd772df9e8da95ce3d9f84af26e1e5888b1d8539ac9f7066d4a3051f898c39"
+    },
+    {
+      "sentence": "- **Investment** Investment companies must comply with regulations and collect payments from only customers' KYC-verified bank accounts.",
+      "file": "payments_payment_methods_upi_turbo_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/turbo-upi.md",
+      "sha256": "15fd772df9e8da95ce3d9f84af26e1e5888b1d8539ac9f7066d4a3051f898c39"
+    },
+    {
+      "sentence": "The following methods should also be integrated along with Turbo UPI: - **Delete linked Bank Account**: Customers can delete their existing bank account linked to your app.",
+      "file": "payments_payment_methods_upi_turbo_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/turbo-upi.md",
+      "sha256": "15fd772df9e8da95ce3d9f84af26e1e5888b1d8539ac9f7066d4a3051f898c39"
+    },
+    {
+      "sentence": "Ensure that the latest version of the iOS Standard SDK is integrated with your app.",
+      "file": "payments_payment_methods_upi_upi_intent.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/upi-intent.md",
+      "sha256": "bbd6633bcf51605e4a29b46d7a4bd08013679cb4a86bb0496823f78bc256d611"
+    },
+    {
+      "sentence": "Your iOS app must seek permission from the device to open the UPI PSP app that the customer selects on Checkout.",
+      "file": "payments_payment_methods_upi_upi_intent.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/upi-intent.md",
+      "sha256": "bbd6633bcf51605e4a29b46d7a4bd08013679cb4a86bb0496823f78bc256d611"
+    },
+    {
+      "sentence": "For this, you must make the following changes in your iOS app's info.plist file.",
+      "file": "payments_payment_methods_upi_upi_intent.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/upi-intent.md",
+      "sha256": "bbd6633bcf51605e4a29b46d7a4bd08013679cb4a86bb0496823f78bc256d611"
+    },
+    {
+      "sentence": "You must show the list of UPI apps in 2 sections: - Top performing apps (GPAY > PhonePe > Paytm > BHIM) - Other apps - UPI Error Codes - UPI Transaction Limits",
+      "file": "payments_payment_methods_upi_upi_intent.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/upi-intent.md",
+      "sha256": "bbd6633bcf51605e4a29b46d7a4bd08013679cb4a86bb0496823f78bc256d611"
+    },
+    {
+      "sentence": "You must ensure that the UPI PSP app (Google Pay, PhonePe or Paytm) is available on the customer's device.",
+      "file": "payments_payment_methods_upi_upi_intent_s2s_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/upi-intent/s2s-integration.md",
+      "sha256": "be92ae297e614be0cf6f605cc5c443c31325bd5e17dbc7dd8bcd6a1b27159319"
+    },
+    {
+      "sentence": "**INFO** **Handy Tips** - Always use the Live key with Amazon Pay, even for testing.",
+      "file": "payments_payment_methods_wallets_amazon_pay_custom_integration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/wallets/amazon-pay/custom-integration.md",
+      "sha256": "7d0ef41d9fae467c686401a295b37ab5e8dfa2e0ae01e8b02015caf2df2a3d79"
+    },
+    {
+      "sentence": "**INFO** **Handy Tips** You must have a separate integration with the external wallet of choice.",
+      "file": "payments_payment_methods_wallets_external.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/wallets/external.md",
+      "sha256": "13e3875eccc7bcbe599373f569ad7910a01315ada48288f6bee78da5d3d0cc5e"
+    },
+    {
+      "sentence": "You must pass this data to the external wallet integration.",
+      "file": "payments_payment_methods_wallets_external.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/wallets/external.md",
+      "sha256": "13e3875eccc7bcbe599373f569ad7910a01315ada48288f6bee78da5d3d0cc5e"
+    },
+    {
+      "sentence": "You must pass the required string value as an array against : Wallet Names | String Values --- Paytm | paytm --- Citrus Wallet | citrus --- Amazon Pay | amazonpay You can list these wallets on any of the following platforms: - **Web application** - **Android** - **iOS** **INFO** **Handy Tips** The wallet payment method can be used for a purchase amount of up to \u20b920000 (2000000 in paise).",
+      "file": "payments_payment_methods_wallets_external.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/wallets/external.md",
+      "sha256": "13e3875eccc7bcbe599373f569ad7910a01315ada48288f6bee78da5d3d0cc5e"
+    },
+    {
+      "sentence": "Users must first download the Grab app and set up an account.",
+      "file": "payments_payment_methods_wallets_grab_pay.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/wallets/grab-pay.md",
+      "sha256": "91b18098fd233c595c3d1c3b7918ed6dede7e4517f817430e46f0b87d8db0ea4"
+    },
+    {
+      "sentence": "Users must first download the MCash app and create an account.",
+      "file": "payments_payment_methods_wallets_mcash.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/wallets/mcash.md",
+      "sha256": "3297bbcc94e412811800d1d34aa397dd3cc4c7e99cc914ce09694839ecea42b5"
+    },
+    {
+      "sentence": "Upon redirection to PayPal: - If you do not have a PayPal account, you need to complete the verification process and KYC.",
+      "file": "payments_payment_methods_wallets_paypal.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/wallets/paypal.md",
+      "sha256": "9a82d3868449aebfba4042d82213232a1489ad34cfd6c7865da4c9830aa3c992"
+    },
+    {
+      "sentence": "- Each business should set up a separate PayPal account for each MID.",
+      "file": "payments_payment_methods_wallets_paypal.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/wallets/paypal.md",
+      "sha256": "9a82d3868449aebfba4042d82213232a1489ad34cfd6c7865da4c9830aa3c992"
+    },
+    {
+      "sentence": "- Razorpay's pay in native currency feature will ensure that your Australian customer is shown the right currency.",
+      "file": "payments_payment_methods_zip.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/zip.md",
+      "sha256": "f18233483ffc511f914c8aa9d0016a0ae85c97cc8bfbedcff27ecc49aca8da63"
+    },
+    {
+      "sentence": "For example, if the amount is \u20b91,000, you should enter the value as .",
+      "file": "payments_recurring_payments_batch_operations.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/batch-operations.md",
+      "sha256": "2b43f3726b9d49478c47bb77ec55c709042f77e695b6de9381b0da22c7498d44"
+    },
+    {
+      "sentence": "The following table lists the fields required to create a registration link: _optional_ : The customer's name.",
+      "file": "payments_recurring_payments_batch_operations.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/batch-operations.md",
+      "sha256": "2b43f3726b9d49478c47bb77ec55c709042f77e695b6de9381b0da22c7498d44"
+    },
+    {
+      "sentence": "This parameter should be mapped to the sent by Razorpay.",
+      "file": "payments_recurring_payments_batch_operations.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/batch-operations.md",
+      "sha256": "2b43f3726b9d49478c47bb77ec55c709042f77e695b6de9381b0da22c7498d44"
+    },
+    {
+      "sentence": "You can add up to 5 custom notes in the following format: - notes[portfolio id] - notes[transaction id] **INFO** **Bank Details** For Emandate, you should provide all the required bank details or leave all the fields blank.",
+      "file": "payments_recurring_payments_batch_operations.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/batch-operations.md",
+      "sha256": "2b43f3726b9d49478c47bb77ec55c709042f77e695b6de9381b0da22c7498d44"
+    },
+    {
+      "sentence": "The schedule time should be at least 1 hour from the current time.",
+      "file": "payments_recurring_payments_batch_operations.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/batch-operations.md",
+      "sha256": "2b43f3726b9d49478c47bb77ec55c709042f77e695b6de9381b0da22c7498d44"
+    },
+    {
+      "sentence": "The following table lists the fields required to charge a token: _mandatory_ : The unique identifier for the token.",
+      "file": "payments_recurring_payments_batch_operations.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/batch-operations.md",
+      "sha256": "2b43f3726b9d49478c47bb77ec55c709042f77e695b6de9381b0da22c7498d44"
+    },
+    {
+      "sentence": "**INFO** **Handy Tips** Businesses should initiate the debit.",
+      "file": "payments_recurring_payments_cards_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/cards/faqs.md",
+      "sha256": "6af3b76d984f48f811beb38b4d71a822ef0284c5c5980234ab91de833cdb6eb2"
+    },
+    {
+      "sentence": "You should reach out to your POCs to get this enabled.",
+      "file": "payments_recurring_payments_cards_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/cards/faqs.md",
+      "sha256": "6af3b76d984f48f811beb38b4d71a822ef0284c5c5980234ab91de833cdb6eb2"
+    },
+    {
+      "sentence": "If you have already integrated Razorpay Subscriptions or CAW for Visa and Mastercard cards, no additional changes or integrations are required to enable RuPay cards.",
+      "file": "payments_recurring_payments_cards_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/cards/faqs.md",
+      "sha256": "6af3b76d984f48f811beb38b4d71a822ef0284c5c5980234ab91de833cdb6eb2"
+    },
+    {
+      "sentence": "Hence, the next pre-debit with the same amount should only be raised after the debit is successfully done against the previous pre-debit notification or after the previous pre-debit notification expires(T+3 days to expire, where T is the debit date specified).",
+      "file": "payments_recurring_payments_cards_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/cards/faqs.md",
+      "sha256": "6af3b76d984f48f811beb38b4d71a822ef0284c5c5980234ab91de833cdb6eb2"
+    },
+    {
+      "sentence": "--- In India, recurring payments were restrictive in the past because of the RBI's requirement for a two-step verification process where the customer required to enter a One-Time Password (OTP), received via email or SMS, to complete the payment.",
+      "file": "payments_recurring_payments_cards_integrate.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/cards/integrate.md",
+      "sha256": "c26bbdd7a330ff00126bdd2759aea2a6523d085aea98dc0272f2c37780d8b73c"
+    },
+    {
+      "sentence": "To process recurring mandates, customer card details must be secured/tokenised in accordance with applicable laws.",
+      "file": "payments_recurring_payments_cards_integrate.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/cards/integrate.md",
+      "sha256": "c26bbdd7a330ff00126bdd2759aea2a6523d085aea98dc0272f2c37780d8b73c"
+    },
+    {
+      "sentence": "Using this authorisation transaction, we can authenticate the customer's card mandate and ensure that we can charge them recurring payments.",
+      "file": "payments_recurring_payments_cards_integrate.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/cards/integrate.md",
+      "sha256": "c26bbdd7a330ff00126bdd2759aea2a6523d085aea98dc0272f2c37780d8b73c"
+    },
+    {
+      "sentence": "Following is the authorisation transaction flow for Razorpay registration link method: For customers to complete the authorisation transaction via a registration link, you should **Create a registration link and send it to your customer**.",
+      "file": "payments_recurring_payments_cards_integrate.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/cards/integrate.md",
+      "sha256": "c26bbdd7a330ff00126bdd2759aea2a6523d085aea98dc0272f2c37780d8b73c"
+    },
+    {
+      "sentence": "If you have already created a customer via APIs, you must enter the same Customer Name here.",
+      "file": "payments_recurring_payments_create.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/create.md",
+      "sha256": "72ea081556c2532dd6306e151b26b8040733e98461ea279f22238986e09e4c97"
+    },
+    {
+      "sentence": "If you have already created a customer via APIs, you must enter the same email address and phone number here.",
+      "file": "payments_recurring_payments_create.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/create.md",
+      "sha256": "72ea081556c2532dd6306e151b26b8040733e98461ea279f22238986e09e4c97"
+    },
+    {
+      "sentence": "_mandatory_ : The frequency at which the amount should be charged.",
+      "file": "payments_recurring_payments_create.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/create.md",
+      "sha256": "72ea081556c2532dd6306e151b26b8040733e98461ea279f22238986e09e4c97"
+    },
+    {
+      "sentence": "_optional_ : Select this option if you do not want to pre-fill bank details in the registration link.",
+      "file": "payments_recurring_payments_create.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/create.md",
+      "sha256": "72ea081556c2532dd6306e151b26b8040733e98461ea279f22238986e09e4c97"
+    },
+    {
+      "sentence": "- You cannot edit the details of the token once you register the mandate.",
+      "file": "payments_recurring_payments_emandate_apis.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/emandate/apis.md",
+      "sha256": "30c1636eee219e2e45c8673da1841c1688097e76ae3a1410e59ee72c79044901"
+    },
+    {
+      "sentence": "- To ensure same-day debit authorization, Razorpay must receive the request by 8:59 a.m.",
+      "file": "payments_recurring_payments_emandate_apis.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/emandate/apis.md",
+      "sha256": "30c1636eee219e2e45c8673da1841c1688097e76ae3a1410e59ee72c79044901"
+    },
+    {
+      "sentence": "_mandatory_ : Determines if payment should be automatically captured.",
+      "file": "payments_recurring_payments_emandate_charge_customer_during_registration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/emandate/charge-customer-during-registration.md",
+      "sha256": "5f6fc1f4800e53ced36b0372a662959dec7257623de2e3f550bbf3e2c2b1a517"
+    },
+    {
+      "sentence": "_optional_ : The timestamp, in Unix, till when the registration link should be available to the customer to make the authorisation transaction.",
+      "file": "payments_recurring_payments_emandate_charge_customer_during_registration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/emandate/charge-customer-during-registration.md",
+      "sha256": "5f6fc1f4800e53ced36b0372a662959dec7257623de2e3f550bbf3e2c2b1a517"
+    },
+    {
+      "sentence": "However, if both joint holders\u2019 approval is required for operating the account, then such account holders cannot register with Emandates.",
+      "file": "payments_recurring_payments_emandate_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/emandate/faqs.md",
+      "sha256": "002456d4ef942e758efb81d3fa804ef482463e170d5c2b4727ba92d866eca270"
+    },
+    {
+      "sentence": "Ensure that the selected bank account is in the state.",
+      "file": "payments_recurring_payments_emandate_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/emandate/faqs.md",
+      "sha256": "002456d4ef942e758efb81d3fa804ef482463e170d5c2b4727ba92d866eca270"
+    },
+    {
+      "sentence": "You should collect the following information from the customer: 1.",
+      "file": "payments_recurring_payments_emandate_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/emandate/faqs.md",
+      "sha256": "002456d4ef942e758efb81d3fa804ef482463e170d5c2b4727ba92d866eca270"
+    },
+    {
+      "sentence": "You cannot modify or edit a mandate that has already been created.",
+      "file": "payments_recurring_payments_emandate_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/emandate/faqs.md",
+      "sha256": "002456d4ef942e758efb81d3fa804ef482463e170d5c2b4727ba92d866eca270"
+    },
+    {
+      "sentence": "If you do not set a limit for the mandate, the maximum limit defaults to \u20b999,999 for Emandates.",
+      "file": "payments_recurring_payments_emandate_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/emandate/faqs.md",
+      "sha256": "002456d4ef942e758efb81d3fa804ef482463e170d5c2b4727ba92d866eca270"
+    },
+    {
+      "sentence": "**INFO** **Handy Tips** To ensure same-day debit authorisation, Razorpay must receive the request by 8:59 am on a bank working day.",
+      "file": "payments_recurring_payments_emandate_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/emandate/faqs.md",
+      "sha256": "002456d4ef942e758efb81d3fa804ef482463e170d5c2b4727ba92d866eca270"
+    },
+    {
+      "sentence": "If the payment for the given order id is successful or refunded, then you cannot use the same order id to initiate the payment.",
+      "file": "payments_recurring_payments_emandate_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/emandate/faqs.md",
+      "sha256": "002456d4ef942e758efb81d3fa804ef482463e170d5c2b4727ba92d866eca270"
+    },
+    {
+      "sentence": "Once the payment is successful or refunded, you cannot use that order id to re-initiate the payment.",
+      "file": "payments_recurring_payments_emandate_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/emandate/faqs.md",
+      "sha256": "002456d4ef942e758efb81d3fa804ef482463e170d5c2b4727ba92d866eca270"
+    },
+    {
+      "sentence": "Using this authorisation transaction, we can authenticate the customer's Emandate and ensure that we can charge them recurring payments.",
+      "file": "payments_recurring_payments_emandate_integrate.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/emandate/integrate.md",
+      "sha256": "0bd8aa8be470d9f2dec6eafb2e1da3c99a01a6d7eb8211c2ce0180355debd504"
+    },
+    {
+      "sentence": "**INFO** **Handy Tips** For mandate amounts above \u20b950,000 (effective July 1, 2026), the customer must complete a second OTP verification as part of Aadhaar authentication.",
+      "file": "payments_recurring_payments_emandate_integrate.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/emandate/integrate.md",
+      "sha256": "0bd8aa8be470d9f2dec6eafb2e1da3c99a01a6d7eb8211c2ce0180355debd504"
+    },
+    {
+      "sentence": "--- Order | Every payment should have an order associated with it.",
+      "file": "payments_recurring_payments_glossary.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/glossary.md",
+      "sha256": "e471e2abfb03bc990b29357db34d111c05ac934b689fc1ad8aa03d31e2518c54"
+    },
+    {
+      "sentence": "You must create a separate order for the authorisation transaction and every subsequent charge.",
+      "file": "payments_recurring_payments_glossary.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/glossary.md",
+      "sha256": "e471e2abfb03bc990b29357db34d111c05ac934b689fc1ad8aa03d31e2518c54"
+    },
+    {
+      "sentence": "- The image should be in jpeg, jpg and png formats.",
+      "file": "payments_recurring_payments_paper_nach_apis.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/paper-nach/apis.md",
+      "sha256": "644755a003059ff21213d6a2459cd83a586b709cf3ebb9ad537de2237ea1c78e"
+    },
+    {
+      "sentence": "- The following table indicates the time required to update the token status from the state to the state for the physical mandates.",
+      "file": "payments_recurring_payments_paper_nach_apis.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/paper-nach/apis.md",
+      "sha256": "644755a003059ff21213d6a2459cd83a586b709cf3ebb9ad537de2237ea1c78e"
+    },
+    {
+      "sentence": "**INFO** **Handy Tips** A few things to keep in mind when uploading the signed NACH form: - Do not change or write over any of the fields on the form.",
+      "file": "payments_recurring_payments_paper_nach_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/paper-nach/faqs.md",
+      "sha256": "f47090a1d633772caaef61b3d8a53d9fa0adfad72312b8bb66a5db75bb886480"
+    },
+    {
+      "sentence": "If you want to set up recurring payments on a current account via Paper NACH, you might be required to add your company seal on the NACH form.",
+      "file": "payments_recurring_payments_paper_nach_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/paper-nach/faqs.md",
+      "sha256": "f47090a1d633772caaef61b3d8a53d9fa0adfad72312b8bb66a5db75bb886480"
+    },
+    {
+      "sentence": "The following table indicates the time required to update the token status from state to the state for the physical mandates: Bank | Expected Time to Complete --- All Banks | T+5 working days.",
+      "file": "payments_recurring_payments_paper_nach_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/paper-nach/faqs.md",
+      "sha256": "f47090a1d633772caaef61b3d8a53d9fa0adfad72312b8bb66a5db75bb886480"
+    },
+    {
+      "sentence": "If you do not receive an update for more than 30 days, the mandate registration has most likely failed.",
+      "file": "payments_recurring_payments_paper_nach_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/paper-nach/faqs.md",
+      "sha256": "f47090a1d633772caaef61b3d8a53d9fa0adfad72312b8bb66a5db75bb886480"
+    },
+    {
+      "sentence": "If you do not set a limit for the mandate, the maximum limit defaults to \u20b91,00,00,000 for NACH.",
+      "file": "payments_recurring_payments_paper_nach_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/paper-nach/faqs.md",
+      "sha256": "f47090a1d633772caaef61b3d8a53d9fa0adfad72312b8bb66a5db75bb886480"
+    },
+    {
+      "sentence": "The following table indicates the time required to update the token status from state to the state for the physical mandates: Bank | TAT Guidelines | Details --- All Banks | T+2 working days | Debit requests created between **T-1 day 9 AM** and **T day 9 AM** are processed on **T by end of the day**.",
+      "file": "payments_recurring_payments_paper_nach_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/paper-nach/faqs.md",
+      "sha256": "f47090a1d633772caaef61b3d8a53d9fa0adfad72312b8bb66a5db75bb886480"
+    },
+    {
+      "sentence": "**WARN** **Handy Tips** To ensure same-day debit authorisation, Razorpay must receive the request by 8:59 am on a bank working day.",
+      "file": "payments_recurring_payments_paper_nach_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/paper-nach/faqs.md",
+      "sha256": "f47090a1d633772caaef61b3d8a53d9fa0adfad72312b8bb66a5db75bb886480"
+    },
+    {
+      "sentence": "Using this authorisation transaction, we can authenticate the customer's NACH mandate and ensure that we can charge them recurring payments.",
+      "file": "payments_recurring_payments_paper_nach_integrate.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/paper-nach/integrate.md",
+      "sha256": "69a41227eb51e245c794671dd9700af7db8b4c9b8647867cad3f2c9e7abc547f"
+    },
+    {
+      "sentence": "UPI mandates for businesses are fundamentally **Payer Initiated Mandates** where customers must explicitly begin the process, even when starting within your business application.",
+      "file": "payments_recurring_payments_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/upi.md",
+      "sha256": "201d33584d2bf52703a634755c8b54cfeb7b9528c7ff8bc67d25c33798fc590f"
+    },
+    {
+      "sentence": "Using this authorisation transaction, we can authenticate the customer's UPI and ensure that we can charge them recurring payments.",
+      "file": "payments_recurring_payments_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/upi.md",
+      "sha256": "201d33584d2bf52703a634755c8b54cfeb7b9528c7ff8bc67d25c33798fc590f"
+    },
+    {
+      "sentence": "| You must raise debit requests per your schedule and Razorpay processes them.",
+      "file": "payments_recurring_payments_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/upi.md",
+      "sha256": "201d33584d2bf52703a634755c8b54cfeb7b9528c7ff8bc67d25c33798fc590f"
+    },
+    {
+      "sentence": "As per Securities and Exchange Board of India (SEBI) guidelines, transactions must be made by the investors only from those bank accounts provided when they registered with your business.",
+      "file": "payments_recurring_payments_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/upi.md",
+      "sha256": "201d33584d2bf52703a634755c8b54cfeb7b9528c7ff8bc67d25c33798fc590f"
+    },
+    {
+      "sentence": "Gaurav never has to enter a PIN at checkout, making his repeat orders completely frictionless.",
+      "file": "payments_recurring_payments_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/upi.md",
+      "sha256": "201d33584d2bf52703a634755c8b54cfeb7b9528c7ff8bc67d25c33798fc590f"
+    },
+    {
+      "sentence": "Irrevocable Mandates (applicable for Lending businesses only) provide enhanced security for recurring transactions by ensuring that once created, cannot be cancelled by the end-user, thus ensuring better collection rates.",
+      "file": "payments_recurring_payments_upi.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/upi.md",
+      "sha256": "201d33584d2bf52703a634755c8b54cfeb7b9528c7ff8bc67d25c33798fc590f"
+    },
+    {
+      "sentence": "No, you cannot charge customer payments in international currencies.",
+      "file": "payments_recurring_payments_upi_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/upi/faqs.md",
+      "sha256": "13b58f9256550b95f9387121a50183c9287633061c1879dd5908bb5df8fe9a7d"
+    },
+    {
+      "sentence": "For UPI, **do not** create subsequent payments on the last day of the cycle.",
+      "file": "payments_recurring_payments_upi_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/upi/faqs.md",
+      "sha256": "13b58f9256550b95f9387121a50183c9287633061c1879dd5908bb5df8fe9a7d"
+    },
+    {
+      "sentence": "- **Do not** create subsequent payments on the last day of the cycle.",
+      "file": "payments_recurring_payments_upi_integrate.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/upi/integrate.md",
+      "sha256": "a7b0252d0d0a9657e2bc703bb42b659e68c36d592e99b69a1ca461af8f56ddec"
+    },
+    {
+      "sentence": "- Customers do not have to remember the VPA.",
+      "file": "payments_recurring_payments_upi_qr_codes.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/upi/qr-codes.md",
+      "sha256": "6c41d915e97f4510913744a0b2335da8047a77c8d728fe93bdc60d1f148045d0"
+    },
+    {
+      "sentence": "**WARN** **Important** - Always ensure the charge amount does not exceed the specified during token creation.",
+      "file": "payments_recurring_payments_wallets_integrate.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/wallets/integrate.md",
+      "sha256": "1ec1647358aa4fba05472d83cd0c88888ca482783bddf7b9681085cc856d9259"
+    },
+    {
+      "sentence": "**Step 1:** **Create an Order** Each subsequent payment must be associated with a unique order.",
+      "file": "payments_recurring_payments_wallets_integrate.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/wallets/integrate.md",
+      "sha256": "1ec1647358aa4fba05472d83cd0c88888ca482783bddf7b9681085cc856d9259"
+    },
+    {
+      "sentence": "You can ensure that a refund moves to the state only after receiving confirmation from the Gateway by activating this feature on your account by raising a support request.",
+      "file": "payments_refunds.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds.md",
+      "sha256": "65f32df23cdb3c982b56bf4b8f483d1cd6b3a6f1e9083f6f93de5ef72478c19e"
+    },
+    {
+      "sentence": "You cannot cancel batch uploads in the or states.",
+      "file": "payments_refunds_batch.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/batch.md",
+      "sha256": "de3970eba6f522309e36635ef5ba5bbdd193c921028f3b00deca5adbe0ad300e"
+    },
+    {
+      "sentence": "_optional_ : The speed at which the refund should be processed.",
+      "file": "payments_refunds_batch.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/batch.md",
+      "sha256": "de3970eba6f522309e36635ef5ba5bbdd193c921028f3b00deca5adbe0ad300e"
+    },
+    {
+      "sentence": "You cannot cancel batch uploads in the and states.",
+      "file": "payments_refunds_batch.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/batch.md",
+      "sha256": "de3970eba6f522309e36635ef5ba5bbdd193c921028f3b00deca5adbe0ad300e"
+    },
+    {
+      "sentence": "Though a batch file may have acquired state, all the refunds may not have been successful due to errors.",
+      "file": "payments_refunds_batch.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/batch.md",
+      "sha256": "de3970eba6f522309e36635ef5ba5bbdd193c921028f3b00deca5adbe0ad300e"
+    },
+    {
+      "sentence": "- The interest paid for EMI payments cannot be refunded and is directly managed by the issuing bank.",
+      "file": "payments_refunds_emi_pay_later.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/emi-pay-later.md",
+      "sha256": "747be01b352222c25408bba36cc69e2d8658439be5f96ab83b4988f25ef7d2bf"
+    },
+    {
+      "sentence": "In this case, for a Debit Card EMI option, you cannot raise a partial refund request for \u20b92000.",
+      "file": "payments_refunds_emi_pay_later.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/emi-pay-later.md",
+      "sha256": "747be01b352222c25408bba36cc69e2d8658439be5f96ab83b4988f25ef7d2bf"
+    },
+    {
+      "sentence": "The interest of \u20b9100 that the customer paid as part of the first EMI installment cannot be refunded.",
+      "file": "payments_refunds_emi_pay_later.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/emi-pay-later.md",
+      "sha256": "747be01b352222c25408bba36cc69e2d8658439be5f96ab83b4988f25ef7d2bf"
+    },
+    {
+      "sentence": "However, the interest or any other processing charges levied for using the EMI option may not be reversed.",
+      "file": "payments_refunds_emi_pay_later.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/emi-pay-later.md",
+      "sha256": "747be01b352222c25408bba36cc69e2d8658439be5f96ab83b4988f25ef7d2bf"
+    },
+    {
+      "sentence": "**INFO** **Handy Tips** - The interest paid for EMI payments cannot be refunded and is directly managed by the issuing bank.",
+      "file": "payments_refunds_emi_pay_later.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/emi-pay-later.md",
+      "sha256": "747be01b352222c25408bba36cc69e2d8658439be5f96ab83b4988f25ef7d2bf"
+    },
+    {
+      "sentence": "- Depending on the card issuer and their terms and conditions, the processing charges levied for using the EMI option may or may not be reversed.",
+      "file": "payments_refunds_emi_pay_later.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/emi-pay-later.md",
+      "sha256": "747be01b352222c25408bba36cc69e2d8658439be5f96ab83b4988f25ef7d2bf"
+    },
+    {
+      "sentence": "- Whether it is a full refund or a partial refund, the GST and other charges already levied by the bank may not get refunded.",
+      "file": "payments_refunds_emi_pay_later.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/emi-pay-later.md",
+      "sha256": "747be01b352222c25408bba36cc69e2d8658439be5f96ab83b4988f25ef7d2bf"
+    },
+    {
+      "sentence": "- To cancel a Credit Card EMI, your customer should contact the credit card issuing bank.",
+      "file": "payments_refunds_emi_pay_later.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/emi-pay-later.md",
+      "sha256": "747be01b352222c25408bba36cc69e2d8658439be5f96ab83b4988f25ef7d2bf"
+    },
+    {
+      "sentence": "To cancel a Credit Card EMI, your customer must reach out to the bank.",
+      "file": "payments_refunds_emi_pay_later.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/emi-pay-later.md",
+      "sha256": "747be01b352222c25408bba36cc69e2d8658439be5f96ab83b4988f25ef7d2bf"
+    },
+    {
+      "sentence": "- The processing charges levied by the bank for using the No Cost EMI option cannot be refunded to the customer.",
+      "file": "payments_refunds_emi_pay_later.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/emi-pay-later.md",
+      "sha256": "747be01b352222c25408bba36cc69e2d8658439be5f96ab83b4988f25ef7d2bf"
+    },
+    {
+      "sentence": "The customers should contact their bank to confirm the EMI cancellation.",
+      "file": "payments_refunds_emi_pay_later.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/emi-pay-later.md",
+      "sha256": "747be01b352222c25408bba36cc69e2d8658439be5f96ab83b4988f25ef7d2bf"
+    },
+    {
+      "sentence": "However, the customer might need to follow up with the bank to ensure that the EMI transaction is canceled and that no more EMIs are debited.",
+      "file": "payments_refunds_emi_pay_later.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/emi-pay-later.md",
+      "sha256": "747be01b352222c25408bba36cc69e2d8658439be5f96ab83b4988f25ef7d2bf"
+    },
+    {
+      "sentence": "This happens because most of the banks do not support refunds for payments that are more than 6 months old.",
+      "file": "payments_refunds_errors.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/errors.md",
+      "sha256": "dcd988b9dac1a88f1091e833194a54d3798149d850cb96645c1957fd8774450a"
+    },
+    {
+      "sentence": "Once a refund is issued, it cannot be canceled or reversed.",
+      "file": "payments_refunds_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/faqs.md",
+      "sha256": "aeebe7e0c9f28278f82b8bdaea33fea214bae6f6e928f242ce950515044c2c75"
+    },
+    {
+      "sentence": "- **Refunds** No, we do not charge for the regular refunds.",
+      "file": "payments_refunds_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/faqs.md",
+      "sha256": "aeebe7e0c9f28278f82b8bdaea33fea214bae6f6e928f242ce950515044c2c75"
+    },
+    {
+      "sentence": "Yes, a refund status can remain in a 'pending' state, particularly when the refund cannot be processed instantly.",
+      "file": "payments_refunds_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/faqs.md",
+      "sha256": "aeebe7e0c9f28278f82b8bdaea33fea214bae6f6e928f242ce950515044c2c75"
+    },
+    {
+      "sentence": "No, we do not charge for the regular refunds.",
+      "file": "payments_refunds_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/faqs.md",
+      "sha256": "aeebe7e0c9f28278f82b8bdaea33fea214bae6f6e928f242ce950515044c2c75"
+    },
+    {
+      "sentence": "You should set the refund speed to when creating a refund request to ensure refunds are processed instantly.",
+      "file": "payments_refunds_instant.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/instant.md",
+      "sha256": "36b191b25905dd254a4a9cda548d18f906aeb63011203464bf521de7dc788f86"
+    },
+    {
+      "sentence": "We will consider the default speed if you do not specify the same during the refund request.",
+      "file": "payments_refunds_instant.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/instant.md",
+      "sha256": "36b191b25905dd254a4a9cda548d18f906aeb63011203464bf521de7dc788f86"
+    },
+    {
+      "sentence": "You must agree to read and understand the terms of Instant Refunds before signing up.",
+      "file": "payments_refunds_instant.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/instant.md",
+      "sha256": "36b191b25905dd254a4a9cda548d18f906aeb63011203464bf521de7dc788f86"
+    },
+    {
+      "sentence": "--- You can configure the speed at which all the refunds should be processed for your customers.",
+      "file": "payments_refunds_refund_speed.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/refunds/refund-speed.md",
+      "sha256": "21e6d52e650f11e821ff7ba0f11a4d7d3459964c4e8d5ab2762c68b5dbe45423"
+    },
+    {
+      "sentence": "Ensure that you do not fall under the merchant category as Smart Collect is not available for this Merchant Category Code (MCC).",
+      "file": "payments_smart_collect.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect.md",
+      "sha256": "17316582ca78fad10474ee554a54f65d1ef48320eec49a866bfcd9714f3fece1"
+    },
+    {
+      "sentence": "Ensure that the business use case is well charted.",
+      "file": "payments_smart_collect.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect.md",
+      "sha256": "17316582ca78fad10474ee554a54f65d1ef48320eec49a866bfcd9714f3fece1"
+    },
+    {
+      "sentence": "You must open a Current account/Escrow account.",
+      "file": "payments_smart_collect.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect.md",
+      "sha256": "17316582ca78fad10474ee554a54f65d1ef48320eec49a866bfcd9714f3fece1"
+    },
+    {
+      "sentence": "- The combination of merchant prefix and descriptor must be 20 characters.",
+      "file": "payments_smart_collect_apis.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/apis.md",
+      "sha256": "8b19fabebb43a67dd93d454fd1f63080c11fecbab86bc909259109eb85f2c883"
+    },
+    {
+      "sentence": "- Payments made to the Customer Identifiers must be within the transaction limits.",
+      "file": "payments_smart_collect_apis.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/apis.md",
+      "sha256": "8b19fabebb43a67dd93d454fd1f63080c11fecbab86bc909259109eb85f2c883"
+    },
+    {
+      "sentence": "You must communicate this change to your customers, directing them to use the updated IFSC code for subsequent payments.",
+      "file": "payments_smart_collect_axis_bank_migration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/axis-bank-migration.md",
+      "sha256": "3823802457d7f3bd43e7a8a42216fc6a4457ea1cfc413918d20d8af3e14898ff"
+    },
+    {
+      "sentence": "You should inform your customers about this updated IFSC code while emphasising that the account number remains unchanged.",
+      "file": "payments_smart_collect_axis_bank_migration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/axis-bank-migration.md",
+      "sha256": "3823802457d7f3bd43e7a8a42216fc6a4457ea1cfc413918d20d8af3e14898ff"
+    },
+    {
+      "sentence": "Do not include the error column in the new file.",
+      "file": "payments_smart_collect_bulk.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/bulk.md",
+      "sha256": "44ed2959791d2928a33bc8513c0560a08c54aa8b6e2df5e16f70621c6f0a0fc3"
+    },
+    {
+      "sentence": "- Provided file must be a valid CSV/XLS/XLSX - Every row should contain values per the following format: _string_ : ID of an existing Razorpay customer.",
+      "file": "payments_smart_collect_bulk.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/bulk.md",
+      "sha256": "44ed2959791d2928a33bc8513c0560a08c54aa8b6e2df5e16f70621c6f0a0fc3"
+    },
+    {
+      "sentence": "Can be used if it is not required to create a new customer.",
+      "file": "payments_smart_collect_bulk.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/bulk.md",
+      "sha256": "44ed2959791d2928a33bc8513c0560a08c54aa8b6e2df5e16f70621c6f0a0fc3"
+    },
+    {
+      "sentence": "Can be used if a new customer is required to be created.",
+      "file": "payments_smart_collect_bulk.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/bulk.md",
+      "sha256": "44ed2959791d2928a33bc8513c0560a08c54aa8b6e2df5e16f70621c6f0a0fc3"
+    },
+    {
+      "sentence": "You cannot create a Customer Identifier using VPA (UPI) alone.",
+      "file": "payments_smart_collect_create.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/create.md",
+      "sha256": "0f9c9ed73ffb1993effafc65e4d2cfa98fb93dee1958dafb4efa76941e46710c"
+    },
+    {
+      "sentence": "You may skip this step and proceed with creation, if you do not wish to tag it to a specific customer.",
+      "file": "payments_smart_collect_create.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/create.md",
+      "sha256": "0f9c9ed73ffb1993effafc65e4d2cfa98fb93dee1958dafb4efa76941e46710c"
+    },
+    {
+      "sentence": "However, you cannot modify the Customer Identifier and tag it to the customer later.",
+      "file": "payments_smart_collect_create.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/create.md",
+      "sha256": "0f9c9ed73ffb1993effafc65e4d2cfa98fb93dee1958dafb4efa76941e46710c"
+    },
+    {
+      "sentence": "Ensure that the time specified is at least 15 minutes after the creation time.",
+      "file": "payments_smart_collect_create.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/create.md",
+      "sha256": "0f9c9ed73ffb1993effafc65e4d2cfa98fb93dee1958dafb4efa76941e46710c"
+    },
+    {
+      "sentence": "- While sharing the details of CI (created using RBL bank) with the customers, ensure that the fifth character in the IFSC is number and not the letter O.",
+      "file": "payments_smart_collect_create.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/create.md",
+      "sha256": "0f9c9ed73ffb1993effafc65e4d2cfa98fb93dee1958dafb4efa76941e46710c"
+    },
+    {
+      "sentence": "The Customer Identifier appears in the list as shown below: **INFO** **Handy Tips** While sharing the details of CIs (created using RBL bank) with the customers, ensure that the fifth character in the IFSC is number and not the letter O.",
+      "file": "payments_smart_collect_create.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/create.md",
+      "sha256": "0f9c9ed73ffb1993effafc65e4d2cfa98fb93dee1958dafb4efa76941e46710c"
+    },
+    {
+      "sentence": "- Select **Disable Auto Close** option and choose the date and time when the Identifier must automatically close.",
+      "file": "payments_smart_collect_create.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/create.md",
+      "sha256": "0f9c9ed73ffb1993effafc65e4d2cfa98fb93dee1958dafb4efa76941e46710c"
+    },
+    {
+      "sentence": "**INFO** **Handy Tips** An individual cannot modify the structure (prefix and descriptor) of the UPI ID.",
+      "file": "payments_smart_collect_create_tpv.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/create-tpv.md",
+      "sha256": "aa9641830ec877af543344c4cdf758ff07cf2a4d2f029f1cff5ae4160336b7df"
+    },
+    {
+      "sentence": "**INFO** **Handy Tips** While sharing the details of CIs (created using RBL bank) with the customers, ensure that the fifth character in the IFSC is number and not the letter O.",
+      "file": "payments_smart_collect_create_tpv.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/create-tpv.md",
+      "sha256": "aa9641830ec877af543344c4cdf758ff07cf2a4d2f029f1cff5ae4160336b7df"
+    },
+    {
+      "sentence": "**INFO** **Handy Tips** Customers cannot deposit cash into a Customer Identifier.",
+      "file": "payments_smart_collect_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/faqs.md",
+      "sha256": "647b21ffe0bc85cd0031bb6f49781f28c3371cde8268dc21f4e5a02f12f25395"
+    },
+    {
+      "sentence": "Once a customer identifier is in closed state, customers cannot make payments to that account.",
+      "file": "payments_smart_collect_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/faqs.md",
+      "sha256": "647b21ffe0bc85cd0031bb6f49781f28c3371cde8268dc21f4e5a02f12f25395"
+    },
+    {
+      "sentence": "Currently, we do not support a bank transfer to an ICICI-based customer identifier, using a UPI PSP app.",
+      "file": "payments_smart_collect_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/faqs.md",
+      "sha256": "647b21ffe0bc85cd0031bb6f49781f28c3371cde8268dc21f4e5a02f12f25395"
+    },
+    {
+      "sentence": "Currently, we do not support Google Spot integration on Smart Collect VPAs.",
+      "file": "payments_smart_collect_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/faqs.md",
+      "sha256": "647b21ffe0bc85cd0031bb6f49781f28c3371cde8268dc21f4e5a02f12f25395"
+    },
+    {
+      "sentence": "Currently, we do not support TR field on Smart Collect VPAs.",
+      "file": "payments_smart_collect_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/faqs.md",
+      "sha256": "647b21ffe0bc85cd0031bb6f49781f28c3371cde8268dc21f4e5a02f12f25395"
+    },
+    {
+      "sentence": "As per Securities and Exchange Board of India (SEBI) guidelines, transactions must be made by the customers only from those bank accounts that were submitted to your business at the time of registration.",
+      "file": "payments_smart_collect_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/faqs.md",
+      "sha256": "647b21ffe0bc85cd0031bb6f49781f28c3371cde8268dc21f4e5a02f12f25395"
+    },
+    {
+      "sentence": "You must open an Escrow account if the end beneficiary is a third party.",
+      "file": "payments_smart_collect_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/faqs.md",
+      "sha256": "647b21ffe0bc85cd0031bb6f49781f28c3371cde8268dc21f4e5a02f12f25395"
+    },
+    {
+      "sentence": "You must update the Customer Identifiers when using the Smart Collect APIs.",
+      "file": "payments_smart_collect_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/faqs.md",
+      "sha256": "647b21ffe0bc85cd0031bb6f49781f28c3371cde8268dc21f4e5a02f12f25395"
+    },
+    {
+      "sentence": "A bank branch must be NEFT-enabled for a customer to be able to transfer the funds to another party.",
+      "file": "payments_smart_collect_glossary.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/glossary.md",
+      "sha256": "f86f7f548f2afec65da88dea735c1ef5906450d9ff303a61bbabea32118357de"
+    },
+    {
+      "sentence": "The account details of the Customer Identifier created by Razorpay (such as account number, IFSC and Name) should be shared with the customer.",
+      "file": "payments_smart_collect_how_it_works.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/how-it-works.md",
+      "sha256": "2d5de4e92022dbcacc64f5258f3c23be2e4597f13c0268f8b769b4ab3db9560b"
+    },
+    {
+      "sentence": "Due to revised guidelines, we do not support issuing Customer Identifiers with Yes Bank or ICICI Bank.",
+      "file": "payments_smart_collect_pa_pg_migration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/pa-pg-migration.md",
+      "sha256": "c314e2fd104eefc5526cb3824f2f48ff9cce12826956122eb376608e8dcd5dc3"
+    },
+    {
+      "sentence": "After 31st January 2022, you cannot receive payments on the existing Customer Identifiers.",
+      "file": "payments_smart_collect_pa_pg_migration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/pa-pg-migration.md",
+      "sha256": "c314e2fd104eefc5526cb3824f2f48ff9cce12826956122eb376608e8dcd5dc3"
+    },
+    {
+      "sentence": "- You must inform your customers so they can add the new Customer Identifiers as beneficiaries for NEFT/IMPS/RTGS payments.",
+      "file": "payments_smart_collect_pa_pg_migration.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/pa-pg-migration.md",
+      "sha256": "c314e2fd104eefc5526cb3824f2f48ff9cce12826956122eb376608e8dcd5dc3"
+    },
+    {
+      "sentence": "Such payments do not show remitter bank account details and it is not possible to process a refund.",
+      "file": "payments_smart_collect_refund_failures.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/refund-failures.md",
+      "sha256": "9b3121a8cdc799433111dde57aba48adeb197af3ea696b798952991b02cedb57"
+    },
+    {
+      "sentence": "- IMPS Payments made from a small number of banks that do not share the payer's account number and such payments cannot be automatically refunded.",
+      "file": "payments_smart_collect_refund_failures.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/refund-failures.md",
+      "sha256": "9b3121a8cdc799433111dde57aba48adeb197af3ea696b798952991b02cedb57"
+    },
+    {
+      "sentence": "You cannot accept payments using this account.",
+      "file": "payments_smart_collect_states.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/states.md",
+      "sha256": "fbf4a88ebde964c095941c4ac3663eae2c35436f302baaca6dbf784f0fffb096"
+    },
+    {
+      "sentence": "You cannot reactivate the Customer Identifier.",
+      "file": "payments_smart_collect_states.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/states.md",
+      "sha256": "fbf4a88ebde964c095941c4ac3663eae2c35436f302baaca6dbf784f0fffb096"
+    },
+    {
+      "sentence": "Once the account is in the state, your customers cannot make payments to that closed account.",
+      "file": "payments_smart_collect_status.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/status.md",
+      "sha256": "77e8f333eb2af343575be065386f545bedb7eab526bb318c14e9bab33c2a1437"
+    },
+    {
+      "sentence": "**INFO** **Handy Tips** - Ensure that you mitigate possible webhook failures.",
+      "file": "payments_smart_collect_subscribe_to_webhooks.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/subscribe-to-webhooks.md",
+      "sha256": "260f473743014161e3d0c242428592c4aa0cdc86c94436c0343f6748620f8276"
+    },
+    {
+      "sentence": "- Ensure that you have subscribed to Smart Collect Events.",
+      "file": "payments_smart_collect_subscribe_to_webhooks.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/subscribe-to-webhooks.md",
+      "sha256": "260f473743014161e3d0c242428592c4aa0cdc86c94436c0343f6748620f8276"
+    },
+    {
+      "sentence": "As per SEBI guidelines, businesses operating in these sectors must ensure that payments are accepted from the customers' registered, KYC-approved bank accounts only.",
+      "file": "payments_smart_collect_third_party_validation.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/third-party-validation.md",
+      "sha256": "0663405f66dc6cf24bf5b1e24dea43296ce4c2b6aefb5dbfee4d8dfbb7fe7efc"
+    },
+    {
+      "sentence": "- Using Razorpay Smart Collect API, you can comply with the regulatory guidelines to ensure that the customers make payments only from their registered bank accounts (TPV).",
+      "file": "payments_smart_collect_third_party_validation.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/third-party-validation.md",
+      "sha256": "0663405f66dc6cf24bf5b1e24dea43296ce4c2b6aefb5dbfee4d8dfbb7fe7efc"
+    },
+    {
+      "sentence": "- The Field names/headers in a batch should not be modified.",
+      "file": "payments_smart_collect_update_expiry_bulk.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/update-expiry/bulk.md",
+      "sha256": "9c8c2ce9b59dbd6d2c0973116731647f6a278d9931983a6cc052f5e06ea44c9b"
+    },
+    {
+      "sentence": "**INFO** **Handy Tips** - The combination of merchant identifier and custom descriptor **must be exactly 20 characters**.",
+      "file": "payments_smart_collect_upi_id_format.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/upi-id-format.md",
+      "sha256": "610e48e0e22ba63824e6df447b5962951a5a3bf93d6803e5f8bfdb319629f3a7"
+    },
+    {
+      "sentence": "**SUCCESS** **Merchant Identifier + Descriptor** The combination of merchant identifier and custom descriptor **must be exactly 20 characters**.",
+      "file": "payments_smart_collect_va_vpa_qr.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr.md",
+      "sha256": "dffa069f1a90df26443def90a6d59a1ce1f3125f7885ca7f6613b0c6ffebe4e1"
+    },
+    {
+      "sentence": "Once the account is in state, customers cannot make payments to that account.",
+      "file": "payments_smart_collect_va_vpa_qr.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr.md",
+      "sha256": "dffa069f1a90df26443def90a6d59a1ce1f3125f7885ca7f6613b0c6ffebe4e1"
+    },
+    {
+      "sentence": "- **Do not share your API Key secret** with anyone or on any public platforms.",
+      "file": "payments_smart_collect_va_vpa_qr_api.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/api.md",
+      "sha256": "c6bd7396db601ec86462665a7997182e400c9a874212f72907ae2715dea937fc"
+    },
+    {
+      "sentence": "To start accepting payments using Customer Identifiers, you must: - Create a customer (optional) - Create a Customer Identifier - Share Customer Identifier details with customer - Setup webhooks to receive payment notifications (optional) : The unique identifier of the virtual account.",
+      "file": "payments_smart_collect_va_vpa_qr_api.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/api.md",
+      "sha256": "c6bd7396db601ec86462665a7997182e400c9a874212f72907ae2715dea937fc"
+    },
+    {
+      "sentence": "The time must be at least 15 minutes after current time.",
+      "file": "payments_smart_collect_va_vpa_qr_api.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/api.md",
+      "sha256": "c6bd7396db601ec86462665a7997182e400c9a874212f72907ae2715dea937fc"
+    },
+    {
+      "sentence": "_optional_ : Unique identifier of the customer to whom the virtual account must be tagged.",
+      "file": "payments_smart_collect_va_vpa_qr_api_create.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/api/create.md",
+      "sha256": "b1f4e856504aadf8ca953ded068000f4116d23a322b8864211a65d41508a11d5"
+    },
+    {
+      "sentence": "**INFO** **Note** While sharing the details of VAs (created using RBL bank) with the customers, ensure that the fifth character in the IFSC is number and not the letter O.",
+      "file": "payments_smart_collect_va_vpa_qr_api_create.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/api/create.md",
+      "sha256": "b1f4e856504aadf8ca953ded068000f4116d23a322b8864211a65d41508a11d5"
+    },
+    {
+      "sentence": "--- **INFO** **No Test Payments on Live Mode:** You cannot make test payments to Customer Identifiers created in Live Mode.",
+      "file": "payments_smart_collect_va_vpa_qr_dashboard_test_payments.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/dashboard/test-payments.md",
+      "sha256": "df16026803e3c569dc0a5ffcfd4b03b53296e3f1b855d2e849cbfb4771256f83"
+    },
+    {
+      "sentence": "The same is reflected on the Customer Identifier list as well: At present, you cannot make a test payment to a virtual UPI ID.",
+      "file": "payments_smart_collect_va_vpa_qr_dashboard_test_payments.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/dashboard/test-payments.md",
+      "sha256": "df16026803e3c569dc0a5ffcfd4b03b53296e3f1b855d2e849cbfb4771256f83"
+    },
+    {
+      "sentence": "**INFO** **Note**: Customers cannot deposit cash into a virtual bank account.",
+      "file": "payments_smart_collect_va_vpa_qr_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/faqs.md",
+      "sha256": "b23d58daa29eb2a735ffe98195a5b2117f8caa2370b6edbbe2fdfd3c69515e09"
+    },
+    {
+      "sentence": "Once a virtual account is in closed state, customers cannot make payments to that account.",
+      "file": "payments_smart_collect_va_vpa_qr_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/faqs.md",
+      "sha256": "b23d58daa29eb2a735ffe98195a5b2117f8caa2370b6edbbe2fdfd3c69515e09"
+    },
+    {
+      "sentence": "**INFO** **Alphanumeric Account Numbers** By default, the account numbers generated are always numeric.",
+      "file": "payments_smart_collect_va_vpa_qr_vanity.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/vanity.md",
+      "sha256": "aed3945ce8302a874d2e20cb44f7138a36294bd58fd26ba378792db6eee951b6"
+    },
+    {
+      "sentence": "To use Vanity Accounts, you must set the option to 0, and set the option to the desired custom value.",
+      "file": "payments_smart_collect_va_vpa_qr_vanity.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/vanity.md",
+      "sha256": "aed3945ce8302a874d2e20cb44f7138a36294bd58fd26ba378792db6eee951b6"
+    },
+    {
+      "sentence": "If is set without setting to 0, the request will result in an error: \"Descriptor cannot be used for numeric accounts.\" The possible options that can be set for the receiver are given below.",
+      "file": "payments_smart_collect_va_vpa_qr_vanity.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/vanity.md",
+      "sha256": "aed3945ce8302a874d2e20cb44f7138a36294bd58fd26ba378792db6eee951b6"
+    },
+    {
+      "sentence": "This could cause inconvenience to customers as they have to wait for 24 hours when large amounts should be refunded.",
+      "file": "payments_smart_collect_va_vpa_qr_vanity.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/vanity.md",
+      "sha256": "aed3945ce8302a874d2e20cb44f7138a36294bd58fd26ba378792db6eee951b6"
+    },
+    {
+      "sentence": "Do not use callback_url as a substitute for webhooks to track payment status on your server.",
+      "file": "webhooks.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks.md",
+      "sha256": "a67decfe8da4360337aa9869de05b3dc935a1edc91c02513fc2afe9d46301f9f"
+    },
+    {
+      "sentence": "Sometimes, the communication between the bank and Razorpay or between you and Razorpay may not occur.",
+      "file": "webhooks.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks.md",
+      "sha256": "a67decfe8da4360337aa9869de05b3dc935a1edc91c02513fc2afe9d46301f9f"
+    },
+    {
+      "sentence": "- Webhook URLs must use ports **80** or **443** only.",
+      "file": "webhooks.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks.md",
+      "sha256": "a67decfe8da4360337aa9869de05b3dc935a1edc91c02513fc2afe9d46301f9f"
+    },
+    {
+      "sentence": "- While generating a signature at your end, ensure that the webhook body is passed as an argument in the **raw webhook request body**.",
+      "file": "webhooks_account_validation.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/account-validation.md",
+      "sha256": "ad17a445184367ace911e23e1c25679ff055f0c20cc500e0d4feb7fcdd990692"
+    },
+    {
+      "sentence": "**Do not parse or cast the webhook request body**.",
+      "file": "webhooks_account_validation.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/account-validation.md",
+      "sha256": "ad17a445184367ace911e23e1c25679ff055f0c20cc500e0d4feb7fcdd990692"
+    },
+    {
+      "sentence": "Do not initiate a payout if this is triggered since the beneficiary bank is down and the payout will fail.",
+      "file": "webhooks_all.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/all.md",
+      "sha256": "dc728e35b82da03a7254a16ef7438c7f8fbe9bea5da8745c35355398f4d2e07d"
+    },
+    {
+      "sentence": "Please make sure the API responds with 2xx when you successfully consume the event at your end.",
+      "file": "webhooks_best_practices.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/best-practices.md",
+      "sha256": "7d94e13b4d09f1818df13403e9e0c1991239450820bc06a8ac3cb4e236bbcf3a"
+    },
+    {
+      "sentence": "This is an expected behaviour based on the webhook design.",
+      "file": "webhooks_best_practices.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/best-practices.md",
+      "sha256": "7d94e13b4d09f1818df13403e9e0c1991239450820bc06a8ac3cb4e236bbcf3a"
+    },
+    {
+      "sentence": "In this approach, if we do not receive a successful response from your server, we resend the webhook.",
+      "file": "webhooks_best_practices.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/best-practices.md",
+      "sha256": "7d94e13b4d09f1818df13403e9e0c1991239450820bc06a8ac3cb4e236bbcf3a"
+    },
+    {
+      "sentence": "Ideally, you should receive a webhook in the order in which the webhook events occur.",
+      "file": "webhooks_best_practices.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/best-practices.md",
+      "sha256": "7d94e13b4d09f1818df13403e9e0c1991239450820bc06a8ac3cb4e236bbcf3a"
+    },
+    {
+      "sentence": "However, you may not always receive the webhooks in order.",
+      "file": "webhooks_best_practices.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/best-practices.md",
+      "sha256": "7d94e13b4d09f1818df13403e9e0c1991239450820bc06a8ac3cb4e236bbcf3a"
+    },
+    {
+      "sentence": "The TLS protocol is used to encrypt your servers communications with Razorpay, so your integration must use the latest version (TLS 1.2 is much more secure than its predecessors).",
+      "file": "webhooks_best_practices.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/best-practices.md",
+      "sha256": "7d94e13b4d09f1818df13403e9e0c1991239450820bc06a8ac3cb4e236bbcf3a"
+    },
+    {
+      "sentence": "If you do not remember the secret used during setup, change the secret by editing the webhook.",
+      "file": "webhooks_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/faqs.md",
+      "sha256": "c7e82fa6dd19acb1611563f8085500acbbf82edf728811b39bd56063aec21d9f"
+    },
+    {
+      "sentence": "- **Issue with the signature generation logic** While generating the signature at your end, you must ensure that the webhook body passed as an argument is the raw webhook request body.",
+      "file": "webhooks_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/faqs.md",
+      "sha256": "c7e82fa6dd19acb1611563f8085500acbbf82edf728811b39bd56063aec21d9f"
+    },
+    {
+      "sentence": "Instead, you should be taking the raw body and using that directly.",
+      "file": "webhooks_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/faqs.md",
+      "sha256": "c7e82fa6dd19acb1611563f8085500acbbf82edf728811b39bd56063aec21d9f"
+    },
+    {
+      "sentence": "This should always result in the same signature.",
+      "file": "webhooks_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/faqs.md",
+      "sha256": "c7e82fa6dd19acb1611563f8085500acbbf82edf728811b39bd56063aec21d9f"
+    },
+    {
+      "sentence": "- The webhook event should not be older than 15 days.",
+      "file": "webhooks_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/faqs.md",
+      "sha256": "c7e82fa6dd19acb1611563f8085500acbbf82edf728811b39bd56063aec21d9f"
+    },
+    {
+      "sentence": "- The webhook event's signature validation should be done using the same signature during the occurrence of this event.",
+      "file": "webhooks_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/faqs.md",
+      "sha256": "c7e82fa6dd19acb1611563f8085500acbbf82edf728811b39bd56063aec21d9f"
+    },
+    {
+      "sentence": "- The webhook event should be specific to payments, orders and so on.",
+      "file": "webhooks_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/faqs.md",
+      "sha256": "c7e82fa6dd19acb1611563f8085500acbbf82edf728811b39bd56063aec21d9f"
+    },
+    {
+      "sentence": "Payment window closure does not always trigger immediate events.",
+      "file": "webhooks_faqs.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/faqs.md",
+      "sha256": "c7e82fa6dd19acb1611563f8085500acbbf82edf728811b39bd56063aec21d9f"
+    },
+    {
+      "sentence": "This sequence is **expected behaviour**.",
+      "file": "webhooks_payments.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/payments.md",
+      "sha256": "283b1afe20906dde6281af0f31407c85e890dd963645da8d44e2c143aea85355"
+    },
+    {
+      "sentence": "Term | Description --- --- --- --- --- --- --- --- **INFO** **Handy Tips** Expiry feature for Payout Links must be enabled before using this webhook event.",
+      "file": "webhooks_payout_links.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/payout-links.md",
+      "sha256": "83ef7a8b0622a70ea0e263f8d2d6704505d549cba4171026a2fc2a9c75367536"
+    },
+    {
+      "sentence": "- Settlement amounts are always provided in the smallest currency unit (for example, paise for INR, cents for USD).",
+      "file": "webhooks_settlements.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/settlements.md",
+      "sha256": "4bb4e02a9c8c2e8972f033c9a5c643cb7aba1a6e5e70e0e8e783efc9efb1da5d"
+    },
+    {
+      "sentence": "**INFO** **Handy Tips** You should validate and test your webhooks before you go live.",
+      "file": "webhooks_setup_edit_payments.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/setup-edit-payments.md",
+      "sha256": "786f7b0832d2c18507b5231d8501eeec85e68a413c3c2257fe0e02a31cd25df8"
+    },
+    {
+      "sentence": "All webhook responses must return a status code in the range within a window of 5 seconds.",
+      "file": "webhooks_setup_edit_payments.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/setup-edit-payments.md",
+      "sha256": "786f7b0832d2c18507b5231d8501eeec85e68a413c3c2257fe0e02a31cd25df8"
+    },
+    {
+      "sentence": "Use the **Webhook Active?** option to enable or disable the webhook as shown below: All webhook responses must return a status code in the range within a window of 5 seconds.",
+      "file": "webhooks_setup_edit_payouts.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/setup-edit-payouts.md",
+      "sha256": "dd64fe0837fbf8afaf2538eba6ee25760bbc2462621daf555ed11d6d6a70de90"
+    },
+    {
+      "sentence": "However, please note that certain domains are blacklisted for security reasons and cannot be used for webhook URLs.",
+      "file": "webhooks_validate_test.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/validate-test.md",
+      "sha256": "92076fc25a7bb0bb7b10a19c4b422c692d85e9c19c0e7a955db9be355fdd0f91"
+    },
+    {
+      "sentence": "For security reasons, the following domains are blacklisted and cannot be used as webhook URLs: - - - - - - - - - - - - - - - - - - - You cannot use localhost directly to receive webhook events as webhook delivery requires a public URL.",
+      "file": "webhooks_validate_test.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/validate-test.md",
+      "sha256": "92076fc25a7bb0bb7b10a19c4b422c692d85e9c19c0e7a955db9be355fdd0f91"
+    },
+    {
+      "sentence": "You should set up webhooks in the **Test** mode.",
+      "file": "webhooks_validate_test.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/validate-test.md",
+      "sha256": "92076fc25a7bb0bb7b10a19c4b422c692d85e9c19c0e7a955db9be355fdd0f91"
+    },
+    {
+      "sentence": "Any webhook received after these should be ignored.",
+      "file": "webhooks_validate_test.md",
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/validate-test.md",
+      "sha256": "92076fc25a7bb0bb7b10a19c4b422c692d85e9c19c0e7a955db9be355fdd0f91"
+    }
+  ]
+}
