@@ -1,0 +1,139 @@
+{
+  "counts": {
+    "RATIFIED": 4,
+    "REJECTED": 1,
+    "UNPROVEN": 0
+  },
+  "results": [
+    {
+      "key": "P1-ORDER-INDEPENDENCE",
+      "verdict": "RATIFIED",
+      "checks": [
+        {
+          "gate": "G1-GROUNDED",
+          "pass": true,
+          "why": "grounded in webhooks_validate_test.md"
+        },
+        {
+          "gate": "G2-EXPRESSIBLE",
+          "pass": true,
+          "why": "maps to harness/check.py::check_order_independence"
+        },
+        {
+          "gate": "G3-DECIDABLE",
+          "pass": true,
+          "why": "observes order_status"
+        },
+        {
+          "gate": "G4-NON-VACUOUS",
+          "pass": true,
+          "why": "violated by 1 mutant(s): baseline"
+        }
+      ]
+    },
+    {
+      "key": "P2-DUPLICATE-TOLERANCE",
+      "verdict": "RATIFIED",
+      "checks": [
+        {
+          "gate": "G1-GROUNDED",
+          "pass": true,
+          "why": "grounded in webhooks_best_practices.md"
+        },
+        {
+          "gate": "G2-EXPRESSIBLE",
+          "pass": true,
+          "why": "maps to harness/check.py::check_duplicate_tolerance"
+        },
+        {
+          "gate": "G3-DECIDABLE",
+          "pass": true,
+          "why": "observes order_status"
+        },
+        {
+          "gate": "G4-NON-VACUOUS",
+          "pass": true,
+          "why": "violated by 1 mutant(s): p2-nonidempotent-refund"
+        }
+      ]
+    },
+    {
+      "key": "P3-EVENT-ID-DEDUP",
+      "verdict": "REJECTED",
+      "checks": [
+        {
+          "gate": "G1-GROUNDED",
+          "pass": true,
+          "why": "grounded in webhooks_validate_test.md"
+        },
+        {
+          "gate": "G2-EXPRESSIBLE",
+          "pass": true,
+          "why": "maps to evidence/scripts/survey_eventid.py"
+        },
+        {
+          "gate": "G3-DECIDABLE",
+          "pass": true,
+          "why": "observes source"
+        },
+        {
+          "gate": "G4-NON-VACUOUS",
+          "pass": false,
+          "why": "no mutant in the corpus violates it -- this property cannot fail"
+        }
+      ]
+    },
+    {
+      "key": "P4-NO-SILENT-LOSS",
+      "verdict": "RATIFIED",
+      "checks": [
+        {
+          "gate": "G1-GROUNDED",
+          "pass": true,
+          "why": "grounded in webhooks_best_practices.md"
+        },
+        {
+          "gate": "G2-EXPRESSIBLE",
+          "pass": true,
+          "why": "maps to harness/check.py::check_no_silent_loss"
+        },
+        {
+          "gate": "G3-DECIDABLE",
+          "pass": true,
+          "why": "observes order_status, queue_cron_status"
+        },
+        {
+          "gate": "G4-NON-VACUOUS",
+          "pass": true,
+          "why": "violated by 3 mutant(s): baseline, p1-repaired, p2-nonidempotent-refund"
+        }
+      ]
+    },
+    {
+      "key": "P5-AMOUNT-INTEGRITY",
+      "verdict": "RATIFIED",
+      "checks": [
+        {
+          "gate": "G1-GROUNDED",
+          "pass": true,
+          "why": "grounded in api_orders_create.md"
+        },
+        {
+          "gate": "G2-EXPRESSIBLE",
+          "pass": true,
+          "why": "maps to harness/check.py::check_amount_integrity"
+        },
+        {
+          "gate": "G3-DECIDABLE",
+          "pass": true,
+          "why": "observes order_status"
+        },
+        {
+          "gate": "G4-NON-VACUOUS",
+          "pass": true,
+          "why": "violated by 3 mutant(s): baseline, p1-repaired, p2-nonidempotent-refund"
+        }
+      ]
+    }
+  ]
+}

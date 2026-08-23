@@ -1,0 +1,34 @@
+{
+  "P1-ORDER-INDEPENDENCE": {
+    "seen": [
+      "GREEN",
+      "RED"
+    ],
+    "falsifiable": true
+  },
+  "P2-DUPLICATE-TOLERANCE": {
+    "seen": [
+      "GREEN",
+      "RED"
+    ],
+    "falsifiable": true
+  },
+  "P3-EVENT-ID-DEDUP": {
+    "seen": [
+      "YELLOW"
+    ],
+    "falsifiable": false
+  },
+  "P4-NO-SILENT-LOSS": {
+    "seen": [
+      "RED"
+    ],
+    "falsifiable": true
+  },
+  "P5-AMOUNT-INTEGRITY": {
+    "seen": [
+      "RED"
+    ],
+    "falsifiable": true
+  }
+}

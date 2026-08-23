@@ -1,0 +1,91 @@
+{
+  "alphabet": [
+    "payment.authorized",
+    "payment.failed",
+    "payment.pending",
+    "refund.created"
+  ],
+  "length": 3,
+  "total_orderings": 64,
+  "equivalence_classes": 15,
+  "units": [
+    "payment.failed",
+    "payment.pending"
+  ],
+  "unit_basis": "verified by execution, every insertion position -- see unit_evidence",
+  "unit_evidence": {
+    "payment.failed": {
+      "is_unit": true,
+      "reference_terminal": "wc-refunded",
+      "positions": [
+        {
+          "at": 0,
+          "sequence": [
+            "payment.failed",
+            "payment.authorized",
+            "refund.created"
+          ],
+          "terminal": "wc-refunded",
+          "same": true
+        },
+        {
+          "at": 1,
+          "sequence": [
+            "payment.authorized",
+            "payment.failed",
+            "refund.created"
+          ],
+          "terminal": "wc-refunded",
+          "same": true
+        },
+        {
+          "at": 2,
+          "sequence": [
+            "payment.authorized",
+            "refund.created",
+            "payment.failed"
+          ],
+          "terminal": "wc-refunded",
+          "same": true
+        }
+      ]
+    },
+    "payment.pending": {
+      "is_unit": true,
+      "reference_terminal": "wc-refunded",
+      "positions": [
+        {
+          "at": 0,
+          "sequence": [
+            "payment.pending",
+            "payment.authorized",
+            "refund.created"
+          ],
+          "terminal": "wc-refunded",
+          "same": true
+        },
+        {
+          "at": 1,
+          "sequence": [
+            "payment.authorized",
+            "payment.pending",
+            "refund.created"
+          ],
+          "terminal": "wc-refunded",
+          "same": true
+        },
+        {
+          "at": 2,
+          "sequence": [
+            "payment.authorized",
+            "refund.created",
+            "payment.pending"
+          ],
+          "terminal": "wc-refunded",
+          "same": true
+        }
+      ]
+    }
+  },
+  "caveat": "Unit-hood is OBSERVED, not proved. It was established by executing the event at every insertion position in a two-event baseline and finding the terminal state unchanged. An event that is inert with respect to the states this rig observes could still have an effect the rig does not observe -- a transient, an option, an outbound request. The reduction is therefore a measured claim about this rig's observables, not a theorem about the plugin."
+}

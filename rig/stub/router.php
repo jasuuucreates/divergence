@@ -55,6 +55,27 @@ if (preg_match('#^/v1/payments/([A-Za-z0-9_]+)$#', $path, $m)) {
         'captured' => true,
         'order_id' => $rzpOrder,
         'invoice_id' => null,
+        // Fields below were ADDED after harness/stubcheck.py found them: each is in Razorpay's
+        // documented Payments Entity AND is read by at least one integration under test, but the
+        // stub was omitting them -- so the plugin received null where production sends a value.
+        // A stub that silently omits a field the code under test reads can change a verdict
+        // without anyone noticing, which makes it the most dangerous component in the harness.
+        // Values are obviously synthetic on purpose. The contact is a 10-digit form rather than a
+        // 12-digit one so it cannot be mistaken for a government identifier.
+        'method'   => 'upi',
+        'email'    => 'rig@example.invalid',
+        'contact'  => '9000000000',
+        'description' => 'rig synthetic payment',
+        'international' => false,
+        'amount_refunded' => 0,
+        'refund_status' => null,
+        'fee'      => null,
+        'tax'      => null,
+        'error_code' => null,
+        'error_description' => null,
+        'error_source' => null,
+        'error_step' => null,
+        'error_reason' => null,
         'notes'    => array('woocommerce_order_id' => (string) $wcOrder),
         'created_at' => time(),
     ));

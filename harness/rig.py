@@ -56,9 +56,28 @@ def wp(*args, timeout=240):
 
 
 def new_order():
-    """A virgin order plus its queue row. Returns (wc_order_id, rzp_order_id, paise)."""
+    """A virgin order plus its queue row. Returns (wc_order_id, rzp_order_id, paise).
+
+    Fails with the CAUSE rather than a KeyError. new_order.php needs wc_create_order(), so it
+    produces nothing at all when WooCommerce is not the active gateway -- which happens routinely,
+    because only one gateway plugin can be active at a time and any EDD run leaves the other one
+    switched off. That surfaced four separate times as `KeyError: 'ORDER_ID'`, which reads like a
+    harness bug rather than the setup problem it is.
+    """
     out = wp("eval-file", "/rig/new_order.php")
     kv = dict(l.split("=", 1) for l in out.splitlines() if "=" in l and not l.startswith(" "))
+    if "ORDER_ID" not in kv:
+        active = wp("plugin", "list", "--status=active", "--field=name")
+        names = [l.strip() for l in active.splitlines()
+                 if l.strip() and not l.startswith(("Warning", "["))]
+        raise RuntimeError(
+            "could not create a WooCommerce order, so there is nothing to measure. "
+            "Active plugins: %s. "
+            "This target needs both woocommerce and razorpay-woocommerce active; only one "
+            "gateway plugin can be active at a time, so an earlier EDD run may have switched "
+            "them off. Fix: cd rig && ./setup.sh  (or run harness/matrix.py, which activates "
+            "the right target and verifies the switch took effect). new_order.php said: %r"
+            % (", ".join(names) or "<none>", out[:200]))
     return int(kv["ORDER_ID"]), kv["RZP_ORDER_ID"], int(kv["PAISE"])
 
 

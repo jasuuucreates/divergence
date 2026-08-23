@@ -37,6 +37,18 @@ An exhaustive search over 64 delivery schedules gives the exact boundary:
 > **A set of events diverges if and only if it contains at least one `payment.authorized`
 > and at least one `refund.created`.** — 20 of 20 event-sets predicted correctly.
 
+And `harness/coverage.py` says what a GREEN actually covers. Two events in the alphabet are
+**units** — verified by execution to leave the terminal state unchanged at *every* insertion
+position — so any sequence containing them is equivalent to the same sequence without them:
+
+| length | orderings | classes to run | |
+|---|---|---|---|
+| 3 | 64 | **15** | 4x |
+| 6 | 4096 | **127** | 32x |
+
+A GREEN at length 6 therefore covers **4096 orderings from 127 runs**, not "127 things passed".
+Unit-hood is *observed*, not proved, and the certificate says so in those words.
+
 ---
 
 ## It distinguishes correct code from incorrect code
