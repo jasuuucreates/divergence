@@ -171,6 +171,12 @@ printf '%s\n' "$SEED_OUT" > "$RIG_DIR/rig-state.sh"
 ok "test order created + checkout row seeded"
 
 # --- 9/9 summary -------------------------------------------------------------
+# Capture a known-good snapshot while the rig has just been built and nothing has run against
+# it yet. ./snapshot.sh restore puts this back in ~4s; ./reset.sh && ./setup.sh takes ~3 minutes.
+# The difference matters exactly once -- in front of an audience.
+say "8b/9  Snapshot the clean rig (panic button for live demos)"
+sh ./snapshot.sh save 2>/dev/null || ok "snapshot skipped"
+
 say "9/9  Summary"
 # shellcheck disable=SC1090
 . "$RIG_DIR/rig-state.sh"
