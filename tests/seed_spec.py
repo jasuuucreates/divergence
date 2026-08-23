@@ -141,6 +141,34 @@ def test_unmeasured_is_not_green():
     assert src.index('overall = "UNMEASURED"') < src.index('else "GREEN")'),         "UNMEASURED must be decided before GREEN"
 
 
+def test_every_rig_touching_module_requires_evidence():
+    """No module that runs the rig may reach a verdict without asserting it measured something.
+
+    This is an audit rather than a behaviour test, and it exists because the same defect has now
+    appeared SEVEN times in this project under different disguises: a set of all-None states has
+    size one, two all-None dicts compare equal, an empty result set satisfies "all of them agreed",
+    and "no divergence found" is a GREEN wearing different words.
+
+    Fixing each site as it was discovered did not stop the eighth. This test does: a new module that
+    drives the rig and forms a verdict without importing the guard fails the suite.
+    """
+    import glob as _glob, io as _io, os as _os
+    hdir = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "harness")
+    offenders = []
+    for path in sorted(_glob.glob(_os.path.join(hdir, "*.py"))):
+        name = _os.path.basename(path)
+        src = _io.open(path, encoding="utf-8").read()
+        drives_rig = ("rig.trial(" in src) or ("rig.terminal_state(" in src)
+        forms_verdict = ('"GREEN"' in src) or ('"RED"' in src)
+        if drives_rig and forms_verdict:
+            guarded = ("measured.require" in src) or ("NotMeasured" in src) or ("UNDECIDABLE" in src)
+            if not guarded:
+                offenders.append(name)
+    assert not offenders, (
+        "these modules drive the rig and form a verdict without requiring evidence: %s. "
+        "Import harness/measured.py and call require() before deciding." % ", ".join(offenders))
+
+
 if __name__ == "__main__":
     failures = 0
     for name, fn in sorted(globals().items()):

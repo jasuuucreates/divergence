@@ -11,6 +11,33 @@ Entries are newest first.
 
 ---
 
+## 2026-08-24 — The same defect, the seventh time, and the point at which we stopped fixing sites
+
+**Symptom.** `harness/search.py` reports *"No divergence found at length N over this alphabet"* and
+this repository quotes that as a meaningful negative result — it bounds where the defect is not. On a
+dead rig every terminal state is `None`, every multiset group then contains exactly one distinct
+state, and the search reports that it bounded the defect having measured nothing.
+
+`harness/causality.py` had the matching shape: two failed arms both yield `None`, the equality branch
+fires, and it concludes **NOT CAUSAL** from two absences.
+
+**Cause.** The same one as the previous six. A set of all-`None` states has size one. Two all-`None`
+dicts compare equal. An empty result set satisfies *"all of them agreed"*. And *"no divergence found"*
+is a GREEN wearing different words.
+
+**Fix, and the part that matters.** Both were guarded — but fixing each site as it was found had
+already failed six times, so the seventh fix is a test rather than a patch:
+`tests/seed_spec.py::test_every_rig_touching_module_requires_evidence` audits every module in
+`harness/`, and any module that drives the rig and forms a verdict without importing the guard fails
+the suite. The eighth instance cannot be introduced silently.
+
+**Why it mattered.** This one was found by deliberately asking *"where can a GREEN still mean nothing
+happened?"* rather than by a run going wrong — which is the only reason it was found before someone
+else found it. The principle this project keeps returning to is that **the evaluator must be harder to
+fool than the system it evaluates**, and for six rounds the evaluator was not.
+
+---
+
 ## 2026-08-23 — A false PASS from a plugin that did nothing at all
 
 **Symptom.** `harness/confirm_range.py` ran the amount-integrity property against razorpay-woocommerce

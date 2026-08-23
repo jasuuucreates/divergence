@@ -27,6 +27,7 @@ import sys
 import time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import measured # noqa: E402
 import rig      # noqa: E402
 import runlock  # noqa: E402
 

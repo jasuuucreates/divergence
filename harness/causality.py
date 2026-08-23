@@ -111,6 +111,18 @@ def main():
 
     p1_before = before.get("P1-ORDER-INDEPENDENCE")
     p1_after = after.get("P1-ORDER-INDEPENDENCE")
+    # Refuse to reason about causality from a run that produced no verdict. Without this, two
+    # failed runs both yield None, the equality branch fires, and the tool reports "NOT CAUSAL" --
+    # a conclusion drawn from two absences.
+    if p1_before not in ("RED", "GREEN") or p1_after not in ("RED", "GREEN"):
+        print()
+        print("=" * 96)
+        print("NO CONCLUSION: one or both arms produced no verdict (before=%s, after=%s)."
+              % (p1_before, p1_after))
+        print("  Causality cannot be inferred from a run that did not measure anything.")
+        print("  Check the rig:  python harness/demo.py --preflight")
+        print("=" * 96)
+        return 2
     print()
     print("=" * 96)
     print("P1 before patch : %s" % p1_before)
