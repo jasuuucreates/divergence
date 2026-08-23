@@ -241,15 +241,28 @@ def deep(topic):
         txt = io.open(os.path.join(ROOT, "LIMITATIONS.md"), encoding="utf-8").read()
         for line in txt.splitlines()[:44]:
             print("  " + line)
+    elif topic == "trace":
+        head("WHAT THE PLUGIN ACTUALLY DID -- not what state it ended in")
+        print("  Answers the fair question: how do you know it DROPPED the refund, rather than")
+        print("  recording it somewhere you are not looking?")
+        print()
+        print("  Run: python harness/trace.py --compare      (~30s, live)")
+        print()
+        print("  Last measured:")
+        print("    authorization first : 354 statements,  1 refund row inserted")
+        print("    refund first        : 193 statements,  0 refund rows inserted")
+        print()
+        print("  In the second, the only writes at all were three option updates and one webhook")
+        print("  row. Across every statement that delivery issued, there is no refund anywhere.")
     else:
-        print("topics: contract | evidence | limits")
+        print("topics: contract | evidence | limits | trace")
     return 0
 
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--preflight", action="store_true")
-    ap.add_argument("--deep", help="contract | evidence | limits")
+    ap.add_argument("--deep", help="contract | evidence | limits | trace")
     a = ap.parse_args()
     if a.preflight:
         sys.exit(preflight())

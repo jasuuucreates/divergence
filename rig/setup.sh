@@ -140,6 +140,9 @@ if [ "$RIG_STUB" = "1" ]; then
   say "6b/9  Install mu-plugin that repoints the SDK base URL at the stub"
   wpc eval 'if (!is_dir(WP_CONTENT_DIR."/mu-plugins")) { mkdir(WP_CONTENT_DIR."/mu-plugins", 0775, true); } echo "ok\n";' >/dev/null
   $DC run --rm -T cli sh -c 'cp /rig/mu-rig-api-base.php /var/www/html/wp-content/mu-plugins/mu-rig-api-base.php'
+  # Query tracer. Hooks WordPress's single query filter so the harness can show what a delivery
+  # ACTUALLY did, not merely what state it ended in. Does not touch the plugin under test.
+  $DC run --rm -T cli sh -c 'cp /rig/mu-rig-trace.php /var/www/html/wp-content/mu-plugins/mu-rig-trace.php'
   ok "mu-plugin installed (plugin files still untouched)"
 fi
 
