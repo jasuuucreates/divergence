@@ -107,6 +107,31 @@ thought of. They are not a population estimate. See [LIMITATIONS.md](LIMITATIONS
 
 ---
 
+## The documentation says otherwise
+
+In April 2026 Razorpay merged an agent-authored PR adding `docs/flows/webhook-flow.md` to
+razorpay-woocommerce. It is on `master` today. Line 5:
+
+> *"The plugin processes them asynchronously to prevent timeout issues and **ensure idempotent order
+> processing**."*
+
+Its Idempotency Handling table lists four checks. All four are single-event state guards — *has this
+already happened?* — and **the 197-line document contains no treatment of out-of-order delivery
+anywhere.** Idempotency and order-independence are different properties.
+
+A second claim, lines 80–81, describes the event store as read-then-append. It never appends: a type
+confusion makes the read return `[]` every time, so each event overwrites the last.
+
+**Both that document and this project used AI. The difference is where.** A model read the source and
+concluded the path was idempotent — which is what careful source-reading produces, and is wrong in a
+way only execution reveals. Here the model's job stops at proposing what to check; the verdict is a
+deterministic comparison against executed state.
+
+The guards in that document are real and do prevent the duplicates they were written for. This is not
+a claim that anyone was careless. See [docs/DOCS-VS-BEHAVIOUR.md](docs/DOCS-VS-BEHAVIOUR.md).
+
+---
+
 ## Why existing tools do not find this
 
 **Stock Semgrep across the generated integration templates: 2 findings, both an unrelated Django CSRF
