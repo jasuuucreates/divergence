@@ -18,6 +18,7 @@ Usage:
 """
 import argparse
 import itertools
+import subprocess
 import json
 import os
 import sys
@@ -134,6 +135,29 @@ def check_amount_integrity(events, dry=False):
             "verdict": "RED" if paid else "GREEN", "trial": t}
 
 
+def preflight():
+    """Refuse to run against a rig that cannot produce a meaningful answer.
+
+    Without the stub, paymentAuthorized()'s payment fetch goes to the real api.razorpay.com with
+    synthetic credentials, 401s, and every order stays `pending`. The harness would then report
+    confident verdicts derived from an integration that never did anything -- which is worse than
+    an error, because it looks like a result.
+
+    This is the same failure shape as the false-negative CONVERGENT run recorded in INCIDENTS.md:
+    the control arm must be known-good before the treatment arm is believed.
+    """
+    probe = subprocess.run(
+        ["docker", "compose", "exec", "-T", "wordpress", "sh", "-c",
+         "curl -s -o /dev/null -w '%{http_code}' http://rzpstub:8000/v1/payments/pay_RIG00000000001"],
+        cwd=rig.RIG, env=rig._env(), capture_output=True, text=True, timeout=120)
+    if (probe.stdout or "").strip() != "200":
+        raise SystemExit(
+            "REFUSING TO RUN: the API stub is not reachable from the WordPress container.\n"
+            "  Without it every order stays `pending` and the verdicts would be meaningless.\n"
+            "  Fix:  cd rig && ./setup.sh          (the stub is on by default)\n"
+            "  Got:  %r from http://rzpstub:8000" % (probe.stdout or probe.stderr or "")[:120])
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--events", nargs="+",
@@ -146,6 +170,8 @@ def main():
     print("=" * 96)
     print("CONFORMANCE RUN -- razorpay-woocommerce")
     print("=" * 96)
+    if not a.dry_run:
+        preflight()
     print("events under test : %s" % " + ".join(a.events))
     print("legal schedules   : %d (vendor states delivery order is not guaranteed)"
           % len(schedules(a.events)))

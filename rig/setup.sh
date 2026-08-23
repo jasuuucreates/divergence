@@ -7,7 +7,8 @@
 #  the UNMODIFIED razorpay-woocommerce plugin at v4.8.7, webhook secret set,
 #  one test order created, order id printed.
 #
-#  Optional:  RIG_STUB=1 ./setup.sh   also stands up the fake API (section 8).
+#  RIG_STUB=0 ./setup.sh   points at the real api.razorpay.com instead of the local stub.
+#                          Default is 1: the stub is required for the harness to work.
 # =============================================================================
 set -euo pipefail
 
@@ -34,7 +35,12 @@ WC_VERSION="10.6.2"          # woo-razorpay.php:9  "WC tested up to: 10.6.2"
 RZP_KEY_ID="${RZP_KEY_ID:-SYNTHETIC-KEY-ID-NOT-A-REAL-KEY}"
 RZP_KEY_SECRET="${RZP_KEY_SECRET:-SYNTHETIC-KEY-SECRET-NOT-REAL}"
 RZP_WEBHOOK_SECRET="${RZP_WEBHOOK_SECRET:-rig-webhook-secret-synthetic}"
-RIG_STUB="${RIG_STUB:-0}"
+# Stub is ON by default. Without it the payment fetch in paymentAuthorized() goes to the real
+# api.razorpay.com with synthetic credentials, 401s, and every order stays `pending` -- so the
+# harness produces confident, meaningless GREENs. An opt-in flag that the documented workflow
+# cannot work without is a trap, so it defaults on and says so loudly.
+# Set RIG_STUB=0 to point at the real API (you will need real test-mode credentials).
+RIG_STUB="${RIG_STUB:-1}"
 
 DC="docker compose"
 say(){ printf '\n\033[1;36m==> %s\033[0m\n' "$*"; }
