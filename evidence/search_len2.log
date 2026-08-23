@@ -1,0 +1,46 @@
+================================================================================================
+SCHEDULE SEARCH -- razorpay-woocommerce
+================================================================================================
+alphabet : payment.authorized, payment.failed, payment.pending, refund.created
+length   : 2
+trials   : 16   (~3 min at 13s/trial)
+
+  [ 1/16] payment.authorized then payment.authorized                 -> wc-processing
+  [ 2/16] payment.authorized then payment.failed                     -> wc-processing
+  [ 3/16] payment.authorized then payment.pending                    -> wc-processing
+  [ 4/16] payment.authorized then refund.created                     -> wc-refunded
+  [ 5/16] payment.failed then payment.authorized                     -> wc-processing
+  [ 6/16] payment.failed then payment.failed                         -> wc-pending
+  [ 7/16] payment.failed then payment.pending                        -> wc-pending
+  [ 8/16] payment.failed then refund.created                         -> wc-pending
+  [ 9/16] payment.pending then payment.authorized                    -> wc-processing
+  [10/16] payment.pending then payment.failed                        -> wc-pending
+  [11/16] payment.pending then payment.pending                       -> wc-pending
+  [12/16] payment.pending then refund.created                        -> wc-pending
+  [13/16] refund.created then payment.authorized                     -> wc-processing
+  [14/16] refund.created then payment.failed                         -> wc-pending
+  [15/16] refund.created then payment.pending                        -> wc-pending
+  [16/16] refund.created then refund.created                         -> wc-pending
+
+================================================================================================
+GROUPING BY MULTISET -- schedules with the same events must converge (P1)
+================================================================================================
+  payment.authorized + payment.authorized                    ok        ['wc-processing']
+  payment.authorized + payment.failed                        ok        ['wc-processing']
+  payment.authorized + payment.pending                       ok        ['wc-processing']
+  payment.authorized + refund.created                        DIVERGES  ['wc-processing', 'wc-refunded']
+  payment.failed + payment.failed                            ok        ['wc-pending']
+  payment.failed + payment.pending                           ok        ['wc-pending']
+  payment.failed + refund.created                            ok        ['wc-pending']
+  payment.pending + payment.pending                          ok        ['wc-pending']
+  payment.pending + refund.created                           ok        ['wc-pending']
+  refund.created + refund.created                            ok        ['wc-pending']
+
+================================================================================================
+FOUND 1 DIVERGENT MULTISET(S) -- same events, different terminal state:
+
+  events: payment.authorized + refund.created
+    payment.authorized then refund.created                   -> wc-refunded      (order 78)
+    refund.created then payment.authorized                   -> wc-processing    (order 88)
+================================================================================================
+saved -> D:\razorpay\rig\out\search.json   (4 min)

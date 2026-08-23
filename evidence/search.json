@@ -1,0 +1,1119 @@
+{
+  "alphabet": [
+    "payment.authorized",
+    "payment.failed",
+    "payment.pending",
+    "refund.created"
+  ],
+  "length": 3,
+  "trials": 64,
+  "seconds": 1237.5,
+  "results": [
+    {
+      "sequence": [
+        "payment.authorized",
+        "payment.authorized",
+        "payment.authorized"
+      ],
+      "order": 206,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.authorized",
+        "payment.authorized",
+        "payment.failed"
+      ],
+      "order": 207,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.authorized",
+        "payment.authorized",
+        "payment.pending"
+      ],
+      "order": 208,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.authorized",
+        "payment.authorized",
+        "refund.created"
+      ],
+      "order": 209,
+      "terminal": {
+        "order_status": "wc-refunded",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.authorized",
+        "payment.failed",
+        "payment.authorized"
+      ],
+      "order": 211,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.authorized",
+        "payment.failed",
+        "payment.failed"
+      ],
+      "order": 212,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.authorized",
+        "payment.failed",
+        "payment.pending"
+      ],
+      "order": 213,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.authorized",
+        "payment.failed",
+        "refund.created"
+      ],
+      "order": 214,
+      "terminal": {
+        "order_status": "wc-refunded",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.authorized",
+        "payment.pending",
+        "payment.authorized"
+      ],
+      "order": 216,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.authorized",
+        "payment.pending",
+        "payment.failed"
+      ],
+      "order": 217,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.authorized",
+        "payment.pending",
+        "payment.pending"
+      ],
+      "order": 218,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.authorized",
+        "payment.pending",
+        "refund.created"
+      ],
+      "order": 219,
+      "terminal": {
+        "order_status": "wc-refunded",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.authorized",
+        "refund.created",
+        "payment.authorized"
+      ],
+      "order": 221,
+      "terminal": {
+        "order_status": "wc-refunded",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.authorized",
+        "refund.created",
+        "payment.failed"
+      ],
+      "order": 223,
+      "terminal": {
+        "order_status": "wc-refunded",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.authorized",
+        "refund.created",
+        "payment.pending"
+      ],
+      "order": 225,
+      "terminal": {
+        "order_status": "wc-refunded",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.authorized",
+        "refund.created",
+        "refund.created"
+      ],
+      "order": 227,
+      "terminal": {
+        "order_status": "wc-refunded",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.failed",
+        "payment.authorized",
+        "payment.authorized"
+      ],
+      "order": 229,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.failed",
+        "payment.authorized",
+        "payment.failed"
+      ],
+      "order": 230,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.failed",
+        "payment.authorized",
+        "payment.pending"
+      ],
+      "order": 231,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.failed",
+        "payment.authorized",
+        "refund.created"
+      ],
+      "order": 232,
+      "terminal": {
+        "order_status": "wc-refunded",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.failed",
+        "payment.failed",
+        "payment.authorized"
+      ],
+      "order": 234,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.failed",
+        "payment.failed",
+        "payment.failed"
+      ],
+      "order": 235,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "payment.failed",
+        "payment.failed",
+        "payment.pending"
+      ],
+      "order": 236,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "payment.failed",
+        "payment.failed",
+        "refund.created"
+      ],
+      "order": 237,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "payment.failed",
+        "payment.pending",
+        "payment.authorized"
+      ],
+      "order": 238,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.failed",
+        "payment.pending",
+        "payment.failed"
+      ],
+      "order": 239,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "payment.failed",
+        "payment.pending",
+        "payment.pending"
+      ],
+      "order": 240,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "payment.failed",
+        "payment.pending",
+        "refund.created"
+      ],
+      "order": 241,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "payment.failed",
+        "refund.created",
+        "payment.authorized"
+      ],
+      "order": 242,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.failed",
+        "refund.created",
+        "payment.failed"
+      ],
+      "order": 243,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "payment.failed",
+        "refund.created",
+        "payment.pending"
+      ],
+      "order": 244,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "payment.failed",
+        "refund.created",
+        "refund.created"
+      ],
+      "order": 245,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "payment.pending",
+        "payment.authorized",
+        "payment.authorized"
+      ],
+      "order": 246,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.pending",
+        "payment.authorized",
+        "payment.failed"
+      ],
+      "order": 247,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.pending",
+        "payment.authorized",
+        "payment.pending"
+      ],
+      "order": 248,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.pending",
+        "payment.authorized",
+        "refund.created"
+      ],
+      "order": 249,
+      "terminal": {
+        "order_status": "wc-refunded",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.pending",
+        "payment.failed",
+        "payment.authorized"
+      ],
+      "order": 251,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.pending",
+        "payment.failed",
+        "payment.failed"
+      ],
+      "order": 252,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "payment.pending",
+        "payment.failed",
+        "payment.pending"
+      ],
+      "order": 253,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "payment.pending",
+        "payment.failed",
+        "refund.created"
+      ],
+      "order": 254,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "payment.pending",
+        "payment.pending",
+        "payment.authorized"
+      ],
+      "order": 255,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.pending",
+        "payment.pending",
+        "payment.failed"
+      ],
+      "order": 256,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "payment.pending",
+        "payment.pending",
+        "payment.pending"
+      ],
+      "order": 257,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "payment.pending",
+        "payment.pending",
+        "refund.created"
+      ],
+      "order": 258,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "payment.pending",
+        "refund.created",
+        "payment.authorized"
+      ],
+      "order": 259,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "payment.pending",
+        "refund.created",
+        "payment.failed"
+      ],
+      "order": 260,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "payment.pending",
+        "refund.created",
+        "payment.pending"
+      ],
+      "order": 261,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "payment.pending",
+        "refund.created",
+        "refund.created"
+      ],
+      "order": 262,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "refund.created",
+        "payment.authorized",
+        "payment.authorized"
+      ],
+      "order": 263,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "refund.created",
+        "payment.authorized",
+        "payment.failed"
+      ],
+      "order": 264,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "refund.created",
+        "payment.authorized",
+        "payment.pending"
+      ],
+      "order": 265,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "refund.created",
+        "payment.authorized",
+        "refund.created"
+      ],
+      "order": 266,
+      "terminal": {
+        "order_status": "wc-refunded",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "refund.created",
+        "payment.failed",
+        "payment.authorized"
+      ],
+      "order": 268,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "refund.created",
+        "payment.failed",
+        "payment.failed"
+      ],
+      "order": 269,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "refund.created",
+        "payment.failed",
+        "payment.pending"
+      ],
+      "order": 270,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "refund.created",
+        "payment.failed",
+        "refund.created"
+      ],
+      "order": 271,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "refund.created",
+        "payment.pending",
+        "payment.authorized"
+      ],
+      "order": 272,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "refund.created",
+        "payment.pending",
+        "payment.failed"
+      ],
+      "order": 273,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "refund.created",
+        "payment.pending",
+        "payment.pending"
+      ],
+      "order": 274,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "refund.created",
+        "payment.pending",
+        "refund.created"
+      ],
+      "order": 275,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "refund.created",
+        "refund.created",
+        "payment.authorized"
+      ],
+      "order": 276,
+      "terminal": {
+        "order_status": "wc-processing",
+        "queue_cron_status": "2",
+        "stored_events": [
+          "payment.authorized"
+        ]
+      }
+    },
+    {
+      "sequence": [
+        "refund.created",
+        "refund.created",
+        "payment.failed"
+      ],
+      "order": 277,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "refund.created",
+        "refund.created",
+        "payment.pending"
+      ],
+      "order": 278,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    },
+    {
+      "sequence": [
+        "refund.created",
+        "refund.created",
+        "refund.created"
+      ],
+      "order": 279,
+      "terminal": {
+        "order_status": "wc-pending",
+        "queue_cron_status": "0",
+        "stored_events": []
+      }
+    }
+  ],
+  "divergent": [
+    {
+      "multiset": [
+        "payment.authorized",
+        "payment.authorized",
+        "refund.created"
+      ],
+      "outcomes": [
+        {
+          "sequence": [
+            "payment.authorized",
+            "payment.authorized",
+            "refund.created"
+          ],
+          "terminal": "wc-refunded",
+          "order": 209
+        },
+        {
+          "sequence": [
+            "payment.authorized",
+            "refund.created",
+            "payment.authorized"
+          ],
+          "terminal": "wc-refunded",
+          "order": 221
+        },
+        {
+          "sequence": [
+            "refund.created",
+            "payment.authorized",
+            "payment.authorized"
+          ],
+          "terminal": "wc-processing",
+          "order": 263
+        }
+      ]
+    },
+    {
+      "multiset": [
+        "payment.authorized",
+        "payment.failed",
+        "refund.created"
+      ],
+      "outcomes": [
+        {
+          "sequence": [
+            "payment.authorized",
+            "payment.failed",
+            "refund.created"
+          ],
+          "terminal": "wc-refunded",
+          "order": 214
+        },
+        {
+          "sequence": [
+            "payment.authorized",
+            "refund.created",
+            "payment.failed"
+          ],
+          "terminal": "wc-refunded",
+          "order": 223
+        },
+        {
+          "sequence": [
+            "payment.failed",
+            "payment.authorized",
+            "refund.created"
+          ],
+          "terminal": "wc-refunded",
+          "order": 232
+        },
+        {
+          "sequence": [
+            "payment.failed",
+            "refund.created",
+            "payment.authorized"
+          ],
+          "terminal": "wc-processing",
+          "order": 242
+        },
+        {
+          "sequence": [
+            "refund.created",
+            "payment.authorized",
+            "payment.failed"
+          ],
+          "terminal": "wc-processing",
+          "order": 264
+        },
+        {
+          "sequence": [
+            "refund.created",
+            "payment.failed",
+            "payment.authorized"
+          ],
+          "terminal": "wc-processing",
+          "order": 268
+        }
+      ]
+    },
+    {
+      "multiset": [
+        "payment.authorized",
+        "payment.pending",
+        "refund.created"
+      ],
+      "outcomes": [
+        {
+          "sequence": [
+            "payment.authorized",
+            "payment.pending",
+            "refund.created"
+          ],
+          "terminal": "wc-refunded",
+          "order": 219
+        },
+        {
+          "sequence": [
+            "payment.authorized",
+            "refund.created",
+            "payment.pending"
+          ],
+          "terminal": "wc-refunded",
+          "order": 225
+        },
+        {
+          "sequence": [
+            "payment.pending",
+            "payment.authorized",
+            "refund.created"
+          ],
+          "terminal": "wc-refunded",
+          "order": 249
+        },
+        {
+          "sequence": [
+            "payment.pending",
+            "refund.created",
+            "payment.authorized"
+          ],
+          "terminal": "wc-processing",
+          "order": 259
+        },
+        {
+          "sequence": [
+            "refund.created",
+            "payment.authorized",
+            "payment.pending"
+          ],
+          "terminal": "wc-processing",
+          "order": 265
+        },
+        {
+          "sequence": [
+            "refund.created",
+            "payment.pending",
+            "payment.authorized"
+          ],
+          "terminal": "wc-processing",
+          "order": 272
+        }
+      ]
+    },
+    {
+      "multiset": [
+        "payment.authorized",
+        "refund.created",
+        "refund.created"
+      ],
+      "outcomes": [
+        {
+          "sequence": [
+            "payment.authorized",
+            "refund.created",
+            "refund.created"
+          ],
+          "terminal": "wc-refunded",
+          "order": 227
+        },
+        {
+          "sequence": [
+            "refund.created",
+            "payment.authorized",
+            "refund.created"
+          ],
+          "terminal": "wc-refunded",
+          "order": 266
+        },
+        {
+          "sequence": [
+            "refund.created",
+            "refund.created",
+            "payment.authorized"
+          ],
+          "terminal": "wc-processing",
+          "order": 276
+        }
+      ]
+    }
+  ]
+}

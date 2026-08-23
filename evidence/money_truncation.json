@@ -1,0 +1,104 @@
+{
+  "max_rupees": 100000,
+  "method": "exhaustive over integer rupee values per ending",
+  "rows": [
+    {
+      "ending": ".00",
+      "tested": 100000,
+      "undercharged": 0,
+      "rate_pct": 0.0,
+      "example": null
+    },
+    {
+      "ending": ".99",
+      "tested": 100000,
+      "undercharged": 594,
+      "rate_pct": 0.59,
+      "example": "Rs 16.99 -> 1698 paise, not 1699"
+    },
+    {
+      "ending": ".50",
+      "tested": 100000,
+      "undercharged": 0,
+      "rate_pct": 0.0,
+      "example": null
+    },
+    {
+      "ending": ".95",
+      "tested": 100000,
+      "undercharged": 9785,
+      "rate_pct": 9.79,
+      "example": "Rs 8.95 -> 894 paise, not 895"
+    },
+    {
+      "ending": ".90",
+      "tested": 100000,
+      "undercharged": 19571,
+      "rate_pct": 19.57,
+      "example": "Rs 16.90 -> 1689 paise, not 1690"
+    },
+    {
+      "ending": ".49",
+      "tested": 100000,
+      "undercharged": 595,
+      "rate_pct": 0.59,
+      "example": "Rs 16.49 -> 1648 paise, not 1649"
+    },
+    {
+      "ending": ".25",
+      "tested": 100000,
+      "undercharged": 0,
+      "rate_pct": 0.0,
+      "example": null
+    },
+    {
+      "ending": ".75",
+      "tested": 100000,
+      "undercharged": 0,
+      "rate_pct": 0.0,
+      "example": null
+    },
+    {
+      "ending": ".98",
+      "tested": 100000,
+      "undercharged": 1189,
+      "rate_pct": 1.19,
+      "example": "Rs 32.98 -> 3297 paise, not 3298"
+    },
+    {
+      "ending": ".45",
+      "tested": 100000,
+      "undercharged": 9786,
+      "rate_pct": 9.79,
+      "example": "Rs 8.45 -> 844 paise, not 845"
+    },
+    {
+      "ending": ".19",
+      "tested": 100000,
+      "undercharged": 5735,
+      "rate_pct": 5.74,
+      "example": "Rs 4096.19 -> 409618 paise, not 409619"
+    },
+    {
+      "ending": ".29",
+      "tested": 100000,
+      "undercharged": 18352,
+      "rate_pct": 18.35,
+      "example": "Rs 8.29 -> 828 paise, not 829"
+    },
+    {
+      "ending": ".89",
+      "tested": 100000,
+      "undercharged": 36,
+      "rate_pct": 0.04,
+      "example": "Rs 4.89 -> 488 paise, not 489"
+    },
+    {
+      "ending": ".79",
+      "tested": 100000,
+      "undercharged": 18352,
+      "rate_pct": 18.35,
+      "example": "Rs 8.79 -> 878 paise, not 879"
+    }
+  ]
+}

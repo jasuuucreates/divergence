@@ -1,0 +1,96 @@
+{
+  "rows": [
+    {
+      "mutant": "control-woo-baseline",
+      "kind": "control",
+      "target": "woocommerce",
+      "property": "P5-AMOUNT-INTEGRITY",
+      "expected": "RED",
+      "observed": "RED",
+      "match": true,
+      "why": "Unmodified WooCommerce. Establishes the baseline the repair mutants move away from.",
+      "sha_restored": "92fdc4073d96250b"
+    },
+    {
+      "mutant": "control-edd-baseline",
+      "kind": "control",
+      "target": "edd",
+      "property": "P5-AMOUNT-INTEGRITY",
+      "expected": "GREEN",
+      "observed": "GREEN",
+      "match": true,
+      "why": "Unmodified EDD. Establishes that the harness does not simply always report RED.",
+      "sha_restored": "219dd8dacffd999e"
+    },
+    {
+      "mutant": "inject-edd-drop-amount-check",
+      "kind": "inject",
+      "target": "edd",
+      "property": "P5-AMOUNT-INTEGRITY",
+      "expected": "RED",
+      "observed": "RED",
+      "match": true,
+      "why": "Removes EDD's amount comparison at razorpay-webhook.php:130. This is exactly the defect WooCommerce has. If the harness does not flip GREEN->RED here it cannot detect the defect class at all -- it merely recognises WooCommerce.",
+      "sha_restored": "219dd8dacffd999e"
+    },
+    {
+      "mutant": "repair-woo-add-amount-check",
+      "kind": "repair",
+      "target": "woocommerce",
+      "property": "P5-AMOUNT-INTEGRITY",
+      "expected": "GREEN",
+      "observed": "GREEN",
+      "match": true,
+      "why": "Adds the comparison WooCommerce is missing, mirroring what its own virtual-account path and razorpay-edd already do. If the harness still reports RED, it is reporting a defect that is no longer present -- a false positive.",
+      "sha_restored": "92fdc4073d96250b"
+    },
+    {
+      "mutant": "inject-edd-self-compare",
+      "kind": "inject",
+      "target": "edd",
+      "property": "P5-AMOUNT-INTEGRITY",
+      "expected": "RED",
+      "observed": "RED",
+      "match": true,
+      "why": "The comparison is still there and still reads like a check, but compares the value to itself so it is always true. Grep-based tooling sees a comparison and passes it. Only executing the code with a mismatched amount distinguishes this from the real check.",
+      "sha_restored": "219dd8dacffd999e"
+    },
+    {
+      "mutant": "inject-edd-compare-to-paid",
+      "kind": "inject",
+      "target": "edd",
+      "property": "P5-AMOUNT-INTEGRITY",
+      "expected": "RED",
+      "observed": "RED",
+      "match": true,
+      "why": "Leaves the comparison untouched and corrupts what it compares against: the expected amount is taken from the payment instead of the order. The check now proves nothing. This is the shape a real refactoring accident takes.",
+      "sha_restored": "219dd8dacffd999e"
+    },
+    {
+      "mutant": "noise-edd-log-text",
+      "kind": "control",
+      "target": "edd",
+      "property": "P5-AMOUNT-INTEGRITY",
+      "expected": "GREEN",
+      "observed": "GREEN",
+      "match": true,
+      "why": "Changes only a log string. The verdict must not move. A harness that reacts to this is keying on text rather than on behaviour.",
+      "sha_restored": "219dd8dacffd999e"
+    },
+    {
+      "mutant": "noise-woo-comment",
+      "kind": "control",
+      "target": "woocommerce",
+      "property": "P5-AMOUNT-INTEGRITY",
+      "expected": "RED",
+      "observed": "RED",
+      "match": true,
+      "why": "Reworded comment only. WooCommerce's P5 baseline must stay RED. Confirms the verdict is stable under edits that change no behaviour.",
+      "sha_restored": "92fdc4073d96250b"
+    }
+  ],
+  "tp": 5,
+  "fn": 0,
+  "tn": 3,
+  "fp": 0
+}

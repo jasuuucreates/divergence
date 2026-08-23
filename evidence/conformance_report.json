@@ -1,0 +1,270 @@
+{
+  "overall": "RED",
+  "events": [
+    "payment.authorized",
+    "refund.created"
+  ],
+  "contract": [
+    {
+      "key": "P1-ORDER-INDEPENDENCE",
+      "title": "All legal delivery orderings of the same events must converge to the same terminal state",
+      "kind": "behavioural",
+      "vendor_says": "Ideally, you should receive a webhook in the order in which the webhook events occur. However, you may not always receive the webhooks in the order.",
+      "source": "https://razorpay.com/docs/build/llm-docs/webhooks/validate-test.md",
+      "why_it_follows": "Razorpay states delivery order is not guaranteed. An integration that reaches a different merchant-visible terminal state depending on arrival order is therefore not merely unlucky, it is non-conforming: the vendor has told it that this input is legal. We assert CONFLUENCE over the converged state -- read only after every deferred queue has drained -- so 'a transient our cron fixes' is not an available rebuttal."
+    },
+    {
+      "key": "P2-DUPLICATE-TOLERANCE",
+      "title": "Redelivering an event must not change the terminal state",
+      "kind": "behavioural",
+      "vendor_says": "There could be scenarios where your endpoint might receive the same webhook event multiple times. This is an expected behaviour based on the webhook design.",
+      "source": "https://razorpay.com/docs/build/llm-docs/webhooks/validate-test.md",
+      "why_it_follows": "At-least-once delivery is stated by the vendor as expected behaviour, not as an edge case. Delivering the same event twice must therefore be idempotent with respect to the merchant-visible state. This is the property that catches double-fulfilment and double-refund."
+    },
+    {
+      "key": "P3-EVENT-ID-DEDUP",
+      "title": "The integration uses x-razorpay-event-id to identify duplicate deliveries",
+      "kind": "structural",
+      "vendor_says": "You can identify the duplicate webhooks using the x-razorpay-event-id header. The value for this header is unique per event. Check the value of x-razorpay-event-id in the webhook request header. Verify if an event with the same header is processed at your end.",
+      "source": "https://razorpay.com/docs/build/llm-docs/webhooks/validate-test.md",
+      "why_it_follows": "This is the remedy the vendor itself prescribes for the hazard it itself documents. NOTE THE WEAKNESS: this one is STRUCTURAL. Absence of the header proves the prescribed mechanism is absent; it does NOT prove the integration is non-idempotent, because an integration may de-duplicate some other way. It is reported as an advisory, never as a failure, and P2 is what actually decides idempotence."
+    },
+    {
+      "key": "P4-NO-SILENT-LOSS",
+      "title": "An accepted event must either change the state or be explicitly recorded as ignored",
+      "kind": "behavioural",
+      "vendor_says": "There could be scenarios where your endpoint might receive the same webhook event multiple times. This is an expected behaviour based on the webhook design.",
+      "source": "https://razorpay.com/docs/build/llm-docs/webhooks/validate-test.md",
+      "why_it_follows": "Corollary of at-least-once delivery plus HTTP semantics: an endpoint that returns 2xx has told the sender 'I have taken responsibility for this event'. If the event then neither changes the state nor appears in any durable record, the integration has silently accepted and dropped a money event, and Razorpay will never retry it because it was acknowledged. This is the property that catches 'marked processed, did nothing'."
+    },
+    {
+      "key": "P5-AMOUNT-INTEGRITY",
+      "title": "An order must not reach a paid state for an amount other than the amount ordered",
+      "kind": "behavioural",
+      "vendor_says": "amount : integer The amount for which the order was created, in currency subunits. For example, for an amount of \u20b9295, enter 29500.",
+      "source": "https://razorpay.com/docs/build/llm-docs/api/orders/create.md",
+      "why_it_follows": "This property is not our invention -- it is the vendor's own, and they evidence it twice in their own code. razorpay-woocommerce enforces it at razorpay-webhook.php:505 on the virtual-account path ($amountPaid === $amount), and razorpay-edd enforces it at line 130 ($payment['amount'] === $amount). It is absent from paymentAuthorized(), the path that handles ordinary card and UPI payments, where the expected amount is computed and then used only as a capture argument. A property the vendor implements in two sibling paths and omits in the main one is exactly what a conformance oracle exists to surface. SCOPE: this is a MISSING INVARIANT, not a demonstrated attack -- the signature is verified and the payment entity is fetched from Razorpay, so an attacker does not simply choose the amount. What is shown is that the integration does not defend the invariant itself."
+    }
+  ],
+  "results": [
+    {
+      "property": "P1-ORDER-INDEPENDENCE",
+      "verdict": "RED",
+      "distinct_terminal_states": [
+        "wc-processing",
+        "wc-refunded"
+      ],
+      "trials": [
+        {
+          "order": 281,
+          "sequence": [
+            "payment.authorized",
+            "refund.created"
+          ],
+          "fault_injected": false,
+          "underpaid": false,
+          "deliveries": [
+            {
+              "event": "payment.authorized",
+              "http": "200"
+            },
+            {
+              "event": "refund.created",
+              "http": "200"
+            }
+          ],
+          "terminal": {
+            "order_status": "wc-refunded",
+            "queue_cron_status": "2",
+            "stored_events": [
+              "payment.authorized"
+            ]
+          }
+        },
+        {
+          "order": 283,
+          "sequence": [
+            "refund.created",
+            "payment.authorized"
+          ],
+          "fault_injected": false,
+          "underpaid": false,
+          "deliveries": [
+            {
+              "event": "refund.created",
+              "http": "200"
+            },
+            {
+              "event": "payment.authorized",
+              "http": "200"
+            }
+          ],
+          "terminal": {
+            "order_status": "wc-processing",
+            "queue_cron_status": "2",
+            "stored_events": [
+              "payment.authorized"
+            ]
+          }
+        }
+      ],
+      "witness": [
+        {
+          "schedule": [
+            "payment.authorized",
+            "refund.created"
+          ],
+          "terminal": "wc-refunded",
+          "order": 281
+        },
+        {
+          "schedule": [
+            "refund.created",
+            "payment.authorized"
+          ],
+          "terminal": "wc-processing",
+          "order": 283
+        }
+      ],
+      "seconds": 32.1
+    },
+    {
+      "property": "P2-DUPLICATE-TOLERANCE",
+      "verdict": "GREEN",
+      "baseline": {
+        "order": 284,
+        "sequence": [
+          "payment.authorized",
+          "refund.created"
+        ],
+        "fault_injected": false,
+        "underpaid": false,
+        "deliveries": [
+          {
+            "event": "payment.authorized",
+            "http": "200"
+          },
+          {
+            "event": "refund.created",
+            "http": "200"
+          }
+        ],
+        "terminal": {
+          "order_status": "wc-refunded",
+          "queue_cron_status": "2",
+          "stored_events": [
+            "payment.authorized"
+          ]
+        }
+      },
+      "with_duplicate": {
+        "order": 286,
+        "sequence": [
+          "payment.authorized",
+          "refund.created",
+          "payment.authorized"
+        ],
+        "fault_injected": false,
+        "underpaid": false,
+        "deliveries": [
+          {
+            "event": "payment.authorized",
+            "http": "200"
+          },
+          {
+            "event": "refund.created",
+            "http": "200"
+          },
+          {
+            "event": "payment.authorized",
+            "http": "200"
+          }
+        ],
+        "terminal": {
+          "order_status": "wc-refunded",
+          "queue_cron_status": "2",
+          "stored_events": [
+            "payment.authorized"
+          ]
+        }
+      },
+      "witness": null,
+      "seconds": 35.7
+    },
+    {
+      "property": "P4-NO-SILENT-LOSS",
+      "verdict": "RED",
+      "accepted": [
+        "payment.authorized",
+        "refund.created"
+      ],
+      "durably_recorded": [
+        "payment.authorized"
+      ],
+      "unaccounted": [
+        "refund.created"
+      ],
+      "queue_marked_consumed": true,
+      "order_moved": false,
+      "silently_lost": true,
+      "trial": {
+        "order": 288,
+        "sequence": [
+          "payment.authorized",
+          "refund.created"
+        ],
+        "fault_injected": true,
+        "underpaid": false,
+        "deliveries": [
+          {
+            "event": "payment.authorized",
+            "http": "200"
+          },
+          {
+            "event": "refund.created",
+            "http": "200"
+          }
+        ],
+        "terminal": {
+          "order_status": "wc-pending",
+          "queue_cron_status": "2",
+          "stored_events": [
+            "payment.authorized"
+          ]
+        }
+      },
+      "seconds": 15.7
+    },
+    {
+      "property": "P5-AMOUNT-INTEGRITY",
+      "verdict": "RED",
+      "trial": {
+        "order": 289,
+        "sequence": [
+          "payment.authorized"
+        ],
+        "fault_injected": false,
+        "underpaid": true,
+        "deliveries": [
+          {
+            "event": "payment.authorized",
+            "http": "200"
+          }
+        ],
+        "terminal": {
+          "order_status": "wc-processing",
+          "queue_cron_status": "2",
+          "stored_events": [
+            "payment.authorized"
+          ]
+        }
+      },
+      "seconds": 12.0
+    },
+    {
+      "property": "P3-EVENT-ID-DEDUP",
+      "verdict": "YELLOW",
+      "note": "structural check -- see experiments/eventid_survey.json; absence of the header proves the prescribed mechanism is absent, not that the integration is non-idempotent. P2 decides idempotence."
+    }
+  ]
+}

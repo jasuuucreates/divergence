@@ -1,0 +1,14 @@
+{
+  "order": 308,
+  "order_paise": 49900,
+  "paid_paise": 100,
+  "http": "200",
+  "terminal": {
+    "order_status": "wc-processing",
+    "queue_cron_status": "2",
+    "stored_events": [
+      "payment.authorized"
+    ]
+  },
+  "verdict": "RED"
+}

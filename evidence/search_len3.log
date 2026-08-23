@@ -1,0 +1,126 @@
+================================================================================================
+SCHEDULE SEARCH -- razorpay-woocommerce
+================================================================================================
+alphabet : payment.authorized, payment.failed, payment.pending, refund.created
+length   : 3
+trials   : 64   (~14 min at 13s/trial)
+
+  [ 1/64] payment.authorized then payment.authorized then payment.authorized -> wc-processing
+  [ 2/64] payment.authorized then payment.authorized then payment.failed -> wc-processing
+  [ 3/64] payment.authorized then payment.authorized then payment.pending -> wc-processing
+  [ 4/64] payment.authorized then payment.authorized then refund.created -> wc-refunded
+  [ 5/64] payment.authorized then payment.failed then payment.authorized -> wc-processing
+  [ 6/64] payment.authorized then payment.failed then payment.failed -> wc-processing
+  [ 7/64] payment.authorized then payment.failed then payment.pending -> wc-processing
+  [ 8/64] payment.authorized then payment.failed then refund.created -> wc-refunded
+  [ 9/64] payment.authorized then payment.pending then payment.authorized -> wc-processing
+  [10/64] payment.authorized then payment.pending then payment.failed -> wc-processing
+  [11/64] payment.authorized then payment.pending then payment.pending -> wc-processing
+  [12/64] payment.authorized then payment.pending then refund.created -> wc-refunded
+  [13/64] payment.authorized then refund.created then payment.authorized -> wc-refunded
+  [14/64] payment.authorized then refund.created then payment.failed -> wc-refunded
+  [15/64] payment.authorized then refund.created then payment.pending -> wc-refunded
+  [16/64] payment.authorized then refund.created then refund.created -> wc-refunded
+  [17/64] payment.failed then payment.authorized then payment.authorized -> wc-processing
+  [18/64] payment.failed then payment.authorized then payment.failed -> wc-processing
+  [19/64] payment.failed then payment.authorized then payment.pending -> wc-processing
+  [20/64] payment.failed then payment.authorized then refund.created -> wc-refunded
+  [21/64] payment.failed then payment.failed then payment.authorized -> wc-processing
+  [22/64] payment.failed then payment.failed then payment.failed     -> wc-pending
+  [23/64] payment.failed then payment.failed then payment.pending    -> wc-pending
+  [24/64] payment.failed then payment.failed then refund.created     -> wc-pending
+  [25/64] payment.failed then payment.pending then payment.authorized -> wc-processing
+  [26/64] payment.failed then payment.pending then payment.failed    -> wc-pending
+  [27/64] payment.failed then payment.pending then payment.pending   -> wc-pending
+  [28/64] payment.failed then payment.pending then refund.created    -> wc-pending
+  [29/64] payment.failed then refund.created then payment.authorized -> wc-processing
+  [30/64] payment.failed then refund.created then payment.failed     -> wc-pending
+  [31/64] payment.failed then refund.created then payment.pending    -> wc-pending
+  [32/64] payment.failed then refund.created then refund.created     -> wc-pending
+  [33/64] payment.pending then payment.authorized then payment.authorized -> wc-processing
+  [34/64] payment.pending then payment.authorized then payment.failed -> wc-processing
+  [35/64] payment.pending then payment.authorized then payment.pending -> wc-processing
+  [36/64] payment.pending then payment.authorized then refund.created -> wc-refunded
+  [37/64] payment.pending then payment.failed then payment.authorized -> wc-processing
+  [38/64] payment.pending then payment.failed then payment.failed    -> wc-pending
+  [39/64] payment.pending then payment.failed then payment.pending   -> wc-pending
+  [40/64] payment.pending then payment.failed then refund.created    -> wc-pending
+  [41/64] payment.pending then payment.pending then payment.authorized -> wc-processing
+  [42/64] payment.pending then payment.pending then payment.failed   -> wc-pending
+  [43/64] payment.pending then payment.pending then payment.pending  -> wc-pending
+  [44/64] payment.pending then payment.pending then refund.created   -> wc-pending
+  [45/64] payment.pending then refund.created then payment.authorized -> wc-processing
+  [46/64] payment.pending then refund.created then payment.failed    -> wc-pending
+  [47/64] payment.pending then refund.created then payment.pending   -> wc-pending
+  [48/64] payment.pending then refund.created then refund.created    -> wc-pending
+  [49/64] refund.created then payment.authorized then payment.authorized -> wc-processing
+  [50/64] refund.created then payment.authorized then payment.failed -> wc-processing
+  [51/64] refund.created then payment.authorized then payment.pending -> wc-processing
+  [52/64] refund.created then payment.authorized then refund.created -> wc-refunded
+  [53/64] refund.created then payment.failed then payment.authorized -> wc-processing
+  [54/64] refund.created then payment.failed then payment.failed     -> wc-pending
+  [55/64] refund.created then payment.failed then payment.pending    -> wc-pending
+  [56/64] refund.created then payment.failed then refund.created     -> wc-pending
+  [57/64] refund.created then payment.pending then payment.authorized -> wc-processing
+  [58/64] refund.created then payment.pending then payment.failed    -> wc-pending
+  [59/64] refund.created then payment.pending then payment.pending   -> wc-pending
+  [60/64] refund.created then payment.pending then refund.created    -> wc-pending
+  [61/64] refund.created then refund.created then payment.authorized -> wc-processing
+  [62/64] refund.created then refund.created then payment.failed     -> wc-pending
+  [63/64] refund.created then refund.created then payment.pending    -> wc-pending
+  [64/64] refund.created then refund.created then refund.created     -> wc-pending
+
+================================================================================================
+GROUPING BY MULTISET -- schedules with the same events must converge (P1)
+================================================================================================
+  payment.authorized + payment.authorized + payment.authorized ok        ['wc-processing']
+  payment.authorized + payment.authorized + payment.failed   ok        ['wc-processing']
+  payment.authorized + payment.authorized + payment.pending  ok        ['wc-processing']
+  payment.authorized + payment.authorized + refund.created   DIVERGES  ['wc-processing', 'wc-refunded']
+  payment.authorized + payment.failed + payment.failed       ok        ['wc-processing']
+  payment.authorized + payment.failed + payment.pending      ok        ['wc-processing']
+  payment.authorized + payment.failed + refund.created       DIVERGES  ['wc-processing', 'wc-refunded']
+  payment.authorized + payment.pending + payment.pending     ok        ['wc-processing']
+  payment.authorized + payment.pending + refund.created      DIVERGES  ['wc-processing', 'wc-refunded']
+  payment.authorized + refund.created + refund.created       DIVERGES  ['wc-processing', 'wc-refunded']
+  payment.failed + payment.failed + payment.failed           ok        ['wc-pending']
+  payment.failed + payment.failed + payment.pending          ok        ['wc-pending']
+  payment.failed + payment.failed + refund.created           ok        ['wc-pending']
+  payment.failed + payment.pending + payment.pending         ok        ['wc-pending']
+  payment.failed + payment.pending + refund.created          ok        ['wc-pending']
+  payment.failed + refund.created + refund.created           ok        ['wc-pending']
+  payment.pending + payment.pending + payment.pending        ok        ['wc-pending']
+  payment.pending + payment.pending + refund.created         ok        ['wc-pending']
+  payment.pending + refund.created + refund.created          ok        ['wc-pending']
+  refund.created + refund.created + refund.created           ok        ['wc-pending']
+
+================================================================================================
+FOUND 4 DIVERGENT MULTISET(S) -- same events, different terminal state:
+
+  events: payment.authorized + payment.authorized + refund.created
+    payment.authorized then payment.authorized then refund.created -> wc-refunded      (order 209)
+    payment.authorized then refund.created then payment.authorized -> wc-refunded      (order 221)
+    refund.created then payment.authorized then payment.authorized -> wc-processing    (order 263)
+
+  events: payment.authorized + payment.failed + refund.created
+    payment.authorized then payment.failed then refund.created -> wc-refunded      (order 214)
+    payment.authorized then refund.created then payment.failed -> wc-refunded      (order 223)
+    payment.failed then payment.authorized then refund.created -> wc-refunded      (order 232)
+    payment.failed then refund.created then payment.authorized -> wc-processing    (order 242)
+    refund.created then payment.authorized then payment.failed -> wc-processing    (order 264)
+    refund.created then payment.failed then payment.authorized -> wc-processing    (order 268)
+
+  events: payment.authorized + payment.pending + refund.created
+    payment.authorized then payment.pending then refund.created -> wc-refunded      (order 219)
+    payment.authorized then refund.created then payment.pending -> wc-refunded      (order 225)
+    payment.pending then payment.authorized then refund.created -> wc-refunded      (order 249)
+    payment.pending then refund.created then payment.authorized -> wc-processing    (order 259)
+    refund.created then payment.authorized then payment.pending -> wc-processing    (order 265)
+    refund.created then payment.pending then payment.authorized -> wc-processing    (order 272)
+
+  events: payment.authorized + refund.created + refund.created
+    payment.authorized then refund.created then refund.created -> wc-refunded      (order 227)
+    refund.created then payment.authorized then refund.created -> wc-refunded      (order 266)
+    refund.created then refund.created then payment.authorized -> wc-processing    (order 276)
+================================================================================================
+saved -> D:\razorpay\rig\out\search.json   (21 min)
