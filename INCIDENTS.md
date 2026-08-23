@@ -11,6 +11,33 @@ Entries are newest first.
 
 ---
 
+## 2026-08-23 — A false PASS from a plugin that did nothing at all
+
+**Symptom.** `harness/confirm_range.py` ran the amount-integrity property against razorpay-woocommerce
+**v4.0.0** and reported **GREEN** — apparently, that a nine-year-old release *did* check the amount,
+contradicting a static screen that said the check has never existed.
+
+**Cause.** v4.0.0 did nothing at all. A *matching* payment also left the order at `wc-pending` with an
+empty queue: swapping plugin files does not reproduce a release's environment, because each version
+activates its own database table and settings, and our rig built those for v4.8.7. The probe asked
+"did an underpaid payment complete the order?", got "no", and returned GREEN. **"Nothing happened" was
+scored as "the amount was checked."**
+
+**Fix.** `amount_integrity.py` now runs a **control arm first** — a matching payment must complete the
+order — and returns `UNDECIDABLE` when it does not, naming the likely cause. v4.0.0 and v4.7.0 both now
+report UNDECIDABLE correctly.
+
+**Why it mattered.** This is the **sixth** instance of one shape in this project, and it proves the
+guard added earlier was incomplete: `measured.require()` had been wired into `check.py`, but
+`amount_integrity.py` carried its own logic with no control. A guard applied to the place you happened
+to be looking is not a guard.
+
+**Consequence for what we publish.** The regression range ships as a claim about **source** across 111
+releases, not about behaviour across them. Behaviour is confirmed only at the pinned version, and
+`regression.py` says exactly that in its own output rather than in a footnote.
+
+---
+
 ## 2026-08-23 — The stub was the only component with no test, and it was wrong
 
 **Symptom.** `harness/stubcheck.py`, written specifically to test the thing that had never been
