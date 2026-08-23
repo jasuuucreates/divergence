@@ -1,0 +1,14 @@
+{
+  "pinned": "v4.8.7",
+  "historical": "v4.7.0",
+  "results": {
+    "v4.8.7": {
+      "verdict": "RED",
+      "sha": "4af03b1"
+    },
+    "v4.7.0": {
+      "verdict": "UNDECIDABLE",
+      "sha": "8fb6a1d"
+    }
+  }
+}

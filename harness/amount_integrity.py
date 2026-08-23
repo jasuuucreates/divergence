@@ -43,6 +43,33 @@ def main():
     print("P5 AMOUNT INTEGRITY -- does an underpaid authorization still complete the order?")
     print("=" * 92)
 
+    # CONTROL FIRST. Without this, a plugin that does nothing at all -- a historical release
+    # whose architecture this rig does not match, an inactive gateway, a broken checkout -- leaves
+    # the order at wc-pending, "not paid" is true, and this probe returns GREEN. That is not
+    # "the amount was checked"; it is "nothing happened". A regression run against v4.0.0 produced
+    # exactly that false GREEN before this arm existed (INCIDENTS.md, 2026-08-23).
+    cw, crzp, cpaise = rig.new_order()
+    ctrl = rig.trial(["payment.authorized"])
+    ctrl_moved = ctrl["terminal"]["order_status"] not in (None, "wc-pending")
+    print("CONTROL  matching payment on order %d -> %s   %s"
+          % (ctrl["order"], ctrl["terminal"]["order_status"],
+             "plugin is live" if ctrl_moved else "PLUGIN DID NOTHING"))
+    if not ctrl_moved:
+        print()
+        print("=" * 92)
+        print("UNDECIDABLE -- the control failed, so this rig cannot decide P5 for this build.")
+        print("  A matching payment did not move the order, so an underpaid payment failing to")
+        print("  move it proves nothing. Refusing to return a verdict.")
+        print("  Usual causes: a historical plugin release whose architecture differs from the")
+        print("  one this rig drives, or the wrong gateway plugin active.")
+        print("=" * 92)
+        out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "rig", "out",
+                           "amount_integrity.json")
+        with open(out, "w", encoding="utf-8") as fh:
+            json.dump({"verdict": "UNDECIDABLE", "reason": "control failed",
+                       "control": ctrl["terminal"]}, fh, indent=2)
+        return 2
+
     wc, rzp, paise = rig.new_order()
     print("order %d  total = %d paise (Rs %.2f)" % (wc, paise, paise / 100.0))
     print("delivering an authorized payment for %d paise (Rs %.2f) -- a %d paise shortfall"

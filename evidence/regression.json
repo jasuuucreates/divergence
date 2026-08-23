@@ -1,0 +1,842 @@
+{
+  "repo": "razorpay/razorpay-woocommerce",
+  "file": "includes/razorpay-webhook.php",
+  "screened": 139,
+  "rows": [
+    {
+      "tag": "v4.8.7",
+      "sha": "4af03b1cdd",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.8.6",
+      "sha": "275ce4dad5",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.8.5",
+      "sha": "867d6e0278",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.8.4",
+      "sha": "73c9d5fd37",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.8.3",
+      "sha": "bff0453bc8",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.8.2",
+      "sha": "ae2657673c",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.8.1",
+      "sha": "5017a5e1a8",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.8.0",
+      "sha": "1d60986b37",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.7.9",
+      "sha": "7c3240863f",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.7.8",
+      "sha": "568ea9bfec",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.7.7",
+      "sha": "51f9a9db40",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.7.6",
+      "sha": "5a8b1b938a",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.7.5",
+      "sha": "99c7dc9c6f",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.7.4",
+      "sha": "79ea9d2c41",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.7.3",
+      "sha": "211594b8f3",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.7.2",
+      "sha": "e63def6737",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.7.1",
+      "sha": "e9109b771c",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.7.0",
+      "sha": "8fb6a1d006",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.6.9",
+      "sha": "5771979e2f",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.6.8",
+      "sha": "1cb7781a81",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.6.7",
+      "sha": "bd90cb41ba",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.6.6",
+      "sha": "0960cffca1",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.6.5",
+      "sha": "1660e07ff5",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.6.4",
+      "sha": "d794ab7680",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.6.3",
+      "sha": "43bfc56ad3",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.6.2",
+      "sha": "8da2e3b103",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.6.1",
+      "sha": "ba7d89c5e2",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.6.0",
+      "sha": "cfb885036c",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.5.9",
+      "sha": "923cda6313",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.5.8",
+      "sha": "66a26a0991",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.5.7",
+      "sha": "d3c692af46",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.5.6",
+      "sha": "ffcc9fbf5d",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.5.5",
+      "sha": "91c3f720a9",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.5.4",
+      "sha": "267c610180",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.5.3",
+      "sha": "2ceb1f073e",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.5.2",
+      "sha": "a5cb6e7856",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.5.1",
+      "sha": "4a9440191b",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.5.0",
+      "sha": "63b108ac85",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.4.3",
+      "sha": "06f3f7a3d4",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.4.2",
+      "sha": "a282e2c34f",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.4.1",
+      "sha": "48e00b102e",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.4.0",
+      "sha": "67724fca6b",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.3.7",
+      "sha": "1ba1bf1a20",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.3.6",
+      "sha": "48b6e97cf2",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.3.5",
+      "sha": "1ddcd189c1",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.3.4",
+      "sha": "0f05a4ffe7",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.3.3",
+      "sha": "8875445558",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.3.2",
+      "sha": "aeaf6ea159",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.3.1",
+      "sha": "79715ebe6a",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.3.0",
+      "sha": "162a099530",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.2.0",
+      "sha": "215faae95f",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.1.0",
+      "sha": "996dde26ed",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.0.2",
+      "sha": "44d6a05d2e",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.0.1",
+      "sha": "0862e7aa80",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v4.0.0",
+      "sha": "a5b7db41e0",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.9.4",
+      "sha": "1341f8620a",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.9.3",
+      "sha": "6ff1cec67f",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.9.2",
+      "sha": "0b725e2a64",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.9.1",
+      "sha": "58233f855b",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.9.0",
+      "sha": "748ffbefde",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.8.3",
+      "sha": "2a41f76f64",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.8.2",
+      "sha": "0e4b2ae247",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.8.1",
+      "sha": "506e29bff4",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.8.0",
+      "sha": "ba5f527ec2",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.7.2",
+      "sha": "d9e937b381",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.7.1",
+      "sha": "ea2d56576c",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.7.0",
+      "sha": "cc5a02c5cc",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.6.1",
+      "sha": "d1eb89f5e0",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.6.0",
+      "sha": "0cc4017cf6",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.5.1",
+      "sha": "c9f05df086",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.5.0",
+      "sha": "69e19fe8bd",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.4.1",
+      "sha": "3aeb37fbad",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.4.0",
+      "sha": "c58f0fb870",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.3.0",
+      "sha": "8c70c85944",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.2.2",
+      "sha": "51f06dc919",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.2.1",
+      "sha": "98f2017c6a",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.2.0",
+      "sha": "22b7a4a29e",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.1.1",
+      "sha": "a27302fdc9",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.1.0",
+      "sha": "6033bac603",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.0.1",
+      "sha": "2e59a6da33",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v3.0.0",
+      "sha": "b96f61c59b",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.8.6",
+      "sha": "f13e4b8371",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.8.5",
+      "sha": "840b61f7c0",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.8.4",
+      "sha": "400c228dfb",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.8.3",
+      "sha": "08cf2a026c",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.8.2",
+      "sha": "cbb1625592",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.8.1",
+      "sha": "a3df6bb0b0",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.8.0",
+      "sha": "c7ce74c11f",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.7.2",
+      "sha": "f95a4fb3c7",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.7.1",
+      "sha": "ba76cde294",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.7.0",
+      "sha": "ec4628f92c",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.6.0",
+      "sha": "6a5265e3f6",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.5.0",
+      "sha": "c9efe3f72f",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.4.3",
+      "sha": "5fff24c3e3",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.4.2",
+      "sha": "206ec70d8b",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.4.1",
+      "sha": "b9882ddb13",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.4.0",
+      "sha": "5cfbba3dcb",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.3.2",
+      "sha": "a458c69e25",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.3.1",
+      "sha": "99cbb8b950",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.3.0",
+      "sha": "7a7c6123c1",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.2.0",
+      "sha": "64f1ead5c2",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.1.0",
+      "sha": "3a269022d5",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.0.0",
+      "sha": "d6281bfcb7",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v2.0.0-beta",
+      "sha": "f71ab64975",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "v1.6.3",
+      "sha": "ff53f5d611",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "2.7.2",
+      "sha": "f95a4fb3c7",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "2.0.0-beta",
+      "sha": "c8736fe173",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "1.6.2",
+      "sha": "458f6105a6",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "1.6.1",
+      "sha": "f68c9c2571",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "1.6.0",
+      "sha": "e368546810",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "1.6.0-beta",
+      "sha": "fd4eea4f4d",
+      "present": true,
+      "why": "computes $amount but never compares it to the amount paid"
+    },
+    {
+      "tag": "1.5.3",
+      "sha": "ced2531911",
+      "present": null,
+      "why": "does not compute an expected amount here at all"
+    },
+    {
+      "tag": "1.5.2",
+      "sha": "d86ad9fcf5",
+      "present": null,
+      "why": "does not compute an expected amount here at all"
+    },
+    {
+      "tag": "1.5.1",
+      "sha": "85d360fca2",
+      "present": null,
+      "why": "does not compute an expected amount here at all"
+    },
+    {
+      "tag": "1.5.0",
+      "sha": "96cad03b58",
+      "present": null,
+      "why": "does not compute an expected amount here at all"
+    },
+    {
+      "tag": "1.4.6",
+      "sha": "8326c66eb5",
+      "present": null,
+      "why": "does not compute an expected amount here at all"
+    },
+    {
+      "tag": "1.4.5",
+      "sha": "5d60f2b4d2",
+      "present": null,
+      "why": "does not compute an expected amount here at all"
+    },
+    {
+      "tag": "1.4.4",
+      "sha": "9dbcf4e198",
+      "present": null,
+      "why": "does not compute an expected amount here at all"
+    },
+    {
+      "tag": "1.4.2",
+      "sha": "0284313246",
+      "present": null,
+      "why": "file absent"
+    },
+    {
+      "tag": "1.4.1",
+      "sha": "a0721bc4e1",
+      "present": null,
+      "why": "file absent"
+    },
+    {
+      "tag": "1.4.0",
+      "sha": "b6fc8206d2",
+      "present": null,
+      "why": "file absent"
+    },
+    {
+      "tag": "1.3.3-beta",
+      "sha": "af3fae2c88",
+      "present": null,
+      "why": "file absent"
+    },
+    {
+      "tag": "1.3.2",
+      "sha": "91c1b75554",
+      "present": null,
+      "why": "file absent"
+    },
+    {
+      "tag": "1.3.1",
+      "sha": "bfe51b49bb",
+      "present": null,
+      "why": "file absent"
+    },
+    {
+      "tag": "1.3.0",
+      "sha": "ba66056e2d",
+      "present": null,
+      "why": "file absent"
+    },
+    {
+      "tag": "1.2.11",
+      "sha": "305c10da15",
+      "present": null,
+      "why": "file absent"
+    },
+    {
+      "tag": "1.2.10",
+      "sha": "ae5a328779",
+      "present": null,
+      "why": "file absent"
+    },
+    {
+      "tag": "1.2.9",
+      "sha": "15e8d91bdd",
+      "present": null,
+      "why": "file absent"
+    },
+    {
+      "tag": "1.2.8",
+      "sha": "6b8dc2df11",
+      "present": null,
+      "why": "file absent"
+    },
+    {
+      "tag": "1.2.7",
+      "sha": "be0ff85e1a",
+      "present": null,
+      "why": "file absent"
+    },
+    {
+      "tag": "1.2.6",
+      "sha": "40e03fe90c",
+      "present": null,
+      "why": "file absent"
+    },
+    {
+      "tag": "1.2.5",
+      "sha": "08f7f39900",
+      "present": null,
+      "why": "file absent"
+    },
+    {
+      "tag": "1.2.4",
+      "sha": "3167a9548d",
+      "present": null,
+      "why": "file absent"
+    },
+    {
+      "tag": "1.2.3",
+      "sha": "e875dbc9b4",
+      "present": null,
+      "why": "file absent"
+    },
+    {
+      "tag": "1.2.2",
+      "sha": "a14e329a3d",
+      "present": null,
+      "why": "file absent"
+    },
+    {
+      "tag": "1.2.1",
+      "sha": "2014c81a4e",
+      "present": null,
+      "why": "file absent"
+    },
+    {
+      "tag": "1.2.0",
+      "sha": "913bdf7f2a",
+      "present": null,
+      "why": "file absent"
+    },
+    {
+      "tag": "1.1.1",
+      "sha": "8cfe19b2e9",
+      "present": null,
+      "why": "file absent"
+    },
+    {
+      "tag": "1.1.0",
+      "sha": "d76cec3981",
+      "present": null,
+      "why": "file absent"
+    }
+  ],
+  "boundaries": []
+}
