@@ -63,6 +63,10 @@ services:
       # Named volume for the WP tree: keeps thousands of core files OFF the
       # Windows bind-mount path (that is the #1 cause of a slow/broken rig).
       - wp_data:/var/www/html
+      # Rig helper scripts, read-only. The fast wp-cli path exec's into THIS container, so it
+      # needs the same /rig mount the cli service has -- without it, `wp eval-file /rig/x.php`
+      # silently produces nothing and the harness reports "new_order.php said: ''".
+      - ./php:/rig:ro
       # Only the plugin under test crosses the Windows filesystem boundary.
       # Nested mount: this wins over wp_data for that subpath.
       - ./plugin/razorpay-woocommerce:/var/www/html/wp-content/plugins/razorpay-woocommerce

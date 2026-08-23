@@ -49,9 +49,37 @@ def sql(query, timeout=120):
     return out.strip()
 
 
+_WP_FAST = None      # None = not yet probed, True = exec path works, False = fall back
+
+
 def wp(*args, timeout=240):
-    rc, out, err = _run(["docker", "compose", "run", "--rm", "-T", "cli", "wp"] + list(args),
-                        timeout=timeout)
+    """Run wp-cli.
+
+    Two paths, and the difference matters for a live demonstration rather than for correctness:
+
+      exec into the running wordpress container   ~1.4 s
+      docker compose run --rm cli                 ~3.8 s
+
+    `run --rm` creates and destroys a container per invocation. A single trial calls wp-cli twice
+    (create the order, drain the cron), so the throwaway containers alone cost about 7.5 of the
+    11.5 seconds a trial takes. That is the difference between a demo you can narrate and a demo
+    with dead air in it.
+
+    The fast path needs wp-cli inside the wordpress container, which rig/setup.sh installs. If it
+    is absent -- an older rig, a partial setup -- this silently falls back rather than failing,
+    because a slower correct answer beats a fast crash.
+    """
+    global _WP_FAST
+    if _WP_FAST is None:
+        rc, out, _ = _run(["docker", "compose", "exec", "-T", "-u", "33", "wordpress",
+                           "wp", "--path=/var/www/html", "--version"], timeout=90)
+        _WP_FAST = (rc == 0 and "WP-CLI" in out)
+    if _WP_FAST:
+        rc, out, err = _run(["docker", "compose", "exec", "-T", "-u", "33", "wordpress",
+                             "wp", "--path=/var/www/html"] + list(args), timeout=timeout)
+    else:
+        rc, out, err = _run(["docker", "compose", "run", "--rm", "-T", "cli", "wp"] + list(args),
+                            timeout=timeout)
     return out.strip()
 
 

@@ -98,6 +98,16 @@ done
 ok "WordPress answering on $SITE_URL (HTTP $CODE)"
 
 # --- 4/9 install core --------------------------------------------------------
+# wp-cli inside the wordpress container. `docker compose run --rm cli` creates and destroys a
+# container per call (~3.8 s); exec'ing into the running one is ~1.4 s. A trial calls wp-cli twice,
+# so this is most of the difference between a demo you can narrate and one with dead air in it.
+# The harness falls back to the cli service automatically if this is missing.
+say "3b/9  Install wp-cli into the wordpress container (speed, not correctness)"
+$DC exec -T wordpress sh -c '
+  if [ ! -x /usr/local/bin/wp ]; then
+    curl -sS -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar       && chmod +x /usr/local/bin/wp
+  fi' >/dev/null 2>&1 && ok "wp-cli available in-container" || ok "wp-cli unavailable; harness will use the slower cli service"
+
 say "4/9  Install WordPress core"
 if wpc core is-installed 2>/dev/null; then ok "already installed"; else
   wpc core install --url="$SITE_URL" --title="Razorpay Webhook Rig" \
