@@ -7,24 +7,30 @@ legal schedules   : 2 (vendor states delivery order is not guaranteed)
   P1 order independence
     payment.authorized then refund.created         -> wc-refunded
     refund.created then payment.authorized         -> wc-processing
-    -> RED  (31.6s)
+    -> RED  (38.9s)
 
   P2 duplicate tolerance
-    baseline: payment.authorized then refund.created -> wc-refunded
-    redelivered: payment.authorized then refund.created then payment.authorized -> wc-refunded
-    -> GREEN  (35.2s)
+    baseline                       -> {'order_status': 'wc-refunded', 'refund_count': 1, 'refunded_total': '499.00'}
+    redelivered                    -> {'order_status': 'wc-refunded', 'refund_count': 1, 'refunded_total': '499.00'}
+    -> GREEN  (41.3s)
 
   P4 no silent loss
     accepted=['payment.authorized', 'refund.created']  stored=['payment.authorized']  terminal=wc-pending  queue=2
     !! queue row marked consumed (cron_status=2) while the order never left pending
     !! the drain re-selects only cron_status=0, so this event is never retried
-    -> RED  (15.2s)
+    -> RED  (18.2s)
+
+  P5 amount integrity
+    order total vs amount paid mismatched -> terminal=wc-processing
+    !! order reached a paid state despite the amount not matching
+    -> RED  (14.2s)
 
 ================================================================================================
 OVERALL: RED   (strict worst-case aggregation -- one RED makes the run RED)
   P1-ORDER-INDEPENDENCE    RED
   P2-DUPLICATE-TOLERANCE   GREEN
   P4-NO-SILENT-LOSS        RED
+  P5-AMOUNT-INTEGRITY      RED
   P3-EVENT-ID-DEDUP        YELLOW
 ================================================================================================
-report -> D:\razorpay\rig\out\conformance_report.json
+report -> D:\divergence\rig\out\conformance_report.json

@@ -63,6 +63,7 @@ jobs:
       - name: Record provenance
         # Every published number must be traceable to the exact bytes that produced it.
         run: |
+          mkdir -p evidence
           {
             echo "## Provenance"
             echo "run: ${{ github.run_id }}  commit: ${{ github.sha }}"
@@ -113,6 +114,9 @@ jobs:
           set -e
           grep -q "false positives 0" /tmp/corpus.log || { echo "corpus reported a false positive"; exit 1; }
           grep -q "false negatives 0" /tmp/corpus.log || { echo "corpus reported a false negative"; exit 1; }
+
+      - name: Stub fidelity (the instrument that mediates every verdict)
+        run: python -u harness/stubcheck.py
 
       - name: Upload transcripts
         if: always()
