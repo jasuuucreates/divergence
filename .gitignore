@@ -1,0 +1,7 @@
+# The plugins under test are cloned by rig/setup.sh at pinned refs, never committed.
+rig/plugin/
+# Per-run artefacts. Curated transcripts live in evidence/ and ARE committed.
+rig/out/
+__pycache__/
+*.pyc
+.rig.lock
