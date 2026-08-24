@@ -11,6 +11,30 @@ Entries are newest first.
 
 ---
 
+## 2026-08-24 — The README claimed a disclosure that had not happened
+
+**Symptom.** `README.md` stated: *"Findings of a security class were reported to Razorpay privately
+through their published channel."* No such report had been filed.
+
+**Cause.** The sentence was written while the disclosure was being *planned*, as part of drafting how
+the repository would describe itself. The plan then slipped by a day, and the sentence stayed. Nothing
+was invented — the intent was real and the drafts exist — but the file asserted a completed action in
+the past tense.
+
+**Why it is the worst class of error in this project.** Every other incident here is a wrong technical
+claim. This one is a wrong claim about our own conduct, in the section a reviewer would read to decide
+whether we behaved responsibly. Had it shipped, the repository would have told a payments company we
+had notified them when we had not.
+
+**Fix.** The section now carries an explicit `NOT YET FILED` status, placeholder fields for the date
+and reference of each channel, and a line stating that the repository must not be published until
+those are filled. The correction is recorded here rather than quietly edited.
+
+**Caught by** re-reading the repository against reality before pushing, rather than by anything
+automated — which is the honest answer, and the reason the pre-push checklist now exists.
+
+---
+
 ## 2026-08-24 — The same defect, the seventh time, and the point at which we stopped fixing sites
 
 **Symptom.** `harness/search.py` reports *"No divergence found at length N over this alphabet"* and

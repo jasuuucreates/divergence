@@ -208,10 +208,23 @@ to be an artefact of how we sampled. They are listed with reasons rather than de
 
 ## Disclosure
 
-Findings of a security class were reported to Razorpay privately through their published channel and
-are **not** described here or demonstrated on video. Everything documented in this repository is a
-**correctness defect** — no attacker, no privilege boundary crossed — which is why it can be
-discussed openly.
+> **STATUS: NOT YET FILED. This repository must not be made public until the lines below carry a
+> date and a reference.** Everything documented here is a correctness defect, but one separate
+> finding has a security character, and that one goes to the vendor privately first.
+
+- Security-class finding — Razorpay HackerOne programme — **filed: `<DATE>`, ref `<ID>`**
+- Correctness defects (P1, P4, P5) — `razorpay/razorpay-woocommerce` issue **`<#N>`**, **`<DATE>`**
+
+Everything described in this repository is a **correctness defect** — no attacker, no privilege
+boundary crossed — which is why it can be discussed openly. The security-class finding is **not**
+described here, is not shown in the video, and will not be published unless and until Razorpay
+indicate they are content for it to be.
+
+*An earlier revision of this file asserted the private report had already been sent. It had not.
+That sentence was written when the disclosure was planned rather than done, and it stayed in the
+file after the plan slipped. It is recorded in [INCIDENTS.md](INCIDENTS.md) rather than quietly
+corrected, because a project whose argument is "do not report what you did not measure" cannot
+publish a claim about its own conduct that it has not yet earned.*
 
 ## Prior art, named
 
