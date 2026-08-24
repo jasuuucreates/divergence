@@ -169,6 +169,28 @@ def test_every_rig_touching_module_requires_evidence():
         "Import harness/measured.py and call require() before deciding." % ", ".join(offenders))
 
 
+def test_disclosure_is_filed_before_publication():
+    """The repository must not be publishable while the disclosure is unfiled.
+
+    README.md once asserted that security-class findings had been reported privately. They had not
+    -- the sentence was written while the disclosure was being planned and stayed after the plan
+    slipped (INCIDENTS.md, 2026-08-24). That is a false claim about our own conduct, in the section
+    a reviewer reads to judge whether we behaved responsibly.
+
+    This test fails while the placeholders are unfilled. It is expected to FAIL until the disclosure
+    is actually filed, and that is the point: a red test is a better guard than a good intention.
+    """
+    import io as _io, os as _os
+    readme = _io.open(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "README.md"),
+                      encoding="utf-8").read()
+    unfilled = [tok for tok in ("<DATE>", "<ID>", "<#N>", "NOT YET FILED") if tok in readme]
+    assert not unfilled, (
+        "the disclosure section still contains %s -- this repository must not be published "
+        "until the security report is filed and the date/reference are recorded. "
+        "See docs/14-DISCLOSURE.md in the war room for the drafts and the required sequencing "
+        "(HackerOne first, then the public issue)." % ", ".join(unfilled))
+
+
 if __name__ == "__main__":
     failures = 0
     for name, fn in sorted(globals().items()):
