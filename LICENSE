@@ -1,0 +1,33 @@
+MIT License
+
+Copyright (c) 2026 jasuuucreates
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+NOTE ON spec/corpus/
+
+That directory contains pages fetched verbatim from Razorpay's public
+documentation (https://razorpay.com/docs/build/llm-docs/), retained so that the
+G1-GROUNDED gate can verify every quoted sentence byte-for-byte against the
+source it claims. Those pages are Razorpay's copyrighted material, are not
+covered by the MIT grant above, and are included here as a fetched evidence
+corpus rather than as part of this software. Each is re-fetchable with
+`python harness/specmine.py --fetch`.

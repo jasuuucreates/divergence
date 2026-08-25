@@ -41,13 +41,19 @@ And `harness/coverage.py` says what a GREEN actually covers. Two events in the a
 **units** — verified by execution to leave the terminal state unchanged at *every* insertion
 position — so any sequence containing them is equivalent to the same sequence without them:
 
-| length | orderings | classes to run | |
-|---|---|---|---|
-| 3 | 64 | **15** | 4x |
-| 6 | 4096 | **127** | 32x |
+| length | orderings | classes to run | | basis |
+|---|---|---|---|---|
+| 3 | 64 | **15** | 4x | **executed** — `evidence/coverage.json` |
+| 6 | 4096 | **127** | 32x | *computed from the same unit set; not executed* |
 
-A GREEN at length 6 therefore covers **4096 orderings from 127 runs**, not "127 things passed".
-Unit-hood is *observed*, not proved, and the certificate says so in those words.
+The length-3 row is a certificate: the units were verified by running each event at **every**
+insertion position and observing the terminal state was unchanged. A GREEN there covers 64 orderings
+from 15 runs.
+
+**The length-6 row is arithmetic, not a result.** It is what the collapse *would* give if the two
+units remain units in longer contexts, which we have not run. There is no length-6 certificate in
+`evidence/`, and this table says so rather than letting the bigger number imply one. Unit-hood is
+*observed*, not proved, and the certificate says that in those words too.
 
 ---
 
@@ -104,6 +110,61 @@ What makes the composition meaningful:
 
 **n=8 and the corpus is self-authored.** These numbers bound behaviour on the defect classes we
 thought of. They are not a population estimate. See [LIMITATIONS.md](LIMITATIONS.md).
+
+---
+
+## Where the model is, and where it is deliberately not
+
+Razorpay publish every documentation page as markdown under `/docs/build/llm-docs/`, indexed from a
+496 KB `llms.txt`. That is a machine-readable statement of the contract a merchant is expected to
+honour. `harness/specmine.py` fetches and hashes it — **343 pages, 11,282 sentences** — and filters
+to **455 candidate sentences** that look normative. No model is involved in that step; it is regex
+and bookkeeping.
+
+**A model reads those 455 sentences and proposes properties**: which sentences state a checkable
+obligation, and what experiment would decide each one. That is the one job here that is genuinely
+open-ended comprehension over unfamiliar prose. Writing it as code would mean writing an English
+parser, and it would be worse.
+
+**A proposed property is a hypothesis, not a specification.** So `harness/gate.py` ratifies it, and
+the gate contains no model at all — four deterministic checks:
+
+| gate | asks |
+|---|---|
+| **G1 GROUNDED** | does the quoted sentence appear **byte-for-byte** in the fetched corpus? |
+| **G2 EXPRESSIBLE** | does it map to an experiment this rig actually implements? |
+| **G3 DECIDABLE** | can that experiment observe the thing the property talks about? |
+| **G4 NON-VACUOUS** | does *any* mutant in the corpus violate it? |
+
+```
+$ python harness/gate.py --self-test
+corpus: 343 documentation pages, fetched and hashed
+
+  P1-ORDER-INDEPENDENCE    RATIFIED
+  P2-DUPLICATE-TOLERANCE   RATIFIED
+  P3-EVENT-ID-DEDUP        REJECTED
+      FAIL G4-NON-VACUOUS   no mutant in the corpus violates it -- this property cannot fail
+  P4-NO-SILENT-LOSS        RATIFIED
+  P5-AMOUNT-INTEGRITY      RATIFIED
+
+  RATIFIED 4   REJECTED 1   UNPROVEN 0
+```
+
+**G4 is the one that matters, and it rejected one of our own properties.** A property that nothing
+can violate reports green forever; it is decoration, not a test. P3 survives in this repository only
+as an advisory signal, explicitly marked, and it is excluded from the verdict.
+
+G1 has caught us too. It rejected **three** citations that had been reconstructed rather than
+quoted — one a paraphrase, one a concatenation of two list items, one with a table cell prepended.
+Every one of them read as a plausible sentence from Razorpay's docs. None of them was.
+
+**So: the model proposes, and nothing it proposes is trusted.** It never sees a verdict, never
+touches merchant state, and no output of it reaches a published number without passing four checks
+that are pure code. There is no orchestration framework here because there is no model in the
+verdict path — there would be nothing for it to orchestrate.
+
+*Design rationale in [docs/ADR-0003](docs/ADR-0003-no-model-in-the-verdict.md) and
+[docs/ADR-0004](docs/ADR-0004-gated-specification.md).*
 
 ---
 
@@ -208,12 +269,24 @@ to be an artefact of how we sampled. They are listed with reasons rather than de
 
 ## Disclosure
 
-> **STATUS: NOT YET FILED. This repository must not be made public until the lines below carry a
-> date and a reference.** Everything documented here is a correctness defect, but one separate
-> finding has a security character, and that one goes to the vendor privately first.
+Both channels are filed. The private report went first, and this repository was published after it.
 
-- Security-class finding — Razorpay HackerOne programme — **filed: `<DATE>`, ref `<ID>`**
-- Correctness defects (P1, P4, P5) — `razorpay/razorpay-woocommerce` issue **`<#N>`**, **`<DATE>`**
+| finding | channel | filed |
+|---|---|---|
+| Correctness defects (P1, P4, P5) | [razorpay/razorpay-woocommerce#664](https://github.com/razorpay/razorpay-woocommerce/issues/664) — public | **25 August 2026** |
+| One separate security-class finding | Razorpay HackerOne programme, report **3966083** — private | **24 August 2026** |
+
+**"Filed" means submitted, not accepted.** Razorpay's
+[`SECURITY.md`](https://github.com/razorpay/razorpay-mcp-server/blob/main/SECURITY.md) places open
+source repositories outside their bug-bounty scope, so report 3966083 may be closed rather than
+triaged. The only claim made here is that it was reported privately before anything was published,
+on a date Razorpay can check against their own records. If they close it, that will be recorded here
+in the same words.
+
+Their HackerOne asset list contains no source-repository entry and GitHub private vulnerability
+reporting is disabled on the repo (`{"enabled": false}`), so the report was filed against the closest
+available asset with the mismatch stated in its first paragraph. There was no cleaner private channel
+to use.
 
 Everything described in this repository is a **correctness defect** — no attacker, no privilege
 boundary crossed — which is why it can be discussed openly. The security-class finding is **not**
