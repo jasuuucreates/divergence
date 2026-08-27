@@ -1,7 +1,20 @@
 # Divergence
 
-**A conformance harness for payment integrations. It runs the integration and checks it against its
-payment provider's own published contract.**
+**When two systems disagree about your money, the party who is right usually cannot prove it —
+because nobody kept an independent record of what actually happened.**
+
+Merchants have been telling Razorpay a version of this since 2017. The shop says the order failed;
+the dashboard says the payment was captured; the money has already left the customer. At least
+**eleven issues** on their own tracker, [two open today](#the-reports-this-comes-from). One merchant
+measured it at **4-5% of their orders** and waited nearly four years for a reply. Another had their
+webhook configured with exactly the two events this harness proves can change the outcome depending
+only on which arrives first.
+
+Nobody could reproduce that class of failure on demand. So each report got answered with a guess —
+or closed without a fix.
+
+**This reproduces it.** It is a conformance harness: it runs the real integration and checks it
+against the payment provider's own published contract.
 
 Razorpay's webhook documentation states two things:
 
@@ -260,6 +273,27 @@ construction**. Reported as not-applicable, never as evidence of care.
 ² Structural, advisory only. **6 of 6** official Razorpay plugins never mention the header their own
 docs prescribe — but absence of the prescribed mechanism is not proof of non-idempotence. **P2
 decides idempotence by execution.**
+
+## The reports this comes from
+
+These are Razorpay's own public issues, opened by merchants, read directly rather than summarised:
+
+| | | |
+|---|---|---|
+| [#631](https://github.com/razorpay/razorpay-woocommerce/issues/631) | *"all successful payments ... incorrectly marked as **Failed**"* — money deducted, provider says captured, shop says failed. *"forces our team to **manually verify every 'failed' order** against the Razorpay dashboard"* | **open, 9 months** |
+| [#591](https://github.com/razorpay/razorpay-woocommerce/issues/591) | *"the payment gets captured immediately, but the order status ... takes **1 to 2 hours** to update"* | **open, 15 months** |
+| [#181](https://github.com/razorpay/razorpay-woocommerce/issues/181) | *"almost **4-5% of the orders** — customer is paying ... but either the order status is not updated or shows pending"* · *"We tried raising this issue a couple of times but no reply."* | open ~4 years |
+| [#571](https://github.com/razorpay/razorpay-woocommerce/issues/571) | webhook configured with *"2 active events: `payment.authorized` and `refund.created`"* — the exact pair whose arrival order changes the terminal state here | closed |
+| [#183](https://github.com/razorpay/razorpay-woocommerce/issues/183) | *"duplicate stock reduction, order status changes twice, two emails each"* — the idempotency property, P2 | closed |
+
+**What this is not.** These reports are *not* proof that the defect demonstrated in this repository
+caused any of them. The symptoms are consistent and #571's configuration is a striking match, but
+causation was never established for a single one of them, and no claim is made that any ticket was
+solved here. Nor is this the most common complaint about the plugin — reading the WordPress.org
+reviews, that is support responsiveness and onboarding, not webhook correctness.
+
+The claim is narrower and it is the one the evidence supports: **this failure class is real,
+recurring, reported by real merchants, and until now could not be reproduced on demand.**
 
 ## Limits, and claims we withdrew
 
