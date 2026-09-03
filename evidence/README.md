@@ -31,6 +31,7 @@ corrections are left visible below rather than smoothed over.
 | `stub_fidelity.json` | `python harness/stubcheck.py` | the stub matches the documented Payments entity |
 | `regression.json` | `python harness/regression.py` | 111 of 139 released versions carry the defect |
 | `regression_confirm.json` | `python harness/confirm_range.py` | the boundary of that range, re-confirmed |
+| `demo.log` | `python harness/demo.py` | **the full 60-second live demo**, as a transcript, for anyone not running Docker |
 | `redteam.log` | `python harness/redteam.py --destructive` | 11 live-rig attacks on our own instrument |
 | `semgrep_woocommerce.json` | `semgrep --config=p/php rig/plugin/razorpay-woocommerce` | what a stock SAST tool finds on the plugin under test: 18 findings, none of them P1/P4/P5 |
 

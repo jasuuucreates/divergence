@@ -337,6 +337,12 @@ Every property carries the verbatim vendor sentence that makes it normative. Pri
 running anything:
 
 ```bash
+
+**Not going to run it?** The whole demo is committed as a transcript:
+[`evidence/demo.log`](evidence/demo.log) — 74 lines, the complete 60-second run, including the two
+orderings ending in different states and the RED-beside-GREEN discrimination result. Every other
+number in this README has its transcript listed in [`evidence/README.md`](evidence/README.md)
+alongside the command that regenerates it.
 python harness/contract.py
 ```
 

@@ -1,0 +1,74 @@
+
+==============================================================================
+  DIVERGENCE -- a conformance harness for payment integrations
+==============================================================================
+  Target : razorpay/razorpay-woocommerce v4.8.7, unmodified, 100,000+ installs
+  Method : run the real plugin; check it against its vendor's own documentation
+
+  Razorpay's documentation says this, verbatim:
+
+      "Ideally, you should receive a webhook in the order in which the webhook events occur. However, you may not always receive the webhooks in the order."
+
+  That sentence is a specification. Here it is as a test.
+
+==============================================================================
+  SAME TWO EVENTS. SAME SIGNATURES. ONLY THE ORDER DIFFERS.
+==============================================================================
+
+  authorization settles first
+    payment.authorized  ->  refund.created
+    order #476 ends:  WC-REFUNDED
+
+  refund arrives first
+    refund.created  ->  payment.authorized
+    order #478 ends:  WC-PROCESSING
+
+==============================================================================
+  The same two events, delivered in the two orders the vendor says are both legal,
+  leave the shop in two different states.
+
+    wc-refunded    the customer got their money back
+    wc-processing  PAID. Fulfil this order.
+
+  In the second one the refund was silently discarded, and the shop is about to
+  ship goods for an order that has already been refunded.
+==============================================================================
+
+==============================================================================
+  WHY THIS IS NOT A RACE YOU COULD GET LUCKY WITH
+==============================================================================
+  payment.authorized is parked for a cron that only picks up rows older than 300s.
+  Refunds are handled the moment they arrive.
+
+      woo-razorpay.php:3393   rzp_webhook_notified_at < time()-300
+
+  So any refund inside that five-minute window takes the losing path. Every time.
+
+==============================================================================
+  AND IT IS NOT A SCRIPT THAT PRINTS MY OWN BUGS
+==============================================================================
+  The same harness, the same property, against Razorpay's OTHER plugin:
+
+      razorpay-woocommerce   Rs 499 order, Rs 1 paid  ->  RED    completes the order
+      razorpay-edd           Rs 499 order, Rs 1 paid  ->  GREEN  refuses it
+
+  A harness that says RED everywhere is a bug list. The GREEN is the point.
+  (Run harness/matrix.py to see both live -- about 50 seconds.)
+
+==============================================================================
+  WHAT I GOT WRONG
+==============================================================================
+  INCIDENTS.md -- 17 dated entries, every time this project produced a wrong result.
+
+    - a headline percentage that was an artefact of how I sampled
+    - a citation I wrote myself and presented as a quotation from Razorpay
+    - the harness reporting GREEN having measured nothing, four separate times
+    - a false PASS from a plugin that was not running at all
+    - 13 of 19 attacks I wrote against my OWN harness succeeded, the day before
+      submission. All 19 pass now. tests/adversarial.py, ~2 seconds.
+
+  Those are why every property now refuses to answer without evidence, and why
+  check.py will not report a verdict unless its control arm moves a real order.
+==============================================================================
+  Everything here is reproducible: cd rig && ./setup.sh, then harness/check.py
+==============================================================================
