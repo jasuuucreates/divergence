@@ -398,6 +398,14 @@ triaged. The only claim made here is that it was reported privately before anyth
 on a date Razorpay can check against their own records. If they close it, that will be recorded here
 in the same words.
 
+**A correction was posted to #664 after publication, not folded away.** The report said
+`paymentAuthorized()` contains *eight* bare `return;` statements; the correct number is **six** — a
+grep whose output lines matched two different patterns. The substance is unchanged, and six carries
+the finding as well as eight would have, but a report that asks Razorpay to trust numbers I checked
+does not get to quietly edit one. It is
+[comment #issuecomment-5532927897](https://github.com/razorpay/razorpay-woocommerce/issues/664#issuecomment-5532927897),
+public, alongside the original wording rather than replacing it.
+
 Their HackerOne asset list contains no source-repository entry and GitHub private vulnerability
 reporting is disabled on the repo (`{"enabled": false}`), so the report was filed against the closest
 available asset with the mismatch stated in its first paragraph. There was no cleaner private channel
