@@ -6,10 +6,9 @@ because nobody kept an independent record of what actually happened.**
 Merchants have been telling Razorpay a version of this since 2017. The shop says the order failed;
 the dashboard says the payment was captured; the money has already left the customer. At least
 **eleven issues** on their own tracker, [two open today](#the-reports-this-comes-from). One merchant
-measured it at **4-5% of their orders** and waited nearly four years for a reply from a
-maintainer. Another had their
-webhook configured with exactly the two events this harness proves can change the outcome depending
-only on which arrives first.
+measured it at **4-5% of their orders** and waited nearly four years for a reply from a maintainer.
+Another had their webhook configured with exactly the two events this harness proves can change the
+outcome depending only on which arrives first.
 
 Nobody could reproduce that class of failure on demand. So each report got answered with a guess —
 or closed without a fix.
@@ -326,10 +325,12 @@ python harness/corpus.py          # the mutation corpus and its confusion matrix
 delivery, RED for one of Razorpay's plugins and GREEN for the other.
 
 Every number in this repository comes from a transcript in [`evidence/`](evidence/), and
-[`evidence/README.md`](evidence/README.md) names the command that regenerates each one — including
-the **two files it cannot**, which are listed there as unreproducible rather than left to look like
-the rest. The plugins under test are cloned at pinned refs and
-verified byte-identical before and after every run.
+[`evidence/README.md`](evidence/README.md) names the command that regenerates each one. The plugins
+under test are cloned at pinned refs and verified byte-identical before and after every run.
+
+**Not going to run it?** The whole demo is committed as a transcript:
+[`evidence/demo.log`](evidence/demo.log) — 74 lines, the complete 60-second run, including the two
+orderings ending in different states and the RED-beside-GREEN discrimination result.
 
 ## The contract
 
@@ -337,12 +338,6 @@ Every property carries the verbatim vendor sentence that makes it normative. Pri
 running anything:
 
 ```bash
-
-**Not going to run it?** The whole demo is committed as a transcript:
-[`evidence/demo.log`](evidence/demo.log) — 74 lines, the complete 60-second run, including the two
-orderings ending in different states and the RED-beside-GREEN discrimination result. Every other
-number in this README has its transcript listed in [`evidence/README.md`](evidence/README.md)
-alongside the command that regenerates it.
 python harness/contract.py
 ```
 

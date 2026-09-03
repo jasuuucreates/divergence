@@ -33,4 +33,4 @@ OVERALL: RED   (strict worst-case aggregation -- one RED makes the run RED)
   P5-AMOUNT-INTEGRITY      RED
   P3-EVENT-ID-DEDUP        YELLOW
 ================================================================================================
-report -> D:\divergence\rig\out\conformance_report.json
+report -> rig/out/conformance_report.json
