@@ -35,7 +35,7 @@ BLAMED = """        // If it is already marked as unpaid, ignore the event
             return;
         }"""
 
-# ATTEMPT 1 (FAILED, kept deliberately -- see .kb/log.md):
+# ATTEMPT 1 (FAILED, kept deliberately -- see evidence/causality.log and INCIDENTS.md):
 #   Defer the refund into the existing queue instead of dropping it. This did NOT flip the verdict,
 #   for two reasons discovered by reading the code afterwards:
 #     (a) the cron's switch handles ONLY case 'payment.authorized' (woo-razorpay.php:3405), so a

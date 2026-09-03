@@ -43,4 +43,4 @@ FOUND 1 DIVERGENT MULTISET(S) -- same events, different terminal state:
     payment.authorized then refund.created                   -> wc-refunded      (order 78)
     refund.created then payment.authorized                   -> wc-processing    (order 88)
 ================================================================================================
-saved -> D:\razorpay\rig\out\search.json   (4 min)
+saved -> rig/out/search.json   (4 min)

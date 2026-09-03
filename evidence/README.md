@@ -58,6 +58,14 @@ a directory that does not exist in this repository. Corrected to `evidence/event
 `evidence/conformance_report.json` still carries the old string because it is a generated transcript;
 it is rewritten on the next `python harness/check.py`.
 
+## One edit made to these transcripts
+
+`search_len2.log` and `search_len3.log` each contained one line printing the **absolute local path**
+the run wrote to. That path named a private working directory, so both were rewritten to the
+equivalent repository-relative path (`rig/out/search.json`) before publication. Same file, same run,
+no number touched. It is recorded here because these are transcripts, and a transcript that has been
+edited without saying so is not a transcript.
+
 ## Two files worth opening first
 
 ### `causality.log` — the failed arm, preserved

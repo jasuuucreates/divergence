@@ -187,7 +187,7 @@ def test_disclosure_is_filed_before_publication():
     assert not unfilled, (
         "the disclosure section still contains %s -- this repository must not be published "
         "until the security report is filed and the date/reference are recorded. "
-        "See docs/14-DISCLOSURE.md in the war room for the drafts and the required sequencing "
+        "See the Disclosure section of README.md for what was filed, when, and to whom "
         "(HackerOne first, then the public issue)." % ", ".join(unfilled))
 
 
