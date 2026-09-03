@@ -199,6 +199,20 @@ def self_test(corpus, corpus_results):
     return props
 
 
+def _corpus_sha(path):
+    """sha256 of a corpus page with line endings normalised to LF.
+
+    Hashing the raw bytes made this check platform-dependent: the hashes were recorded on a
+    working copy with CRLF, git checks the same files out with LF, and every one of them then
+    mismatched on a fresh clone. That is a reproducibility bug in the integrity check itself --
+    it would have failed for every judge who cloned the repository, while passing on the machine
+    that wrote it. Normalising first makes the hash a property of the CONTENT, which is what the
+    check is actually about.
+    """
+    raw = io.open(path, "rb").read().replace(b"\r\n", b"\n")
+    return hashlib.sha256(raw).hexdigest()
+
+
 def _verify_corpus_hashes():
     """Check every cached corpus page against the sha256 recorded in spec/corpus_index.json.
 
@@ -216,7 +230,7 @@ def _verify_corpus_hashes():
         if not os.path.exists(fp):
             drift.append("%s: listed in the index but not on disk" % e["file"])
             continue
-        got = hashlib.sha256(io.open(fp, "rb").read()).hexdigest()
+        got = _corpus_sha(fp)
         if got != e.get("sha256"):
             drift.append("%s: sha256 %s != recorded %s" % (e["file"], got[:12],
                                                            str(e.get("sha256"))[:12]))
