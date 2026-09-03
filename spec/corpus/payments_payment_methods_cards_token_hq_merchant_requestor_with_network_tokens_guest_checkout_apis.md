@@ -37,7 +37,7 @@ curl -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET] \
   "contact": "9090909090",
   "method": "card",
   "card": {
-    "number": "4386289407660153",
+    "number": "<REDACTED-16-DIGIT>",
     "expiry_month": "12",
     "expiry_year": "30",
     "cryptogram_value": "as34ag3h78dsdasdsd1",
@@ -156,7 +156,7 @@ https://api.razorpay.com/v1/payments/create/json \
 	"order_id": "order_DPzFe1Q1dEOKed",
 	"method": "card",
 	"card":{
-    	   "number": "4386289407660153",
+    	   "number": "<REDACTED-16-DIGIT>",
     	   "name": "Gaurav",
     	   "expiry_month": "11",
     	   "expiry_year": "30",

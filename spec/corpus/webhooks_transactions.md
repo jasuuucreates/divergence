@@ -40,7 +40,7 @@ Given below are the sample payloads for transactions webhook events.
       "entity":{
         "id":"txn_1Aa00000000001",
         "entity":"transaction",
-        "account_number":"7878780080749731",
+        "account_number":"<REDACTED-16-DIGIT>",
         "amount":218,
         "currency":"INR",
         "credit":0,
@@ -76,7 +76,7 @@ Given below are the sample payloads for transactions webhook events.
     "entity": {
       "id": "txn_00000000000001",
       "entity": "transaction",
-      "account_number": "1121431121541121",
+      "account_number": "<REDACTED-16-DIGIT>",
       "amount": 10000000,
       "currency": "INR",
       "credit": 10000000,
@@ -86,7 +86,7 @@ Given below are the sample payloads for transactions webhook events.
         "id": "bt_00000000000001",
         "entity": "bank_transfer",
         "payer_name": "Saurav Kumar",
-        "payer_account": "6543266545411243",
+        "payer_account": "<REDACTED-16-DIGIT>",
         "payer_ifsc": "UTIB0000001",
         "mode": "NEFT",
         "bank_reference": "AXIR000000000001",

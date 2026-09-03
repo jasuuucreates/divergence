@@ -99,8 +99,13 @@ def main():
         print("      Same file enforces it at razorpay-webhook.php:505 (virtual account);")
         print("      razorpay-edd enforces it at line 130. Two sibling paths check it; this one does not.")
     else:
-        print("GREEN -- the order did not complete (%s). The invariant is enforced somewhere on this")
-        print("        path after all, and the structural reading was incomplete." % st["order_status"])
+        # The operand was attached to the SECOND line, which carries no placeholder -- so this
+        # branch raised TypeError instead of printing. It is the only branch in this module that
+        # can say the plugin is correct, which is why nothing ever noticed: it has never once
+        # successfully executed. A GREEN path that cannot run is not a false-positive check.
+        print("GREEN -- the order did not complete (%s). The invariant is enforced somewhere on"
+              % st["order_status"])
+        print("        this path after all, and the structural reading was incomplete.")
     print("=" * 92)
 
     out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "rig", "out",

@@ -127,7 +127,7 @@ Given below are the sample payloads for Payouts Approval webhook events.
             "bank_name": "HDFC Bank",
             "name": "Gaurav Kumar",
             "notes": [],
-            "account_number": "1121431121541121"
+            "account_number": "<REDACTED-16-DIGIT>"
           },
           "batch_id": null,
           "active": true,

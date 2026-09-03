@@ -64,7 +64,7 @@ This is an on-demand feature. Please raise a request with our [Support team](htt
             : `integer` Customer's contact number. For example, `+919988998899`.
 
             `card_number` _mandatory_
-            : `integer` Customer's card number or token id. For example, cards - `4386289407660153` and token id - `token_Kb9yf1HWGiZMhu`.
+            : `integer` Customer's card number or token id. For example, cards - `<REDACTED-16-DIGIT>` and token id - `token_Kb9yf1HWGiZMhu`.
 
             `expiry_year` _conditionally mandatory_
             : `integer` Expiry year for the card in `YYYY` format. Mandatory only for cards. For example, `2022`.

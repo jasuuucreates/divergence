@@ -78,6 +78,13 @@ def main():
         results.append({"sequence": seq, "order": t["order"], "terminal": t["terminal"]})
         print("  [%2d/%d] %-58s -> %s" % (i, len(plan), " then ".join(seq), st))
 
+    # "No divergence found" is a GREEN wearing different words, so it needs the same evidence gate
+    # every other verdict in this repo needs. Without this, an unreachable database makes every
+    # terminal state None, every multiset collapses to one distinct state, and this module prints
+    # "No divergence found ... that is a real result" over a run that measured nothing at all.
+    # measured.require raises unless real observations are present.
+    measured.require(results, "order_status")
+
     print("\n" + "=" * 96)
     print("GROUPING BY MULTISET -- schedules with the same events must converge (P1)")
     print("=" * 96)

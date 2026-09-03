@@ -191,7 +191,7 @@ curl -X POST https://api.razorpay.com/v1/payment/flows \
 -u : \
 -H 'content-type: application/json'
 -d '{
-  "card_number": "4242424242424242"
+  "card_number": "<REDACTED-16-DIGIT>"
 }'
 ```json: Validation Success
 {
@@ -284,7 +284,7 @@ curl -X POST \
 'https://api.razorpay.com/v1/payments/create/redirect' \
 -u : \
 -H "Content-Type: application/x-www-form-urlencoded" \
--d 'amount=5000&currency=INR&contact=9123456780&email=gaurav.kumar@example.com&method=card&card[number]=4386289407660153&card[name]=Gaurav%20Kumar&card[expiry_month]=01&card[expiry_year]=17&card[cvv]=111&user_agent=Razorpay%20SDK&ip=1.160.10.240&referer=https://www.example.com&auth_type=otp'
+-d 'amount=5000&currency=INR&contact=9123456780&email=gaurav.kumar@example.com&method=card&card[number]=<REDACTED-16-DIGIT>&card[name]=Gaurav%20Kumar&card[expiry_month]=01&card[expiry_year]=17&card[cvv]=111&user_agent=Razorpay%20SDK&ip=1.160.10.240&referer=https://www.example.com&auth_type=otp'
 ```json: Response with OTP
 {
 "next": [

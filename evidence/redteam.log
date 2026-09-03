@@ -1,0 +1,101 @@
+====================================================================================================
+RED TEAM -- can this harness be made to report a GREEN it has not earned?
+====================================================================================================
+
+  control        [rank 0]
+     ATTACKS   the whole instrument: plugin active, endpoint routed, stub reachable, signing correct, notes addressing correct, cron draining
+     EXPECT    a correctly-signed, correctly-addressed, amount-matching payment.authorized moves a fresh order from wc-pending to wc-processing
+     WRONG     if this fails, EVERY other line in this run is meaningless -- a dead plugin makes every attack below 'pass' by doing nothing, which is precisely the false GREEN we are hunting
+
+  no-drain       [rank 0]  DESTRUCTIVE
+     ATTACKS   the promise in rig.py's docstring: 'The terminal state is read only AFTER the deferred queue has drained.' drain() runs the cron and discards the result, so a renamed hook, a deactivated gateway or a WP-CLI error makes it a silent no-op
+     EXPECT    with the cron neutralised, check.py must refuse. It must not read a pre-convergence state and call it terminal
+     WRONG     P1=GREEN is the predicted failure: nothing ever leaves wc-pending, every schedule agrees, and the headline RED becomes a GREEN because a cron did not fire. This is the single cheapest way to make the centrepiece lie
+
+  plugin-off     [rank 0]  DESTRUCTIVE
+     ATTACKS   the exact incident of 2026-09-04, moved to the primary target. Deactivate razorpay-woocommerce and LEAVE woocommerce active: orders still create, the endpoint is dead, every schedule leaves the order at wc-pending. measured.require() passes, because wc-pending is a real value -- the guard stops 'we measured nothing', not 'we measured nothing happening'
+     EXPECT    check.py must refuse: OVERALL=UNMEASURED, or an abort. No property may report GREEN
+     WRONG     any GREEN here means the centrepiece clears razorpay-woocommerce on the strength of razorpay-woocommerce being switched off. Predicted P1=GREEN P2=GREEN P5=GREEN today
+
+  sig            [rank 0]
+     ATTACKS   the assumption that our deliveries are being accepted at all
+     EXPECT    a body whose signature is corrupted by one character must be REJECTED (non-2xx) and must leave the order untouched -- and the identical body with a correct signature must move it
+     WRONG     if the corrupted body is accepted, the plugin is not verifying signatures and P1/P2/P4/P5 were measured through an unauthenticated door. If BOTH bodies are rejected, our secret has drifted from the plugin's and every RED in this repository was measured on a dead endpoint
+
+  unknown-order  [rank 0]
+     ATTACKS   the addressing channel. razorpay-woocommerce reads the target from payload.payment.entity.notes.woocommerce_order_id; razorpay-edd reads a DIFFERENT entity and a DIFFERENT key. A body addressed wrongly is dropped and the endpoint still answers 2xx -- which is indistinguishable from a pass
+     EXPECT    a validly-signed body naming order 999999999 must leave the order under test untouched, and the harness must be able to tell that delivery apart from a correct one
+     WRONG     if a misaddressed delivery is indistinguishable from a correct one, then a plugin update that renames the notes key silently converts every RED in this repository into a GREEN, and nothing in the harness would notice. This is the razorpay-edd payload-shape hazard, unguarded on the primary target
+
+  concurrent     [rank 1]
+     ATTACKS   a defect class this harness diagnosed IN ITSELF and never tested for in the plugin. harness/runlock.py exists because two searches drained each other's queue rows, and its own docstring says: 'That is the same defect class this harness reports in razorpay-woocommerce -- concurrent consumers of one shared queue with no mutual exclusion.' We built the mitigation into our tool and never sent the plugin the input
+     EXPECT    two simultaneous payment.authorized deliveries for one order must leave the same terminal state as one delivery -- the second is a duplicate, and P2 says duplicates are legal input
+     WRONG     a doubled refund count, two stored events, or a queue row claimed twice would be a new behavioural finding. A judge who reads runlock.py WILL ask why we never sent it
+
+  db-down        [rank 1]  DESTRUCTIVE
+     ATTACKS   every SQL read. rig.sql() discards the return code, so a dead database and an empty result set are the same empty string
+     EXPECT    check.py must report UNMEASURED (measured.require should catch the all-None states); search.py must NOT print 'No divergence found ... that is a real result'
+     WRONG     check.py is expected to hold here -- this is what measured.py was built for. search.py is expected to FAIL, because it drives the rig, forms a verdict in different words, and imports the guard without calling it
+
+  event-id       [rank 1]
+     ATTACKS   P3. It is demoted to structural/YELLOW on the strength of a grep: the plugin never mentions x-razorpay-event-id. That is an argument from source, and this repository's whole thesis is that you execute instead of arguing
+     EXPECT    redelivering the same event twice with the SAME X-Razorpay-Event-Id must produce exactly the same terminal state as redelivering it with two DIFFERENT event ids -- because the plugin does not read the header, the header cannot matter
+     WRONG     if the two runs differ, the plugin DOES consume the header somewhere and P3's structural claim is wrong in our published contract. If they agree, P3 stops being a grep result and becomes a behavioural one, which is a strict upgrade to the weakest property we ship. Note the rig currently never sends this header at all, so P2's GREEN was measured without the mechanism Razorpay prescribes even being present
+
+  malformed      [rank 1]
+     ATTACKS   the integration's parser, and P4's ability to notice a body that was accepted and dropped
+     EXPECT    an empty body, a truncated body, a lone '{', and a valid-JSON-wrong-schema body must each either be refused (non-2xx) or accepted without claiming the queue row. Note the signature is VALID on each -- it is computed over the exact bytes sent, which is what Razorpay would genuinely produce if a response were truncated in flight
+     WRONG     HTTP 2xx together with queue_cron_status=2 and an order still at wc-pending is a NEW instance of P4 NO-SILENT-LOSS: the endpoint told Razorpay it took responsibility for an event it could not even parse, so Razorpay will never retry it
+
+  real-clock     [rank 1]
+     ATTACKS   the honesty of every P1 result. rig.drain() BACKDATES rzp_webhook_notified_at to UNIX_TIMESTAMP()-600 so the >=300s cron window opens immediately. A judge is entitled to say: you falsified the clock, and the real system converges on its own
+     EXPECT    one trial run with NO backdating, waiting the real 320 seconds, must reach exactly the terminal state the backdated trial reaches
+     WRONG     if they differ, the P1 RED is an artefact of our clock manipulation and the headline finding is not a finding. Costs ~6 minutes, run ONCE, and the transcript permanently closes the strongest available objection to the centrepiece
+
+  oversize       [rank 2]
+     ATTACKS   PHP's post_max_size (8M by default) and the endpoint's behaviour when the body it is asked to verify was silently discarded before the handler ran
+     EXPECT    a 12 MB validly-signed body must be refused, or accepted without claiming the queue row
+     WRONG     2xx plus a claimed queue row: the same silent-loss shape as the malformed cases, reached by a route no signature check can see, because PHP drops the body before any userland code
+
+====================================================================================================
+
+  RUNNING control ...
+     HELD     HTTP 200 -> wc-processing (queue=2)
+
+  RUNNING no-drain ...
+     HELD     drain REFUSED to return a state: order 418 still has 1 unconsumed queue row(s) after 3 cron rounds, so the deferred queue has NOT drained. The status is stable only because nothing ev
+
+  RUNNING plugin-off ...
+     HELD     OVERALL=UNMEASURED greens=[]
+
+  RUNNING sig ...
+     HELD     corrupted -> HTTP 200 wc-pending | correct -> HTTP 200 wc-processing
+
+  RUNNING unknown-order ...
+     HELD     HTTP 200 -> wc-pending (queue=0)
+
+  RUNNING concurrent ...
+     HELD     concurrent(HTTP 200,200) {'order_status': 'wc-processing', 'refund_count': 0, 'refunded_total': '0.00'} | sequential {'order_status': 'wc-processing', 'refund_count': 0, 'refunded_total': '0.00'}
+
+  RUNNING db-down ...
+     UNDECIDABLE   PRECONDITION LOST MID-RUN: the database was restarted by the harness's own wp-cli path during the run, so check.py measured a healthy rig. OVERALL=RED greens=['P2-DUPLICATE-TOLERANCE   GREEN'] -- but this says nothing about db-down behaviour.
+
+  RUNNING event-id ...
+     HELD     same-id {'order_status': 'wc-processing', 'refund_count': 0, 'refunded_total': '0.00', 'queue_cron_status': '2'} | distinct-ids {'order_status': 'wc-processing', 'refund_count': 0, 'refunded_total': '0.00', 'queue_cron_status': '2'}
+
+  RUNNING malformed ...
+     HELD     empty: HTTP 200 wc-pending q=0 | open-brace: HTTP 200 wc-pending q=0 | truncated-50pc: HTTP 200 wc-pending q=0 | null-payload: HTTP 200 wc-pending q=0 | wrong-schema: HTTP 200 wc-pending q=0 | nul-bytes: HTTP 200 wc-pending q=0
+
+  RUNNING real-clock ...
+      waiting 320s for the plugin's own 300s window -- no backdating ...
+     HELD     real clock -> wc-processing | backdated -> wc-processing
+
+  RUNNING oversize ...
+     HELD     12MB -> HTTP 200 -> wc-processing (queue=2)
+
+====================================================================================================
+0 of 11 attacks BROKE the harness.   (1 UNDECIDABLE -- precondition not established)
+A broken attack is a route to a GREEN we have not earned. Each one is a finding about
+this harness, not about Razorpay, and belongs in INCIDENTS.md.
+====================================================================================================
+saved -> rig\out\redteam.json

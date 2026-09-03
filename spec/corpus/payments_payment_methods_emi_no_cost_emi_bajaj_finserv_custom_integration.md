@@ -544,7 +544,7 @@ You can use the EMI test card given below to make transactions in the test mode.
 
 Card Network | Card Number | CVV & Expiry Date
 ---
-Mastercard | 5241 8100 0000 0000 | Use a random CVV and any future date
+Mastercard | <REDACTED-16-DIGIT> | Use a random CVV and any future date
 
 #### Verify Payment Status
 

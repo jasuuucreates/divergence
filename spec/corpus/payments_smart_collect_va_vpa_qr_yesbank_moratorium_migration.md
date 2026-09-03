@@ -91,7 +91,7 @@ In each of these cases, the Razorpay `virtual_account.credited` webhook is respo
             "bank_name": "Yes Bank",
             "name": "Acme Corp",
             "notes": [],
-            "account_number": "2223330012341234"
+            "account_number": "<REDACTED-16-DIGIT>"
           }
         ],
         "close_by": null,
@@ -129,7 +129,7 @@ In each of these cases, the Razorpay `virtual_account.credited` webhook is respo
     ---
     Razorpay customer ID        | `cust_EPeLtyhSwk5tub`      | `payload.virtual_account.entity.customer_id`
     ---
-    Customer Identifier | `2223330012341234`           | `payload.virtual_account.entity.receivers.0.account_number`
+    Customer Identifier | `<REDACTED-16-DIGIT>`           | `payload.virtual_account.entity.receivers.0.account_number`
     ---
     Virtual Account Notes ID    | `internal_order_id: 12345` | `payload.virtual_account.entity.notes.internal_order_id`
 
@@ -198,7 +198,7 @@ The webhook payload for the migrated virtual accounts will look like this.
             "bank_name": "Yes Bank",
             "name": "Acme Corp",
             "notes": [],
-            "account_number": "2223330012341234"
+            "account_number": "<REDACTED-16-DIGIT>"
           },
           {
             "id": "ba_EPf3KwRHCgEnum",
@@ -207,7 +207,7 @@ The webhook payload for the migrated virtual accounts will look like this.
             "bank_name": "RBL Bank",
             "name": "Acme Corp",
             "notes": [],
-            "account_number": "2223330012341234"
+            "account_number": "<REDACTED-16-DIGIT>"
           }
         ],
         "close_by": null,

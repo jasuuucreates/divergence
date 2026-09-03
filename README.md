@@ -6,7 +6,8 @@ because nobody kept an independent record of what actually happened.**
 Merchants have been telling Razorpay a version of this since 2017. The shop says the order failed;
 the dashboard says the payment was captured; the money has already left the customer. At least
 **eleven issues** on their own tracker, [two open today](#the-reports-this-comes-from). One merchant
-measured it at **4-5% of their orders** and waited nearly four years for a reply. Another had their
+measured it at **4-5% of their orders** and waited nearly four years for a reply from a
+maintainer. Another had their
 webhook configured with exactly the two events this harness proves can change the outcome depending
 only on which arrives first.
 
@@ -126,6 +127,65 @@ thought of. They are not a population estimate. See [LIMITATIONS.md](LIMITATIONS
 
 ---
 
+## I attacked this harness, and 13 of 19 attacks worked
+
+The argument of this repo is that a tool must not report a result it has not earned. The day before
+submission I wrote a suite whose only job was to make **this** harness report a GREEN it had not
+earned. Thirteen of nineteen succeeded.
+
+```bash
+python tests/adversarial.py     # 19 tests, no Docker, ~2 seconds
+```
+
+The worst three, all real, all now closed:
+
+| | |
+|---|---|
+| **The centrepiece had no control arm.** | Deactivate `razorpay-woocommerce` but leave `woocommerce` active. Orders still create; the endpoint is simply unregistered; every schedule ends `wc-pending`. That is a real observed string, so the evidence guard is satisfied — and then P1, P2 and P5 all report **GREEN**. Three GREENs off a plugin that is switched off. |
+| **The restore check could not fail.** | `causality.py` — the one module that modifies the vendor plugin — verified the restore with `sha(f) == sha(f)`. Always true. This README cited that line as proof the plugin was returned byte-for-byte. |
+| **The discrimination artefact ignored its own control arm.** | `edd_probe.py` printed `CONTROL FAILED … nothing below is trustworthy` and then printed its verdict anyway, and `matrix.py` read that verdict straight out of its stdout. The tool built to demonstrate discrimination would have manufactured the discrimination result from a dead endpoint. |
+
+Then the same treatment was applied to the live rig: **eleven attacks that try to make the harness
+report a GREEN by breaking the system underneath it.**
+
+```bash
+python harness/redteam.py --destructive        # 11 attacks; 10 decidable, all held
+```
+
+Four are worth naming:
+
+| attack | result |
+|---|---|
+| **`real-clock`** | `drain()` backdates a timestamp so the plugin's own 300-second cron window opens immediately. A reader is entitled to say *you falsified the clock; the real system converges on its own.* So: one trial with **no backdating**, waiting the real 320 seconds. **Identical terminal state.** The strongest available objection to the headline finding, closed by measurement. |
+| **`sig`** | A one-character-corrupted signature leaves the order untouched; the identical body correctly signed moves it. Both halves matter — if the corrupted body were accepted, every finding here was measured through an unauthenticated door; if both were rejected, our secret had drifted and every RED was measured on a dead endpoint. |
+| **`event-id`** | Redelivering with the **same** `X-Razorpay-Event-Id` and with **two different** ids produce byte-identical merchant state. P3 was capped at YELLOW on the strength of a grep; it is now a behavioural result. It also closes a real gap: the rig never sent that header at all, so P2's GREEN had been measured without the mechanism Razorpay prescribes even being present. |
+| **`no-drain`** | With the cron neutralised, `drain()` **refuses to return a state** rather than handing back a stable-looking `wc-pending` that P1 would have scored GREEN. This was a genuine hole in the fixpoint check added the same morning: a queue row that never *started* moving is also a fixpoint. |
+
+`concurrent`, `malformed` (six bodies) and `oversize` (12 MB) all found the plugin behaving
+correctly, and those negative results are published too — including `oversize`, where the attack's
+own criterion was wrong and had to be corrected before it stopped accusing correct code.
+
+`db-down` is reported **UNDECIDABLE**, not passed: `docker-compose.yml` declares
+`cli: depends_on: db: service_healthy`, so the harness's own wp-cli path restarts the database it
+was trying to run without. An experiment that cannot hold its precondition measured nothing.
+
+Transcript: [`evidence/redteam.log`](evidence/redteam.log).
+
+Both fixes were then **verified by intervention rather than by assertion** — the rig was broken on
+purpose to check the guards actually fire:
+
+```
+razorpay-woocommerce deactivated  ->  check.py     0 verdicts, exit 1, "REFUSING TO RUN"
+razorpay-edd deactivated          ->  edd_probe.py UNDECIDABLE, exit 2, zero GREEN lines
+```
+
+Then both were reactivated and the full verdict reproduced unchanged. **The guards changed when a
+verdict may be issued. They changed no finding.** The cost was honest: `check.py` went from ~110s to
+~151s, because a control arm is a real trial. The full list is the newest entry in
+[INCIDENTS.md](INCIDENTS.md).
+
+---
+
 ## Where the model is, and where it is deliberately not
 
 Razorpay publish every documentation page as markdown under `/docs/build/llm-docs/`, indexed from a
@@ -151,7 +211,7 @@ the gate contains no model at all — four deterministic checks:
 
 ```
 $ python harness/gate.py --self-test
-corpus: 343 documentation pages, fetched and hashed
+corpus: 343 documentation pages, sha256 verified against spec/corpus_index.json
 
   P1-ORDER-INDEPENDENCE    RATIFIED
   P2-DUPLICATE-TOLERANCE   RATIFIED
@@ -208,9 +268,27 @@ a claim that anyone was careless. See [docs/DOCS-VS-BEHAVIOUR.md](docs/DOCS-VS-B
 
 ## Why existing tools do not find this
 
-**Stock Semgrep across the generated integration templates: 2 findings, both an unrelated Django CSRF
-rule.** CodeQL's only relevant query is *both* experimental *and* deprecated, and is excluded from
-every default suite.
+**Stock Semgrep, run on the plugin under test, finds 18 things — and not one of them is any of
+these four findings.**
+
+```
+$ semgrep --config=p/php rig/plugin/razorpay-woocommerce
+Ran 23 rules on 210 files: 18 findings.
+
+  17  php.lang.security.injection.echoed-request
+   1  php.lang.security.injection.tainted-sql-string
+```
+
+Seventeen reflected-output warnings and one tainted SQL string. Both are real rule classes, and both
+are about *a value flowing through one file*. Nothing in the ruleset can express "reaches a different
+terminal state depending on arrival order", so no amount of tuning would surface P1, P4 or P5.
+CodeQL's only relevant query is *both* experimental *and* deprecated, and is excluded from every
+default suite.
+
+Transcript: [`evidence/semgrep_woocommerce.json`](evidence/semgrep_woocommerce.json) (semgrep 1.174.0).
+Regenerate with the command above. The previous version of this section cited *"2 findings across the
+generated integration templates"* — a number with no artefact behind it and no way for a reader to
+check it. It was replaced with a run anyone can repeat.
 
 These are not patterns in a file. They are properties of a **system under a delivery schedule**. You
 cannot grep for *"reaches a different terminal state depending on arrival order."*
@@ -238,7 +316,7 @@ cd rig && ./setup.sh              # WordPress + WooCommerce + the unmodified plu
 cd rig && ./setup-edd.sh          # adds the second target (razorpay-edd) to the same rig
 
 python harness/matrix.py          # BOTH targets, one property, one command  <- start here
-python harness/check.py           # all five properties against WooCommerce, ~85s, exit 1 on RED
+python harness/check.py           # all five properties against WooCommerce, ~151s, exit 1 on RED
 python harness/causality.py       # patch the blamed line, watch the verdict flip, then restore
 python harness/search.py          # enumerate delivery schedules, report divergence
 python harness/corpus.py          # the mutation corpus and its confusion matrix
@@ -247,8 +325,10 @@ python harness/corpus.py          # the mutation corpus and its confusion matrix
 `matrix.py` is the shortest path to the point of this project: the same property, the same underpaid
 delivery, RED for one of Razorpay's plugins and GREEN for the other.
 
-Every number in this repository comes from a transcript in [`evidence/`](evidence/), and every
-transcript names the command that produced it. The plugins under test are cloned at pinned refs and
+Every number in this repository comes from a transcript in [`evidence/`](evidence/), and
+[`evidence/README.md`](evidence/README.md) names the command that regenerates each one — including
+the **two files it cannot**, which are listed there as unreproducible rather than left to look like
+the rest. The plugins under test are cloned at pinned refs and
 verified byte-identical before and after every run.
 
 ## The contract
@@ -282,7 +362,7 @@ These are Razorpay's own public issues, opened by merchants, read directly rathe
 |---|---|---|
 | [#631](https://github.com/razorpay/razorpay-woocommerce/issues/631) | *"all successful payments ... incorrectly marked as **Failed**"* — money deducted, provider says captured, shop says failed. *"forces our team to **manually verify every 'failed' order** against the Razorpay dashboard"* | **open, 9 months** |
 | [#591](https://github.com/razorpay/razorpay-woocommerce/issues/591) | *"the payment gets captured immediately, but the order status ... takes **1 to 2 hours** to update"* | **open, 15 months** |
-| [#181](https://github.com/razorpay/razorpay-woocommerce/issues/181) | *"almost **4-5% of the orders** — customer is paying ... but either the order status is not updated or shows pending"* · *"We tried raising this issue a couple of times but no reply."* | open ~4 years |
+| [#181](https://github.com/razorpay/razorpay-woocommerce/issues/181) | *"almost **4-5% of the orders** — customer is paying ... but either the order status is not updated or shows pending"* · *"We tried raising this issue a couple of times but no reply."* | closed 2025-02-10, after ~3 yr 11 mo |
 | [#571](https://github.com/razorpay/razorpay-woocommerce/issues/571) | webhook configured with *"2 active events: `payment.authorized` and `refund.created`"* — the exact pair whose arrival order changes the terminal state here | closed |
 | [#183](https://github.com/razorpay/razorpay-woocommerce/issues/183) | *"duplicate stock reduction, order status changes twice, two emails each"* — the idempotency property, P2 | closed |
 
@@ -303,7 +383,8 @@ to be an artefact of how we sampled. They are listed with reasons rather than de
 
 ## Disclosure
 
-Both channels are filed. The private report went first, and this repository was published after it.
+Both channels are filed, and the dates below are the claim. The private report went first;
+this repository is published only after both filings, never before.
 
 | finding | channel | filed |
 |---|---|---|

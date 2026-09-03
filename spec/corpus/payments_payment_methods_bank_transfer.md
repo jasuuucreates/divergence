@@ -338,7 +338,7 @@ If you are using [Android SDK](https://razorpay.com/docs/build/llm-docs/payments
                     "ifsc": "RATN0VAAPIS",
                     "bank_name": "RBL Bank",
                     "name": "Acme Corp",
-                    "account_number": "1112220006712324"
+                    "account_number": "<REDACTED-16-DIGIT>"
                   }
                 ]
               }
@@ -948,7 +948,7 @@ Know more about [Orders API](https://razorpay.com/docs/build/llm-docs/api/orders
                 "ifsc": "RATN0VAAPIS",
                 "bank_name": "RBL Bank",
                 "name": "Acme Corp",
-                "account_number": "1112220006712324"
+                "account_number": "<REDACTED-16-DIGIT>"
               }
             ]
           }

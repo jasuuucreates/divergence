@@ -298,7 +298,7 @@ razorpay.getPaymentMethods(new Razorpay.PaymentMethodsCallback() {
                 /**
                  * This returns JSON data
                  * The structure of this data can be seen at the following link:
-                 * https://api.razorpay.com/v1/methods?key_id=rzp_test_XXXXXXXXXXXXXX
+                 * https://api.razorpay.com/v1/methods?key_id=rzp_test_<REDACTED>
                  *
                  */
                 Log.d("Result", "" + result)

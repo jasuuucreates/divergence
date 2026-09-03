@@ -1,0 +1,732 @@
+---
+title: 4. Webhooks
+description: Set up webhook listeners to receive real-time notifications for UPI Autopay mandate and payment events.
+---
+
+# 4. Webhooks
+
+Webhooks automatically notify your application when specific events occur. Instead of continuously polling APIs to check for updates, webhooks push notifications directly to your server when events happen. Integrating with webhooks is strongly recommended as it is the most efficient method for tracking payment and token status changes in real time.
+
+To configure webhooks, go to the [Razorpay Dashboard](https://dashboard.razorpay.com/app/webhooks) and set up the webhook URL for your account. Know more about [Webhooks](https://razorpay.com/docs/build/llm-docs/webhooks.md).
+
+**WARN**
+
+**Implementation Considerations**
+
+Webhooks are the primary and most efficient method for event notifications. They are delivered asynchronously in near real-time. For critical user-facing flows that need instant confirmation, supplement webhooks with API verification.
+
+**Recommended approach** 
+
+- Rely on webhooks for all automation, which can be asynchronous.
+- If a critical user-facing flow requires instant status, but the webhook notification has not arrived within the time mandated by your business needs, perform an immediate API Fetch call ([Payments](https://razorpay.com/docs/build/llm-docs/api/payments/fetch-with-id.md), [Orders](https://razorpay.com/docs/build/llm-docs/api/orders/fetch-with-id.md) and [Refunds](https://razorpay.com/docs/build/llm-docs/api/refunds/fetch-specific-refund-payment.md)) to verify the status.
+
+## Check Token Status using Webhooks
+
+You can use the below webhooks to check the status of the token (mandate).
+
+Webhook Event | Description
+---
+`token.confirmed` | Indicates that the bank has completed the mandate registration. Once confirmed, you can execute subsequent payments as per your business needs.
+---
+`token.rejected` | Indicates that the mandate registration has been rejected. If rejected, you need to initiate the mandate registration again.
+---
+`token.cancelled` | Indicates the token has been cancelled, either by the customer from their UPI app or by the merchant via the Cancel Token API.
+---
+`token.paused` | Indicates the token has been paused by the customer from their UPI app. No subsequent debits can be executed while the token is paused.
+
+### Token Confirmed
+
+Indicates that the bank has completed the mandate registration. Once confirmed, you can execute subsequent payments as per your business needs.
+
+```json: UPI
+{
+  "entity": "event",
+  "account_id": "acc_8TgNt9DVrJB0bl",
+  "event": "token.confirmed",
+  "contains": [
+    "token"
+  ],
+  "payload": {
+    "token": {
+      "entity": {
+        "id": "token_FHhm0XTtJg9zqb",
+        "entity": "token",
+        "token": "BmwqwrkHZTlzVF",
+        "bank": null,
+        "wallet": null,
+        "method": "upi",
+        "vpa": {
+          "username": "gaurav.kumar",
+          "handle": "upi",
+          "name": null
+        },
+        "recurring": true,
+        "recurring_details": {
+          "status": "confirmed",
+          "failure_reason": null
+        },
+        "auth_type": null,
+        "mrn": null,
+        "used_at": 1595456636,
+        "created_at": 1595456636,
+        "start_time": 1595456608,
+        "dcc_enabled": false
+      }
+    }
+  },
+  "created_at": 1595456636
+}
+```
+
+### Token Rejected
+
+Triggered during the mandate registration process, when the registration fails without completion.
+
+```json: UPI
+{
+  "entity": "event",
+  "account_id": "acc_8TgNt9DVrJB0bl",
+  "event": "token.rejected",
+  "contains": [
+    "token"
+  ],
+  "payload": {
+    "token": {
+      "entity": {
+        "id": "token_FHhm0XTtJg9zqb",
+        "entity": "token",
+        "token": "BmwqwrkHZTlzVF",
+        "bank": null,
+        "wallet": null,
+        "method": "upi",
+        "vpa": {
+          "username": "gaurav.kumar",
+          "handle": "upi",
+          "name": null
+        },
+        "recurring": true,
+        "recurring_details": {
+          "status": "rejected",
+          "failure_reason": "Rejected by bank"
+        },
+        "auth_type": "upi",
+        "mrn": null,
+        "used_at": 1595456636,
+        "created_at": 1595456636,
+        "start_time": 1595456608,
+        "dcc_enabled": false
+      }
+    }
+  },
+  "created_at": 1595456636
+}
+```
+
+### Token Cancelled
+
+Triggered when a token is explicitly cancelled or deactivated. This can happen when the customer cancels the mandate from their UPI app or when the merchant cancels it via the [Cancel Token API](https://razorpay.com/docs/build/llm-docs/payments/payment-gateway/s2s-integration/recurring-payments/upi-intent/fetch-manage-tokens.md#35-cancel-token).
+
+**INFO**
+
+**Handy Tips**
+
+When you call the Cancel Token API, the token first enters the `cancellation_initiated` state while Razorpay waits for NPCI and the customer's bank to confirm the closure. The `token.cancelled` webhook is triggered only after NPCI has fully processed and confirmed the cancellation.
+
+**WARN**
+
+**Watch Out!**
+
+If a customer cancels the mandate directly from their UPI app, you will receive this webhook. Ensure your system handles this event to stop any further debit attempts against this token.
+
+```json: UPI
+{
+  "entity": "event",
+  "account_id": "acc_8TgNt9DVrJB0bl",
+  "event": "token.cancelled",
+  "contains": [
+    "token"
+  ],
+  "payload": {
+    "token": {
+      "entity": {
+        "id": "token_FVIP5DVexjoZjF",
+        "entity": "token",
+        "token": "5ESJrtR1V6k6mp",
+        "bank": null,
+        "wallet": null,
+        "method": "upi",
+        "vpa": {
+          "username": "56546",
+          "handle": "upi",
+          "name": null
+        },
+        "recurring": true,
+        "recurring_details": {
+          "status": "cancelled",
+          "failure_reason": null
+        },
+        "auth_type": null,
+        "mrn": null,
+        "used_at": 1598424055,
+        "created_at": 1598424055,
+        "start_time": 1598510437,
+        "dcc_enabled": false,
+        "max_amount": 5600,
+        "expired_at": 1913956837
+      }
+    }
+  },
+  "created_at": 1599065559
+}
+```
+
+### Token Paused
+
+Indicates the token has been paused by the customer from their UPI app. No subsequent debits can be executed while the token is in the `paused` state.
+
+**INFO**
+
+**Handy Tips**
+
+The `token.paused` event is available only for tokens authorised via UPI. Tokens authorised via Emandate, Card or Paper NACH do not support the paused state.
+
+```json: UPI
+{
+  "entity": "event",
+  "account_id": "acc_8TgNt9DVrJB0bl",
+  "event": "token.paused",
+  "contains": [
+    "token"
+  ],
+  "payload": {
+    "token": {
+      "entity": {
+        "id": "token_FVIP5DVexjoZjF",
+        "entity": "token",
+        "token": "5ESJrtR1V6k6mp",
+        "bank": null,
+        "wallet": null,
+        "method": "upi",
+        "vpa": {
+          "username": "56546",
+          "handle": "upi",
+          "name": null
+        },
+        "recurring": true,
+        "recurring_details": {
+          "status": "paused",
+          "failure_reason": null
+        },
+        "auth_type": null,
+        "mrn": null,
+        "used_at": 1598424055,
+        "created_at": 1598424055,
+        "start_time": 1598510437,
+        "dcc_enabled": false,
+        "max_amount": 5600,
+        "expired_at": 1913956837
+      }
+    }
+  },
+  "created_at": 1599065559
+}
+```
+
+## Check Payment Status using Webhooks
+
+You can use these webhooks to check the status of the authorisation payment and subsequent payments.
+
+Webhook Event | Description
+---
+`payment.authorized` | Indicates the payment has been authorised. A payment is authorised when the customer's payment details are successfully authenticated by the bank.
+---
+`payment.captured` | Indicates the payment has been captured.
+---
+`order.paid` | Indicates the customer has successfully made the payment.
+---
+`payment.failed` | Indicates the payment has failed. If the authorisation payment fails, you need to initiate the mandate registration again.
+
+### Payment Authorised
+
+Indicates that the payment has been authorised. A payment is authorised when the customer's payment details are successfully authenticated by the bank. Use this webhook to fetch the `token_id` from the payment entity and store it for subsequent debits.
+
+```json: UPI
+{
+  "entity": "event",
+  "account_id": "acc_8TgNt9DVrJB0bl",
+  "event": "payment.authorized",
+  "contains": [
+    "payment"
+  ],
+  "payload": {
+    "payment": {
+      "entity": {
+        "id": "pay_FHhm0UWoNrZT3h",
+        "entity": "payment",
+        "amount": 100,
+        "currency": "INR",
+        "status": "authorized",
+        "order_id": "order_FHhlVrVCPWGSDC",
+        "invoice_id": null,
+        "international": false,
+        "method": "upi",
+        "amount_refunded": 0,
+        "refund_status": null,
+        "captured": false,
+        "description": null,
+        "card_id": null,
+        "bank": null,
+        "wallet": null,
+        "vpa": "gaurav.kumar@upi",
+        "email": "gaurav.kumar@example.com",
+        "contact": "+919876543210",
+        "customer_id": "cust_DtHaBuooGHTuyZ",
+        "token_id": "token_FHhm0XTtJg9zqb",
+        "notes": {
+          "note_key 1": "Beam me up Scotty",
+          "note_key 2": "Tea. Earl Gray. Hot."
+        },
+        "fee": null,
+        "tax": null,
+        "error_code": null,
+        "error_description": null,
+        "error_source": null,
+        "error_step": null,
+        "error_reason": null,
+        "acquirer_data": {
+          "rrn": "688684363734",
+          "upi_transaction_id": "B832E94839C6C5194D2DB36F865F564D"
+        },
+        "created_at": 1595456636
+      }
+    }
+  },
+  "created_at": 1595456636
+}
+```
+
+### Payment Captured
+
+Indicates that the payment has been captured.
+
+```json: UPI
+{
+  "entity": "event",
+  "account_id": "acc_8TgNt9DVrJB0bl",
+  "event": "payment.captured",
+  "contains": [
+    "payment"
+  ],
+  "payload": {
+    "payment": {
+      "entity": {
+        "id": "pay_FHhm0UWoNrZT3h",
+        "entity": "payment",
+        "amount": 100,
+        "currency": "INR",
+        "status": "captured",
+        "order_id": "order_FHhlVrVCPWGSDC",
+        "invoice_id": null,
+        "international": false,
+        "method": "upi",
+        "amount_refunded": 0,
+        "refund_status": null,
+        "captured": true,
+        "description": null,
+        "card_id": null,
+        "bank": null,
+        "wallet": null,
+        "vpa": "gaurav.kumar@upi",
+        "email": "gaurav.kumar@example.com",
+        "contact": "+919876543210",
+        "customer_id": "cust_DtHaBuooGHTuyZ",
+        "token_id": "token_FHhm0XTtJg9zqb",
+        "notes": {
+          "note_key 1": "Beam me up Scotty",
+          "note_key 2": "Tea. Earl Gray. Hot."
+        },
+        "fee": 0,
+        "tax": 0,
+        "error_code": null,
+        "error_description": null,
+        "error_source": null,
+        "error_step": null,
+        "error_reason": null,
+        "acquirer_data": {
+          "rrn": "688684363734",
+          "upi_transaction_id": "B832E94839C6C5194D2DB36F865F564D"
+        },
+        "created_at": 1595456636
+      }
+    }
+  },
+  "created_at": 1595456636
+}
+```
+
+### Order Paid
+
+Indicates that the customer has successfully made the payment.
+
+**INFO**
+
+**Handy Tips**
+
+For UPI, the `invoice_id` parameter value is `null` when using the API-based setup. The `invoice_id` is populated only when a Registration Link is used.
+
+```json: UPI
+{
+  "entity": "event",
+  "account_id": "acc_8TgNt9DVrJB0bl",
+  "event": "order.paid",
+  "contains": [
+    "payment",
+    "order"
+  ],
+  "payload": {
+    "payment": {
+      "entity": {
+        "id": "pay_FHhm0UWoNrZT3h",
+        "entity": "payment",
+        "amount": 100,
+        "currency": "INR",
+        "status": "captured",
+        "order_id": "order_FHhlVrVCPWGSDC",
+        "invoice_id": null,
+        "international": false,
+        "method": "upi",
+        "amount_refunded": 0,
+        "refund_status": null,
+        "captured": true,
+        "description": null,
+        "card_id": null,
+        "bank": null,
+        "wallet": null,
+        "vpa": "gaurav.kumar@upi",
+        "email": "gaurav.kumar@example.com",
+        "contact": "+919876543210",
+        "customer_id": "cust_DtHaBuooGHTuyZ",
+        "token_id": "token_FHhm0XTtJg9zqb",
+        "notes": {
+          "note_key 1": "Beam me up Scotty",
+          "note_key 2": "Tea. Earl Gray. Hot."
+        },
+        "fee": 0,
+        "tax": 0,
+        "error_code": null,
+        "error_description": null,
+        "error_source": null,
+        "error_step": null,
+        "error_reason": null,
+        "acquirer_data": {
+          "rrn": "688684363734",
+          "upi_transaction_id": "B832E94839C6C5194D2DB36F865F564D"
+        },
+        "created_at": 1595456636
+      }
+    },
+    "order": {
+      "entity": {
+        "id": "order_FHhlVrVCPWGSDC",
+        "entity": "order",
+        "amount": 100,
+        "amount_paid": 100,
+        "amount_due": 0,
+        "currency": "INR",
+        "receipt": "Receipt No. 1",
+        "offer_id": null,
+        "status": "paid",
+        "attempts": 2,
+        "notes": {
+          "notes_key_1": "Tea, Earl Grey, Hot",
+          "notes_key_2": "Tea, Earl Grey… decaf."
+        },
+        "created_at": 1595456608
+      }
+    }
+  },
+  "created_at": 1595456636
+}
+```
+
+### Payment Failed
+
+Indicates that the payment has failed. If the authorisation payment fails, you need to initiate the mandate registration again. For subsequent payments, you can retry the debit after checking the failure reason.
+
+```json: UPI
+{
+  "entity": "event",
+  "account_id": "acc_8TgNt9DVrJB0bl",
+  "event": "payment.failed",
+  "contains": [
+    "payment"
+  ],
+  "payload": {
+    "payment": {
+      "entity": {
+        "id": "pay_EhSxIRyTtshjQr",
+        "entity": "payment",
+        "amount": 0,
+        "currency": "INR",
+        "status": "failed",
+        "order_id": "order_EhSwt4nx32X1Ss",
+        "invoice_id": "inv_EhSwt4FKpTKrdf",
+        "international": false,
+        "method": "upi",
+        "amount_refunded": 0,
+        "refund_status": null,
+        "captured": false,
+        "description": "Invoice #inv_EhSwt4FKpTKrdf",
+        "card_id": null,
+        "bank": "HDFC",
+        "wallet": null,
+        "vpa": "gaurav.kumar@okhdfc",
+        "email": "gaurav.kumar@example.com",
+        "contact": "+919876543210",
+        "customer_id": "cust_DtHaBuooGHTuyZ",
+        "token_id": "token_EhSxIV7p0l7yri",
+        "notes": {
+          "notes_key_1":"Tea, Earl Grey, Hot",
+          "notes_key_2":"Tea, Earl Grey… decaf."
+        },
+        "fee": null,
+        "tax": null,
+        "error_code": "BAD_REQUEST_ERROR",
+        "error_description": "Payment failed",
+        "created_at": 1587544209
+      }
+    }
+  },
+  "created_at": 1587544212
+}
+```
+
+## Check Registration Link Status using Webhooks
+
+You can use these webhooks to check the status of the registration link. These are relevant only if you are using the [Registration Link](https://razorpay.com/docs/build/llm-docs/payments/payment-gateway/s2s-integration/recurring-payments/upi-intent/initiate-mandate-registration.md#12-using-a-registration-link) flow to initiate mandate registration.
+
+Webhook Event | Description
+---
+`invoice.paid` | Indicates that a registration link is successfully paid.
+---
+`invoice.expired` | Indicates that a registration link has expired.
+
+### Invoice Paid
+
+Indicates that a registration link has been successfully paid.
+
+```json: UPI
+{
+  "entity": "event",
+  "account_id": "acc_8TgNt9DVrJB0bl",
+  "event": "invoice.paid",
+  "contains": [
+    "payment",
+    "order",
+    "invoice"
+  ],
+  "payload": {
+    "payment": {
+      "entity": {
+        "id": "pay_FHhw4RhnuZPiuO",
+        "entity": "payment",
+        "amount": 100,
+        "currency": "INR",
+        "status": "captured",
+        "order_id": "order_FHhvTLKwXS9bnS",
+        "invoice_id": "inv_FHhvTPure2cEqZ",
+        "international": false,
+        "method": "upi",
+        "amount_refunded": 0,
+        "refund_status": null,
+        "captured": true,
+        "description": "Invoice #inv_FHhvTPure2cEqZ",
+        "card_id": null,
+        "bank": null,
+        "wallet": null,
+        "vpa": "gaurav.kumar@upi",
+        "email": "gaurav.kumar@example.com",
+        "contact": "+919876543210",
+        "customer_id": "cust_DtHaBuooGHTuyZ",
+        "token_id": "token_FHhw4Ufvv7kv9u",
+        "notes": {
+          "Internal Note": "Random Description"
+        },
+        "fee": 0,
+        "tax": 0,
+        "error_code": null,
+        "error_description": null,
+        "error_source": null,
+        "error_step": null,
+        "error_reason": null,
+        "acquirer_data": {
+          "rrn": "237153511656",
+          "upi_transaction_id": "B1D63A7B0366274F83AF9B3A0D7C5CA8"
+        },
+        "created_at": 1595457208
+      }
+    },
+    "order": {
+      "entity": {
+        "id": "order_FHhvTLKwXS9bnS",
+        "entity": "order",
+        "amount": 100,
+        "amount_paid": 100,
+        "amount_due": 0,
+        "currency": "INR",
+        "receipt": null,
+        "offer_id": null,
+        "offers": {
+          "entity": "collection",
+          "count": 0,
+          "items": []
+        },
+        "status": "paid",
+        "attempts": 3,
+        "notes": [],
+        "created_at": 1595457173,
+        "token": {
+          "method": "upi",
+          "notes": {
+            "Internal Note": "Random Description"
+          },
+          "recurring_status": null,
+          "failure_reason": null,
+          "currency": "INR",
+          "max_amount": 200000,
+          "auth_type": null,
+          "expire_at": 1609439399,
+          "first_payment_amount": 0
+        }
+      }
+    },
+    "invoice": {
+      "entity": {
+        "id": "inv_FHhvTPure2cEqZ",
+        "entity": "invoice",
+        "receipt": "Receipt No. 1",
+        "invoice_number": "Receipt No. 1",
+        "customer_id": "cust_DtHaBuooGHTuyZ",
+        "customer_details": {
+          "id": "cust_DtHaBuooGHTuyZ",
+          "name": "Gaurav Kumar",
+          "email": "gaurav.kumar@example.com",
+          "contact": "9876543210",
+          "gstin": null,
+          "billing_address": null,
+          "shipping_address": null,
+          "customer_name": "Gaurav Kumar",
+          "customer_email": "gaurav.kumar@example.com",
+          "customer_contact": "9876543210"
+        },
+        "order_id": "order_FHhvTLKwXS9bnS",
+        "payment_id": "pay_FHhw4RhnuZPiuO",
+        "status": "paid",
+        "expire_by": 1596220199,
+        "issued_at": 1595457174,
+        "paid_at": 1595457208,
+        "cancelled_at": null,
+        "expired_at": null,
+        "sms_status": "sent",
+        "email_status": "sent",
+        "date": 1595457173,
+        "terms": null,
+        "partial_payment": false,
+        "gross_amount": 100,
+        "tax_amount": 0,
+        "taxable_amount": 0,
+        "amount": 100,
+        "amount_paid": 100,
+        "amount_due": 0,
+        "first_payment_min_amount": null,
+        "currency": "INR",
+        "currency_symbol": "₹",
+        "description": "Authorization transaction",
+        "notes": {
+          "Internal Note": "Random Description"
+        },
+        "comment": null,
+        "short_url": "https://rzp.io/i/GZlLJ0d",
+        "view_less": true,
+        "billing_start": null,
+        "billing_end": null,
+        "type": "link",
+        "group_taxes_discounts": false,
+        "supply_state_code": null,
+        "user_id": "CTlk1QZN33LQUT",
+        "created_at": 1595457174,
+        "idempotency_key": null
+      }
+    }
+  },
+  "created_at": 1595457208
+}
+```
+
+## Check Notification Status using Webhooks
+
+You can use these webhooks to check the status of the pre-debit notification sent to the customer. These notification webhooks are available only if you send the notification object while creating an order for a subsequent payment.
+
+Webhook Event | Description
+---
+`notification.delivered` | Indicates that a pre-debit notification is successfully delivered.
+---
+`notification.failed` | Indicates that a pre-debit notification has failed to deliver.
+
+### Notification Delivered
+
+Indicates that a pre-debit notification is successfully delivered.
+
+```json: UPI
+{
+  "entity": "event",
+  "account_id": "acc_8TgNt9DVrJB0bl",
+  "event": "order.notification.delivered",
+  "contains": [
+    "notification"
+  ],
+  "payload": {
+    "notification": {
+      "entity": {
+        "id": "notification_00000000000001",
+        "entity": "notification",
+        "order_id": "order_1Aa00000000002",
+        "token_id": "token_M7K2eFBU7vToaQ",
+        "delivered_at": 1634057113,
+        "status": "delivered",
+        "payment_after": 1634057114
+      }
+    },
+    "created_at": 1595456636
+  }
+}
+```
+
+### Notification Failed
+
+Indicates that a pre-debit notification has failed to deliver. You should re-trigger the pre-debit notification before making a debit attempt in these cases.
+
+```json: UPI
+{
+  "entity": "event",
+  "account_id": "acc_8TgNt9DVrJB0bl",
+  "event": "order.notification.failed",
+  "contains": [
+    "notification"
+  ],
+  "payload": {
+    "notification": {
+      "entity": {
+        "id": "notification_00000000000002",
+        "entity": "notification",
+        "order_id": "order_1Aa00000000002",
+        "token_id": "token_M7K2eFBU7vToaQ",
+        "delivered_at": null,
+        "status": "failed",
+        "payment_after": 1634057114
+      }
+    },
+    "created_at": 1595456636
+  }
+}
+```

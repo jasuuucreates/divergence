@@ -431,11 +431,11 @@ You can use **Test Mode** to test UPI payments, and **Live Mode** for UPI Intent
          
          Network | Card Number | CVV & Expiry Date
          ---
-         Visa  | 4100 2800 0000 1007 | Use a random CVV and any future date ^^^^^
+         Visa  | <REDACTED-16-DIGIT> | Use a random CVV and any future date ^^^^^
          ---
-         Mastercard | 5500 6700 0000 1002 | 
+         Mastercard | <REDACTED-16-DIGIT> | 
          ---
-         RuPay | 6527 6589 0000 1005 | 
+         RuPay | <REDACTED-16-DIGIT> | 
          ---
          Diners | 3608 280009 1007 | 
          ---
@@ -456,11 +456,11 @@ You can use **Test Mode** to test UPI payments, and **Live Mode** for UPI Intent
          
          Card Network | Card Number | CVV & Expiry Date
          ---
-         Mastercard | 5555 5555 5555 4444
-5105 1051 0510 5100
-5104 0600 0000 0008 | Use a random CVV and any future date ^^
+         Mastercard | <REDACTED-16-DIGIT>
+<REDACTED-16-DIGIT>
+<REDACTED-16-DIGIT> | Use a random CVV and any future date ^^
          ---
-         Visa | 4012 8888 8888 1881 |
+         Visa | <REDACTED-16-DIGIT> |
          
 
          Check the list of [supported card networks](https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards.md).

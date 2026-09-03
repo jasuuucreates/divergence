@@ -42,7 +42,7 @@ https://api.razorpay.com/v1/virtual_accounts/va_D6Vw6zyJ0OmRZg \
       "bank_name": "RBL Bank",
       "name": "Acme Corp",
       "notes": [],
-      "account_number": "2223330025991681"
+      "account_number": "<REDACTED-16-DIGIT>"
     }
   ],
   "close_by": null,
@@ -90,7 +90,7 @@ https://api.razorpay.com/v1/virtual_accounts/va_D6Vw6zyJ0OmRZg \
       "bank_name": "RBL Bank",
       "name": "Acme Corp",
       "notes": [],
-      "account_number": "2223330025991681"
+      "account_number": "<REDACTED-16-DIGIT>"
     },
     {
       "id": "vpa_CkTmLXqVYPkbxx",
@@ -146,7 +146,7 @@ https://api.razorpay.com/v1/virtual_accounts \
           "bank_name": "RBL Bank",
           "name": "Acme Corp",
           "notes": [],
-          "account_number": "1112220061746877"
+          "account_number": "<REDACTED-16-DIGIT>"
         }
       ],
       "close_by": 1574427237,
@@ -173,7 +173,7 @@ https://api.razorpay.com/v1/virtual_accounts \
           "bank_name": "RBL Bank",
           "name": "Acme Corp",
           "notes": [],
-          "account_number": "1112220046254840"
+          "account_number": "<REDACTED-16-DIGIT>"
         }
       ],
       "close_by": 1574427237,
@@ -318,7 +318,7 @@ https://api.razorpay.com/v1/payments/pay_CmiztqmYJPtDAu/bank_transfer \
         "bank_name": "RBL Bank",
         "name": "Acme Corp",
         "notes": [],
-        "account_number": "1112220061746877"
+        "account_number": "<REDACTED-16-DIGIT>"
       }
     ],
     "close_by": 1574427237,
@@ -433,7 +433,7 @@ If Razorpay does not receive the bank account information of the customer from t
         : `string` The bank associated with the virtual bank account. For example, `RBL Bank`.
 
         `account_number`
-        : `string` The unique account number provided by the bank. For example, `1112220061746877`.
+        : `string` The unique account number provided by the bank. For example, `<REDACTED-16-DIGIT>`.
 
         `name`
         : `string` The `merchant billing label` as it appears on Dashboard.

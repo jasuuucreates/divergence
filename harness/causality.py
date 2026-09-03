@@ -89,9 +89,14 @@ def main():
     print("CAUSALITY TEST -- does patching the blamed line flip the verdict?")
     print("=" * 96)
     print("target : %s" % os.path.relpath(TARGET, ROOT))
-    print("sha256 : %s  (unmodified)" % sha(TARGET))
+    # Captured BEFORE anything is written. The restore check below compares against THIS value.
+    # It previously compared sha(TARGET) against sha(TARGET) -- always True, and therefore no
+    # check at all, in the one module that modifies the plugin under test.
+    before_sha = sha(TARGET)
+    print("sha256 : %s  (unmodified)" % before_sha)
     print()
 
+    restored_ok = False
     try:
         print("--- ARM 1: unmodified plugin ---")
         before_overall, before, _ = run_check()
@@ -105,9 +110,24 @@ def main():
         print("    OVERALL=%s  %s\n" % (after_overall, after))
     finally:
         io.open(TARGET, "w", encoding="utf-8", newline="\n").write(original)
+        after_sha = sha(TARGET)
+        restored_ok = (after_sha == before_sha)
         print("--- restored ---")
-        print("    sha256 : %s  (matches unmodified: %s)"
-              % (sha(TARGET), sha(TARGET) == sha(TARGET)))
+        print("    sha256 : %s  (matches unmodified: %s)" % (after_sha, restored_ok))
+
+    # A restore that did not restore leaves a modified vendor plugin on disk and makes every later
+    # run of this repo a measurement of OUR code, not Razorpay's. That is not a warning, it is a
+    # stop: refuse to report causality and say what is wrong with the working tree.
+    if not restored_ok:
+        print()
+        print("=" * 96)
+        print("RESTORE FAILED. The plugin on disk does NOT match the file we started from.")
+        print("  expected sha256 : %s" % before_sha)
+        print("  actual   sha256 : %s" % after_sha)
+        print("  No causality verdict is reported. Restore the plugin before running anything")
+        print("  else in this repo:  cd rig && bash setup.sh")
+        print("=" * 96)
+        return 2
 
     p1_before = before.get("P1-ORDER-INDEPENDENCE")
     p1_after = after.get("P1-ORDER-INDEPENDENCE")

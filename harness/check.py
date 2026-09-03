@@ -76,7 +76,15 @@ def check_duplicate_tolerance(events, dry=False):
                 "baseline": base, "with_duplicate": dup}
     a = rig.trial(base)
     b = rig.trial(dup)
+    # Require EVERY observable this property actually compares, not just the status. Requiring the
+    # status alone meant that if the refund queries failed, both trials carried a None refund
+    # count, None == None compared equal, and P2 quietly reverted to exactly the status-only
+    # comparison that vacuity.py caught it doing -- the fix un-applying itself the first time a
+    # query failed, and still reporting GREEN. Listed one per line, deliberately: this must stay
+    # greppable and must stay in step with visible() below.
     measured.require([a, b], "order_status")
+    measured.require([a, b], "refund_count")
+    measured.require([a, b], "refunded_total")
 
     # Compare the FULL merchant-visible state, not just the order status. Status is identical
     # whether an order was refunded once or twice, so a status-only comparison is blind to
@@ -176,6 +184,51 @@ def preflight():
             "  Got:  %r from http://rzpstub:8000" % (probe.stdout or probe.stderr or "")[:120])
 
 
+CONTROL_PAID_STATES = ("wc-processing", "wc-completed")
+
+
+def control_arm():
+    """POSITIVE CONTROL: prove the integration is connected before believing any verdict.
+
+    preflight() above proves the API STUB answers. It does not prove the INTEGRATION is alive, and
+    those are different facts. Deactivate razorpay-woocommerce while leaving woocommerce active and
+    everything downstream still 'works': orders are created, the webhook endpoint is simply not
+    registered, and every schedule ends on `wc-pending`. `wc-pending` is a real observed string, so
+    measured.require() is satisfied -- and then P1 sees one distinct state (GREEN), P2 sees two
+    identical states (GREEN), and P5 sees a status that is not a paid state (GREEN).
+
+    Three GREENs off a plugin that is switched off. That is the same shape as the incident this
+    repo already documents, where a container recreate left razorpay-edd inactive and the probe
+    reported "predicted GREEN, observed GREEN". There, only edd_probe's control arm caught it. The
+    centrepiece had no equivalent, so it is added here: one correct payment.authorized against a
+    fresh order MUST move that order into a paid state. If it does not, nothing is measurable and
+    no verdict is reported.
+    """
+    # A rig that throws while running the control is the SAME FINDING as a rig that runs and does
+    # not move the order: in both cases the integration is not connected and nothing below is
+    # measurable. Catch it here so the operator gets the diagnosis and the fix, rather than a
+    # traceback from four frames deep naming a cron event they have never heard of.
+    try:
+        t = rig.trial(["payment.authorized"])
+        observed = t["terminal"].get("order_status")
+    except rig.RigFailure as e:
+        observed = "<rig failure: %s>" % str(e).splitlines()[0][:120]
+    ok = observed in CONTROL_PAID_STATES
+    print("  CONTROL  one correct payment.authorized on a fresh order -> %s   %s"
+          % (observed, "CONTROL OK" if ok else "CONTROL FAILED"))
+    if not ok:
+        raise SystemExit(
+            "REFUSING TO RUN: the control arm did not move a fresh order into a paid state.\n"
+            "  expected one of %s, observed %r\n"
+            "  The integration is not connected, so every property below would be measuring\n"
+            "  nothing happening -- which this harness would otherwise score as GREEN.\n"
+            "  Usual cause: razorpay-woocommerce is not active (only one gateway plugin can be\n"
+            "  active at a time, so any EDD run switches it off).\n"
+            "  Fix:  cd rig && docker compose run --rm -T cli wp plugin activate razorpay-woocommerce"
+            % (CONTROL_PAID_STATES, observed))
+    return {"control_moved": ok, "control_observed": observed}
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--events", nargs="+",
@@ -188,8 +241,10 @@ def main():
     print("=" * 96)
     print("CONFORMANCE RUN -- razorpay-woocommerce")
     print("=" * 96)
+    control = None
     if not a.dry_run:
         preflight()
+        control = control_arm()
     print("events under test : %s" % " + ".join(a.events))
     print("legal schedules   : %d (vendor states delivery order is not guaranteed)"
           % len(schedules(a.events)))
@@ -213,7 +268,7 @@ def main():
 
     # P3 is structural: reported as advisory, never as a failure. See contract.py.
     results.append({"property": contract.EVENT_ID_DEDUP.key, "verdict": "YELLOW",
-                    "note": "structural check -- see experiments/eventid_survey.json; "
+                    "note": "structural check -- see evidence/eventid_survey.json; "
                             "absence of the header proves the prescribed mechanism is absent, "
                             "not that the integration is non-idempotent. P2 decides idempotence."})
 
@@ -234,7 +289,7 @@ def main():
 
     os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
     with open(a.out, "w", encoding="utf-8") as fh:
-        json.dump({"overall": overall, "events": a.events,
+        json.dump({"overall": overall, "events": a.events, "control": control,
                    "contract": contract.citations(), "results": results}, fh, indent=2)
     print("report -> %s" % os.path.normpath(a.out))
     return 1 if reds else 0

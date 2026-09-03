@@ -38,7 +38,7 @@ curl -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET] \
             "bank_name": "Yes Bank",
             "name": "Intuit India",
             "notes": [],
-            "account_number": "2223333259705413"
+            "account_number": "<REDACTED-16-DIGIT>"
         },
         {
             "id": "vpa_F8M0npsLNjnZcL",

@@ -41,18 +41,35 @@ def _run(args, timeout=180):
     return p.returncode, (p.stdout or "").replace("\r", ""), (p.stderr or "")
 
 
+class RigFailure(RuntimeError):
+    """The instrument failed. This is NOT the same fact as 'the query matched no rows'.
+
+    Every guard above this layer tries to tell absence apart from failure. It could not, because
+    this layer threw the distinction away: a dead database, a wrong password, a container that is
+    not up, and a legitimately empty result set all returned the same empty string. An empty
+    string then flows upward and reads as a conforming observation.
+    """
+
+
 def sql(query, timeout=120):
-    """Read-only helper. -N -B gives tab-separated rows with no decoration."""
+    """Read-only helper. -N -B gives tab-separated rows with no decoration.
+
+    Raises RigFailure on a non-zero exit so that 'the database is down' can never be mistaken
+    downstream for 'no rows matched'.
+    """
     rc, out, err = _run(["docker", "compose", "exec", "-T", "db", "mariadb",
                          "-uroot", "-proot", "--skip-ssl", "-N", "-B", "wordpress",
                          "-e", query], timeout=timeout)
+    if rc != 0:
+        raise RigFailure("sql exited %d: %s\n  query: %s"
+                         % (rc, (err or out).strip()[:400], query.strip()[:200]))
     return out.strip()
 
 
 _WP_FAST = None      # None = not yet probed, True = exec path works, False = fall back
 
 
-def wp(*args, timeout=240):
+def wp(*args, **kw):
     """Run wp-cli.
 
     Two paths, and the difference matters for a live demonstration rather than for correctness:
@@ -69,6 +86,10 @@ def wp(*args, timeout=240):
     is absent -- an older rig, a partial setup -- this silently falls back rather than failing,
     because a slower correct answer beats a fast crash.
     """
+    timeout = kw.pop("timeout", 240)
+    allow_failure = kw.pop("allow_failure", False)
+    if kw:
+        raise TypeError("unexpected kwargs: %s" % sorted(kw))
     global _WP_FAST
     if _WP_FAST is None:
         rc, out, _ = _run(["docker", "compose", "exec", "-T", "-u", "33", "wordpress",
@@ -80,6 +101,12 @@ def wp(*args, timeout=240):
     else:
         rc, out, err = _run(["docker", "compose", "run", "--rm", "-T", "cli", "wp"] + list(args),
                             timeout=timeout)
+    # Same rule as sql(): a wp-cli that could not run must not be indistinguishable from a wp-cli
+    # that ran and found nothing. allow_failure is for the few callers that are legitimately
+    # probing for absence and handle it themselves.
+    if rc != 0 and not allow_failure:
+        raise RigFailure("wp %s exited %d: %s"
+                         % (" ".join(str(a) for a in args)[:120], rc, (err or out).strip()[:400]))
     return out.strip()
 
 
@@ -142,14 +169,84 @@ def deliver(event, wc_order, rzp_order, paise, event_id=None, fault=False, under
     p = subprocess.run(["curl", "-s", "-o", os.devnull, "-w", "%{http_code}", "-X", "POST",
                         ENDPOINT] + hdrs + ["--data-binary", "@" + path],
                        capture_output=True, text=True, timeout=120)
-    return (p.stdout or "").strip()
+    code = (p.stdout or "").strip()
+    # curl reports 000 when it received no response at all. P4 treated that as just another
+    # non-2xx, so "the endpoint refused this event" and "the endpoint was never reached" arrived at
+    # the oracle as the same fact -- and a stopped WordPress container therefore read as
+    # conformance. An undelivered event is not a rejected event.
+    if code in ("", "000"):
+        raise RigFailure(
+            "the webhook endpoint returned no response at all (curl code %r) for %s on order %s.\n"
+            "  This is a DELIVERY failure, not a rejection, and must not be scored as one.\n"
+            "  Usual cause: the wordpress container is not up.  Fix: cd rig && ./setup.sh"
+            % (code, event, wc_order))
+    return code
 
 
-def drain(wc_order):
-    """Make any parked row eligible, then run the cron. Terminal state is only valid after this."""
+def _status_only(wc_order):
+    return sql("SELECT post_status FROM wp_posts WHERE ID=%d;" % wc_order) or None
+
+
+def drain(wc_order, verify=False, max_rounds=3):
+    """Make any parked row eligible, run the cron, and -- when verify -- prove it stopped moving.
+
+    verify is False for the drains BETWEEN deliveries, which only have to make progress, and True
+    for the final drain before a state is read. It is the state we actually score that has to be
+    proven converged; verifying every intermediate step doubles the cron work of a run and proves
+    nothing extra, because nobody reads those states.
+
+    Every verdict in this repo is taken on a converged state -- that is what makes "your cron would
+    have fixed it later" unavailable as a rebuttal. That was a promise the code did not keep: drain
+    ran the cron once and checked nothing, so a cron that silently did no work was indistinguishable
+    from one that ran to completion, and the state was read whenever this happened to return.
+
+    A fixpoint is the actual claim, so it is now the actual test: run the cron until two consecutive
+    rounds observe the same merchant-visible status. If it never settles, refuse -- a state still in
+    motion is not a terminal state and must not be scored as one.
+    """
     sql("UPDATE wp_rzp_webhook_requests SET rzp_webhook_notified_at=UNIX_TIMESTAMP()-600 "
         "WHERE order_id=%d AND rzp_update_order_cron_status=0;" % wc_order)
     wp("cron", "event", "run", "rzp_webhook_exec_cron")
+    if not verify:
+        return None
+    seen = _status_only(wc_order)
+    settled = False
+    for _ in range(max_rounds):
+        sql("UPDATE wp_rzp_webhook_requests SET rzp_webhook_notified_at=UNIX_TIMESTAMP()-600 "
+            "WHERE order_id=%d AND rzp_update_order_cron_status=0;" % wc_order)
+        wp("cron", "event", "run", "rzp_webhook_exec_cron")
+        again = _status_only(wc_order)
+        if again == seen:
+            settled = True
+            break
+        seen = again
+    if not settled:
+        raise RigFailure(
+            "order %s never reached a fixpoint: the status was still changing after %d cron rounds "
+            "(last observed %r). A state that is still moving is not a terminal state, and scoring "
+            "it as one would measure the drain, not the integration."
+            % (wc_order, max_rounds, seen))
+
+    # A FIXPOINT IS NOT ENOUGH. A queue row that never started moving is also a fixpoint: the
+    # status is stable at wc-pending forever, two consecutive rounds agree, and the check above is
+    # satisfied by a drain that did absolutely nothing. redteam.py's `no-drain` attack found this
+    # in the version of this function written earlier today -- with the cron neutralised, both
+    # schedules sat at wc-pending with their rows still parked, both agreed, and P1 would have
+    # reported GREEN. The headline RED becomes a GREEN because a cron did not fire.
+    #
+    # So also require that nothing is still WAITING to be processed. cron_status=0 means the row
+    # is parked and unconsumed; if any remain after draining, the queue has not drained and the
+    # state is not terminal, however stable it looks.
+    parked = sql("SELECT COUNT(*) FROM wp_rzp_webhook_requests "
+                 "WHERE order_id=%d AND rzp_update_order_cron_status=0;" % wc_order)
+    if parked.strip() not in ("", "0"):
+        raise RigFailure(
+            "order %s still has %s unconsumed queue row(s) after %d cron rounds, so the deferred "
+            "queue has NOT drained. The status is stable only because nothing ever ran. Reading "
+            "this as a terminal state is how a dead cron turns a RED into a GREEN.\n"
+            "  Usual cause: the cron hook is not registered (gateway plugin inactive or renamed)."
+            % (wc_order, parked.strip(), max_rounds))
+    return seen
 
 
 def terminal_state(wc_order):
@@ -191,6 +288,6 @@ def trial(sequence, drain_after_each=True, fault=False, underpay=False):
         log.append({"event": step, "http": code})
         if drain_after_each:
             drain(wc)
-    drain(wc)  # always converge before reading
+    drain(wc, verify=True)  # always converge before reading -- and PROVE it converged
     return {"order": wc, "sequence": list(sequence), "fault_injected": bool(fault),
             "underpaid": bool(underpay), "deliveries": log, "terminal": terminal_state(wc)}

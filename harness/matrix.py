@@ -43,6 +43,15 @@ def measure(target):
     p = subprocess.run([sys.executable, "-u", os.path.join(HERE, PROBE[target])],
                        capture_output=True, text=True, timeout=1800)
     out = (p.stdout or "") + (p.stderr or "")
+
+    # A probe that disowned its own result must not have that result read back out of its stdout.
+    # edd_probe.py prints "CONTROL FAILED ... nothing below is trustworthy" and THEN prints its P5
+    # line anyway; scanning for the verdict line alone reproduced the exact incident this repo
+    # documents -- an inactive plugin yielding "edd GREEN" beside "woocommerce RED", i.e. the
+    # discrimination headline manufactured out of a dead endpoint.
+    if "CONTROL FAILED" in out:
+        return "UNDECIDABLE", out
+
     for line in out.splitlines():
         s = line.strip()
         if s.startswith("RED --") or "P5-AMOUNT-INTEGRITY: RED" in s:
@@ -90,6 +99,11 @@ def main():
         print("Both targets RED. Either both are genuinely defective, or the harness is not")
         print("discriminating -- and the second is the more likely explanation. Investigate before")
         print("publishing anything from this run.")
+    elif "UNDECIDABLE" in verdicts:
+        print("A probe DISOWNED ITS OWN RESULT (its control arm failed), so no discrimination")
+        print("claim is made here. This is the guard, working: a dead endpoint produces silence,")
+        print("not a GREEN. Most likely the plugin under test is not active --")
+        print("  cd rig && docker compose run --rm -T cli wp plugin activate razorpay-edd")
     else:
         print("Unexpected verdict set: %s. Do not publish until this is understood." % sorted(verdicts))
 

@@ -87,4 +87,4 @@ print("  curl -s https://raw.githubusercontent.com/razorpay/<plugin>/<branch>/<p
 
 out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "eventid_survey.json")
 io.open(out, "w", encoding="utf-8").write(json.dumps(rows, indent=2))
-print("\nsaved -> experiments/eventid_survey.json")
+print("\nsaved -> evidence/eventid_survey.json")

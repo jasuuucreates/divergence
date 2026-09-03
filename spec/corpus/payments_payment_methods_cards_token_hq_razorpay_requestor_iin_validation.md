@@ -22,7 +22,7 @@ A token is an alias or surrogate value for the actual card number. Whenever the 
 
 Card Number | Token
 --- 
-4386 2894 0766 0153 | 4123 4511 1111 1117
+<REDACTED-16-DIGIT> | <REDACTED-16-DIGIT>
 
 When a card is tokenised, the first 6 digits or the IIN of the card gets changed.
 The new IIN for the card is referred to as token IIN.

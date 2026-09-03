@@ -31,6 +31,7 @@ tests, and it is the check that stops a model from padding the property list.
 """
 import argparse
 import io
+import hashlib
 import json
 import os
 import re
@@ -198,6 +199,32 @@ def self_test(corpus, corpus_results):
     return props
 
 
+def _verify_corpus_hashes():
+    """Check every cached corpus page against the sha256 recorded in spec/corpus_index.json.
+
+    Returns (n_verified, [drift descriptions]). A page listed in the index but absent on disk is
+    drift too: gating against a page we do not have is the same error as gating against a page that
+    changed under us.
+    """
+    idx_path = os.path.join(ROOT, "spec", "corpus_index.json")
+    if not os.path.exists(idx_path):
+        return 0, ["spec/corpus_index.json is missing, so nothing can be verified"]
+    idx = json.load(io.open(idx_path, encoding="utf-8"))
+    ok, drift = 0, []
+    for e in idx.get("pages", []):
+        fp = os.path.join(ROOT, "spec", "corpus", e["file"])
+        if not os.path.exists(fp):
+            drift.append("%s: listed in the index but not on disk" % e["file"])
+            continue
+        got = hashlib.sha256(io.open(fp, "rb").read()).hexdigest()
+        if got != e.get("sha256"):
+            drift.append("%s: sha256 %s != recorded %s" % (e["file"], got[:12],
+                                                           str(e.get("sha256"))[:12]))
+        else:
+            ok += 1
+    return ok, drift
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--proposals", help="JSON file of model-proposed properties")
@@ -224,7 +251,19 @@ def main():
     print("=" * 100)
     print(title)
     print("=" * 100)
-    print("corpus: %d documentation pages, fetched and hashed\n" % len(corpus))
+    # "fetched and hashed" was decoration: the hashes were recorded and never checked, so a
+    # truncated, edited or partially-downloaded corpus page would have been gated against silently.
+    # Verify them, and refuse rather than gate a property against text we cannot vouch for.
+    verified, drift = _verify_corpus_hashes()
+    if drift:
+        raise SystemExit(
+            "REFUSING TO GATE: %d corpus page(s) do not match their recorded sha256:\n  %s\n"
+            "  Gating decides whether a proposed property is supported by the vendor's own words.\n"
+            "  Doing that against text whose integrity we cannot confirm is not a check.\n"
+            "  Re-fetch the corpus, or re-record the hashes if the change was deliberate."
+            % (len(drift), "\n  ".join(drift[:10])))
+    print("corpus: %d documentation pages, sha256 verified against spec/corpus_index.json\n"
+          % verified)
 
     out, counts = [], {"RATIFIED": 0, "REJECTED": 0, "UNPROVEN": 0}
     for p in props:

@@ -301,7 +301,7 @@ razorpay.fetchVirtualAccount(data)
       "bank_name": "RBL Bank",
       "name":"Acme Corp",
       "notes":[],
-      "account_number":"2223330099089860"
+      "account_number":"<REDACTED-16-DIGIT>"
     }
   ],
   "close_by":1681615838,
@@ -369,7 +369,7 @@ razorpay.fetchVirtualAccount(data)
     : `string` The bank associated with the virtual bank account. For example, `RBL Bank`. This parameter appears in the response only when `bank_account` is passed as the receiver `type`.
 
     `account_number`
-    : `string` The unique account number provided by the bank. For example, `1112220061746877`. This parameter appears in the response only when `bank_account` is passed as the receiver `type`.
+    : `string` The unique account number provided by the bank. For example, `<REDACTED-16-DIGIT>`. This parameter appears in the response only when `bank_account` is passed as the receiver `type`.
 
     `name`
     : `string` The `merchant billing label` as it appears on the Dashboard. This parameter appears in the response only when `bank_account` is passed as the receiver `type`.
@@ -420,7 +420,7 @@ Any request beyond `2147483647` UNIX timestamp will fail.
       "bank_name": "RBL Bank",
       "name": "Acme Corp",
       "notes": [],
-      "account_number": "2223333230231378"
+      "account_number": "<REDACTED-16-DIGIT>"
     },
     {
       "id":"vpa_CkTmLXqVYPkbxx",
@@ -516,7 +516,7 @@ You must subscribe to the `virtual_account.credited` webhook event on the Dashbo
             "ifsc": "RATN0VAAPIS",
             "bank_name": "RBL Bank",
             "name": "Acme Corp",
-            "account_number": "1112220006712324"
+            "account_number": "<REDACTED-16-DIGIT>"
           }
         ]
       }

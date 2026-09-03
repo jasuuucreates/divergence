@@ -61,7 +61,7 @@ Given below are the sample payloads for Smart Collect webhook events.
             "bank_name": "RBL Bank",
             "name": "Acme Corp",
             "notes": [],
-            "account_number": "1112220006712324"
+            "account_number": "<REDACTED-16-DIGIT>"
           },
           {
             "id": "vpa_DzZcAjcRevv5JO",
@@ -109,7 +109,7 @@ Given below are the sample payloads for Smart Collect webhook events.
             "bank_name": "RBL Bank",
             "name":"Acme Corp",
             "notes": [],
-            "account_number":"1112220006712324"
+            "account_number":"<REDACTED-16-DIGIT>"
           }
         ],
         "allowed_payers": [
@@ -207,7 +207,7 @@ Given below are the sample payloads for Smart Collect webhook events.
             "ifsc": "RATN0VAAPIS",
             "bank_name": "RBL Bank",
             "name": "Acme Corp",
-            "account_number": "1112220006712324"
+            "account_number": "<REDACTED-16-DIGIT>"
           }
         ]
       }
@@ -386,7 +386,7 @@ Given below are the sample payloads for Smart Collect webhook events.
             "ifsc": "RATN0VAAPIS",
             "bank_name":  "RBL Bank",
             "name": "Acme Corp",
-            "account_number": "1112220006712324"
+            "account_number": "<REDACTED-16-DIGIT>"
           }
         ],
         "allowed_payers": [
@@ -462,7 +462,7 @@ Given below are the sample payloads for Smart Collect webhook events.
             "ifsc": "RATN0VAAPIS",
             "bank_name": "RBL Bank",
             "name": "Acme Corp",
-            "account_number": "1112220006712324"
+            "account_number": "<REDACTED-16-DIGIT>"
           },
           {
             "id": "vpa_DzYPeu6ntqxhcE",
@@ -507,7 +507,7 @@ Given below are the sample payloads for Smart Collect webhook events.
             "ifsc":"RATN0VAAPIS",
             "bank_name": "RBL Bank",
             "name":"Acme Corp",
-            "account_number":"1112220006712324"
+            "account_number":"<REDACTED-16-DIGIT>"
           }
         ],
         "allowed_payers": [

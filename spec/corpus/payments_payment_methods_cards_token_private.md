@@ -45,7 +45,7 @@ curl -X POST \
   -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET] \
   -d 'method=card' \
   -d 'card[name]=Gaurav Kumar' \
-  -d 'card[number]=4386289407660153' \
+  -d 'card[number]=<REDACTED-16-DIGIT>' \
   -d 'card[expiry_month]=1' \
   -d 'card[expiry_year]=2022'
   

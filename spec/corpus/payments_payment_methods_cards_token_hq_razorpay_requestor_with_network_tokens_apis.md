@@ -483,7 +483,7 @@ curl -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET]
   "customer_id": "cust_DtHaBuooGHTuyZ",
   "method": "card",
   "card": {
-    "number": "4854980604708430",
+    "number": "<REDACTED-16-DIGIT>",
     "cvv": "123",
     "expiry_month": "12",
     "expiry_year": "21",
@@ -686,7 +686,7 @@ To process a payment on the tokenised card on another PA/PG, you will need the t
 #### Response Parameters
 
 `token_number`
-: `string` The unique reference number generated for the token. For example, `4016981500100002`.
+: `string` The unique reference number generated for the token. For example, `<REDACTED-16-DIGIT>`.
 
 `cryptogram_value`
 : `string` The token cryptogram value.
@@ -709,14 +709,14 @@ curl -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET]
 }'
 ```json: Response - Visa, MasterCard & RuPay
 {
-  "token_number": "4016981500100002",
+  "token_number": "<REDACTED-16-DIGIT>",
   "cryptogram_value": "a345345dfgdfasdfh45jtyhgjkyutsdasd2",
   "token_expiry_month": 12,
   "token_expiry_year": 2021
 }
 ```json: Response - Amex
 {
-  "token_number": "4016981500100002",
+  "token_number": "<REDACTED-16-DIGIT>",
   "cvv": "1234",
   "token_expiry_month": 12,
   "token_expiry_year": 2021

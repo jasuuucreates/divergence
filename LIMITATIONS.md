@@ -115,4 +115,4 @@ is why they can be discussed openly.
 ---
 
 *If something here is wrong, the fastest way to show it is to run the harness. Every number in this
-repository comes from a committed transcript, and every transcript names the command that produced it.*
+repository comes from a committed transcript, and every transcript is listed in `evidence/README.md` with the command that regenerates it -- and the two for which no such command exists are named there as unreproducible.*

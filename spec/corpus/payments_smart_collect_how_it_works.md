@@ -24,7 +24,7 @@ You can consider a payment to be successful only when you receive the notificati
 You can create a unique Customer Identifier using Smart Collect to receive payments from your customers. The Customer Identifier consists of 16 digits. 
 
 ```
-Bank Account Number: 1112220040042526
+Bank Account Number: <REDACTED-16-DIGIT>
 ```
 Know more about [Customer Identifier States](https://razorpay.com/docs/build/llm-docs/payments/smart-collect/states.md).
 

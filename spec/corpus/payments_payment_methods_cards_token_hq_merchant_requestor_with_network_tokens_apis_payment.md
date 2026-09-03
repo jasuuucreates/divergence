@@ -31,7 +31,7 @@ curl -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET]
   "contact": "9090909090",
   "method": "card",
   "card": {
-    "number": "4854980604708430",
+    "number": "<REDACTED-16-DIGIT>",
     "expiry_month": "12",
     "expiry_year": "21",
     "cryptogram_value": "as34ag3h78dsdasdsd1",
@@ -58,7 +58,7 @@ curl -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET]
   "contact": "9090909090",
   "method": "card",
   "card": {
-    "number": "4854980604708430",
+    "number": "<REDACTED-16-DIGIT>",
     "expiry_month": "12",
     "expiry_year": "21",
     "cvv": "123",
@@ -188,7 +188,7 @@ curl -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET]
   "method": "emi",
   "emi_duration": 9,
   "card": {
-    "number": "4154980604708430",
+    "number": "<REDACTED-16-DIGIT>",
     "expiry_month": "12",
     "expiry_year": "21",
     "cryptogram_value": "as34ag3h78dsdasdsd1",
@@ -217,7 +217,7 @@ curl -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET]
   "method": "emi",
   "emi_duration": 9,
   "card": {
-    "number": "4154980604708430",
+    "number": "<REDACTED-16-DIGIT>",
     "expiry_month": "12",
     "expiry_year": "21",
     "cvv": "123",

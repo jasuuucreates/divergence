@@ -1,0 +1,22 @@
+================================================================================================
+CAUSALITY TEST -- does patching the blamed line flip the verdict?
+================================================================================================
+target : rig\plugin\razorpay-woocommerce\includes\razorpay-webhook.php
+sha256 : 92fdc4073d96250b  (unmodified)
+
+--- ARM 1: unmodified plugin ---
+    OVERALL=RED  {'P1-ORDER-INDEPENDENCE': 'RED', 'P2-DUPLICATE-TOLERANCE': 'GREEN', 'P4-NO-SILENT-LOSS': 'RED', 'P3-EVENT-ID-DEDUP': 'YELLOW'}
+
+--- ARM 2: one block patched (refund deferred instead of dropped) ---
+    sha256 : 24a2c14d4384f952  (patched)
+    OVERALL=RED  {'P1-ORDER-INDEPENDENCE': 'RED', 'P2-DUPLICATE-TOLERANCE': 'GREEN', 'P4-NO-SILENT-LOSS': 'RED', 'P3-EVENT-ID-DEDUP': 'YELLOW'}
+
+--- restored ---
+    sha256 : 92fdc4073d96250b  (matches unmodified: True)
+
+================================================================================================
+P1 before patch : RED
+P1 after  patch : RED
+VERDICT: NOT CAUSAL. The verdict did not move when the blamed line changed.
+         Either the diagnosis is wrong or the patch does not do what we think.
+================================================================================================

@@ -161,7 +161,7 @@ curl -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET]
   "customer_id": "cust_1Aa00000000001",
   "method": "card",
   "card": {
-    "number": "4386289407660153",
+    "number": "<REDACTED-16-DIGIT>",
     "cvv": "",
     "expiry_month": "12",
     "expiry_year": "30",
@@ -183,7 +183,7 @@ tokenRequest.put("customer_id","cust_1Aa00000000001");
 tokenRequest.put("method","card");
 
 JSONObject card = new JSONObject();
-card.put("number","4386289407660153");
+card.put("number","<REDACTED-16-DIGIT>");
 card.put("cvv","");
 card.put("expiry_month","12");
 card.put("expiry_year","30");
@@ -206,7 +206,7 @@ $api->token->create(array(
     "customer_id" => "cust_1Aa00000000001",
     "method" => "card",
     "card" => array(
-        "number" => "4386289407660153",
+        "number" => "<REDACTED-16-DIGIT>",
         "cvv" => "",
         "expiry_month" => "12",
         "expiry_year" => "30",
@@ -228,7 +228,7 @@ data := map[string]interface{}{
   "customer_id": "cust_1Aa00000000001",
   "method": "card",
   "card": map[string]interface{}{
-    "number": "4386289407660153",
+    "number": "<REDACTED-16-DIGIT>",
     "cvv": "",
     "expiry_month": "12",
     "expiry_year": "30",
@@ -250,7 +250,7 @@ instance.tokens.create({
   "customer_id": "cust_1Aa00000000001",
   "method": "card",
   "card": {
-    "number": "4386289407660153",
+    "number": "<REDACTED-16-DIGIT>",
     "cvv": "",
     "expiry_month": "12",
     "expiry_year": "30",
@@ -617,7 +617,7 @@ curl -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET]
   "contact": "9090909090",
   "method": "card",
   "card": {
-    "number": "4154980604708430",
+    "number": "<REDACTED-16-DIGIT>",
     "expiry_month": "12",
     "expiry_year": "30",
     "name": "Gaurav Kumar",
@@ -737,7 +737,7 @@ Use the following API to save card details while making a payment:
   "contact": "9090909090",
   "method": "card",
   "card": {
-    "number": "4854980604708430",
+    "number": "<REDACTED-16-DIGIT>",
     "cvv": "123",
     "expiry_month": "12",
     "expiry_year": "30",

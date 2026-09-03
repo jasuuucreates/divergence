@@ -102,8 +102,8 @@ curl -X POST https://api.razorpay.com/v1/orders
             "age": 18,
             "class": "business",
             "identity": {
-              "unique_national_id": "ABCDE1234Z",
-              "tax_id": "ABCDE1234Z"
+              "unique_national_id": "<REDACTED-ID>",
+              "tax_id": "<REDACTED-ID>"
             }
           },
           {
@@ -113,8 +113,8 @@ curl -X POST https://api.razorpay.com/v1/orders
             "age": 18,
             "class": "business",
             "identity": {
-              "unique_national_id": "ABCDE1234Z",
-              "tax_id": "ABCDE1234Z"
+              "unique_national_id": "<REDACTED-ID>",
+              "tax_id": "<REDACTED-ID>"
             }
           }
         ]

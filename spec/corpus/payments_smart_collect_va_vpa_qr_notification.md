@@ -45,7 +45,7 @@ When a virtual account is created the `virtual_account.created` webhook event is
             "bank_name": "RBL Bank",
             "name":"Acme Corp",
             "notes": [],
-            "account_number":"1112220006712324"
+            "account_number":"<REDACTED-16-DIGIT>"
           },
           {
             "id": "vpa_DzZcAjcRevv5JO",
@@ -141,7 +141,7 @@ Payments made using Smart Collect are notified via the `virtual_account.credited
             "ifsc":"RATN0VAAPIS",
             "bank_name": "RBL Bank",
             "name":"Acme Corp",
-            "account_number":"1112220006712324"
+            "account_number":"<REDACTED-16-DIGIT>"
           }
         ]
       }
@@ -359,7 +359,7 @@ When a virtual account is closed the `virtual_account.closed` webhook event is f
             "ifsc":"RATN0VAAPIS",
             "bank_name": "RBL Bank",
             "name":"Acme Corp",
-            "account_number":"1112220006712324"
+            "account_number":"<REDACTED-16-DIGIT>"
           },
           {
             "id": "vpa_DzYPeu6ntqxhcE",

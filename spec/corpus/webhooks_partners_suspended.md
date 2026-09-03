@@ -93,7 +93,7 @@ description: List of webhook events and associated payloads when the account is 
           "business_operation_city": "Mumbai",
           "business_operation_district": null,
           "business_operation_pin": "400027",
-          "promoter_pan": "ELZPK0377L",
+          "promoter_pan": "<REDACTED-ID>",
           "promoter_pan_name": "Abdul Aziz Khan",
           "business_doe": null,
           "gstin": "",

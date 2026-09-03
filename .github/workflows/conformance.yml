@@ -37,6 +37,12 @@ jobs:
       - name: Contract prints its own citations
         run: python harness/contract.py
 
+      - name: Adversarial suite (can this harness be made to report an unearned GREEN?)
+        # 19 tests, no containers, ~2 seconds. 13 of these FAILED against the code as it stood on
+        # 2026-09-04; see the newest entry in INCIDENTS.md. They are in CI so that the guards
+        # cannot be quietly removed later -- a guard nothing enforces is a comment.
+        run: python tests/adversarial.py
+
   conformance:
     # The real thing: stand up the rig, drive the unmodified plugin, assert the published verdicts.
     runs-on: ubuntu-latest
@@ -108,12 +114,24 @@ jobs:
           fi
 
       - name: Mutation corpus (detection must still track the defect)
+        # Assert the EXIT CODE, not just the report text. `set +e` plus two greps meant a run in
+        # which nothing was scored still passed: zero mutants produce zero false positives and zero
+        # false negatives, so both greps match and the gate goes green on a run that measured
+        # nothing. corpus.py now exits non-zero when any mutant is unscored; honour that.
         run: |
           set +e
           python -u harness/corpus.py | tee /tmp/corpus.log
+          rc=${PIPESTATUS[0]}
           set -e
+          if [ "$rc" != "0" ]; then
+            echo "corpus.py exited $rc -- either it detected a false result, or mutants were unscored."
+            exit 1
+          fi
           grep -q "false positives 0" /tmp/corpus.log || { echo "corpus reported a false positive"; exit 1; }
           grep -q "false negatives 0" /tmp/corpus.log || { echo "corpus reported a false negative"; exit 1; }
+          # n must be non-zero. "0 scored, 0 wrong" is not a passing detection metric.
+          grep -qE "CONFUSION MATRIX \(n=[1-9][0-9]* scored\)" /tmp/corpus.log || {
+            echo "corpus scored nothing -- an empty confusion matrix is not evidence of detection"; exit 1; }
 
       - name: Stub fidelity (the instrument that mediates every verdict)
         run: python -u harness/stubcheck.py

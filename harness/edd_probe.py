@@ -119,10 +119,35 @@ def main():
     time.sleep(1)
     after = status(oid)
     print("  order.paid (matching amount) -> HTTP %s -> status=%s" % (code, after))
-    moved = after != "pending"
+    # Require the state we PREDICTED, not merely "something other than the pending state".
+    # status() shells out to wp-cli: if EDD is inactive, the container is down, or the PHP throws,
+    # it returns "" or a fatal-error string. An inequality test against the pending state is
+    # satisfied by every one of those, so this control used to announce CONTROL OK on every kind
+    # of total failure except the one it was written to catch.
+    CONTROL_PAID_STATES = ("complete", "publish")
+    moved = after in CONTROL_PAID_STATES
     results["control_moved"] = moved
+    results["control_observed"] = after
     print("  %s" % ("CONTROL OK - the handler is reachable and does move the state" if moved
-                    else "CONTROL FAILED - the handler did not move the state; nothing below is trustworthy"))
+                    else "CONTROL FAILED - expected one of %s, observed %r; nothing below is "
+                         "trustworthy" % (CONTROL_PAID_STATES, after)))
+
+    # Refuse to EMIT a verdict the control just disowned, rather than printing the disclaimer and
+    # then printing the verdict anyway. Any reader scanning this output for a verdict line -- and
+    # matrix.py and corpus.py both do -- would otherwise lift a GREEN out of a run that announced
+    # itself untrustworthy, which is precisely how an inactive plugin manufactured the
+    # discrimination headline during final prep.
+    if not moved:
+        print("\n" + "=" * 92)
+        print("P5-AMOUNT-INTEGRITY: UNDECIDABLE  (control failed; no verdict is produced)")
+        print("  The instrument was not connected, so this run measured nothing. Most likely the")
+        print("  razorpay-edd plugin is not active:")
+        print("    cd rig && docker compose run --rm -T cli wp plugin activate razorpay-edd")
+        print("=" * 92)
+        results["P5"] = {"verdict": "UNDECIDABLE", "reason": "control arm failed"}
+        out = os.path.join(RIG, "out", "edd_probe.json")
+        io.open(out, "w", encoding="utf-8").write(json.dumps(results, indent=2))
+        return 2
 
     # --- P5 AMOUNT INTEGRITY: underpay, and see whether EDD refuses --------------------------
     oid2, paise2 = new_payment()
@@ -159,4 +184,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # Propagate the exit status. main() returns 2 when the control arm failed and no verdict was
+    # produced; swallowing that made a probe that measured nothing exit 0, which is the same
+    # "absence scored as a pass" shape this repo exists to refuse.
+    sys.exit(main() or 0)

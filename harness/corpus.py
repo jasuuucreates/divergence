@@ -147,6 +147,15 @@ def run_probe(target):
     p = subprocess.run([sys.executable, "-u", os.path.join(HERE, script)],
                        capture_output=True, text=True, timeout=1800)
     out = (p.stdout or "") + (p.stderr or "")
+
+    # Same rule as matrix.py: a probe that disowned its own result must not have that result read
+    # back out of its stdout. edd_probe.py prints "CONTROL FAILED ... nothing below is trustworthy"
+    # and then prints its verdict line anyway, so scanning for the verdict alone would score a
+    # mutant against a dead endpoint -- and this module is what measures whether the harness can
+    # detect anything at all.
+    if "CONTROL FAILED" in out or "UNDECIDABLE" in out:
+        return "UNDECIDABLE", out
+
     for line in out.splitlines():
         s = line.strip()
         if s.startswith("RED --") or "P5-AMOUNT-INTEGRITY: RED" in s:
@@ -213,6 +222,7 @@ def main():
     rows = []
     for m in plan:
         original = io.open(m.path, encoding="utf-8").read()
+        sha_before = sha(m.path)
         if m.find and m.find not in original:
             print("  %-32s SKIPPED -- anchor not found (plugin changed?)" % m.key)
             rows.append({"mutant": m.key, "result": "SKIPPED", "reason": "anchor absent"})
@@ -230,9 +240,23 @@ def main():
         ok = (got == m.expect)
         print("      -> observed %-8s %s   (%.0fs)"
               % (got, "MATCH" if ok else "*** MISMATCH ***", time.time() - t0))
+        # Compare the restore against the sha captured BEFORE the edit. Recording the restored
+        # sha on its own proved nothing -- the same shape as causality.py's sha(x) == sha(x), which
+        # was a restore check that could not fail. This module edits the vendor plugin eight times
+        # in a row; a restore that silently did not restore would make every later mutant a
+        # measurement of the previous mutant's leftovers.
+        sha_after = sha(m.path)
+        if sha_after != sha_before:
+            raise RuntimeError(
+                "RESTORE FAILED after mutant %s: %s is not the file we started from "
+                "(before %s, after %s). Refusing to continue -- every later row would be "
+                "measured against a corrupted plugin. Restore it: cd rig && bash setup.sh"
+                % (m.key, m.path, sha_before, sha_after))
         rows.append({"mutant": m.key, "kind": m.kind, "target": m.target,
                      "property": m.prop, "expected": m.expect, "observed": got,
-                     "match": ok, "why": m.why, "sha_restored": sha(m.path)})
+                     "match": ok, "why": m.why,
+                     "sha_before": sha_before, "sha_restored": sha_after,
+                     "restore_verified": True})
 
     scored = [r for r in rows if r.get("observed") in ("RED", "GREEN")]
     tp = sum(1 for r in scored if r["expected"] == "RED" and r["observed"] == "RED")
@@ -254,10 +278,33 @@ def main():
     print("  behaviour on the defect classes we thought of; they are not a population estimate.")
     print("=" * 100)
 
+    # An unscored row is not a passing row. Dropping UNKNOWN/UNDECIDABLE from the matrix and then
+    # exiting 0 meant this gate was satisfiable by measuring NOTHING: every mutant failing to
+    # produce a verdict yielded fp=0, fn=0, and a clean exit -- a green CI badge on our own
+    # detection metric, earned by a run that detected nothing. Refuse unless every planned mutant
+    # actually produced a verdict.
+    unscored = [r for r in rows if r.get("observed") not in ("RED", "GREEN")]
+    if unscored or len(scored) != len(rows) or not scored:
+        print("\n" + "!" * 100)
+        print("GATE FAILED: %d of %d mutants produced no usable verdict." % (len(unscored), len(rows)))
+        for r in unscored:
+            print("    %-40s observed=%s" % (r.get("mutant", r.get("property", "?")), r.get("observed")))
+        print("  A mutant that could not be scored is not a mutant that passed. These numbers do")
+        print("  not bound anything until every planned mutant returns RED or GREEN.")
+        print("!" * 100)
+        io.open(a.out, "w", encoding="utf-8").write(json.dumps(
+            {"rows": rows, "tp": tp, "fn": fn, "tn": tn, "fp": fp,
+             "unscored": len(unscored), "gate": "FAILED"}, indent=2))
+        return 1
+
     io.open(a.out, "w", encoding="utf-8").write(json.dumps(
-        {"rows": rows, "tp": tp, "fn": fn, "tn": tn, "fp": fp}, indent=2))
+        {"rows": rows, "tp": tp, "fn": fn, "tn": tn, "fp": fp,
+         "unscored": 0, "gate": "PASSED"}, indent=2))
     print("saved -> %s" % os.path.normpath(a.out))
-    return 1 if (fp or fn) else 0
+    # The full pass condition, restated in the exit expression itself. The early return above
+    # already refuses an unscored run; encoding it here too means the process exit code can never
+    # drift away from the gate, and a reader checking "what makes this exit 0" sees all of it.
+    return 1 if (fp or fn or unscored or not scored) else 0
 
 
 if __name__ == "__main__":

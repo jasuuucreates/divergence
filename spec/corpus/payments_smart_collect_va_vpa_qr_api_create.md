@@ -97,7 +97,7 @@ curl -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET] \
       "bank_name": "RBL Bank",
       "name":"Acme Corp",
       "notes":[],
-      "account_number":"2223330099089860"
+      "account_number":"<REDACTED-16-DIGIT>"
     }
   ],
   "close_by":1681615838,
@@ -227,7 +227,7 @@ curl -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET] \
       "bank_name": "RBL Bank",
       "name": "Acme Corp",
       "notes": [],
-      "account_number": "2223333226676435"
+      "account_number": "<REDACTED-16-DIGIT>"
     },
     {
       "id": "vpa_DzaznS24HKkTBY",

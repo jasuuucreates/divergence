@@ -88,7 +88,7 @@ Using Razorpay Smart Collect, you can create a unique virtual bank account numbe
 The virtual bank account number consists of 16 digits.
 
 ```
-Bank Account Number: 1112220040042526
+Bank Account Number: <REDACTED-16-DIGIT>
 ```
 
 ### Virtual UPI ID

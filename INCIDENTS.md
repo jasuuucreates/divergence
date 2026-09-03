@@ -11,6 +11,102 @@ Entries are newest first.
 
 ---
 
+## 2026-09-04 — We attacked our own harness and 13 of 19 attacks succeeded
+
+Everything in this repo argues that a tool must not report a result it has not earned. So the day
+before submission we wrote a suite whose only job was to make this harness report a GREEN it had not
+earned — `tests/adversarial.py`, 19 tests, no Docker, about two seconds.
+
+**13 of them succeeded against the code we were about to ship.** They are listed below with what a
+wrong result would have looked like. All 19 pass now. When this was first written that sentence ended "and the suite runs in CI" -- which was not true: `.github/workflows/conformance.yml` did not reference the file. An unverified claim about our own verification, inside the entry about unverified claims. The workflow now runs it in the `seed-spec` job, so the sentence is true because the file changed, not because the sentence was softened.
+
+| what was wrong | what a wrong result looked like |
+|---|---|
+| `causality.py` printed `sha(TARGET) == sha(TARGET)` as its restore check | Always `True`. The one module that **modifies the vendor plugin** verified the restore with a tautology, and the README cited that line as proof the plugin was returned byte-for-byte. |
+| `check.py` — the centrepiece — had no control arm | Deactivate `razorpay-woocommerce`, leave `woocommerce` active: orders still create, the endpoint is simply unregistered, every schedule ends `wc-pending`. That is a real string, so the evidence guard is satisfied — and then P1 sees one state (GREEN), P2 sees two identical states (GREEN), P5 sees a non-paid status (GREEN). **Three GREENs off a plugin that is switched off.** |
+| `matrix.py` and `corpus.py` read a verdict out of a child probe's stdout without reading its control arm | `edd_probe.py` printed `CONTROL FAILED … nothing below is trustworthy` and then printed its verdict line anyway. The headline discrimination artefact would reproduce the 2026-08-23 false-GREEN incident *through the tool built to demonstrate discrimination*. |
+| `edd_probe.py`'s control was an inequality against the pending state | `status()` shells out to wp-cli. A dead container returns `""`; a PHP fatal returns an error string. **Neither equals the pending state**, so the one arm that ever caught a false GREEN passed on every kind of total failure except the one it was written for. |
+| `search.py` could print *"No divergence found … that is a real result"* over an all-`None` run | It also contained `import measured` and never called it — a fix someone started and abandoned, which made the module look guarded to anyone skimming imports. |
+| `rig.sql()` and `rig.wp()` discarded the return code | A dead database, a wrong password, a container that is not up, and a query that legitimately matched no rows all produced **the same empty string**. Every guard above this layer was trying to tell absence from failure using a signal that had already thrown the distinction away. This is the root cause under three of the other entries. |
+| `rig.deliver()` returned curl's `000` as an ordinary non-2xx | "The endpoint refused this event" and "the endpoint was never reached" arrived at the oracle as the same fact. A stopped container read as conformance. |
+| `rig.drain()` ran the cron once and verified nothing | The README's claim that verdicts are taken on a **converged** state — the claim that makes *"your cron would have fixed it later"* unavailable as a rebuttal — was not enforced anywhere in the code. It is now a fixpoint test. |
+| `check_duplicate_tolerance()` compared refund counts but required only the status to exist | If the refund query failed, both trials carried `None`, `None == None` compared equal, and **P2 silently reverted to exactly the status-only comparison `vacuity.py` caught it doing.** The fix for vacuity un-applied itself the first time a query failed. |
+| `corpus.py` dropped unscored rows from the confusion matrix and exited 0 | The CI gate on our own detection metric was **satisfiable by measuring nothing**: every mutant failing to produce a verdict yields fp=0, fn=0, clean exit. A green badge earned by a run that detected nothing. |
+| `stubcheck.documented_fields()` could return `[]` and report success | The instrument that validates our instrument passed hardest when it had read nothing. |
+| `amount_integrity.py`'s GREEN branch raised `TypeError` | The format operand was attached to the second line, which has no placeholder. **The only branch in that module that can say "the plugin is correct" had never once successfully executed** — which is why nobody noticed. |
+
+A fourteenth instance was then found by applying the *pattern* rather than the list:
+`corpus.py` recorded `sha_restored` for each of its eight mutants and compared it to nothing, while
+its docstring claimed the sha was "recorded before, during and after". That module edits the vendor
+plugin eight times in a row, so a restore that silently failed would have made every later mutant a
+measurement of the previous mutant's leftovers. It now captures the sha before the edit and refuses
+to continue if the restore does not match.
+
+### The part worth reading
+While writing the suite, **three first-draft tests passed against broken code** because they grepped
+for a word and found it in prose — one matched the word "control" inside a docstring, one matched a
+variable name inside a `print()`, one had a non-greedy regex walk out of the function and into the
+next one's `raise`. The adversarial suite's own first draft was an instance of the failure class it
+exists to find. They were caught by *running* it, not by reading it.
+
+### Then the live rig, attacked eleven ways
+`harness/redteam.py` had been written, reviewed and **never run** — its outcomes were labelled
+predictions. They were executed the same day: **10 decidable attacks, all held; 1 undecidable.**
+
+Three of the eleven had to be repaired before they could be believed, and each repair is the same
+lesson as the rest of this entry:
+
+- **`no-drain` neutralised the wrong thing.** It replaced `drain()` with a no-op lambda — a stronger
+  adversary than reality, and unfalsifiable, because with the function gone no guard inside it could
+  ever fire. Rewritten to neutralise the *cron* and leave `drain()` live, it immediately found a real
+  hole in the fixpoint check added that morning: **a queue row that never started moving is also a
+  fixpoint.** `drain()` now also requires that nothing is left unconsumed.
+- **`oversize` accused correct code.** Its predicate was "the order did not move", but a 12 MB
+  validly-signed body that is *fully processed* is responsibility taken **and discharged**. Only
+  "claimed the queue row and left the order pending" is silent loss. Scoring correct code as RED is
+  already an incident in this log; doing it to the vendor rather than to ourselves would be worse,
+  because that is the accusation we publish.
+- **`db-down` could not hold its own precondition.** `docker-compose.yml` declares
+  `cli: depends_on: db: service_healthy`, so the harness's own wp-cli path restarts the database the
+  attack had just stopped. It reported BROKEN on the strength of a verdict table full of real data —
+  an experiment that never ran under the condition it was named for. It now checks, and reports
+  **UNDECIDABLE**. The runner grew a third outcome so that "measured nothing" can never again be
+  counted as either a pass or a finding.
+
+Also fixed: a criterion that required the literal string `OVERALL=UNMEASURED` while its own stated
+expectation was *"UNMEASURED, **or an abort**"* — so `check.py` refusing correctly, with zero GREENs,
+was scored as BROKEN. And a summary line that printed `0 of 1 attacks BROKE` immediately after
+printing `BROKEN`, because the control-arm break happened before the counter.
+
+**What the surviving attacks bought.** `real-clock` is the one that matters: `drain()` backdates a
+timestamp so the plugin's 300-second window opens at once, and a reader may fairly say *you
+falsified the clock*. One trial with no backdating, waiting the real 320 seconds, reached the
+**identical** terminal state. `event-id` promoted P3 from a grep result to a behavioural one and
+closed a gap nobody had noticed — the rig never sent `X-Razorpay-Event-Id` at all, so P2's GREEN had
+been measured without the prescribed mechanism present. `sig` established that every RED in this
+repository was measured through a door that actually authenticates.
+
+### Verified by intervention, not by assertion
+Fixing a guard proves nothing unless the guard fires. Both were tested by breaking the rig on purpose:
+
+```
+razorpay-woocommerce deactivated  ->  check.py: 0 verdicts printed, exit 1,
+                                      "REFUSING TO RUN: the control arm did not move a fresh
+                                       order into a paid state"
+razorpay-edd deactivated          ->  edd_probe.py: P5-AMOUNT-INTEGRITY: UNDECIDABLE, exit 2,
+                                      zero GREEN lines anywhere in the output
+```
+
+Then both were reactivated and the full verdict reproduced unchanged: P1 RED, P2 GREEN, P4 RED,
+P5 RED, P3 YELLOW, OVERALL RED, exit 1 — now above a control arm that passes. **The guards changed
+when a verdict may be issued. They changed no finding.**
+
+### What this cost us
+The honest accounting: `check.py` went from about 110s to about 151s, because a control arm is a
+real trial and a fixpoint test is a second cron round. We took the time.
+
+---
+
 ## 2026-08-24 — The README claimed a disclosure that had not happened
 
 **Symptom.** `README.md` stated: *"Findings of a security class were reported to Razorpay privately

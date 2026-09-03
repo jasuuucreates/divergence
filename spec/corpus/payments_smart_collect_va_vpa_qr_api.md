@@ -134,7 +134,7 @@ To start accepting payments using Customer Identifiers, you must:
   : `string` The bank associated with the virtual bank account. For example, `RBL Bank`. This parameter appears in the response only when `bank_account` is passed as the receiver `type`.
 
   `account_number`
-  : `string` The unique account number provided by the bank. For example, `1112220061746877`. This parameter appears in the response only when `bank_account` is passed as the receiver `type`.
+  : `string` The unique account number provided by the bank. For example, `<REDACTED-16-DIGIT>`. This parameter appears in the response only when `bank_account` is passed as the receiver `type`.
 
   `name`
   : `string` The `merchant billing label` as it appears on the Dashboard. This parameter appears in the response only when `bank_account` is passed as the receiver `type`.
@@ -191,7 +191,7 @@ Any request beyond `2147483647` UNIX timestamp will fail.
       "bank_name": "RBL Bank",
       "name": "Acme Corp",
       "notes": [],
-      "account_number": "2223333230231378"
+      "account_number": "<REDACTED-16-DIGIT>"
     },
     {
       "id":"vpa_CkTmLXqVYPkbxx",

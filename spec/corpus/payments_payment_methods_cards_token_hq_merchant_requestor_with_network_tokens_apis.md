@@ -359,7 +359,7 @@ curl -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET]
   "customer_id": "cust_1Aa00000000001",
   "method": "card",
   "card": {
-    "number": "4386289407660153",
+    "number": "<REDACTED-16-DIGIT>",
     "cvv": "",
     "expiry_month": "12",
     "expiry_year": "30",
@@ -380,7 +380,7 @@ tokenRequest.put("customer_id","cust_1Aa00000000001");
 tokenRequest.put("method","card");
 
 JSONObject card = new JSONObject();
-card.put("number","4386289407660153");
+card.put("number","<REDACTED-16-DIGIT>");
 card.put("cvv","");
 card.put("expiry_month","12");
 card.put("expiry_year","30");
@@ -403,7 +403,7 @@ $api->token->create(array(
     "customer_id" => "cust_1Aa00000000001",
     "method" => "card",
     "card" => array(
-        "number" => "4386289407660153",
+        "number" => "<REDACTED-16-DIGIT>",
         "cvv" => "",
         "expiry_month" => "12",
         "expiry_year" => "30",
@@ -425,7 +425,7 @@ data := map[string]interface{}{
   "customer_id": "cust_1Aa00000000001",
   "method": "card",
   "card": map[string]interface{}{
-    "number": "4386289407660153",
+    "number": "<REDACTED-16-DIGIT>",
     "cvv": "",
     "expiry_month": "12",
     "expiry_year": "30",
@@ -447,7 +447,7 @@ instance.tokens.create({
   "customer_id": "cust_1Aa00000000001",
   "method": "card",
   "card": {
-    "number": "4386289407660153",
+    "number": "<REDACTED-16-DIGIT>",
     "cvv": "",
     "expiry_month": "12",
     "expiry_year": "30",
@@ -910,7 +910,7 @@ curl -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET]
 
 ```json: Response - Visa, MasterCard & RuPay
 {
-  "token_number": "4016981500100002",
+  "token_number": "<REDACTED-16-DIGIT>",
   "cryptogram_value": "a345345dfgdfasdfh45jtyhgjkyutsdasd2",
   "token_expiry_month": 12,
   "token_expiry_year": 2030
@@ -918,7 +918,7 @@ curl -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET]
 
 ```json: Response - Amex
 {
-  "token_number": "4016981500100002",
+  "token_number": "<REDACTED-16-DIGIT>",
   "cvv": "1234",
   "token_expiry_month": 12,   
   "token_expiry_year": 2030 
@@ -949,7 +949,7 @@ curl -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET]
 ### Response Parameters
 
       `token_number`
-      : `string` The unique reference number generated for the token. For example, `4016981500100002`.
+      : `string` The unique reference number generated for the token. For example, `<REDACTED-16-DIGIT>`.
 
       `cryptogram_value`
       : `string` The token cryptogram value.
@@ -982,7 +982,7 @@ curl -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET]
   "contact": "9090909090",
   "method": "card",
   "card": {
-    "number": "4386289407660153",
+    "number": "<REDACTED-16-DIGIT>",
     "expiry_month": "12",
     "expiry_year": "30",
     "cryptogram_value": "as34ag3h78dsdasdsd1",
@@ -1011,7 +1011,7 @@ curl -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET]
   "contact": "9090909090",
   "method": "card",
   "card": {
-    "number": "4386289407660153",
+    "number": "<REDACTED-16-DIGIT>",
     "expiry_month": "12",
     "expiry_year": "30",
     "cvv": "",
@@ -1038,7 +1038,7 @@ curl -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET]
   "contact": "9090909090",
   "method": "card",
   "card": {
-    "number": "4154980604708430",
+    "number": "<REDACTED-16-DIGIT>",
     "expiry_month": "12",
     "expiry_year": "30",
     "cvv": "123",
@@ -1191,7 +1191,7 @@ Use the following API to save card details while making a payment:
   "contact": "9000090000",
   "method": "card",
   "card": {
-    "number": "4386289407660153",
+    "number": "<REDACTED-16-DIGIT>",
     "cvv": "123",
     "expiry_month": "12",
     "expiry_year": "30",

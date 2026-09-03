@@ -1,0 +1,1263 @@
+{
+ "version": "1.174.0",
+ "results": [
+  {
+   "check_id": "php.lang.security.injection.echoed-request.echoed-request",
+   "path": "rig\\plugin\\razorpay-woocommerce\\includes\\razorpay-route.php",
+   "start": {
+    "line": 359,
+    "col": 13,
+    "offset": 13641
+   },
+   "end": {
+    "line": 389,
+    "col": 89,
+    "offset": 15474
+   },
+   "extra": {
+    "message": "`Echo`ing user input risks cross-site scripting vulnerability. You should use `htmlentities()` when showing data to users.",
+    "fix": "echo htmlentities('<div class=\"wrap\">\r\n                        <div class=\"content-header\">\r\n                            <a href=\"' . $prev_url . '\">\r\n                                <span class=\"dashicons rzp-dashicons dashicons-arrow-left-alt\"></span>  Transfer List\r\n                            </a>\r\n                        </div>\r\n                        <div class=\"container rzp-container\">\r\n                            <div class=\"row panel-heading\">\r\n                                <div class=\"text\">Transfer Details</div>\r\n                            </div>\r\n                            <div class=\"row panel-body\">\r\n                                <div class=\"col-md-12 panel-body-left\">\r\n                                    <div class=\"row\">\r\n                                        <div class=\"col-sm-4 panel-label\">Transfer ID</div>\r\n                                        <div class=\"col-sm-8 panel-value\">' . $transferDetail[\"id\"] . '</div>\r\n                                    </div>\r\n                                    <div class=\"row\">\r\n                                        <div class=\"col-sm-4 panel-label\">Source</div>\r\n                                        <div class=\"col-sm-8 panel-value\">' . $source . '</div>\r\n                                    </div>\r\n                                    <div class=\"row\">\r\n                                        <div class=\"col-sm-4 panel-label\">Recipient</div>\r\n                                        <div class=\"col-sm-8 panel-value\">' . $transferDetail['recipient'] . '</div>\r\n                                    </div>\r\n                                    <div class=\"row\">\r\n                                        <div class=\"col-sm-4 panel-label\">Amount</div>\r\n                                        <div class=\"col-sm-8 panel-value\"><span class=\"rzp-currency\">\u20b9 </span>' . (int)round($transferDetail['amount'] / 100) . '</div>\r\n                                    </div>\r\n                                    <div class=\"row\">\r\n                                        <div class=\"col-sm-4 panel-label\">Transfer Status</div>\r\n                                        <div class=\"col-sm-8 panel-value\"><span class=\"text-info\">');",
+    "metadata": {
+     "technology": [
+      "php"
+     ],
+     "cwe": [
+      "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+     ],
+     "owasp": [
+      "A07:2017 - Cross-Site Scripting (XSS)",
+      "A03:2021 - Injection",
+      "A05:2025 - Injection"
+     ],
+     "category": "security",
+     "references": [
+      "https://www.php.net/manual/en/function.htmlentities.php",
+      "https://www.php.net/manual/en/reserved.variables.request.php",
+      "https://www.php.net/manual/en/reserved.variables.post.php",
+      "https://www.php.net/manual/en/reserved.variables.get.php",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+     ],
+     "cwe2022-top25": true,
+     "cwe2021-top25": true,
+     "subcategory": [
+      "vuln"
+     ],
+     "likelihood": "MEDIUM",
+     "impact": "MEDIUM",
+     "confidence": "MEDIUM",
+     "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+     "vulnerability_class": [
+      "Cross-Site-Scripting (XSS)"
+     ],
+     "source": "https://semgrep.dev/r/php.lang.security.injection.echoed-request.echoed-request",
+     "shortlink": "https://sg.run/Bqqb"
+    },
+    "severity": "ERROR",
+    "fingerprint": "requires login",
+    "lines": "requires login",
+    "validation_state": "NO_VALIDATOR",
+    "engine_kind": "OSS"
+   }
+  },
+  {
+   "check_id": "php.lang.security.injection.echoed-request.echoed-request",
+   "path": "rig\\plugin\\razorpay-woocommerce\\includes\\razorpay-route.php",
+   "start": {
+    "line": 390,
+    "col": 68,
+    "offset": 15543
+   },
+   "end": {
+    "line": 390,
+    "col": 108,
+    "offset": 15583
+   },
+   "extra": {
+    "message": "`Echo`ing user input risks cross-site scripting vulnerability. You should use `htmlentities()` when showing data to users.",
+    "fix": "echo htmlentities(ucwords($transferDetail['status']));",
+    "metadata": {
+     "technology": [
+      "php"
+     ],
+     "cwe": [
+      "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+     ],
+     "owasp": [
+      "A07:2017 - Cross-Site Scripting (XSS)",
+      "A03:2021 - Injection",
+      "A05:2025 - Injection"
+     ],
+     "category": "security",
+     "references": [
+      "https://www.php.net/manual/en/function.htmlentities.php",
+      "https://www.php.net/manual/en/reserved.variables.request.php",
+      "https://www.php.net/manual/en/reserved.variables.post.php",
+      "https://www.php.net/manual/en/reserved.variables.get.php",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+     ],
+     "cwe2022-top25": true,
+     "cwe2021-top25": true,
+     "subcategory": [
+      "vuln"
+     ],
+     "likelihood": "MEDIUM",
+     "impact": "MEDIUM",
+     "confidence": "MEDIUM",
+     "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+     "vulnerability_class": [
+      "Cross-Site-Scripting (XSS)"
+     ],
+     "source": "https://semgrep.dev/r/php.lang.security.injection.echoed-request.echoed-request",
+     "shortlink": "https://sg.run/Bqqb"
+    },
+    "severity": "ERROR",
+    "fingerprint": "requires login",
+    "lines": "requires login",
+    "validation_state": "NO_VALIDATOR",
+    "engine_kind": "OSS"
+   }
+  },
+  {
+   "check_id": "php.lang.security.injection.echoed-request.echoed-request",
+   "path": "rig\\plugin\\razorpay-woocommerce\\includes\\razorpay-route.php",
+   "start": {
+    "line": 399,
+    "col": 21,
+    "offset": 16077
+   },
+   "end": {
+    "line": 399,
+    "col": 143,
+    "offset": 16199
+   },
+   "extra": {
+    "message": "`Echo`ing user input risks cross-site scripting vulnerability. You should use `htmlentities()` when showing data to users.",
+    "fix": "echo htmlentities('<span class=\"text-warning trf-status\">Scheduled for ' . date(\"d M Y\", $transferDetail['on_hold_until']) . '</span>');",
+    "metadata": {
+     "technology": [
+      "php"
+     ],
+     "cwe": [
+      "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+     ],
+     "owasp": [
+      "A07:2017 - Cross-Site Scripting (XSS)",
+      "A03:2021 - Injection",
+      "A05:2025 - Injection"
+     ],
+     "category": "security",
+     "references": [
+      "https://www.php.net/manual/en/function.htmlentities.php",
+      "https://www.php.net/manual/en/reserved.variables.request.php",
+      "https://www.php.net/manual/en/reserved.variables.post.php",
+      "https://www.php.net/manual/en/reserved.variables.get.php",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+     ],
+     "cwe2022-top25": true,
+     "cwe2021-top25": true,
+     "subcategory": [
+      "vuln"
+     ],
+     "likelihood": "MEDIUM",
+     "impact": "MEDIUM",
+     "confidence": "MEDIUM",
+     "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+     "vulnerability_class": [
+      "Cross-Site-Scripting (XSS)"
+     ],
+     "source": "https://semgrep.dev/r/php.lang.security.injection.echoed-request.echoed-request",
+     "shortlink": "https://sg.run/Bqqb"
+    },
+    "severity": "ERROR",
+    "fingerprint": "requires login",
+    "lines": "requires login",
+    "validation_state": "NO_VALIDATOR",
+    "engine_kind": "OSS"
+   }
+  },
+  {
+   "check_id": "php.lang.security.injection.echoed-request.echoed-request",
+   "path": "rig\\plugin\\razorpay-woocommerce\\includes\\razorpay-route.php",
+   "start": {
+    "line": 410,
+    "col": 21,
+    "offset": 17078
+   },
+   "end": {
+    "line": 410,
+    "col": 95,
+    "offset": 17152
+   },
+   "extra": {
+    "message": "`Echo`ing user input risks cross-site scripting vulnerability. You should use `htmlentities()` when showing data to users.",
+    "fix": "echo htmlentities('<span>' . ucwords($transferDetail['settlement_status']) . '</span>');",
+    "metadata": {
+     "technology": [
+      "php"
+     ],
+     "cwe": [
+      "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+     ],
+     "owasp": [
+      "A07:2017 - Cross-Site Scripting (XSS)",
+      "A03:2021 - Injection",
+      "A05:2025 - Injection"
+     ],
+     "category": "security",
+     "references": [
+      "https://www.php.net/manual/en/function.htmlentities.php",
+      "https://www.php.net/manual/en/reserved.variables.request.php",
+      "https://www.php.net/manual/en/reserved.variables.post.php",
+      "https://www.php.net/manual/en/reserved.variables.get.php",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+     ],
+     "cwe2022-top25": true,
+     "cwe2021-top25": true,
+     "subcategory": [
+      "vuln"
+     ],
+     "likelihood": "MEDIUM",
+     "impact": "MEDIUM",
+     "confidence": "MEDIUM",
+     "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+     "vulnerability_class": [
+      "Cross-Site-Scripting (XSS)"
+     ],
+     "source": "https://semgrep.dev/r/php.lang.security.injection.echoed-request.echoed-request",
+     "shortlink": "https://sg.run/Bqqb"
+    },
+    "severity": "ERROR",
+    "fingerprint": "requires login",
+    "lines": "requires login",
+    "validation_state": "NO_VALIDATOR",
+    "engine_kind": "OSS"
+   }
+  },
+  {
+   "check_id": "php.lang.security.injection.echoed-request.echoed-request",
+   "path": "rig\\plugin\\razorpay-woocommerce\\includes\\razorpay-route.php",
+   "start": {
+    "line": 414,
+    "col": 13,
+    "offset": 17202
+   },
+   "end": {
+    "line": 418,
+    "col": 158,
+    "offset": 17533
+   },
+   "extra": {
+    "message": "`Echo`ing user input risks cross-site scripting vulnerability. You should use `htmlentities()` when showing data to users.",
+    "fix": "echo htmlentities('</div>\r\n                                    </div>\r\n                                    <div class=\"row\">\r\n                                        <div class=\"col-sm-4 panel-label\">Amount Reversed</div>\r\n                                        <div class=\"col-sm-8 panel-value\"><span class=\"rzp-currency\">\u20b9 </span>' . (int)round($transferDetail['amount_reversed'] / 100));",
+    "metadata": {
+     "technology": [
+      "php"
+     ],
+     "cwe": [
+      "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+     ],
+     "owasp": [
+      "A07:2017 - Cross-Site Scripting (XSS)",
+      "A03:2021 - Injection",
+      "A05:2025 - Injection"
+     ],
+     "category": "security",
+     "references": [
+      "https://www.php.net/manual/en/function.htmlentities.php",
+      "https://www.php.net/manual/en/reserved.variables.request.php",
+      "https://www.php.net/manual/en/reserved.variables.post.php",
+      "https://www.php.net/manual/en/reserved.variables.get.php",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+     ],
+     "cwe2022-top25": true,
+     "cwe2021-top25": true,
+     "subcategory": [
+      "vuln"
+     ],
+     "likelihood": "MEDIUM",
+     "impact": "MEDIUM",
+     "confidence": "MEDIUM",
+     "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+     "vulnerability_class": [
+      "Cross-Site-Scripting (XSS)"
+     ],
+     "source": "https://semgrep.dev/r/php.lang.security.injection.echoed-request.echoed-request",
+     "shortlink": "https://sg.run/Bqqb"
+    },
+    "severity": "ERROR",
+    "fingerprint": "requires login",
+    "lines": "requires login",
+    "validation_state": "NO_VALIDATOR",
+    "engine_kind": "OSS"
+   }
+  },
+  {
+   "check_id": "php.lang.security.injection.echoed-request.echoed-request",
+   "path": "rig\\plugin\\razorpay-woocommerce\\includes\\razorpay-route.php",
+   "start": {
+    "line": 422,
+    "col": 13,
+    "offset": 17751
+   },
+   "end": {
+    "line": 432,
+    "col": 17,
+    "offset": 18204
+   },
+   "extra": {
+    "message": "`Echo`ing user input risks cross-site scripting vulnerability. You should use `htmlentities()` when showing data to users.",
+    "fix": "echo htmlentities('</div>\r\n                                    </div>\r\n                                    <div class=\"row\">\r\n                                        <div class=\"col-sm-4 panel-label\">Created on</div>\r\n                                        <div class=\"col-sm-8 panel-value\">' . date(\"d F Y h:i A\", strtotime('+5 hour +30 minutes', $transferDetail['created_at'])) . '</div>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n            \r\n                    </div>');",
+    "metadata": {
+     "technology": [
+      "php"
+     ],
+     "cwe": [
+      "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+     ],
+     "owasp": [
+      "A07:2017 - Cross-Site Scripting (XSS)",
+      "A03:2021 - Injection",
+      "A05:2025 - Injection"
+     ],
+     "category": "security",
+     "references": [
+      "https://www.php.net/manual/en/function.htmlentities.php",
+      "https://www.php.net/manual/en/reserved.variables.request.php",
+      "https://www.php.net/manual/en/reserved.variables.post.php",
+      "https://www.php.net/manual/en/reserved.variables.get.php",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+     ],
+     "cwe2022-top25": true,
+     "cwe2021-top25": true,
+     "subcategory": [
+      "vuln"
+     ],
+     "likelihood": "MEDIUM",
+     "impact": "MEDIUM",
+     "confidence": "MEDIUM",
+     "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+     "vulnerability_class": [
+      "Cross-Site-Scripting (XSS)"
+     ],
+     "source": "https://semgrep.dev/r/php.lang.security.injection.echoed-request.echoed-request",
+     "shortlink": "https://sg.run/Bqqb"
+    },
+    "severity": "ERROR",
+    "fingerprint": "requires login",
+    "lines": "requires login",
+    "validation_state": "NO_VALIDATOR",
+    "engine_kind": "OSS"
+   }
+  },
+  {
+   "check_id": "php.lang.security.injection.echoed-request.echoed-request",
+   "path": "rig\\plugin\\razorpay-woocommerce\\includes\\razorpay-route.php",
+   "start": {
+    "line": 479,
+    "col": 13,
+    "offset": 21004
+   },
+   "end": {
+    "line": 479,
+    "col": 40,
+    "offset": 21031
+   },
+   "extra": {
+    "message": "`Echo`ing user input risks cross-site scripting vulnerability. You should use `htmlentities()` when showing data to users.",
+    "fix": "echo htmlentities($reverseTransferModal);",
+    "metadata": {
+     "technology": [
+      "php"
+     ],
+     "cwe": [
+      "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+     ],
+     "owasp": [
+      "A07:2017 - Cross-Site Scripting (XSS)",
+      "A03:2021 - Injection",
+      "A05:2025 - Injection"
+     ],
+     "category": "security",
+     "references": [
+      "https://www.php.net/manual/en/function.htmlentities.php",
+      "https://www.php.net/manual/en/reserved.variables.request.php",
+      "https://www.php.net/manual/en/reserved.variables.post.php",
+      "https://www.php.net/manual/en/reserved.variables.get.php",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+     ],
+     "cwe2022-top25": true,
+     "cwe2021-top25": true,
+     "subcategory": [
+      "vuln"
+     ],
+     "likelihood": "MEDIUM",
+     "impact": "MEDIUM",
+     "confidence": "MEDIUM",
+     "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+     "vulnerability_class": [
+      "Cross-Site-Scripting (XSS)"
+     ],
+     "source": "https://semgrep.dev/r/php.lang.security.injection.echoed-request.echoed-request",
+     "shortlink": "https://sg.run/Bqqb"
+    },
+    "severity": "ERROR",
+    "fingerprint": "requires login",
+    "lines": "requires login",
+    "validation_state": "NO_VALIDATOR",
+    "engine_kind": "OSS"
+   }
+  },
+  {
+   "check_id": "php.lang.security.injection.echoed-request.echoed-request",
+   "path": "rig\\plugin\\razorpay-woocommerce\\includes\\razorpay-route.php",
+   "start": {
+    "line": 546,
+    "col": 13,
+    "offset": 24899
+   },
+   "end": {
+    "line": 546,
+    "col": 43,
+    "offset": 24929
+   },
+   "extra": {
+    "message": "`Echo`ing user input risks cross-site scripting vulnerability. You should use `htmlentities()` when showing data to users.",
+    "fix": "echo htmlentities($transferSettlementModal);",
+    "metadata": {
+     "technology": [
+      "php"
+     ],
+     "cwe": [
+      "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+     ],
+     "owasp": [
+      "A07:2017 - Cross-Site Scripting (XSS)",
+      "A03:2021 - Injection",
+      "A05:2025 - Injection"
+     ],
+     "category": "security",
+     "references": [
+      "https://www.php.net/manual/en/function.htmlentities.php",
+      "https://www.php.net/manual/en/reserved.variables.request.php",
+      "https://www.php.net/manual/en/reserved.variables.post.php",
+      "https://www.php.net/manual/en/reserved.variables.get.php",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+     ],
+     "cwe2022-top25": true,
+     "cwe2021-top25": true,
+     "subcategory": [
+      "vuln"
+     ],
+     "likelihood": "MEDIUM",
+     "impact": "MEDIUM",
+     "confidence": "MEDIUM",
+     "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+     "vulnerability_class": [
+      "Cross-Site-Scripting (XSS)"
+     ],
+     "source": "https://semgrep.dev/r/php.lang.security.injection.echoed-request.echoed-request",
+     "shortlink": "https://sg.run/Bqqb"
+    },
+    "severity": "ERROR",
+    "fingerprint": "requires login",
+    "lines": "requires login",
+    "validation_state": "NO_VALIDATOR",
+    "engine_kind": "OSS"
+   }
+  },
+  {
+   "check_id": "php.lang.security.injection.echoed-request.echoed-request",
+   "path": "rig\\plugin\\razorpay-woocommerce\\includes\\razorpay-route.php",
+   "start": {
+    "line": 807,
+    "col": 13,
+    "offset": 33117
+   },
+   "end": {
+    "line": 830,
+    "col": 37,
+    "offset": 34306
+   },
+   "extra": {
+    "message": "`Echo`ing user input risks cross-site scripting vulnerability. You should use `htmlentities()` when showing data to users.",
+    "fix": "echo htmlentities('<div class=\"wrap\">\r\n                        <div class=\"content-header\">\r\n                            <a href=\"' . $prev_url . '\">\r\n                                <span class=\"dashicons rzp-dashicons dashicons-arrow-left-alt\"></span>  Back\r\n                            </a>\r\n                        </div>\r\n                        <div class=\"container rzp-container\">\r\n                            <div class=\"row panel-heading\">\r\n                                Settlement ID :  <strong>' . $settlementId . '</strong>\r\n                            </div>\r\n                            <div class=\"row panel-body\">\r\n                                <div class=\"col-md-12 panel-body-left\">\r\n                                    <div class=\"row\">\r\n                                        Collection of all transfers made on this Settlement\r\n                                    </div>\r\n            \r\n                                    <div class=\"button-items-detail\">\r\n                                        <div class=\"row\">\r\n                                            <div class=\"col\">Transfer Id</div>\r\n                                            <div class=\"col\">Source</div>\r\n                                            <div class=\"col\">Recipient</div>\r\n                                            <div class=\"col\">Amount</div>\r\n                                            <div class=\"col\">Created At</div>\r\n                                        </div>');",
+    "metadata": {
+     "technology": [
+      "php"
+     ],
+     "cwe": [
+      "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+     ],
+     "owasp": [
+      "A07:2017 - Cross-Site Scripting (XSS)",
+      "A03:2021 - Injection",
+      "A05:2025 - Injection"
+     ],
+     "category": "security",
+     "references": [
+      "https://www.php.net/manual/en/function.htmlentities.php",
+      "https://www.php.net/manual/en/reserved.variables.request.php",
+      "https://www.php.net/manual/en/reserved.variables.post.php",
+      "https://www.php.net/manual/en/reserved.variables.get.php",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+     ],
+     "cwe2022-top25": true,
+     "cwe2021-top25": true,
+     "subcategory": [
+      "vuln"
+     ],
+     "likelihood": "MEDIUM",
+     "impact": "MEDIUM",
+     "confidence": "MEDIUM",
+     "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+     "vulnerability_class": [
+      "Cross-Site-Scripting (XSS)"
+     ],
+     "source": "https://semgrep.dev/r/php.lang.security.injection.echoed-request.echoed-request",
+     "shortlink": "https://sg.run/Bqqb"
+    },
+    "severity": "ERROR",
+    "fingerprint": "requires login",
+    "lines": "requires login",
+    "validation_state": "NO_VALIDATOR",
+    "engine_kind": "OSS"
+   }
+  },
+  {
+   "check_id": "php.lang.security.injection.echoed-request.echoed-request",
+   "path": "rig\\plugin\\razorpay-woocommerce\\includes\\razorpay-route.php",
+   "start": {
+    "line": 832,
+    "col": 17,
+    "offset": 34387
+   },
+   "end": {
+    "line": 838,
+    "col": 37,
+    "offset": 34940
+   },
+   "extra": {
+    "message": "`Echo`ing user input risks cross-site scripting vulnerability. You should use `htmlentities()` when showing data to users.",
+    "fix": "echo htmlentities('<div class=\"row panel-value\">\r\n                                                <div class=\"col\">' . $transfer['id'] . '</div>\r\n                                                <div class=\"col\">' . $transfer['source'] . '</div>\r\n                                                <div class=\"col\">' . $transfer['recipient'] . ' </div>\r\n                                                <div class=\"col\"><span class=\"rzp-currency\">\u20b9 </span>' . (int)round($transfer['amount'] / 100) . '</div>\r\n                                                <div class=\"col\">' . $transfer['created_at'] . '</div>\r\n                                            </div>');",
+    "metadata": {
+     "technology": [
+      "php"
+     ],
+     "cwe": [
+      "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+     ],
+     "owasp": [
+      "A07:2017 - Cross-Site Scripting (XSS)",
+      "A03:2021 - Injection",
+      "A05:2025 - Injection"
+     ],
+     "category": "security",
+     "references": [
+      "https://www.php.net/manual/en/function.htmlentities.php",
+      "https://www.php.net/manual/en/reserved.variables.request.php",
+      "https://www.php.net/manual/en/reserved.variables.post.php",
+      "https://www.php.net/manual/en/reserved.variables.get.php",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+     ],
+     "cwe2022-top25": true,
+     "cwe2021-top25": true,
+     "subcategory": [
+      "vuln"
+     ],
+     "likelihood": "MEDIUM",
+     "impact": "MEDIUM",
+     "confidence": "MEDIUM",
+     "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+     "vulnerability_class": [
+      "Cross-Site-Scripting (XSS)"
+     ],
+     "source": "https://semgrep.dev/r/php.lang.security.injection.echoed-request.echoed-request",
+     "shortlink": "https://sg.run/Bqqb"
+    },
+    "severity": "ERROR",
+    "fingerprint": "requires login",
+    "lines": "requires login",
+    "validation_state": "NO_VALIDATOR",
+    "engine_kind": "OSS"
+   }
+  },
+  {
+   "check_id": "php.lang.security.injection.echoed-request.echoed-request",
+   "path": "rig\\plugin\\razorpay-woocommerce\\includes\\razorpay-route.php",
+   "start": {
+    "line": 898,
+    "col": 13,
+    "offset": 37236
+   },
+   "end": {
+    "line": 928,
+    "col": 69,
+    "offset": 39183
+   },
+   "extra": {
+    "message": "`Echo`ing user input risks cross-site scripting vulnerability. You should use `htmlentities()` when showing data to users.",
+    "fix": "echo htmlentities('<div class=\"wrap\">\r\n                            <div class=\"content-header\">\r\n                                <a href=\"' . $prev_url . '\">\r\n                                    <span class=\"dashicons rzp-dashicons dashicons-arrow-left-alt\"></span>  Payment List\r\n                                </a>\r\n                            </div>\r\n                            <div class=\"container rzp-container\">\r\n                                <div class=\"row panel-heading\">\r\n                                    <div class=\"textButton\">Payment Details</div>\r\n                                </div>\r\n                                <div class=\"row panel-body\">\r\n                                    <div class=\"col-md-12 panel-body-left\">\r\n                                        <div class=\"row\">\r\n                                            <div class=\"col-sm-4 panel-label\">Payment ID</div>\r\n                                            <div class=\"col-sm-8 panel-value\">' . $paymentDetail[\"id\"] . '</div>\r\n                                        </div>\r\n                                        <div class=\"row\">\r\n                                            <div class=\"col-sm-4 panel-label\">Amount</div>\r\n                                            <div class=\"col-sm-8 panel-value\"><span class=\"rzp-currency\">\u20b9 </span>' . (int)round($paymentDetail['amount'] / 100) . '</div>\r\n                                        </div>\r\n                                        <div class=\"row\">\r\n                                            <div class=\"col-sm-4 panel-label\">Status</div>\r\n                                            <div class=\"col-sm-8 panel-value\">' . ucfirst($paymentDetail['status']) . '</div>\r\n                                        </div>\r\n                                        <div class=\"row\">\r\n                                            <div class=\"col-sm-4 panel-label\">Order ID</div>\r\n                                            <div class=\"col-sm-8 panel-value\">' . $paymentDetail['order_id'] . '</div>\r\n                                        </div>\r\n                                        <div class=\"row\">\r\n                                            <div class=\"col-sm-4 panel-label\">Transfers</div>\r\n                                            <div class=\"col-sm-8 panel-value\">');",
+    "metadata": {
+     "technology": [
+      "php"
+     ],
+     "cwe": [
+      "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+     ],
+     "owasp": [
+      "A07:2017 - Cross-Site Scripting (XSS)",
+      "A03:2021 - Injection",
+      "A05:2025 - Injection"
+     ],
+     "category": "security",
+     "references": [
+      "https://www.php.net/manual/en/function.htmlentities.php",
+      "https://www.php.net/manual/en/reserved.variables.request.php",
+      "https://www.php.net/manual/en/reserved.variables.post.php",
+      "https://www.php.net/manual/en/reserved.variables.get.php",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+     ],
+     "cwe2022-top25": true,
+     "cwe2021-top25": true,
+     "subcategory": [
+      "vuln"
+     ],
+     "likelihood": "MEDIUM",
+     "impact": "MEDIUM",
+     "confidence": "MEDIUM",
+     "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+     "vulnerability_class": [
+      "Cross-Site-Scripting (XSS)"
+     ],
+     "source": "https://semgrep.dev/r/php.lang.security.injection.echoed-request.echoed-request",
+     "shortlink": "https://sg.run/Bqqb"
+    },
+    "severity": "ERROR",
+    "fingerprint": "requires login",
+    "lines": "requires login",
+    "validation_state": "NO_VALIDATOR",
+    "engine_kind": "OSS"
+   }
+  },
+  {
+   "check_id": "php.lang.security.injection.echoed-request.echoed-request",
+   "path": "rig\\plugin\\razorpay-woocommerce\\includes\\razorpay-route.php",
+   "start": {
+    "line": 934,
+    "col": 17,
+    "offset": 39411
+   },
+   "end": {
+    "line": 934,
+    "col": 73,
+    "offset": 39467
+   },
+   "extra": {
+    "message": "`Echo`ing user input risks cross-site scripting vulnerability. You should use `htmlentities()` when showing data to users.",
+    "fix": "echo htmlentities('<span>' . $trfCount . ' transfers created</span>');",
+    "metadata": {
+     "technology": [
+      "php"
+     ],
+     "cwe": [
+      "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+     ],
+     "owasp": [
+      "A07:2017 - Cross-Site Scripting (XSS)",
+      "A03:2021 - Injection",
+      "A05:2025 - Injection"
+     ],
+     "category": "security",
+     "references": [
+      "https://www.php.net/manual/en/function.htmlentities.php",
+      "https://www.php.net/manual/en/reserved.variables.request.php",
+      "https://www.php.net/manual/en/reserved.variables.post.php",
+      "https://www.php.net/manual/en/reserved.variables.get.php",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+     ],
+     "cwe2022-top25": true,
+     "cwe2021-top25": true,
+     "subcategory": [
+      "vuln"
+     ],
+     "likelihood": "MEDIUM",
+     "impact": "MEDIUM",
+     "confidence": "MEDIUM",
+     "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+     "vulnerability_class": [
+      "Cross-Site-Scripting (XSS)"
+     ],
+     "source": "https://semgrep.dev/r/php.lang.security.injection.echoed-request.echoed-request",
+     "shortlink": "https://sg.run/Bqqb"
+    },
+    "severity": "ERROR",
+    "fingerprint": "requires login",
+    "lines": "requires login",
+    "validation_state": "NO_VALIDATOR",
+    "engine_kind": "OSS"
+   }
+  },
+  {
+   "check_id": "php.lang.security.injection.echoed-request.echoed-request",
+   "path": "rig\\plugin\\razorpay-woocommerce\\includes\\razorpay-route.php",
+   "start": {
+    "line": 941,
+    "col": 13,
+    "offset": 39720
+   },
+   "end": {
+    "line": 941,
+    "col": 30,
+    "offset": 39737
+   },
+   "extra": {
+    "message": "`Echo`ing user input risks cross-site scripting vulnerability. You should use `htmlentities()` when showing data to users.",
+    "fix": "echo htmlentities($trfDetails);",
+    "metadata": {
+     "technology": [
+      "php"
+     ],
+     "cwe": [
+      "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+     ],
+     "owasp": [
+      "A07:2017 - Cross-Site Scripting (XSS)",
+      "A03:2021 - Injection",
+      "A05:2025 - Injection"
+     ],
+     "category": "security",
+     "references": [
+      "https://www.php.net/manual/en/function.htmlentities.php",
+      "https://www.php.net/manual/en/reserved.variables.request.php",
+      "https://www.php.net/manual/en/reserved.variables.post.php",
+      "https://www.php.net/manual/en/reserved.variables.get.php",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+     ],
+     "cwe2022-top25": true,
+     "cwe2021-top25": true,
+     "subcategory": [
+      "vuln"
+     ],
+     "likelihood": "MEDIUM",
+     "impact": "MEDIUM",
+     "confidence": "MEDIUM",
+     "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+     "vulnerability_class": [
+      "Cross-Site-Scripting (XSS)"
+     ],
+     "source": "https://semgrep.dev/r/php.lang.security.injection.echoed-request.echoed-request",
+     "shortlink": "https://sg.run/Bqqb"
+    },
+    "severity": "ERROR",
+    "fingerprint": "requires login",
+    "lines": "requires login",
+    "validation_state": "NO_VALIDATOR",
+    "engine_kind": "OSS"
+   }
+  },
+  {
+   "check_id": "php.lang.security.injection.echoed-request.echoed-request",
+   "path": "rig\\plugin\\razorpay-woocommerce\\includes\\razorpay-route.php",
+   "start": {
+    "line": 942,
+    "col": 13,
+    "offset": 39751
+   },
+   "end": {
+    "line": 952,
+    "col": 21,
+    "offset": 40239
+   },
+   "extra": {
+    "message": "`Echo`ing user input risks cross-site scripting vulnerability. You should use `htmlentities()` when showing data to users.",
+    "fix": "echo htmlentities('</div>\r\n                                        </div>\r\n                                        <div class=\"row\">\r\n                                            <div class=\"col-sm-4 panel-label\">Created on</div>\r\n                                            <div class=\"col-sm-8 panel-value\">' . date(\"d F Y h:i A\", strtotime('+5 hour +30 minutes', $paymentDetail['created_at'])) . '</div>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n            \r\n                        </div>');",
+    "metadata": {
+     "technology": [
+      "php"
+     ],
+     "cwe": [
+      "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+     ],
+     "owasp": [
+      "A07:2017 - Cross-Site Scripting (XSS)",
+      "A03:2021 - Injection",
+      "A05:2025 - Injection"
+     ],
+     "category": "security",
+     "references": [
+      "https://www.php.net/manual/en/function.htmlentities.php",
+      "https://www.php.net/manual/en/reserved.variables.request.php",
+      "https://www.php.net/manual/en/reserved.variables.post.php",
+      "https://www.php.net/manual/en/reserved.variables.get.php",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+     ],
+     "cwe2022-top25": true,
+     "cwe2021-top25": true,
+     "subcategory": [
+      "vuln"
+     ],
+     "likelihood": "MEDIUM",
+     "impact": "MEDIUM",
+     "confidence": "MEDIUM",
+     "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+     "vulnerability_class": [
+      "Cross-Site-Scripting (XSS)"
+     ],
+     "source": "https://semgrep.dev/r/php.lang.security.injection.echoed-request.echoed-request",
+     "shortlink": "https://sg.run/Bqqb"
+    },
+    "severity": "ERROR",
+    "fingerprint": "requires login",
+    "lines": "requires login",
+    "validation_state": "NO_VALIDATOR",
+    "engine_kind": "OSS"
+   }
+  },
+  {
+   "check_id": "php.lang.security.injection.tainted-sql-string.tainted-sql-string",
+   "path": "rig\\plugin\\razorpay-woocommerce\\includes\\razorpay-route.php",
+   "start": {
+    "line": 954,
+    "col": 37,
+    "offset": 40279
+   },
+   "end": {
+    "line": 1016,
+    "col": 27,
+    "offset": 44454
+   },
+   "extra": {
+    "message": "User data flows into this manually-constructed SQL string. User data can be safely inserted into SQL strings using prepared statements or an object-relational mapper (ORM). Manually-constructed SQL strings is a possible indicator of SQL injection, which could let an attacker steal or manipulate data from the database. Instead, use prepared statements (`$mysqli->prepare(\"INSERT INTO test(id, label) VALUES (?, ?)\");`) or a safe library.",
+    "metadata": {
+     "cwe": [
+      "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+     ],
+     "owasp": [
+      "A01:2017 - Injection",
+      "A03:2021 - Injection",
+      "A05:2025 - Injection"
+     ],
+     "references": [
+      "https://owasp.org/www-community/attacks/SQL_Injection"
+     ],
+     "category": "security",
+     "technology": [
+      "php"
+     ],
+     "cwe2022-top25": true,
+     "cwe2021-top25": true,
+     "subcategory": [
+      "vuln"
+     ],
+     "likelihood": "HIGH",
+     "impact": "MEDIUM",
+     "confidence": "MEDIUM",
+     "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+     "vulnerability_class": [
+      "SQL Injection"
+     ],
+     "source": "https://semgrep.dev/r/php.lang.security.injection.tainted-sql-string.tainted-sql-string",
+     "shortlink": "https://sg.run/lZYG"
+    },
+    "severity": "ERROR",
+    "fingerprint": "requires login",
+    "lines": "requires login",
+    "validation_state": "NO_VALIDATOR",
+    "engine_kind": "OSS"
+   }
+  },
+  {
+   "check_id": "php.lang.security.injection.echoed-request.echoed-request",
+   "path": "rig\\plugin\\razorpay-woocommerce\\includes\\razorpay-route.php",
+   "start": {
+    "line": 1017,
+    "col": 13,
+    "offset": 44469
+   },
+   "end": {
+    "line": 1017,
+    "col": 40,
+    "offset": 44496
+   },
+   "extra": {
+    "message": "`Echo`ing user input risks cross-site scripting vulnerability. You should use `htmlentities()` when showing data to users.",
+    "fix": "echo htmlentities($paymentTransferModal);",
+    "metadata": {
+     "technology": [
+      "php"
+     ],
+     "cwe": [
+      "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+     ],
+     "owasp": [
+      "A07:2017 - Cross-Site Scripting (XSS)",
+      "A03:2021 - Injection",
+      "A05:2025 - Injection"
+     ],
+     "category": "security",
+     "references": [
+      "https://www.php.net/manual/en/function.htmlentities.php",
+      "https://www.php.net/manual/en/reserved.variables.request.php",
+      "https://www.php.net/manual/en/reserved.variables.post.php",
+      "https://www.php.net/manual/en/reserved.variables.get.php",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+     ],
+     "cwe2022-top25": true,
+     "cwe2021-top25": true,
+     "subcategory": [
+      "vuln"
+     ],
+     "likelihood": "MEDIUM",
+     "impact": "MEDIUM",
+     "confidence": "MEDIUM",
+     "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+     "vulnerability_class": [
+      "Cross-Site-Scripting (XSS)"
+     ],
+     "source": "https://semgrep.dev/r/php.lang.security.injection.echoed-request.echoed-request",
+     "shortlink": "https://sg.run/Bqqb"
+    },
+    "severity": "ERROR",
+    "fingerprint": "requires login",
+    "lines": "requires login",
+    "validation_state": "NO_VALIDATOR",
+    "engine_kind": "OSS"
+   }
+  },
+  {
+   "check_id": "php.lang.security.injection.echoed-request.echoed-request",
+   "path": "rig\\plugin\\razorpay-woocommerce\\includes\\razorpay-route.php",
+   "start": {
+    "line": 1252,
+    "col": 13,
+    "offset": 53032
+   },
+   "end": {
+    "line": 1258,
+    "col": 28,
+    "offset": 53526
+   },
+   "extra": {
+    "message": "`Echo`ing user input risks cross-site scripting vulnerability. You should use `htmlentities()` when showing data to users.",
+    "fix": "echo htmlentities('<tr>\r\n                                    <td><a href=\"?page=razorpayTransfers&id=' . $transfer['id'] . '\">' . $transfer['id'] . '</a></td>\r\n                                    <td>' . $transfer['source'] . '</td>\r\n                                    <td>' . $transfer['recipient'] . '</td>\r\n                                    <td><span class=\"rzp-currency\">\u20b9 </span>' . (int)round($transfer['amount'] / 100) . '</td>\r\n                                    <td>' . date(\"d F Y H:i A\", $transfer['created_at']) . '</td>\r\n                                </tr>');",
+    "metadata": {
+     "technology": [
+      "php"
+     ],
+     "cwe": [
+      "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+     ],
+     "owasp": [
+      "A07:2017 - Cross-Site Scripting (XSS)",
+      "A03:2021 - Injection",
+      "A05:2025 - Injection"
+     ],
+     "category": "security",
+     "references": [
+      "https://www.php.net/manual/en/function.htmlentities.php",
+      "https://www.php.net/manual/en/reserved.variables.request.php",
+      "https://www.php.net/manual/en/reserved.variables.post.php",
+      "https://www.php.net/manual/en/reserved.variables.get.php",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+     ],
+     "cwe2022-top25": true,
+     "cwe2021-top25": true,
+     "subcategory": [
+      "vuln"
+     ],
+     "likelihood": "MEDIUM",
+     "impact": "MEDIUM",
+     "confidence": "MEDIUM",
+     "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+     "vulnerability_class": [
+      "Cross-Site-Scripting (XSS)"
+     ],
+     "source": "https://semgrep.dev/r/php.lang.security.injection.echoed-request.echoed-request",
+     "shortlink": "https://sg.run/Bqqb"
+    },
+    "severity": "ERROR",
+    "fingerprint": "requires login",
+    "lines": "requires login",
+    "validation_state": "NO_VALIDATOR",
+    "engine_kind": "OSS"
+   }
+  },
+  {
+   "check_id": "php.lang.security.injection.echoed-request.echoed-request",
+   "path": "rig\\plugin\\razorpay-woocommerce\\includes\\razorpay-route.php",
+   "start": {
+    "line": 1285,
+    "col": 5,
+    "offset": 54029
+   },
+   "end": {
+    "line": 1285,
+    "col": 162,
+    "offset": 54186
+   },
+   "extra": {
+    "message": "`Echo`ing user input risks cross-site scripting vulnerability. You should use `htmlentities()` when showing data to users.",
+    "fix": "echo htmlentities('<p>'.$rzpPaymentId.' <span><a href=\"?page=razorpayPaymentsView&id='.$rzpPaymentId.'\"><input type=\"button\" class=\"button\" value=\"View\"></a></span></p>');",
+    "metadata": {
+     "technology": [
+      "php"
+     ],
+     "cwe": [
+      "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+     ],
+     "owasp": [
+      "A07:2017 - Cross-Site Scripting (XSS)",
+      "A03:2021 - Injection",
+      "A05:2025 - Injection"
+     ],
+     "category": "security",
+     "references": [
+      "https://www.php.net/manual/en/function.htmlentities.php",
+      "https://www.php.net/manual/en/reserved.variables.request.php",
+      "https://www.php.net/manual/en/reserved.variables.post.php",
+      "https://www.php.net/manual/en/reserved.variables.get.php",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+     ],
+     "cwe2022-top25": true,
+     "cwe2021-top25": true,
+     "subcategory": [
+      "vuln"
+     ],
+     "likelihood": "MEDIUM",
+     "impact": "MEDIUM",
+     "confidence": "MEDIUM",
+     "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+     "vulnerability_class": [
+      "Cross-Site-Scripting (XSS)"
+     ],
+     "source": "https://semgrep.dev/r/php.lang.security.injection.echoed-request.echoed-request",
+     "shortlink": "https://sg.run/Bqqb"
+    },
+    "severity": "ERROR",
+    "fingerprint": "requires login",
+    "lines": "requires login",
+    "validation_state": "NO_VALIDATOR",
+    "engine_kind": "OSS"
+   }
+  }
+ ],
+ "errors": [],
+ "paths": {
+  "scanned": [
+   "rig\\plugin\\razorpay-woocommerce\\checkout-block.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\api\\api.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\api\\auth.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\api\\cart.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\api\\coupon-apply.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\api\\coupon-get.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\api\\giftcard-apply.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\api\\order.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\api\\prepay-cod.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\api\\save-abandonment-data.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\api\\shipping-info.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\cron\\cron.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\cron\\one-click-checkout\\Constants.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\cron\\one-click-checkout\\one-cc-address-sync.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\cron\\plugin-fetch.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\debug.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\plugin-instrumentation.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\razorpay-affordability-widget.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\razorpay-route-actions.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\razorpay-route.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\razorpay-webhook.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\state-map.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\support\\abandoned-cart-hooks.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\support\\cartbounty.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\support\\smart-coupons.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\support\\wati.php",
+   "rig\\plugin\\razorpay-woocommerce\\includes\\utils.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\library\\Deprecated.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\library\\Requests.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Auth\\Basic.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Auth.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Autoload.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Capability.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Cookie\\Jar.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Cookie.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\ArgumentCount.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status304.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status305.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status306.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status400.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status401.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status402.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status403.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status404.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status405.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status406.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status407.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status408.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status409.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status410.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status411.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status412.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status413.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status414.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status415.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status416.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status417.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status418.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status428.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status429.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status431.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status500.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status501.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status502.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status503.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status504.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status505.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\Status511.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http\\StatusUnknown.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Http.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\InvalidArgument.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Transport\\Curl.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception\\Transport.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Exception.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\HookManager.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Hooks.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\IdnaEncoder.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Ipv6.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Iri.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Port.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Proxy\\Http.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Proxy.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Requests.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Response\\Headers.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Response.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Session.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Ssl.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Transport\\Curl.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Transport\\Fsockopen.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Transport.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Utility\\CaseInsensitiveDictionary.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Utility\\FilteredIterator.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\libs\\Requests-2.0.4\\src\\Utility\\InputValidator.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\Razorpay.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Account.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Addon.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Api.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\ArrayableInterface.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Card.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Collection.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Customer.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Dispute.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Document.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Entity.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Errors\\BadRequestError.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Errors\\Error.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Errors\\ErrorCode.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Errors\\GatewayError.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Errors\\ServerError.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Errors\\SignatureVerificationError.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\FundAccount.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Iin.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Invoice.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Item.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Order.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Payment.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\PaymentLink.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\PaymentPage.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Plan.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Product.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\QrCode.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Refund.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Request.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Resource.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Settlement.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Stakeholder.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Subscription.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Token.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Transfer.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Utility.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\VirtualAccount.php",
+   "rig\\plugin\\razorpay-woocommerce\\razorpay-sdk\\src\\Webhook.php",
+   "rig\\plugin\\razorpay-woocommerce\\templates\\rzp-cart-checkout-btn.php",
+   "rig\\plugin\\razorpay-woocommerce\\templates\\rzp-mini-checkout-btn.php",
+   "rig\\plugin\\razorpay-woocommerce\\templates\\rzp-pdp-checkout-btn.php",
+   "rig\\plugin\\razorpay-woocommerce\\templates\\rzp-spinner.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\bootstrap.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\abstract-testcase.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\bootstrap.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\class-basic-object.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\class-basic-subclass.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\class-jsonserializable-object.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\class-wp-fake-block-type.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\class-wp-rest-test-configurable-controller.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\class-wp-rest-test-search-handler.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\class-wp-sitemaps-empty-test-provider.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\class-wp-sitemaps-large-test-provider.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\class-wp-sitemaps-test-provider.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\class-wp-test-stream.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\exceptions.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\factory\\class-wp-unittest-factory-callback-after-create.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\factory\\class-wp-unittest-factory-for-attachment.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\factory\\class-wp-unittest-factory-for-blog.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\factory\\class-wp-unittest-factory-for-bookmark.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\factory\\class-wp-unittest-factory-for-comment.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\factory\\class-wp-unittest-factory-for-network.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\factory\\class-wp-unittest-factory-for-post.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\factory\\class-wp-unittest-factory-for-term.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\factory\\class-wp-unittest-factory-for-thing.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\factory\\class-wp-unittest-factory-for-user.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\factory\\class-wp-unittest-factory.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\factory\\class-wp-unittest-generator-sequence.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\factory.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\functions.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\install.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\mock-fs.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\mock-image-editor.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\mock-invokable.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\mock-mailer.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\object-cache.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\phpunit-adapter-testcase.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\phpunit6\\compat.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\plural-form-function.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\spy-rest-server.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\testcase-ajax.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\testcase-canonical.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\testcase-rest-api.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\testcase-rest-controller.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\testcase-rest-post-type-controller.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\testcase-xml.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\testcase-xmlrpc.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\testcase.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\trac.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\unregister-blocks-hooks.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\utils.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\includes\\wp-profiler.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\mockfactory\\MockApi.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\mockfactory\\Order.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\mockfactory\\Payment.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\mockfactory\\Request.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\mockfactory\\Transfer.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\tests\\test-afd-formfields.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\tests\\test-affordabilitywidget.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\tests\\test-autowebhook.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\tests\\test-class-properties.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\tests\\test-constants.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\tests\\test-formfields.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\tests\\test-hooks.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\tests\\test-instrumentation.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\tests\\test-magic-api.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\tests\\test-metadata.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\tests\\test-methods.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\tests\\test-order-methods.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\tests\\test-razorpay-route-actions.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\tests\\test-razorpay-route.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\tests\\test-scripts-styles.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\tests\\test-utils.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\util\\class-util.php",
+   "rig\\plugin\\razorpay-woocommerce\\tests\\phpunit\\wp-tests-config.php",
+   "rig\\plugin\\razorpay-woocommerce\\woo-razorpay.php"
+  ]
+ },
+ "engine_requested": "OSS",
+ "skipped_rules": [],
+ "profiling_results": [],
+ "_note": "Profiling block removed: it records machine-specific wall-clock timings that differ on every run, which made this transcript non-reproducible and tripped the card-number pattern in tests/secret_sweep.py on a float. Findings, scanned paths and versions are untouched. Regenerate: semgrep --config=p/php rig/plugin/razorpay-woocommerce"
+}

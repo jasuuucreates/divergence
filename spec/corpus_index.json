@@ -4,8 +4,11 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/api/orders.md",
       "file": "api_orders.md",
-      "bytes": 1855,
-      "sha256": "a077be93a2d92eece0ddfab0bf178828b850d59b15c6aa178db5748bd254616e"
+      "bytes": 1905,
+      "sha256": "bbe3bb479e89c0f22db3db72bd53b296267e925a77896b2d2525ecb8cf96491f",
+      "sha256_upstream": "a077be93a2d92eece0ddfab0bf178828b850d59b15c6aa178db5748bd254616e",
+      "bytes_upstream": 1855,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/api/orders/create.md",
@@ -20,6 +23,12 @@
       "sha256": "206499fa22f01397944e69cfeb33ae2664498fe6298efb5e0f924a385685a5fa"
     },
     {
+      "url": "https://razorpay.com/docs/build/llm-docs/api/orders/fetch-all.md",
+      "file": "api_orders_fetch_all.md",
+      "bytes": 9185,
+      "sha256": "93f1cf7caab17f05d0a6a6af8280e9c0ab3d1d92494d6dc376e1bcf7bb295984"
+    },
+    {
       "url": "https://razorpay.com/docs/build/llm-docs/api/orders/fetch-all-expanded-card-payments.md",
       "file": "api_orders_fetch_all_expanded_card_payments.md",
       "bytes": 12830,
@@ -30,12 +39,6 @@
       "file": "api_orders_fetch_all_expanded_payments.md",
       "bytes": 10807,
       "sha256": "5fbd5a0299637d8058a52bdb9592383f8f12ca33403fee233796ddc6f01f9de0"
-    },
-    {
-      "url": "https://razorpay.com/docs/build/llm-docs/api/orders/fetch-all.md",
-      "file": "api_orders_fetch_all.md",
-      "bytes": 9185,
-      "sha256": "93f1cf7caab17f05d0a6a6af8280e9c0ab3d1d92494d6dc376e1bcf7bb295984"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/api/orders/fetch-payments.md",
@@ -78,6 +81,13 @@
       "file": "api_orders_update.md",
       "bytes": 7740,
       "sha256": "5fd3eda1e2eff6ea0b0132ff0fd5a13e949e408ea335b3fccf84ee3d756390f5"
+    },
+    {
+      "url": "https://razorpay.com/docs/build/llm-docs/api/payments/entity.md",
+      "file": "api_payments_entity.md",
+      "bytes": 8801,
+      "sha256": "eb71daf2a662802494d977bf20be3972f4192a920ce15361f9bb332d3f31427d",
+      "fetched_by": "harness/stubcheck.py (not harness/specmine.py) -- cached into the same directory"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/orders.md",
@@ -130,8 +140,11 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/alipay/hotel-s2s-integration.md",
       "file": "payments_payment_methods_alipay_hotel_s2s_integration.md",
-      "bytes": 21084,
-      "sha256": "3d427f0721b9d30311f85551c3545ab5b30c5ef68c5e4eea9c6cd7285c9ae93a"
+      "bytes": 21632,
+      "sha256": "b80a5d3e02214765e6afe464bd0faae837740a17e83f579ecee0b7fce509b7ec",
+      "sha256_upstream": "3d427f0721b9d30311f85551c3545ab5b30c5ef68c5e4eea9c6cd7285c9ae93a",
+      "bytes_upstream": 21084,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/alipay/travel-s2s-integration.md",
@@ -172,8 +185,11 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apple-pay/wkwebview-integration.md",
       "file": "payments_payment_methods_apple_pay_wkwebview_integration.md",
-      "bytes": 10311,
-      "sha256": "0247fdf22db0efdfcc98682c2e455b368c4d7848ccef1097224f0d9b8048f7ee"
+      "bytes": 10583,
+      "sha256": "38425158b65995ce4160a2ef16c3ef8627a9e1bcc7020eb5299cf266dd9c33bc",
+      "sha256_upstream": "0247fdf22db0efdfcc98682c2e455b368c4d7848ccef1097224f0d9b8048f7ee",
+      "bytes_upstream": 10311,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/apps/reward-points.md",
@@ -208,20 +224,29 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/bank-transfer.md",
       "file": "payments_payment_methods_bank_transfer.md",
-      "bytes": 34164,
-      "sha256": "3491b7fb5789a585c3c17d55d16feee1baaaf14aab33e6ef996503e62275d1dc"
+      "bytes": 35179,
+      "sha256": "59e75b4df8d3ac3f8d6fb2eebbf1bf8fc49c9c4e34e29783f45b61f1f7b442ab",
+      "sha256_upstream": "3491b7fb5789a585c3c17d55d16feee1baaaf14aab33e6ef996503e62275d1dc",
+      "bytes_upstream": 34164,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/bank-transfer/custom-integration.md",
       "file": "payments_payment_methods_bank_transfer_custom_integration.md",
-      "bytes": 18812,
-      "sha256": "8c67e68d6ac4b2c9b2fccc9be6beaa95e1443d3a8b27e2f1d23c3226eb6b748e"
+      "bytes": 19374,
+      "sha256": "b9a946a73dc6649399651a82ab2a8e8e7f1afc3a67fc2ab702f71a47dbfbcf00",
+      "sha256_upstream": "8c67e68d6ac4b2c9b2fccc9be6beaa95e1443d3a8b27e2f1d23c3226eb6b748e",
+      "bytes_upstream": 18812,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/bank-transfer/hosted-integration.md",
       "file": "payments_payment_methods_bank_transfer_hosted_integration.md",
-      "bytes": 31900,
-      "sha256": "4364f43cc506781a8a28d86f9bcdd0d2046fd8c7a9f100da4b2622fe7821eea3"
+      "bytes": 32933,
+      "sha256": "0a71aaca7daa41ec1f0ab8c2b69e34dc5cdb754eec3f36a0beddda9122731d03",
+      "sha256_upstream": "4364f43cc506781a8a28d86f9bcdd0d2046fd8c7a9f100da4b2622fe7821eea3",
+      "bytes_upstream": 31900,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/bharatqr.md",
@@ -274,14 +299,20 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/authentication/native-otp.md",
       "file": "payments_payment_methods_cards_authentication_native_otp.md",
-      "bytes": 19222,
-      "sha256": "99749de191ec3b7ff7cd122d1ec341c7c1f1834b75648df1f3fe44a0f0719622"
+      "bytes": 19787,
+      "sha256": "2418f06419c93de44ae83a20eb6ae64515692faab302a3ffc51f95d710e7ab98",
+      "sha256_upstream": "99749de191ec3b7ff7cd122d1ec341c7c1f1834b75648df1f3fe44a0f0719622",
+      "bytes_upstream": 19222,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/authentication/native-otp/custom-integration/android.md",
       "file": "payments_payment_methods_cards_authentication_native_otp_custom_integration_android.md",
-      "bytes": 20286,
-      "sha256": "e2790c502a798d64381b168d35246d82ae7cff944a45f2470ee2ec01713f1b5b"
+      "bytes": 20772,
+      "sha256": "e67bb843e69bbcd47072f27a2293dbe9521d36458458d8f70e74d58eb394829d",
+      "sha256_upstream": "e2790c502a798d64381b168d35246d82ae7cff944a45f2470ee2ec01713f1b5b",
+      "bytes_upstream": 20286,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/corporate-cards.md",
@@ -352,8 +383,11 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/google-pay/custom-integration.md",
       "file": "payments_payment_methods_cards_google_pay_custom_integration.md",
-      "bytes": 21973,
-      "sha256": "81fc5a095fb551310944880df8dcdd3c7efd72c1f93a698425849bd00424a77d"
+      "bytes": 22575,
+      "sha256": "5d3b2251ed2d860b082889c38feec2d27f9078478621595faae9c907bd9e17ae",
+      "sha256_upstream": "81fc5a095fb551310944880df8dcdd3c7efd72c1f93a698425849bd00424a77d",
+      "bytes_upstream": 21973,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/google-pay/faqs.md",
@@ -388,8 +422,53 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/dual-token.md",
       "file": "payments_payment_methods_cards_token_hq_dual_token.md",
-      "bytes": 22252,
-      "sha256": "5b6055f242235b7bd8d9f2e237cbb178e43603b98104df9fdac84e943b23e838"
+      "bytes": 22968,
+      "sha256": "e212fdd5055e05469623fc94a42073d5defc4775f47c5a9990e5bec58003f982",
+      "sha256_upstream": "5b6055f242235b7bd8d9f2e237cbb178e43603b98104df9fdac84e943b23e838",
+      "bytes_upstream": 22252,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
+    },
+    {
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor.md",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor.md",
+      "bytes": 3759,
+      "sha256": "5eec9e1c412c75460557a7ad52bc5843e6b21923725ff5176330524ecc240d5f"
+    },
+    {
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor/additional-information.md",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_additional_information.md",
+      "bytes": 573,
+      "sha256": "00d0e284bd20e34b1268261ecd5da7914da42bf57132f9e5caf312a6f152c081"
+    },
+    {
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor/apis.md",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_apis.md",
+      "bytes": 26019,
+      "sha256": "f323a90da522746115d6af26c301180573dd510f0beffd7f84a69c71111a4ff4",
+      "sha256_upstream": "8b2568bf79c030fa6e9762aac5cedcac7b36f490098a02f763dd56d546878ef4",
+      "bytes_upstream": 25164,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
+    },
+    {
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor/iin-validation.md",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_iin_validation.md",
+      "bytes": 2763,
+      "sha256": "bfb05787c36a9190647406eaad5acb4162406345b50846acde4ed37cf98793f1",
+      "sha256_upstream": "ec7ad42def5b8bac7274d5b00cce9bafc724b80eba48d1d9cbf0aa34a314762c",
+      "bytes_upstream": 2653,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
+    },
+    {
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor/token-lifecycle.md",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_token_lifecycle.md",
+      "bytes": 1709,
+      "sha256": "34c9730194a6531d4a6fffe2158116157c617b027a84f24d5e2b1667c3e14bdc"
+    },
+    {
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor/webhooks.md",
+      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_webhooks.md",
+      "bytes": 6888,
+      "sha256": "731d101455e6bdfc6748296b2fcd317e65d69cd02c16dbb2a8042c52e061ecd0"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens.md",
@@ -412,14 +491,20 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/apis.md",
       "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_apis.md",
-      "bytes": 40917,
-      "sha256": "8d2036e04fa6434df821625f64aef81682b267dfecfa1234a93ecd4e2f5e8a82"
+      "bytes": 42242,
+      "sha256": "66c182d1f4f90f8f33eb384e9a2e746a82ed62d117bbdbbf657c5ac03c65a323",
+      "sha256_upstream": "8d2036e04fa6434df821625f64aef81682b267dfecfa1234a93ecd4e2f5e8a82",
+      "bytes_upstream": 40917,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/apis/payment.md",
       "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_apis_payment.md",
-      "bytes": 11447,
-      "sha256": "5435958bb3abcc455639544dcae377b14f0fdf82ab10c08d8042d02ed21568d6"
+      "bytes": 11794,
+      "sha256": "2e901db91667daeb19c99238999bd7a25aac7e022a5ac738a9bd5b57941793d3",
+      "sha256_upstream": "5435958bb3abcc455639544dcae377b14f0fdf82ab10c08d8042d02ed21568d6",
+      "bytes_upstream": 11447,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/cvv-less-flow.md",
@@ -430,14 +515,20 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/guest-checkout-apis.md",
       "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_guest_checkout_apis.md",
-      "bytes": 8726,
-      "sha256": "5652adb5da3d18fddb48b1dd992971ff0832c58a453914f3ecd28271bebe9ecb"
+      "bytes": 9015,
+      "sha256": "16e94f962f3d18d96070638a10a517715072e976ec25d01a2e75e5a0b7d9eb5c",
+      "sha256_upstream": "5652adb5da3d18fddb48b1dd992971ff0832c58a453914f3ecd28271bebe9ecb",
+      "bytes_upstream": 8726,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/iin-validation.md",
       "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_iin_validation.md",
-      "bytes": 2590,
-      "sha256": "61f906c6e73632dd609fa8427c2ad878f18fbb84e9e24e7038e9f5165c371f58"
+      "bytes": 2700,
+      "sha256": "13c624bbc50e2c283ea8d089b95e2be4edc2c7021b8ab6f7141e3b31fd7e39cc",
+      "sha256_upstream": "61f906c6e73632dd609fa8427c2ad878f18fbb84e9e24e7038e9f5165c371f58",
+      "bytes_upstream": 2590,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor-with-network-tokens/token-lifecycle.md",
@@ -450,42 +541,6 @@
       "file": "payments_payment_methods_cards_token_hq_merchant_requestor_with_network_tokens_webhooks.md",
       "bytes": 16129,
       "sha256": "a3d628475ac2b99b59661f6cb4bcb6aa3b8f866c3cb13be4815606813f99df85"
-    },
-    {
-      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor.md",
-      "file": "payments_payment_methods_cards_token_hq_merchant_requestor.md",
-      "bytes": 3759,
-      "sha256": "5eec9e1c412c75460557a7ad52bc5843e6b21923725ff5176330524ecc240d5f"
-    },
-    {
-      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor/additional-information.md",
-      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_additional_information.md",
-      "bytes": 573,
-      "sha256": "00d0e284bd20e34b1268261ecd5da7914da42bf57132f9e5caf312a6f152c081"
-    },
-    {
-      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor/apis.md",
-      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_apis.md",
-      "bytes": 25164,
-      "sha256": "8b2568bf79c030fa6e9762aac5cedcac7b36f490098a02f763dd56d546878ef4"
-    },
-    {
-      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor/iin-validation.md",
-      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_iin_validation.md",
-      "bytes": 2653,
-      "sha256": "ec7ad42def5b8bac7274d5b00cce9bafc724b80eba48d1d9cbf0aa34a314762c"
-    },
-    {
-      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor/token-lifecycle.md",
-      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_token_lifecycle.md",
-      "bytes": 1709,
-      "sha256": "34c9730194a6531d4a6fffe2158116157c617b027a84f24d5e2b1667c3e14bdc"
-    },
-    {
-      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/merchant-requestor/webhooks.md",
-      "file": "payments_payment_methods_cards_token_hq_merchant_requestor_webhooks.md",
-      "bytes": 6888,
-      "sha256": "731d101455e6bdfc6748296b2fcd317e65d69cd02c16dbb2a8042c52e061ecd0"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/push-tokenisation.md",
@@ -504,6 +559,54 @@
       "file": "payments_payment_methods_cards_token_hq_push_tokenisation_integration.md",
       "bytes": 7468,
       "sha256": "f75054a73fcefd4eca14fb1b988316f625e1d3e6c6b525fdd4bfafe2d31f2793"
+    },
+    {
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/razorpay-requestor.md",
+      "file": "payments_payment_methods_cards_token_hq_razorpay_requestor.md",
+      "bytes": 3979,
+      "sha256": "df7d1a56535b78ed70b8cbecf5dda90b6b8152eb6296cdd287e70886c5093905"
+    },
+    {
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/razorpay-requestor/additional-information.md",
+      "file": "payments_payment_methods_cards_token_hq_razorpay_requestor_additional_information.md",
+      "bytes": 573,
+      "sha256": "00d0e284bd20e34b1268261ecd5da7914da42bf57132f9e5caf312a6f152c081"
+    },
+    {
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/razorpay-requestor/apis.md",
+      "file": "payments_payment_methods_cards_token_hq_razorpay_requestor_apis.md",
+      "bytes": 14857,
+      "sha256": "34a20787af7f945e2913e86a53f9d1a890440384e69dcb3e3e9e1e990b13607d",
+      "sha256_upstream": "8801e7f21cc0cef330bfa5973e3125cb9b629c15f65fa434b2e61b31ccd885c6",
+      "bytes_upstream": 14330,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
+    },
+    {
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/razorpay-requestor/cvv-less-flow.md",
+      "file": "payments_payment_methods_cards_token_hq_razorpay_requestor_cvv_less_flow.md",
+      "bytes": 1303,
+      "sha256": "007094078e04b1f324aea34ee1abec9e0ee2e1f660ee428c7ec3efeaf18e2eb5"
+    },
+    {
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/razorpay-requestor/iin-validation.md",
+      "file": "payments_payment_methods_cards_token_hq_razorpay_requestor_iin_validation.md",
+      "bytes": 2760,
+      "sha256": "593401a021082578e2edd0757d88f7e9deb59dd5424e67195f8e638e52737455",
+      "sha256_upstream": "17ce56970ec13181f8224cd6faf6d193f3787636017ee6c1854778f8b1817fb7",
+      "bytes_upstream": 2650,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
+    },
+    {
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/razorpay-requestor/token-lifecycle.md",
+      "file": "payments_payment_methods_cards_token_hq_razorpay_requestor_token_lifecycle.md",
+      "bytes": 1709,
+      "sha256": "34c9730194a6531d4a6fffe2158116157c617b027a84f24d5e2b1667c3e14bdc"
+    },
+    {
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/razorpay-requestor/webhooks.md",
+      "file": "payments_payment_methods_cards_token_hq_razorpay_requestor_webhooks.md",
+      "bytes": 6884,
+      "sha256": "b0919727a447cf5e8a708ed9db57e8047572f4ebac4dfea89338b72138eb7d10"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/razorpay-requestor-with-network-tokens.md",
@@ -526,14 +629,20 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/razorpay-requestor-with-network-tokens/apis.md",
       "file": "payments_payment_methods_cards_token_hq_razorpay_requestor_with_network_tokens_apis.md",
-      "bytes": 22262,
-      "sha256": "8c9d16972e91a6fa507e1bfe5b1ea8283e967698c9ccdfcef55ebd0aac818d0d"
+      "bytes": 23040,
+      "sha256": "8d800971c9e9f9c84228996abf1545d5f0620ad453e753a77558b31338d611e0",
+      "sha256_upstream": "8c9d16972e91a6fa507e1bfe5b1ea8283e967698c9ccdfcef55ebd0aac818d0d",
+      "bytes_upstream": 22262,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/razorpay-requestor-with-network-tokens/iin-validation.md",
       "file": "payments_payment_methods_cards_token_hq_razorpay_requestor_with_network_tokens_iin_validation.md",
-      "bytes": 4670,
-      "sha256": "dec325c0aa4bf9dbb1627cd36413f9e398d2ad2b9b15085e815ab2a4fb6b7dea"
+      "bytes": 4838,
+      "sha256": "09bcd6901da54950613c0d87b0a22c9eb8bc5f71a3b4cf972cba9fb559491f46",
+      "sha256_upstream": "dec325c0aa4bf9dbb1627cd36413f9e398d2ad2b9b15085e815ab2a4fb6b7dea",
+      "bytes_upstream": 4670,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/razorpay-requestor-with-network-tokens/token-lifecycle.md",
@@ -548,58 +657,22 @@
       "sha256": "1dc719e298493b524ecee34695a88a2662c378545858425017251ed4b4bd7852"
     },
     {
-      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/razorpay-requestor.md",
-      "file": "payments_payment_methods_cards_token_hq_razorpay_requestor.md",
-      "bytes": 3979,
-      "sha256": "df7d1a56535b78ed70b8cbecf5dda90b6b8152eb6296cdd287e70886c5093905"
-    },
-    {
-      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/razorpay-requestor/additional-information.md",
-      "file": "payments_payment_methods_cards_token_hq_razorpay_requestor_additional_information.md",
-      "bytes": 573,
-      "sha256": "00d0e284bd20e34b1268261ecd5da7914da42bf57132f9e5caf312a6f152c081"
-    },
-    {
-      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/razorpay-requestor/apis.md",
-      "file": "payments_payment_methods_cards_token_hq_razorpay_requestor_apis.md",
-      "bytes": 14330,
-      "sha256": "8801e7f21cc0cef330bfa5973e3125cb9b629c15f65fa434b2e61b31ccd885c6"
-    },
-    {
-      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/razorpay-requestor/cvv-less-flow.md",
-      "file": "payments_payment_methods_cards_token_hq_razorpay_requestor_cvv_less_flow.md",
-      "bytes": 1303,
-      "sha256": "007094078e04b1f324aea34ee1abec9e0ee2e1f660ee428c7ec3efeaf18e2eb5"
-    },
-    {
-      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/razorpay-requestor/iin-validation.md",
-      "file": "payments_payment_methods_cards_token_hq_razorpay_requestor_iin_validation.md",
-      "bytes": 2650,
-      "sha256": "17ce56970ec13181f8224cd6faf6d193f3787636017ee6c1854778f8b1817fb7"
-    },
-    {
-      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/razorpay-requestor/token-lifecycle.md",
-      "file": "payments_payment_methods_cards_token_hq_razorpay_requestor_token_lifecycle.md",
-      "bytes": 1709,
-      "sha256": "34c9730194a6531d4a6fffe2158116157c617b027a84f24d5e2b1667c3e14bdc"
-    },
-    {
-      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-hq/razorpay-requestor/webhooks.md",
-      "file": "payments_payment_methods_cards_token_hq_razorpay_requestor_webhooks.md",
-      "bytes": 6884,
-      "sha256": "b0919727a447cf5e8a708ed9db57e8047572f4ebac4dfea89338b72138eb7d10"
-    },
-    {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-private.md",
       "file": "payments_payment_methods_cards_token_private.md",
-      "bytes": 2277,
-      "sha256": "a5e0a99024e2f43adae3bcc528e3dacabde556b8eb0d5d21f5a8161e17a6edbb"
+      "bytes": 2355,
+      "sha256": "857b5fce865f97b0874061465175c2baf84480efe3657f6b2fe36c331f4e5059",
+      "sha256_upstream": "a5e0a99024e2f43adae3bcc528e3dacabde556b8eb0d5d21f5a8161e17a6edbb",
+      "bytes_upstream": 2277,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/token-public.md",
       "file": "payments_payment_methods_cards_token_public.md",
-      "bytes": 3071,
-      "sha256": "75ed38e83f065f6e87e4ddbd9f28732d687f484df975916a3029d46660e92cdf"
+      "bytes": 3177,
+      "sha256": "9e2861513af050c184326d53356ceb523a76c5e956988e0a2f25982c65ea3fc5",
+      "sha256_upstream": "75ed38e83f065f6e87e4ddbd9f28732d687f484df975916a3029d46660e92cdf",
+      "bytes_upstream": 3071,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/cards/visa-safe-click.md",
@@ -772,8 +845,11 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/no-cost-emi/bajaj-finserv/custom-integration.md",
       "file": "payments_payment_methods_emi_no_cost_emi_bajaj_finserv_custom_integration.md",
-      "bytes": 21424,
-      "sha256": "cf28a8f6db27a331d951966670b9eb07b2a9fb2f5e7efcfd8c14ac6ad2f28dc9"
+      "bytes": 22027,
+      "sha256": "c466b4d909216bb97bac3b0dc828b07e28d58b6aec2b0b2a9792972240f99a84",
+      "sha256_upstream": "cf28a8f6db27a331d951966670b9eb07b2a9fb2f5e7efcfd8c14ac6ad2f28dc9",
+      "bytes_upstream": 21424,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/emi/no-cost-emi/bajaj-finserv/s2s-integration.md",
@@ -898,8 +974,11 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/moto/batch.md",
       "file": "payments_payment_methods_moto_batch.md",
-      "bytes": 7373,
-      "sha256": "198a4c65a5d125be633c8211ab7acd70e58f66118451bb7ba10a450b28b9ee38"
+      "bytes": 7561,
+      "sha256": "a190ca06242f4c99fd75df1bf6da125595498ad8cae5e1749a41d4e82ae260c8",
+      "sha256_upstream": "198a4c65a5d125be633c8211ab7acd70e58f66118451bb7ba10a450b28b9ee38",
+      "bytes_upstream": 7373,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/netbanking.md",
@@ -1010,30 +1089,6 @@
       "sha256": "718d57a17eb5047b878f5584f5f6037822dd02612bc8408f8f6b1dcadda3b22e"
     },
     {
-      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi-qr.md",
-      "file": "payments_payment_methods_upi_qr.md",
-      "bytes": 1242,
-      "sha256": "0f94028f8908bad880306eda593a2bd50c6f2d991b134ce445e762555e58135e"
-    },
-    {
-      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi-qr/api.md",
-      "file": "payments_payment_methods_upi_qr_api.md",
-      "bytes": 11198,
-      "sha256": "0ff74495e1708a3a59b276cc12d0ff4d86b6b41adea5fc6754a080969cbafdec"
-    },
-    {
-      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi-qr/faqs.md",
-      "file": "payments_payment_methods_upi_qr_faqs.md",
-      "bytes": 3291,
-      "sha256": "aa0b3093b1129b5ac900103132531171188d1f7a6322f884d5d73ffaca1df7da"
-    },
-    {
-      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi-qr/webhooks.md",
-      "file": "payments_payment_methods_upi_qr_webhooks.md",
-      "bytes": 6726,
-      "sha256": "857bc4cae65c3edc911cb0da1e81dae6e57968a860db3c3f1c8f165112daf2c9"
-    },
-    {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi.md",
       "file": "payments_payment_methods_upi.md",
       "bytes": 17864,
@@ -1116,6 +1171,30 @@
       "file": "payments_payment_methods_upi_gst_on_upi_faqs.md",
       "bytes": 809,
       "sha256": "9572846a3a5458a032511b9b1eb5c2d29e0ea7746b5422c5764ec38d60b45a27"
+    },
+    {
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi-qr.md",
+      "file": "payments_payment_methods_upi_qr.md",
+      "bytes": 1242,
+      "sha256": "0f94028f8908bad880306eda593a2bd50c6f2d991b134ce445e762555e58135e"
+    },
+    {
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi-qr/api.md",
+      "file": "payments_payment_methods_upi_qr_api.md",
+      "bytes": 11198,
+      "sha256": "0ff74495e1708a3a59b276cc12d0ff4d86b6b41adea5fc6754a080969cbafdec"
+    },
+    {
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi-qr/faqs.md",
+      "file": "payments_payment_methods_upi_qr_faqs.md",
+      "bytes": 3291,
+      "sha256": "aa0b3093b1129b5ac900103132531171188d1f7a6322f884d5d73ffaca1df7da"
+    },
+    {
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi-qr/webhooks.md",
+      "file": "payments_payment_methods_upi_qr_webhooks.md",
+      "bytes": 6726,
+      "sha256": "857bc4cae65c3edc911cb0da1e81dae6e57968a860db3c3f1c8f165112daf2c9"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/payment-methods/upi/saved-vpa.md",
@@ -1312,8 +1391,11 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/emandate/charge-customer-during-registration.md",
       "file": "payments_recurring_payments_emandate_charge_customer_during_registration.md",
-      "bytes": 49226,
-      "sha256": "5f6fc1f4800e53ced36b0372a662959dec7257623de2e3f550bbf3e2c2b1a517"
+      "bytes": 50835,
+      "sha256": "5bac6e09e2cdc5955a0c4810646d462e61063cef4365e1ab8f69516b9e34ad18",
+      "sha256_upstream": "5f6fc1f4800e53ced36b0372a662959dec7257623de2e3f550bbf3e2c2b1a517",
+      "bytes_upstream": 49226,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/emandate/errors.md",
@@ -1370,12 +1452,6 @@
       "sha256": "e640b898f79e09ebe56c29dec8aaa0f7452aba3b55813c73ac29764cf5a47313"
     },
     {
-      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/upi-reserve-pay.md",
-      "file": "payments_recurring_payments_upi_reserve_pay.md",
-      "bytes": 7623,
-      "sha256": "ff1a9362254ab4212b8592066bffdfdc272e4514fffe798b4cc2b466045094e1"
-    },
-    {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/upi.md",
       "file": "payments_recurring_payments_upi.md",
       "bytes": 11650,
@@ -1404,6 +1480,12 @@
       "file": "payments_recurring_payments_upi_qr_codes.md",
       "bytes": 1534,
       "sha256": "6c41d915e97f4510913744a0b2335da8047a77c8d728fe93bdc60d1f148045d0"
+    },
+    {
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/upi-reserve-pay.md",
+      "file": "payments_recurring_payments_upi_reserve_pay.md",
+      "bytes": 7623,
+      "sha256": "ff1a9362254ab4212b8592066bffdfdc272e4514fffe798b4cc2b466045094e1"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/recurring-payments/upi/supported-banks.md",
@@ -1534,8 +1616,11 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/axis-bank-migration.md",
       "file": "payments_smart_collect_axis_bank_migration.md",
-      "bytes": 4804,
-      "sha256": "3823802457d7f3bd43e7a8a42216fc6a4457ea1cfc413918d20d8af3e14898ff"
+      "bytes": 4930,
+      "sha256": "d066d87fa05b2597cfc64a7fb2fbd9a79e91d9a90e86ba96f4c7aacf721e5104",
+      "sha256_upstream": "3823802457d7f3bd43e7a8a42216fc6a4457ea1cfc413918d20d8af3e14898ff",
+      "bytes_upstream": 4804,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/bulk.md",
@@ -1550,22 +1635,25 @@
       "sha256": "6cf1b1203609fb8f5284a6c2f7cdda54cd661f929aef12488dccdd8c14d8eb56"
     },
     {
-      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/create-tpv.md",
-      "file": "payments_smart_collect_create_tpv.md",
-      "bytes": 3427,
-      "sha256": "aa9641830ec877af543344c4cdf758ff07cf2a4d2f029f1cff5ae4160336b7df"
-    },
-    {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/create.md",
       "file": "payments_smart_collect_create.md",
       "bytes": 10258,
       "sha256": "0f9c9ed73ffb1993effafc65e4d2cfa98fb93dee1958dafb4efa76941e46710c"
     },
     {
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/create-tpv.md",
+      "file": "payments_smart_collect_create_tpv.md",
+      "bytes": 3427,
+      "sha256": "aa9641830ec877af543344c4cdf758ff07cf2a4d2f029f1cff5ae4160336b7df"
+    },
+    {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/custom.md",
       "file": "payments_smart_collect_custom.md",
-      "bytes": 4618,
-      "sha256": "1ff0827d75bb49b06c16f4b9a566e43618dc31c3f30d1564745e297cdc80b7f4"
+      "bytes": 4737,
+      "sha256": "de49d180c6fb567f66964bd90c597da74d81dcd8f622689740df685662b1b6c4",
+      "sha256_upstream": "1ff0827d75bb49b06c16f4b9a566e43618dc31c3f30d1564745e297cdc80b7f4",
+      "bytes_upstream": 4618,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/faqs.md",
@@ -1582,8 +1670,11 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/how-it-works.md",
       "file": "payments_smart_collect_how_it_works.md",
-      "bytes": 2161,
-      "sha256": "2d5de4e92022dbcacc64f5258f3c23be2e4597f13c0268f8b769b4ab3db9560b"
+      "bytes": 2199,
+      "sha256": "abab8bec24f257ba0df75f2efbf108dd980f225b0e05dccede791b6e22757ea3",
+      "sha256_upstream": "2d5de4e92022dbcacc64f5258f3c23be2e4597f13c0268f8b769b4ab3db9560b",
+      "bytes_upstream": 2161,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/notification-wo-payer-details.md",
@@ -1594,8 +1685,11 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/pa-pg-migration.md",
       "file": "payments_smart_collect_pa_pg_migration.md",
-      "bytes": 4094,
-      "sha256": "c314e2fd104eefc5526cb3824f2f48ff9cce12826956122eb376608e8dcd5dc3"
+      "bytes": 4207,
+      "sha256": "bdcf3887c2b509963bc2fc1b458d42e14b85d90ead75be0509f3efcd76c0828f",
+      "sha256_upstream": "c314e2fd104eefc5526cb3824f2f48ff9cce12826956122eb376608e8dcd5dc3",
+      "bytes_upstream": 4094,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/receiver-types.md",
@@ -1604,16 +1698,16 @@
       "sha256": "8147c0fac85964049db50976d12a5b07ca7f4d9c4a63cd3662b23acaf2ece88c"
     },
     {
-      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/refund-failures.md",
-      "file": "payments_smart_collect_refund_failures.md",
-      "bytes": 2407,
-      "sha256": "9b3121a8cdc799433111dde57aba48adeb197af3ea696b798952991b02cedb57"
-    },
-    {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/refund.md",
       "file": "payments_smart_collect_refund.md",
       "bytes": 1215,
       "sha256": "cf5722d4b21010ac25e5974b73624aea66d00ce34618e5eebc0ec7a19192becd"
+    },
+    {
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/refund-failures.md",
+      "file": "payments_smart_collect_refund_failures.md",
+      "bytes": 2407,
+      "sha256": "9b3121a8cdc799433111dde57aba48adeb197af3ea696b798952991b02cedb57"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/search.md",
@@ -1690,32 +1784,47 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr.md",
       "file": "payments_smart_collect_va_vpa_qr.md",
-      "bytes": 7914,
-      "sha256": "dffa069f1a90df26443def90a6d59a1ce1f3125f7885ca7f6613b0c6ffebe4e1"
+      "bytes": 8061,
+      "sha256": "5dd44860dbe34b2c22c1bb51ad1f5cbdf33f79cfd91e3e17379f0d72b4bf0fb4",
+      "sha256_upstream": "dffa069f1a90df26443def90a6d59a1ce1f3125f7885ca7f6613b0c6ffebe4e1",
+      "bytes_upstream": 7914,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/api.md",
       "file": "payments_smart_collect_va_vpa_qr_api.md",
-      "bytes": 9445,
-      "sha256": "c6bd7396db601ec86462665a7997182e400c9a874212f72907ae2715dea937fc"
+      "bytes": 9672,
+      "sha256": "5cefc79f84f2c3fd6959d5133e1a60179a86212d8e9eb400600fabf9c4dfb147",
+      "sha256_upstream": "c6bd7396db601ec86462665a7997182e400c9a874212f72907ae2715dea937fc",
+      "bytes_upstream": 9445,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/api/close.md",
       "file": "payments_smart_collect_va_vpa_qr_api_close.md",
-      "bytes": 1699,
-      "sha256": "bbaf3d82e9d542a8af13e1b420a385bc53122c0c707db14ec92ea8189308c0b6"
+      "bytes": 1764,
+      "sha256": "a337d73eb20063956bfddf2d6fbf3ba40618f1d10f7bf947b60451c100d1b43c",
+      "sha256_upstream": "bbaf3d82e9d542a8af13e1b420a385bc53122c0c707db14ec92ea8189308c0b6",
+      "bytes_upstream": 1699,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/api/create.md",
       "file": "payments_smart_collect_va_vpa_qr_api_create.md",
-      "bytes": 7714,
-      "sha256": "b1f4e856504aadf8ca953ded068000f4116d23a322b8864211a65d41508a11d5"
+      "bytes": 7970,
+      "sha256": "2ed2dd661c1a18c80178782fab362807604806c7bbfabca77ea0119e07c79c2d",
+      "sha256_upstream": "b1f4e856504aadf8ca953ded068000f4116d23a322b8864211a65d41508a11d5",
+      "bytes_upstream": 7714,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/api/fetch.md",
       "file": "payments_smart_collect_va_vpa_qr_api_fetch.md",
-      "bytes": 17202,
-      "sha256": "b81ff6a667b049e49de596622e1754a1b85254658263b64d632837ec0684a997"
+      "bytes": 17822,
+      "sha256": "5234197d63498f5a20fdc1072a812784d07b18e09d09a8092d9e04501d9695a7",
+      "sha256_upstream": "b81ff6a667b049e49de596622e1754a1b85254658263b64d632837ec0684a997",
+      "bytes_upstream": 17202,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/api/postman-collection.md",
@@ -1744,8 +1853,11 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/custom.md",
       "file": "payments_smart_collect_va_vpa_qr_custom.md",
-      "bytes": 4627,
-      "sha256": "8eb4425d335c6f6bd7b55eb64740aed797d330de3538153c284b9ea14b8dfa7b"
+      "bytes": 4746,
+      "sha256": "ddc3644070f1906dfe29a0f34e3bdc50aaaf88e74372f5751f4cfecc1e913421",
+      "sha256_upstream": "8eb4425d335c6f6bd7b55eb64740aed797d330de3538153c284b9ea14b8dfa7b",
+      "bytes_upstream": 4627,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/dashboard.md",
@@ -1790,16 +1902,19 @@
       "sha256": "b23d58daa29eb2a735ffe98195a5b2117f8caa2370b6edbbe2fdfd3c69515e09"
     },
     {
+      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/notification.md",
+      "file": "payments_smart_collect_va_vpa_qr_notification.md",
+      "bytes": 11110,
+      "sha256": "15d364dfba8abfcce7d362d952ab4e7060ad91f5f4f113eace8b6c4301318783",
+      "sha256_upstream": "df8b01b8ecc3d0bbd8cd62873db7b03d4ad24b888c749696488bcdaf47ca034c",
+      "bytes_upstream": 10711,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
+    },
+    {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/notification-wo-payer-details.md",
       "file": "payments_smart_collect_va_vpa_qr_notification_wo_payer_details.md",
       "bytes": 2635,
       "sha256": "7683a2d49de13ac23bba8a3056dc64fa037f953110ba5c46c841149bfb7983bb"
-    },
-    {
-      "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/notification.md",
-      "file": "payments_smart_collect_va_vpa_qr_notification.md",
-      "bytes": 10711,
-      "sha256": "df8b01b8ecc3d0bbd8cd62873db7b03d4ad24b888c749696488bcdaf47ca034c"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/receiver-types.md",
@@ -1834,8 +1949,11 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/va-vpa-qr/yesbank-moratorium-migration.md",
       "file": "payments_smart_collect_va_vpa_qr_yesbank_moratorium_migration.md",
-      "bytes": 8420,
-      "sha256": "1141f529b55f27958020766121ca15b9d6706621e185be380f68f91a205cc578"
+      "bytes": 8678,
+      "sha256": "a26f5cf928fb02878666e63b6907dccfd03c60de34b6456585489b3471349c24",
+      "sha256_upstream": "1141f529b55f27958020766121ca15b9d6706621e185be380f68f91a205cc578",
+      "bytes_upstream": 8420,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/payments/smart-collect/vanity.md",
@@ -1852,8 +1970,11 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/webhooks/account-validation.md",
       "file": "webhooks_account_validation.md",
-      "bytes": 5370,
-      "sha256": "ad17a445184367ace911e23e1c25679ff055f0c20cc500e0d4feb7fcdd990692"
+      "bytes": 5567,
+      "sha256": "e510821ff0bb80257c7dcb3028ab54494e4c87e7e1dff39c0ea7431896102c1d",
+      "sha256_upstream": "ad17a445184367ace911e23e1c25679ff055f0c20cc500e0d4feb7fcdd990692",
+      "bytes_upstream": 5370,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/webhooks/all.md",
@@ -1898,40 +2019,58 @@
       "sha256": "6218092ab65e9bdfbbd220b27b6903a998a44efb4463756cc523149d9d5970ff"
     },
     {
-      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/partners/activated-kyc-pending.md",
-      "file": "webhooks_partners_activated_kyc_pending.md",
-      "bytes": 8641,
-      "sha256": "8326a3f4e0851023964c15e78a11555db26606bd2151ab7a7331ed4c8a1e573c"
-    },
-    {
       "url": "https://razorpay.com/docs/build/llm-docs/webhooks/partners/activated.md",
       "file": "webhooks_partners_activated.md",
-      "bytes": 8530,
-      "sha256": "f7e3bab8bfd08682254d8d14200364b663d77864e9395923c6b4856198a76f52"
+      "bytes": 8790,
+      "sha256": "b2672c41ee0cd7f1052e71166c894e665c96446c58b118f0aa75dc1ab7ddbd1f",
+      "sha256_upstream": "f7e3bab8bfd08682254d8d14200364b663d77864e9395923c6b4856198a76f52",
+      "bytes_upstream": 8530,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
+    },
+    {
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/partners/activated-kyc-pending.md",
+      "file": "webhooks_partners_activated_kyc_pending.md",
+      "bytes": 8901,
+      "sha256": "4a9f82c347a2f11d62e0a532aca7dcc108f9da0498ee7a59d6a46c468de7bf92",
+      "sha256_upstream": "8326a3f4e0851023964c15e78a11555db26606bd2151ab7a7331ed4c8a1e573c",
+      "bytes_upstream": 8641,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/webhooks/partners/funds-onhold.md",
       "file": "webhooks_partners_funds_onhold.md",
-      "bytes": 10660,
-      "sha256": "80d223b2926ac91d559775e8c01c032f8455f9540700e99a71fbde86dfa7cae9"
+      "bytes": 11002,
+      "sha256": "7ff5e0d6c327786ce00af033fb2c1e5c5ed1607ae67d1544bc2ee2c5e17a2ea5",
+      "sha256_upstream": "80d223b2926ac91d559775e8c01c032f8455f9540700e99a71fbde86dfa7cae9",
+      "bytes_upstream": 10660,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/webhooks/partners/funds-unhold.md",
       "file": "webhooks_partners_funds_unhold.md",
-      "bytes": 7399,
-      "sha256": "4f33cc53df10329f5f73073a77cf25ed2139ed11cf5237398f4f9fc2d6981ceb"
+      "bytes": 7605,
+      "sha256": "e4dc92275cab9370d3fb563807ff150148a0db0de62690822b370dfaf81f6cba",
+      "sha256_upstream": "4f33cc53df10329f5f73073a77cf25ed2139ed11cf5237398f4f9fc2d6981ceb",
+      "bytes_upstream": 7399,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/webhooks/partners/instantly-activated.md",
       "file": "webhooks_partners_instantly_activated.md",
-      "bytes": 11234,
-      "sha256": "56baa351c8e2c4f3144971e41f42290e35f740a31094614968324ae2564041f9"
+      "bytes": 11600,
+      "sha256": "469e6a14dd576b6ae9011b9b69e474ab73f23fa53309549028cee7f9a2fb0a5e",
+      "sha256_upstream": "56baa351c8e2c4f3144971e41f42290e35f740a31094614968324ae2564041f9",
+      "bytes_upstream": 11234,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/webhooks/partners/needs-clarification.md",
       "file": "webhooks_partners_needs_clarification.md",
-      "bytes": 10587,
-      "sha256": "167b3169228aaeb358d1d6981f6ca7a008738805234aff1c020148fb05b0ebf1"
+      "bytes": 10889,
+      "sha256": "4fd0cbf8c8a5adf9668b2012b99abb9b5fb54128664fd6e3cf8c83c99eb8a13a",
+      "sha256_upstream": "167b3169228aaeb358d1d6981f6ca7a008738805234aff1c020148fb05b0ebf1",
+      "bytes_upstream": 10587,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/webhooks/partners/oauth.md",
@@ -1942,32 +2081,47 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/webhooks/partners/payment-enabled.md",
       "file": "webhooks_partners_payment_enabled.md",
-      "bytes": 10671,
-      "sha256": "03c7356ad31355d9f1aac37b26ff7c853b9ffabdfd15b9b186686f9bfa8e9983"
+      "bytes": 11013,
+      "sha256": "0104b4d4faefbc65e4d012d4b85daca537b96945b88970070c43652e73a6bc18",
+      "sha256_upstream": "03c7356ad31355d9f1aac37b26ff7c853b9ffabdfd15b9b186686f9bfa8e9983",
+      "bytes_upstream": 10671,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/webhooks/partners/rejected.md",
       "file": "webhooks_partners_rejected.md",
-      "bytes": 8428,
-      "sha256": "69a419d713adb1d4cb9b97cb4db5c4b63aed61a08dea8c51dd3586e582d4bb90"
+      "bytes": 8688,
+      "sha256": "ceb718e45a89f3fc6937da0ae7dc66c4c1b437d3c7c4b37d8641199a8d080e8f",
+      "sha256_upstream": "69a419d713adb1d4cb9b97cb4db5c4b63aed61a08dea8c51dd3586e582d4bb90",
+      "bytes_upstream": 8428,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/webhooks/partners/suspended.md",
       "file": "webhooks_partners_suspended.md",
-      "bytes": 7192,
-      "sha256": "e82e46fd892d70bb8de781ee39f14ecbe9ba003a38b58d41f06b4322dc1a0944"
+      "bytes": 7393,
+      "sha256": "7609eee2a08466b2de3964862dbfe6c8a5814df9006cbbe4454ca4b1e8b22af4",
+      "sha256_upstream": "e82e46fd892d70bb8de781ee39f14ecbe9ba003a38b58d41f06b4322dc1a0944",
+      "bytes_upstream": 7192,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/webhooks/partners/under-review.md",
       "file": "webhooks_partners_under_review.md",
-      "bytes": 9081,
-      "sha256": "7836832ba51affc48d34414c9483d5bf651df1058049f829c5075200e7c06ada"
+      "bytes": 9360,
+      "sha256": "9939090acb887c050ab63ca35a34eb41c34274ddefe0ec32a6948f91d88de305",
+      "sha256_upstream": "7836832ba51affc48d34414c9483d5bf651df1058049f829c5075200e7c06ada",
+      "bytes_upstream": 9081,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/webhooks/payment-links.md",
       "file": "webhooks_payment_links.md",
-      "bytes": 19407,
-      "sha256": "f54e5ed708da0bbc8a88ced9565b0662c7b06e9264669793fc81a96ab44a91a7"
+      "bytes": 20111,
+      "sha256": "a6dc1534e826502d007d9bdb038a63f91a7809794b9882b9b14b3a02a1865a99",
+      "sha256_upstream": "f54e5ed708da0bbc8a88ced9565b0662c7b06e9264669793fc81a96ab44a91a7",
+      "bytes_upstream": 19407,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/webhooks/payments.md",
@@ -1982,16 +2136,19 @@
       "sha256": "83ef7a8b0622a70ea0e263f8d2d6704505d549cba4171026a2fc2a9c75367536"
     },
     {
-      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/payouts-approval.md",
-      "file": "webhooks_payouts_approval.md",
-      "bytes": 5094,
-      "sha256": "e51ad4b211009505cbc49694de3d52595db6d8fb936a781b04cabb25ff1c970a"
-    },
-    {
       "url": "https://razorpay.com/docs/build/llm-docs/webhooks/payouts.md",
       "file": "webhooks_payouts.md",
       "bytes": 14637,
       "sha256": "15e14cf82b7b5f426f47d5a40c94971d6945034dfd8490e169094bb5c2658622"
+    },
+    {
+      "url": "https://razorpay.com/docs/build/llm-docs/webhooks/payouts-approval.md",
+      "file": "webhooks_payouts_approval.md",
+      "bytes": 5269,
+      "sha256": "6efcbe2371436dd7176fad4079dc7d0e0b6f978de89c7727f3237c25e673355a",
+      "sha256_upstream": "e51ad4b211009505cbc49694de3d52595db6d8fb936a781b04cabb25ff1c970a",
+      "bytes_upstream": 5094,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/webhooks/qr-codes.md",
@@ -2032,8 +2189,11 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/webhooks/smart-collect.md",
       "file": "webhooks_smart_collect.md",
-      "bytes": 14963,
-      "sha256": "37de7f1a46dedbad4718f95e5845883a23cb7ce93cf7c42c382c599c1fbcb2c7"
+      "bytes": 15528,
+      "sha256": "dbd2e4a3ddc881ef81afe08adda19a8b87c1f24befcac0320aa70180991206ec",
+      "sha256_upstream": "37de7f1a46dedbad4718f95e5845883a23cb7ce93cf7c42c382c599c1fbcb2c7",
+      "bytes_upstream": 14963,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/webhooks/subscriptions.md",
@@ -2044,8 +2204,11 @@
     {
       "url": "https://razorpay.com/docs/build/llm-docs/webhooks/transactions.md",
       "file": "webhooks_transactions.md",
-      "bytes": 3023,
-      "sha256": "f737eef694ff9b756b0da6defe3d07d6c34d5ea0d1fb80e861d620821afd786f"
+      "bytes": 3141,
+      "sha256": "7de83a4c561d448950f73df2fc59c52e3a5552b1e8cf4e76222d658d7eacd074",
+      "sha256_upstream": "f737eef694ff9b756b0da6defe3d07d6c34d5ea0d1fb80e861d620821afd786f",
+      "bytes_upstream": 3023,
+      "redacted": "vendor example keys/PANs/card numbers replaced before publication"
     },
     {
       "url": "https://razorpay.com/docs/build/llm-docs/webhooks/validate-test.md",
@@ -2053,5 +2216,6 @@
       "bytes": 8176,
       "sha256": "92076fc25a7bb0bb7b10a19c4b422c692d85e9c19c0e7a955db9be355fdd0f91"
     }
-  ]
+  ],
+  "note": "sha256/bytes are of the files AS SHIPPED. Where 'redacted' is present, the page was altered before publication to remove vendor example credentials; sha256_upstream and bytes_upstream record what was originally fetched."
 }

@@ -20,6 +20,7 @@ import argparse
 import io
 import json
 import os
+import re
 import subprocess
 import sys
 import time
@@ -207,14 +208,26 @@ def demo():
     beat(2.0)
 
     head("WHAT I GOT WRONG")
-    print("  INCIDENTS.md -- 14 dated entries, every time this project produced a wrong result.")
+    # COUNTED FROM THE FILE, never typed. The hardcoded number said 14 while the log held 16,
+    # and then 17 -- a claim drifting away from its own evidence, in the slide about claims
+    # drifting away from their evidence. If it cannot be counted, it does not get stated.
+    try:
+        n = len(re.findall(r"(?m)^## 20", io.open(
+            os.path.join(ROOT, "INCIDENTS.md"), encoding="utf-8").read()))
+        count = "%d dated entries" % n
+    except Exception:
+        count = "a dated entry for each"
+    print("  INCIDENTS.md -- %s, every time this project produced a wrong result." % count)
     print()
     print("    - a headline percentage that was an artefact of how I sampled")
     print("    - a citation I wrote myself and presented as a quotation from Razorpay")
     print("    - the harness reporting GREEN having measured nothing, four separate times")
     print("    - a false PASS from a plugin that was not running at all")
+    print("    - 13 of 19 attacks I wrote against my OWN harness succeeded, the day before")
+    print("      submission. All 19 pass now. tests/adversarial.py, ~2 seconds.")
     print()
-    print("  The last two are why every property now refuses to answer without evidence.")
+    print("  Those are why every property now refuses to answer without evidence, and why")
+    print("  check.py will not report a verdict unless its control arm moves a real order.")
     rule()
     print("  Everything here is reproducible: cd rig && ./setup.sh, then harness/check.py")
     rule()

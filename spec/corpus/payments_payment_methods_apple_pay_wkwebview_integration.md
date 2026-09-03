@@ -181,7 +181,7 @@ If your app has a native checkout screen and you want to embed the Apple Pay but
                view.addSubview(applePayWebView)
  
                loadApplePayButton(
-                   rzpKey: "rzp_test_XXXXXXXXXX",
+                   rzpKey: "rzp_test_<REDACTED>",
                    orderId: "order_XXXXXXXXXX", // created via your server
                    contact: "+919876543210"
                )

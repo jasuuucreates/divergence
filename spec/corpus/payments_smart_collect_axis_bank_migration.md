@@ -76,7 +76,7 @@ To verify the new Axis Customer Identifier, look for the IFSC Code `UTIB000RAZP`
           "bank_name": "RBL Bank",
           "name": "Test Account",
           "notes": [],
-          "account_number": "2223330053041804"
+          "account_number": "<REDACTED-16-DIGIT>"
         },
         {
           "id": "ba_IirUUYO8sh1602",
@@ -85,7 +85,7 @@ To verify the new Axis Customer Identifier, look for the IFSC Code `UTIB000RAZP`
           "bank_name": "Axis Bank",
           "name": "Test Account",
           "notes": [],
-          "account_number": "2223330053041804"
+          "account_number": "<REDACTED-16-DIGIT>"
         }
       ],
       "close_by": 1681615838,

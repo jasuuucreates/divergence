@@ -10,7 +10,7 @@ You can create [Orders](https://razorpay.com/docs/build/llm-docs/payments/orders
 
 Fork the Razorpay Postman Public Workspace and try the Orders APIs using your [Test API Keys](https://razorpay.com/docs/build/llm-docs/payments/dashboard/account-settings/api-keys.md#generate-api-keys).
 
-[](https://www.postman.com/razorpaydev/workspace/razorpay-public-workspace/folder/12492020-91450029-1c52-4375-8033-39ca4c2d0a8c)
+[](https://www.postman.com/razorpaydev/workspace/razorpay-public-workspace/folder/<REDACTED-16-DIGIT>-1c52-4375-8033-39ca4c2d0a8c)
 
 ### Related Guides
 

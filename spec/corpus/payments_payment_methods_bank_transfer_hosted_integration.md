@@ -370,7 +370,7 @@ You must subscribe to the `virtual_account.credited` webhook event on the Dashbo
             "ifsc": "RATN0VAAPIS",
             "bank_name": "RBL Bank",
             "name": "Acme Corp",
-            "account_number": "1112220006712324"
+            "account_number": "<REDACTED-16-DIGIT>"
           }
         ]
       }
@@ -945,7 +945,7 @@ You must subscribe to the `virtual_account.credited` webhook event on the Dashbo
             "ifsc": "RATN0VAAPIS",
             "bank_name": "RBL Bank",
             "name": "Acme Corp",
-            "account_number": "1112220006712324"
+            "account_number": "<REDACTED-16-DIGIT>"
           }
         ]
       }

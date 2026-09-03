@@ -61,7 +61,7 @@ The `descriptor` field can be used to define the last eight characters of the ge
       "id": "ba_4lsdkfldlteskf",
       "entity": "bank_account",
       "name": "Merchant Billing Label",
-      "account_number": "2223334400000001",
+      "account_number": "<REDACTED-16-DIGIT>",
       "ifsc": "RAZR0000001"
     }
   ],

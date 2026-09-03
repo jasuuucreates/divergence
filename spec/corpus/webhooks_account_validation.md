@@ -45,7 +45,7 @@ Given below are the sample payloads for Account Validation webhook events.
             "name": "Gaurav Kumar",
             "bank_name": "HDFC",
             "ifsc": "HDFC0000053",
-            "account_number": "1121431121541121"
+            "account_number": "<REDACTED-16-DIGIT>"
           },
           "batch_id": null,
           "active": true,
@@ -113,7 +113,7 @@ Given below are the sample payloads for Account Validation webhook events.
           "name_match_score" : 100
           "bank_account" : {
           "ifsc": "ICIC0000047",
-          "account_number": "1121431121541121",
+          "account_number": "<REDACTED-16-DIGIT>",
           "bank_name": "ICICI Bank",
           "account_type": "saving"
     },
@@ -151,7 +151,7 @@ Given below are the sample payloads for Account Validation webhook events.
             "name": "Gaurav Kumar",
             "bank_name": "HDFC",
             "ifsc": "HDFC0000053",
-            "account_number": "1121431121541121"
+            "account_number": "<REDACTED-16-DIGIT>"
           },
           "batch_id": null,
           "active": true,

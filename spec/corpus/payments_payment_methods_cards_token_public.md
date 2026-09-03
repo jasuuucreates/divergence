@@ -26,7 +26,7 @@ https://api.razorpay.com/v1/customers/cust_EdxDIpddQC9o1F/tokens/public \
   "method": "card",
   "card": {
     "name": "Gaurav Kumar",
-    "number": "4386289407660153",
+    "number": "<REDACTED-16-DIGIT>",
     "expiry_month": "12",
     "expiry_year": "2022"
   }

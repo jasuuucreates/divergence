@@ -245,7 +245,7 @@ curl -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET] \
     },
     "bank_account": {
       "beneficiary_name": "Gaurav Kumar",
-      "account_number": "1121431121541121",
+      "account_number": "<REDACTED-16-DIGIT>",
       "account_type": "savings",
       "ifsc_code": "HDFC0000001"
     }
@@ -284,7 +284,7 @@ curl -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET] \
       "ifsc": "HDFC0000001",
       "bank_name": "HDFC Bank",
       "name": "Gaurav Kumar",
-      "account_number": "1121431121541121",
+      "account_number": "<REDACTED-16-DIGIT>",
       "account_type": "savings",
       "beneficiary_email": "gaurav.kumar@example.com",
       "beneficiary_mobile": "9000090000"
@@ -1024,7 +1024,7 @@ List token = client.Customer.Fetch(customerId).Tokens();
       "created_at": 1595447381,
       "bank_details": {
         "beneficiary_name": "Gaurav Kumar",
-        "account_number": "1121431121541121",
+        "account_number": "<REDACTED-16-DIGIT>",
         "ifsc": "HDFC0000001",
         "account_type": "savings"
       },
@@ -1051,7 +1051,7 @@ List token = client.Customer.Fetch(customerId).Tokens();
       "created_at": 1595447410,
       "bank_details": {
         "beneficiary_name": "Gaurav Kumar",
-        "account_number": "1121431121541121",
+        "account_number": "<REDACTED-16-DIGIT>",
         "ifsc": "HDFC0000001",
         "account_type": "savings"
       },

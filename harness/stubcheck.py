@@ -58,7 +58,20 @@ def documented_fields():
         body = urllib.request.urlopen(req, timeout=45).read().decode("utf-8", "replace")
         os.makedirs(os.path.dirname(cached), exist_ok=True)
         io.open(cached, "w", encoding="utf-8", newline="\n").write(body)
-    return sorted(set(re.findall(r"(?m)^`([a-z_]+)`", body)))
+    fields = sorted(set(re.findall(r"(?m)^`([a-z_]+)`", body)))
+    # The instrument that validates our instrument passed hardest when it had read nothing: an
+    # empty field list makes `missing` empty, makes `critical` empty, and prints "every documented
+    # field the integrations actually read is present in the stub". If Razorpay reformat the page
+    # or the cache truncates, that is a parse failure, not a clean bill of health. Refuse instead.
+    MIN_EXPECTED = 10
+    if len(fields) < MIN_EXPECTED:
+        raise RuntimeError(
+            "parsed only %d field names from %s (expected at least %d).\n"
+            "  This is a PARSE FAILURE, not a passing stub-fidelity result. Reporting 'nothing\n"
+            "  missing' from an empty field list would be a verdict drawn from an unread page.\n"
+            "  Re-fetch the page or fix the pattern before trusting any result from this module."
+            % (len(fields), cached, MIN_EXPECTED))
+    return fields
 
 
 def stub_response():
